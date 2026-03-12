@@ -9,14 +9,14 @@ auth {
 }
 
 post {
-  url: {{baseUrl}}/v2beta2/projects/:projectId/regions/:region/load-balancers
+  url: {{baseUrl}}/v2beta2/projects/{{projectId}}/regions/{{region}}/load-balancers
   body: json
   auth: inherit
 }
 
 params:path {
-  projectId: {{projectId}}
-  region: {{region}}
+  projectId: 
+  region: 
 }
 
 headers {

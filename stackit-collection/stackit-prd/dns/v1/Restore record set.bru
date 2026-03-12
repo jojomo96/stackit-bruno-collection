@@ -9,13 +9,13 @@ auth {
 }
 
 post {
-  url: {{baseUrl}}/v1/projects/:projectId/zones/:zoneId/rrsets/:rrSetId/restores
+  url: {{baseUrl}}/v1/projects/{{projectId}}/zones/{{zoneId}}/rrsets/{{rrSetId}}/restores
   body: none
   auth: inherit
 }
 
 params:path {
-  projectId: {{projectId}}
-  zoneId: {{zoneId}}
-  rrSetId: {{rrSetId}}
+  projectId: 
+  zoneId: 
+  rrSetId: 
 }

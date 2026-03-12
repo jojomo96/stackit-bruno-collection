@@ -9,13 +9,13 @@ auth {
 }
 
 get {
-  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/backup-schedules
+  url: {{baseUrl}}/v2/projects/{{projectId}}/regions/{{region}}/servers/{{serverId}}/backup-schedules
   body: none
   auth: inherit
 }
 
 params:path {
-  projectId: {{projectId}}
-  serverId: {{serverId}}
-  region: {{region}}
+  projectId: 
+  serverId: 
+  region: 
 }

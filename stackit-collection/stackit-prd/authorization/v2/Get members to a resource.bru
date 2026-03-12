@@ -9,7 +9,7 @@ auth {
 }
 
 get {
-  url: {{baseUrl}}/v2/:resourceType/:resourceId/members
+  url: {{baseUrl}}/v2/{{resourceType}}/{{resourceId}}/members
   body: none
   auth: inherit
 }
@@ -19,6 +19,6 @@ params:query {
 }
 
 params:path {
-  resourceType: {{resourceType}}
-  resourceId: {{resourceId}}
+  resourceType: 
+  resourceId: 
 }

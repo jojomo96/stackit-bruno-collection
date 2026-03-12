@@ -9,12 +9,12 @@ auth {
 }
 
 patch {
-  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/restart
+  url: {{baseUrl}}/v1/projects/{{projectId}}/instances/{{instanceId}}/restart
   body: none
   auth: inherit
 }
 
 params:path {
-  instanceId: {{instanceId}}
-  projectId: {{projectId}}
+  instanceId: 
+  projectId: 
 }

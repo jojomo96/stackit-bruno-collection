@@ -9,7 +9,7 @@ auth {
 }
 
 post {
-  url: {{baseUrl}}/v2/project/:projectId/regions/:region/access-key
+  url: {{baseUrl}}/v2/project/{{projectId}}/regions/{{region}}/access-key
   body: json
   auth: inherit
 }
@@ -19,8 +19,8 @@ params:query {
 }
 
 params:path {
-  projectId: {{projectId}}
-  region: {{region}}
+  projectId: 
+  region: 
 }
 
 body:json {

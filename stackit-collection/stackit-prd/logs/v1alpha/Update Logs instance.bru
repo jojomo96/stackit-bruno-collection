@@ -9,7 +9,7 @@ auth {
 }
 
 put {
-  url: {{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId
+  url: {{baseUrl}}/v1alpha/projects/{{projectId}}/regions/{{regionId}}/instances/{{instanceId}}
   body: json
   auth: inherit
 }

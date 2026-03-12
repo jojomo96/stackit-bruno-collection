@@ -9,12 +9,12 @@ auth {
 }
 
 post {
-  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/backups
+  url: {{baseUrl}}/v1/projects/{{projectId}}/instances/{{instanceId}}/backups
   body: none
   auth: inherit
 }
 
 params:path {
-  instanceId: {{instanceId}}
-  projectId: {{projectId}}
+  instanceId: 
+  projectId: 
 }

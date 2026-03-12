@@ -9,12 +9,12 @@ auth {
 }
 
 delete {
-  url: {{baseUrl}}/v1/projects/:projectId/clusters/:clusterName
+  url: {{baseUrl}}/v1/projects/{{projectId}}/clusters/{{clusterName}}
   body: none
   auth: inherit
 }
 
 params:path {
-  projectId: {{projectId}}
-  clusterName: {{clusterName}}
+  projectId: 
+  clusterName: 
 }

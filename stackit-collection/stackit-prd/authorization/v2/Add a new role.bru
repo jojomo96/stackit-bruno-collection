@@ -9,14 +9,14 @@ auth {
 }
 
 post {
-  url: {{baseUrl}}/v2/:resourceType/:resourceId/roles
+  url: {{baseUrl}}/v2/{{resourceType}}/{{resourceId}}/roles
   body: json
   auth: inherit
 }
 
 params:path {
-  resourceType: {{resourceType}}
-  resourceId: {{resourceId}}
+  resourceType: 
+  resourceId: 
 }
 
 body:json {

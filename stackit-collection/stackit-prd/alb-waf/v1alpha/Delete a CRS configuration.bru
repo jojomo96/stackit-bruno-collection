@@ -9,13 +9,13 @@ auth {
 }
 
 delete {
-  url: {{baseUrl}}/v1alpha/projects/:projectId/regions/:region/core-rule-sets/:name
+  url: {{baseUrl}}/v1alpha/projects/{{projectId}}/regions/{{region}}/core-rule-sets/{{name}}
   body: none
   auth: inherit
 }
 
 params:path {
-  projectId: {{projectId}}
-  region: {{region}}
-  name: {{name}}
+  projectId: 
+  region: 
+  name: 
 }

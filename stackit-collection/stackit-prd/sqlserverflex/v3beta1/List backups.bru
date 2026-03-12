@@ -9,7 +9,7 @@ auth {
 }
 
 get {
-  url: {{baseUrl}}/v3beta1/projects/:projectId/regions/:region/instances/:instanceId/backups
+  url: {{baseUrl}}/v3beta1/projects/{{projectId}}/regions/{{region}}/instances/{{instanceId}}/backups
   body: none
   auth: inherit
 }
@@ -32,7 +32,7 @@ params:query {
 }
 
 params:path {
-  projectId: {{projectId}}
+  projectId: 
   region: eu01
-  instanceId: {{instanceId}}
+  instanceId: 
 }

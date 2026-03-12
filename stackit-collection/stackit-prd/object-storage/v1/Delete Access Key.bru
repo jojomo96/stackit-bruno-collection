@@ -9,7 +9,7 @@ auth {
 }
 
 delete {
-  url: {{baseUrl}}/v1/project/:projectId/access-key/:keyId
+  url: {{baseUrl}}/v1/project/{{projectId}}/access-key/{{keyId}}
   body: none
   auth: inherit
 }
@@ -19,6 +19,6 @@ params:query {
 }
 
 params:path {
-  projectId: {{projectId}}
-  keyId: {{keyId}}
+  projectId: 
+  keyId: 
 }

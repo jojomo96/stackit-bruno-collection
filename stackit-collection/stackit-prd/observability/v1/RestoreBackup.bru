@@ -9,7 +9,7 @@ auth {
 }
 
 post {
-  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/backup-restores/:backupDate
+  url: {{baseUrl}}/v1/projects/{{projectId}}/instances/{{instanceId}}/backup-restores/{{backupDate}}
   body: none
   auth: inherit
 }
@@ -22,7 +22,7 @@ params:query {
 }
 
 params:path {
-  backupDate: {{backupDate}}
-  instanceId: {{instanceId}}
-  projectId: {{projectId}}
+  backupDate: 
+  instanceId: 
+  projectId: 
 }

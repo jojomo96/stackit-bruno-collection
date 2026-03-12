@@ -9,7 +9,7 @@ auth {
 }
 
 delete {
-  url: {{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/access-tokens/expired
+  url: {{baseUrl}}/v1alpha/projects/{{projectId}}/regions/{{regionId}}/instances/{{instanceId}}/access-tokens/expired
   body: none
   auth: inherit
 }

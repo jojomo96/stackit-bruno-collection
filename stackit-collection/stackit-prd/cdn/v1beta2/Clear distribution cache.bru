@@ -9,14 +9,14 @@ auth {
 }
 
 post {
-  url: {{baseUrl}}/v1beta2/projects/:projectId/distributions/:distributionId/cache/purge
+  url: {{baseUrl}}/v1beta2/projects/{{projectId}}/distributions/{{distributionId}}/cache/purge
   body: json
   auth: inherit
 }
 
 params:path {
-  projectId: {{projectId}}
-  distributionId: {{distributionId}}
+  projectId: 
+  distributionId: 
 }
 
 body:json {

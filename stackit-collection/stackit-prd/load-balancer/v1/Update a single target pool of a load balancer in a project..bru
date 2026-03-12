@@ -9,15 +9,15 @@ auth {
 }
 
 put {
-  url: {{baseUrl}}/v1/projects/:projectId/load-balancers/:name/target-pools/:targetPoolName
+  url: {{baseUrl}}/v1/projects/{{projectId}}/load-balancers/{{name}}/target-pools/{{targetPoolName}}
   body: json
   auth: inherit
 }
 
 params:path {
-  projectId: {{projectId}}
-  name: {{name}}
-  targetPoolName: {{targetPoolName}}
+  projectId: 
+  name: 
+  targetPoolName: 
 }
 
 body:json {

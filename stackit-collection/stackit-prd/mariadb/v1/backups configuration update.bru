@@ -9,14 +9,14 @@ auth {
 }
 
 patch {
-  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/backups-config
+  url: {{baseUrl}}/v1/projects/{{projectId}}/instances/{{instanceId}}/backups-config
   body: json
   auth: inherit
 }
 
 params:path {
-  instanceId: {{instanceId}}
-  projectId: {{projectId}}
+  instanceId: 
+  projectId: 
 }
 
 body:json {

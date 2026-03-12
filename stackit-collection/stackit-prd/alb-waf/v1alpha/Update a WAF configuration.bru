@@ -9,15 +9,15 @@ auth {
 }
 
 put {
-  url: {{baseUrl}}/v1alpha/projects/:projectId/regions/:region/wafs/:name
+  url: {{baseUrl}}/v1alpha/projects/{{projectId}}/regions/{{region}}/wafs/{{name}}
   body: json
   auth: inherit
 }
 
 params:path {
-  projectId: {{projectId}}
-  region: {{region}}
-  name: {{name}}
+  projectId: 
+  region: 
+  name: 
 }
 
 body:json {

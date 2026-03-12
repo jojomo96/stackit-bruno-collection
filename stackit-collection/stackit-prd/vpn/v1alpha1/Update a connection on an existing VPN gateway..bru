@@ -9,17 +9,17 @@ auth {
 }
 
 put {
-  url: {{baseUrl}}/v1alpha1/projects/:projectId/regions/:region/gateways/:gatewayId/connections/:connectionId
+  url: {{baseUrl}}/v1alpha1/projects/{{projectId}}/regions/{{region}}/gateways/{{gatewayId}}/connections/{{connectionId}}
   body: json
   auth: inherit
 }
 
 params:path {
-  projectId: {{projectId}}
+  projectId: 
   region: eu01
   region: eu02
-  gatewayId: {{gatewayId}}
-  connectionId: {{connectionId}}
+  gatewayId: 
+  connectionId: 
 }
 
 body:json {

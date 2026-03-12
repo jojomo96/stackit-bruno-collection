@@ -9,7 +9,7 @@ auth {
 }
 
 delete {
-  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId
+  url: {{baseUrl}}/v2/projects/{{projectId}}/regions/{{region}}/servers/{{serverId}}
   body: none
   auth: inherit
 }

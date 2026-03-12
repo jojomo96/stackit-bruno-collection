@@ -9,13 +9,13 @@ auth {
 }
 
 post {
-  url: {{baseUrl}}/v2/:resourceId/members/remove
+  url: {{baseUrl}}/v2/{{resourceId}}/members/remove
   body: json
   auth: inherit
 }
 
 params:path {
-  resourceId: {{resourceId}}
+  resourceId: 
 }
 
 body:json {

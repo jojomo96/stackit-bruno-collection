@@ -9,13 +9,13 @@ auth {
 }
 
 post {
-  url: {{baseUrl}}/v1/vendors/projects/:projectId/resolve-customer
+  url: {{baseUrl}}/v1/vendors/projects/{{projectId}}/resolve-customer
   body: json
   auth: inherit
 }
 
 params:path {
-  projectId: {{projectId}}
+  projectId: 
 }
 
 body:json {

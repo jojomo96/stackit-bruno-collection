@@ -9,13 +9,13 @@ auth {
 }
 
 get {
-  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/instances/:instanceId/parameter
+  url: {{baseUrl}}/v2/projects/{{projectId}}/regions/{{region}}/instances/{{instanceId}}/parameter
   body: none
   auth: inherit
 }
 
 params:path {
-  projectId: {{projectId}}
+  projectId: 
   region: eu01
-  instanceId: {{instanceId}}
+  instanceId: 
 }

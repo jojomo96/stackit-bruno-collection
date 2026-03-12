@@ -9,15 +9,15 @@ auth {
 }
 
 post {
-  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/update-schedules
+  url: {{baseUrl}}/v2/projects/{{projectId}}/regions/{{region}}/servers/{{serverId}}/update-schedules
   body: json
   auth: inherit
 }
 
 params:path {
-  projectId: {{projectId}}
-  serverId: {{serverId}}
-  region: {{region}}
+  projectId: 
+  serverId: 
+  region: 
 }
 
 body:json {

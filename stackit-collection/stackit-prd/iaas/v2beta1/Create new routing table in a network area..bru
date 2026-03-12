@@ -9,7 +9,7 @@ auth {
 }
 
 post {
-  url: {{baseUrl}}/v2beta1/organizations/:organizationId/network-areas/:areaId/regions/:region/routing-tables
+  url: {{baseUrl}}/v2beta1/organizations/{{organizationId}}/network-areas/{{areaId}}/regions/{{region}}/routing-tables
   body: json
   auth: inherit
 }

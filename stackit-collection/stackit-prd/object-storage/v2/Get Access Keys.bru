@@ -9,7 +9,7 @@ auth {
 }
 
 get {
-  url: {{baseUrl}}/v2/project/:projectId/regions/:region/access-keys
+  url: {{baseUrl}}/v2/project/{{projectId}}/regions/{{region}}/access-keys
   body: none
   auth: inherit
 }
@@ -19,6 +19,6 @@ params:query {
 }
 
 params:path {
-  projectId: {{projectId}}
-  region: {{region}}
+  projectId: 
+  region: 
 }

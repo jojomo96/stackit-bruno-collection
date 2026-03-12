@@ -9,15 +9,15 @@ auth {
 }
 
 post {
-  url: {{baseUrl}}/v1/projects/:projectId/servers/:serverId/backups/:backupId/restore
+  url: {{baseUrl}}/v1/projects/{{projectId}}/servers/{{serverId}}/backups/{{backupId}}/restore
   body: json
   auth: inherit
 }
 
 params:path {
-  projectId: {{projectId}}
-  serverId: {{serverId}}
-  backupId: {{backupId}}
+  projectId: 
+  serverId: 
+  backupId: 
 }
 
 body:json {

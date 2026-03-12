@@ -9,12 +9,12 @@ auth {
 }
 
 get {
-  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/backup-retentions
+  url: {{baseUrl}}/v1/projects/{{projectId}}/instances/{{instanceId}}/backup-retentions
   body: none
   auth: inherit
 }
 
 params:path {
-  instanceId: {{instanceId}}
-  projectId: {{projectId}}
+  instanceId: 
+  projectId: 
 }

@@ -9,12 +9,12 @@ auth {
 }
 
 get {
-  url: {{baseUrl}}/v1/project/:projectId/bucket/:bucketName
+  url: {{baseUrl}}/v1/project/{{projectId}}/bucket/{{bucketName}}
   body: none
   auth: inherit
 }
 
 params:path {
-  projectId: {{projectId}}
-  bucketName: {{bucketName}}
+  projectId: 
+  bucketName: 
 }

@@ -9,13 +9,13 @@ auth {
 }
 
 delete {
-  url: {{baseUrl}}/v2/project/:projectId/regions/:region/bucket/:bucketName
+  url: {{baseUrl}}/v2/project/{{projectId}}/regions/{{region}}/bucket/{{bucketName}}
   body: none
   auth: inherit
 }
 
 params:path {
-  projectId: {{projectId}}
-  region: {{region}}
-  bucketName: {{bucketName}}
+  projectId: 
+  region: 
+  bucketName: 
 }

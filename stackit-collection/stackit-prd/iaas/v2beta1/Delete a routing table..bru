@@ -9,7 +9,7 @@ auth {
 }
 
 delete {
-  url: {{baseUrl}}/v2beta1/organizations/:organizationId/network-areas/:areaId/regions/:region/routing-tables/:routingTableId
+  url: {{baseUrl}}/v2beta1/organizations/{{organizationId}}/network-areas/{{areaId}}/regions/{{region}}/routing-tables/{{routingTableId}}
   body: none
   auth: inherit
 }

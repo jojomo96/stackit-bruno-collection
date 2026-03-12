@@ -9,16 +9,16 @@ auth {
 }
 
 put {
-  url: {{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId/users/:userId
+  url: {{baseUrl}}/v3alpha1/projects/{{projectId}}/regions/{{region}}/instances/{{instanceId}}/users/{{userId}}
   body: json
   auth: inherit
 }
 
 params:path {
-  projectId: {{projectId}}
+  projectId: 
   region: eu01
-  instanceId: {{instanceId}}
-  userId: {{userId}}
+  instanceId: 
+  userId: 
 }
 
 body:json {

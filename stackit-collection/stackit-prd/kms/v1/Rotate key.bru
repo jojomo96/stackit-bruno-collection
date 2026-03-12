@@ -9,7 +9,7 @@ auth {
 }
 
 post {
-  url: {{baseUrl}}/v1/projects/:projectId/regions/:regionId/keyrings/:keyRingId/keys/:keyId/rotate
+  url: {{baseUrl}}/v1/projects/{{projectId}}/regions/{{regionId}}/keyrings/{{keyRingId}}/keys/{{keyId}}/rotate
   body: none
   auth: inherit
 }

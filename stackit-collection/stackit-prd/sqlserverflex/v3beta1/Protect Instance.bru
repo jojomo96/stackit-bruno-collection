@@ -9,15 +9,15 @@ auth {
 }
 
 post {
-  url: {{baseUrl}}/v3beta1/projects/:projectId/regions/:region/instances/:instanceId/protections
+  url: {{baseUrl}}/v3beta1/projects/{{projectId}}/regions/{{region}}/instances/{{instanceId}}/protections
   body: json
   auth: inherit
 }
 
 params:path {
-  projectId: {{projectId}}
+  projectId: 
   region: eu01
-  instanceId: {{instanceId}}
+  instanceId: 
 }
 
 body:json {

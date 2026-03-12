@@ -9,7 +9,7 @@ auth {
 }
 
 get {
-  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/instances/:instanceId/metrics/:metric
+  url: {{baseUrl}}/v2/projects/{{projectId}}/regions/{{region}}/instances/{{instanceId}}/metrics/{{metric}}
   body: none
   auth: inherit
 }
@@ -22,8 +22,8 @@ params:query {
 }
 
 params:path {
-  projectId: {{projectId}}
+  projectId: 
   region: eu01
-  instanceId: {{instanceId}}
-  metric: {{metric}}
+  instanceId: 
+  metric: 
 }

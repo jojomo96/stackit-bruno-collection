@@ -9,12 +9,12 @@ auth {
 }
 
 delete {
-  url: {{baseUrl}}/v1/projects/:projectId/zones/:zoneId/move-code
+  url: {{baseUrl}}/v1/projects/{{projectId}}/zones/{{zoneId}}/move-code
   body: none
   auth: inherit
 }
 
 params:path {
-  projectId: {{projectId}}
-  zoneId: {{zoneId}}
+  projectId: 
+  zoneId: 
 }

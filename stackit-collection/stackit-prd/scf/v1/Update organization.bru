@@ -9,15 +9,15 @@ auth {
 }
 
 patch {
-  url: {{baseUrl}}/v1/projects/:projectId/regions/:region/organizations/:organizationId
+  url: {{baseUrl}}/v1/projects/{{projectId}}/regions/{{region}}/organizations/{{organizationId}}
   body: json
   auth: inherit
 }
 
 params:path {
-  projectId: {{projectId}}
-  region: {{region}}
-  organizationId: {{organizationId}}
+  projectId: 
+  region: 
+  organizationId: 
 }
 
 body:json {

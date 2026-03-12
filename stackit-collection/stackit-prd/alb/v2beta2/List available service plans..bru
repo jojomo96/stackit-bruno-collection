@@ -9,11 +9,11 @@ auth {
 }
 
 get {
-  url: {{baseUrl}}/v2beta2/regions/:region/plans
+  url: {{baseUrl}}/v2beta2/regions/{{region}}/plans
   body: none
   auth: inherit
 }
 
 params:path {
-  region: {{region}}
+  region: 
 }

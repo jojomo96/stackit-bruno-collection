@@ -9,14 +9,14 @@ auth {
 }
 
 get {
-  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/instances/:instanceId/advisor/slow-queries
+  url: {{baseUrl}}/v2/projects/{{projectId}}/regions/{{region}}/instances/{{instanceId}}/advisor/slow-queries
   body: none
   auth: inherit
 }
 
 params:path {
-  projectId: {{projectId}}
-  instanceId: {{instanceId}}
+  projectId: 
+  instanceId: 
   region: eu01
   region: eu02
 }

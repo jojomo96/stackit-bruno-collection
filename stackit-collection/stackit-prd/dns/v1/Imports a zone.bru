@@ -9,7 +9,7 @@ auth {
 }
 
 post {
-  url: {{baseUrl}}/v1/projects/:projectId/zones/:zoneId/import
+  url: {{baseUrl}}/v1/projects/{{projectId}}/zones/{{zoneId}}/import
   body: json
   auth: inherit
 }
@@ -25,8 +25,8 @@ params:query {
 }
 
 params:path {
-  projectId: {{projectId}}
-  zoneId: {{zoneId}}
+  projectId: 
+  zoneId: 
 }
 
 body:json {

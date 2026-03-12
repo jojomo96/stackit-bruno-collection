@@ -9,16 +9,16 @@ auth {
 }
 
 put {
-  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/alertgroups/:groupName/records/:alertRecord
+  url: {{baseUrl}}/v1/projects/{{projectId}}/instances/{{instanceId}}/alertgroups/{{groupName}}/records/{{alertRecord}}
   body: json
   auth: inherit
 }
 
 params:path {
-  alertRecord: {{alertRecord}}
-  groupName: {{groupName}}
-  instanceId: {{instanceId}}
-  projectId: {{projectId}}
+  alertRecord: 
+  groupName: 
+  instanceId: 
+  projectId: 
 }
 
 body:json {

@@ -9,13 +9,13 @@ auth {
 }
 
 delete {
-  url: {{baseUrl}}/v1/projects/:projectId/servers/:serverId/update-schedules/:scheduleId
+  url: {{baseUrl}}/v1/projects/{{projectId}}/servers/{{serverId}}/update-schedules/{{scheduleId}}
   body: none
   auth: inherit
 }
 
 params:path {
-  projectId: {{projectId}}
-  serverId: {{serverId}}
-  scheduleId: {{scheduleId}}
+  projectId: 
+  serverId: 
+  scheduleId: 
 }

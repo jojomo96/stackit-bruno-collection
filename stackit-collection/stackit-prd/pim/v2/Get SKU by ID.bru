@@ -9,7 +9,7 @@ auth {
 }
 
 get {
-  url: {{baseUrl}}/v2/skus/:skuId
+  url: {{baseUrl}}/v2/skus/{{skuId}}
   body: none
   auth: inherit
 }
@@ -20,5 +20,5 @@ params:query {
 }
 
 params:path {
-  skuId: {{skuId}}
+  skuId: 
 }

@@ -9,13 +9,13 @@ auth {
 }
 
 get {
-  url: {{baseUrl}}/v1/projects/:projectId/distributions/:distributionId/customDomains/:domain
+  url: {{baseUrl}}/v1/projects/{{projectId}}/distributions/{{distributionId}}/customDomains/{{domain}}
   body: none
   auth: inherit
 }
 
 params:path {
-  projectId: {{projectId}}
-  distributionId: {{distributionId}}
-  domain: {{domain}}
+  projectId: 
+  distributionId: 
+  domain: 
 }

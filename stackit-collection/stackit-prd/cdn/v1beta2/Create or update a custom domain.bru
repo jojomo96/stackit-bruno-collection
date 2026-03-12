@@ -9,15 +9,15 @@ auth {
 }
 
 put {
-  url: {{baseUrl}}/v1beta2/projects/:projectId/distributions/:distributionId/customDomains/:domain
+  url: {{baseUrl}}/v1beta2/projects/{{projectId}}/distributions/{{distributionId}}/customDomains/{{domain}}
   body: json
   auth: inherit
 }
 
 params:path {
-  projectId: {{projectId}}
-  distributionId: {{distributionId}}
-  domain: {{domain}}
+  projectId: 
+  distributionId: 
+  domain: 
 }
 
 body:json {

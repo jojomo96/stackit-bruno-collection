@@ -9,13 +9,13 @@ auth {
 }
 
 delete {
-  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/logs-alertgroups/:groupName
+  url: {{baseUrl}}/v1/projects/{{projectId}}/instances/{{instanceId}}/logs-alertgroups/{{groupName}}
   body: none
   auth: inherit
 }
 
 params:path {
-  groupName: {{groupName}}
-  instanceId: {{instanceId}}
-  projectId: {{projectId}}
+  groupName: 
+  instanceId: 
+  projectId: 
 }

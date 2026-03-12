@@ -9,13 +9,13 @@ auth {
 }
 
 get {
-  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/load-balancers/:name
+  url: {{baseUrl}}/v2/projects/{{projectId}}/regions/{{region}}/load-balancers/{{name}}
   body: none
   auth: inherit
 }
 
 params:path {
-  projectId: {{projectId}}
-  region: {{region}}
-  name: {{name}}
+  projectId: 
+  region: 
+  name: 
 }

@@ -9,7 +9,7 @@ auth {
 }
 
 post {
-  url: {{baseUrl}}/v2/projects/:projectId/service-accounts/:serviceAccountEmail/federations
+  url: {{baseUrl}}/v2/projects/{{projectId}}/service-accounts/{{serviceAccountEmail}}/federations
   body: json
   auth: inherit
 }

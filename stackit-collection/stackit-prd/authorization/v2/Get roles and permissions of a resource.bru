@@ -9,12 +9,12 @@ auth {
 }
 
 get {
-  url: {{baseUrl}}/v2/:resourceType/:resourceId/roles
+  url: {{baseUrl}}/v2/{{resourceType}}/{{resourceId}}/roles
   body: none
   auth: inherit
 }
 
 params:path {
-  resourceType: {{resourceType}}
-  resourceId: {{resourceId}}
+  resourceType: 
+  resourceId: 
 }

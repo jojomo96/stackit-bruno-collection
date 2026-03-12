@@ -9,13 +9,13 @@ auth {
 }
 
 post {
-  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/clusters/:clusterName/maintenance
+  url: {{baseUrl}}/v2/projects/{{projectId}}/regions/{{region}}/clusters/{{clusterName}}/maintenance
   body: none
   auth: inherit
 }
 
 params:path {
-  projectId: {{projectId}}
-  region: {{region}}
-  clusterName: {{clusterName}}
+  projectId: 
+  region: 
+  clusterName: 
 }

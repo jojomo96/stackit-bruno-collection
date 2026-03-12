@@ -9,16 +9,16 @@ auth {
 }
 
 patch {
-  url: {{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId/databases/:databaseId
+  url: {{baseUrl}}/v3alpha1/projects/{{projectId}}/regions/{{region}}/instances/{{instanceId}}/databases/{{databaseId}}
   body: json
   auth: inherit
 }
 
 params:path {
-  projectId: {{projectId}}
+  projectId: 
   region: eu01
-  instanceId: {{instanceId}}
-  databaseId: {{databaseId}}
+  instanceId: 
+  databaseId: 
 }
 
 body:json {

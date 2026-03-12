@@ -9,17 +9,17 @@ auth {
 }
 
 post {
-  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/backups/:backupId/volume-backups/:volumeBackupId/restore
+  url: {{baseUrl}}/v2/projects/{{projectId}}/regions/{{region}}/servers/{{serverId}}/backups/{{backupId}}/volume-backups/{{volumeBackupId}}/restore
   body: json
   auth: inherit
 }
 
 params:path {
-  projectId: {{projectId}}
-  serverId: {{serverId}}
-  region: {{region}}
-  backupId: {{backupId}}
-  volumeBackupId: {{volumeBackupId}}
+  projectId: 
+  serverId: 
+  region: 
+  backupId: 
+  volumeBackupId: 
 }
 
 body:json {

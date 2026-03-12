@@ -9,7 +9,7 @@ auth {
 }
 
 get {
-  url: {{baseUrl}}/v1beta2/projects/:projectId/distributions/:distributionId/statistics
+  url: {{baseUrl}}/v1beta2/projects/{{projectId}}/distributions/{{distributionId}}/statistics
   body: none
   auth: inherit
 }
@@ -24,6 +24,6 @@ params:query {
 }
 
 params:path {
-  projectId: {{projectId}}
-  distributionId: {{distributionId}}
+  projectId: 
+  distributionId: 
 }

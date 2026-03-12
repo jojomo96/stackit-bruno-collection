@@ -9,7 +9,7 @@ auth {
 }
 
 get {
-  url: {{baseUrl}}/v1alpha/projects/:projectId/regions/:region/core-rule-sets
+  url: {{baseUrl}}/v1alpha/projects/{{projectId}}/regions/{{region}}/core-rule-sets
   body: none
   auth: inherit
 }
@@ -20,6 +20,6 @@ params:query {
 }
 
 params:path {
-  projectId: {{projectId}}
-  region: {{region}}
+  projectId: 
+  region: 
 }

@@ -9,7 +9,7 @@ auth {
 }
 
 patch {
-  url: {{baseUrl}}/v1/projects/:projectId/volumes/:volumeId
+  url: {{baseUrl}}/v1/projects/{{projectId}}/volumes/{{volumeId}}
   body: json
   auth: inherit
 }

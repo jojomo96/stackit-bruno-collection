@@ -9,14 +9,14 @@ auth {
 }
 
 get {
-  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/command-templates/:commandTemplateName
+  url: {{baseUrl}}/v2/projects/{{projectId}}/regions/{{region}}/servers/{{serverId}}/command-templates/{{commandTemplateName}}
   body: none
   auth: inherit
 }
 
 params:path {
-  projectId: {{projectId}}
-  serverId: {{serverId}}
-  commandTemplateName: {{commandTemplateName}}
-  region: {{region}}
+  projectId: 
+  serverId: 
+  commandTemplateName: 
+  region: 
 }

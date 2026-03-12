@@ -9,11 +9,11 @@ auth {
 }
 
 get {
-  url: {{baseUrl}}/v1beta/projects/:projectId/waf/collections
+  url: {{baseUrl}}/v1beta/projects/{{projectId}}/waf/collections
   body: none
   auth: inherit
 }
 
 params:path {
-  projectId: {{projectId}}
+  projectId: 
 }

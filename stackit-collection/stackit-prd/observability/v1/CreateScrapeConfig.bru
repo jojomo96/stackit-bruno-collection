@@ -9,14 +9,14 @@ auth {
 }
 
 post {
-  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/scrapeconfigs
+  url: {{baseUrl}}/v1/projects/{{projectId}}/instances/{{instanceId}}/scrapeconfigs
   body: json
   auth: inherit
 }
 
 params:path {
-  instanceId: {{instanceId}}
-  projectId: {{projectId}}
+  instanceId: 
+  projectId: 
 }
 
 body:json {

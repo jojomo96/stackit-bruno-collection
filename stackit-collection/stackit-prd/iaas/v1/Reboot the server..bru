@@ -9,7 +9,7 @@ auth {
 }
 
 post {
-  url: {{baseUrl}}/v1/projects/:projectId/servers/:serverId/reboot
+  url: {{baseUrl}}/v1/projects/{{projectId}}/servers/{{serverId}}/reboot
   body: none
   auth: inherit
 }

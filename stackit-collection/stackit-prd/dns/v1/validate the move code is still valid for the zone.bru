@@ -9,14 +9,14 @@ auth {
 }
 
 post {
-  url: {{baseUrl}}/v1/projects/:projectId/zones/:zoneId/move-code-validation
+  url: {{baseUrl}}/v1/projects/{{projectId}}/zones/{{zoneId}}/move-code-validation
   body: json
   auth: inherit
 }
 
 params:path {
-  projectId: {{projectId}}
-  zoneId: {{zoneId}}
+  projectId: 
+  zoneId: 
 }
 
 body:json {

@@ -9,15 +9,15 @@ auth {
 }
 
 post {
-  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/alertgroups/:groupName/alertrules
+  url: {{baseUrl}}/v1/projects/{{projectId}}/instances/{{instanceId}}/alertgroups/{{groupName}}/alertrules
   body: json
   auth: inherit
 }
 
 params:path {
-  groupName: {{groupName}}
-  instanceId: {{instanceId}}
-  projectId: {{projectId}}
+  groupName: 
+  instanceId: 
+  projectId: 
 }
 
 body:json {

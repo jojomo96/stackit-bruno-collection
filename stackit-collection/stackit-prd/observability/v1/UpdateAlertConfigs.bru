@@ -9,14 +9,14 @@ auth {
 }
 
 put {
-  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/alertconfigs
+  url: {{baseUrl}}/v1/projects/{{projectId}}/instances/{{instanceId}}/alertconfigs
   body: json
   auth: inherit
 }
 
 params:path {
-  instanceId: {{instanceId}}
-  projectId: {{projectId}}
+  instanceId: 
+  projectId: 
 }
 
 body:json {

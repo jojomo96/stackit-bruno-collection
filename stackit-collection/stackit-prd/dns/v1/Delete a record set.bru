@@ -9,13 +9,13 @@ auth {
 }
 
 delete {
-  url: {{baseUrl}}/v1/projects/:projectId/zones/:zoneId/rrsets/:rrSetId
+  url: {{baseUrl}}/v1/projects/{{projectId}}/zones/{{zoneId}}/rrsets/{{rrSetId}}
   body: none
   auth: inherit
 }
 
 params:path {
-  projectId: {{projectId}}
-  zoneId: {{zoneId}}
-  rrSetId: {{rrSetId}}
+  projectId: 
+  zoneId: 
+  rrSetId: 
 }

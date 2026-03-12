@@ -9,7 +9,7 @@ auth {
 }
 
 delete {
-  url: {{baseUrl}}/v2/project/:projectId/regions/:region/access-key/:keyId
+  url: {{baseUrl}}/v2/project/{{projectId}}/regions/{{region}}/access-key/{{keyId}}
   body: none
   auth: inherit
 }
@@ -19,7 +19,7 @@ params:query {
 }
 
 params:path {
-  projectId: {{projectId}}
-  region: {{region}}
-  keyId: {{keyId}}
+  projectId: 
+  region: 
+  keyId: 
 }

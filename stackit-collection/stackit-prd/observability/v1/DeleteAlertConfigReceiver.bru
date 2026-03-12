@@ -9,13 +9,13 @@ auth {
 }
 
 delete {
-  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/alertconfigs/receivers/:receiver
+  url: {{baseUrl}}/v1/projects/{{projectId}}/instances/{{instanceId}}/alertconfigs/receivers/{{receiver}}
   body: none
   auth: inherit
 }
 
 params:path {
-  instanceId: {{instanceId}}
-  projectId: {{projectId}}
-  receiver: {{receiver}}
+  instanceId: 
+  projectId: 
+  receiver: 
 }

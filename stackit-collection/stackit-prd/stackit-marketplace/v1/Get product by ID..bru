@@ -9,7 +9,7 @@ auth {
 }
 
 get {
-  url: {{baseUrl}}/v1/catalog/products/:productId
+  url: {{baseUrl}}/v1/catalog/products/{{productId}}
   body: none
   auth: inherit
 }
@@ -20,5 +20,5 @@ params:query {
 }
 
 params:path {
-  productId: {{productId}}
+  productId: 
 }

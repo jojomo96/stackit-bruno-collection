@@ -9,12 +9,12 @@ auth {
 }
 
 get {
-  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/advisor/slow-queries
+  url: {{baseUrl}}/v1/projects/{{projectId}}/instances/{{instanceId}}/advisor/slow-queries
   body: none
   auth: inherit
 }
 
 params:path {
-  projectId: {{projectId}}
-  instanceId: {{instanceId}}
+  projectId: 
+  instanceId: 
 }

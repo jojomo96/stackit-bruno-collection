@@ -9,7 +9,7 @@ auth {
 }
 
 get {
-  url: {{baseUrl}}/v1/projects/:projectId/images/:imageId/share/:consumerProjectId
+  url: {{baseUrl}}/v1/projects/{{projectId}}/images/{{imageId}}/share/{{consumerProjectId}}
   body: none
   auth: inherit
 }

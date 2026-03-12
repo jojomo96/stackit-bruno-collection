@@ -9,7 +9,7 @@ auth {
 }
 
 get {
-  url: {{baseUrl}}/v2/users/:email/permissions
+  url: {{baseUrl}}/v2/users/{{email}}/permissions
   body: none
   auth: inherit
 }
@@ -21,5 +21,5 @@ params:query {
 }
 
 params:path {
-  email: {{email}}
+  email: 
 }

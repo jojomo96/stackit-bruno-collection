@@ -9,7 +9,7 @@ auth {
 }
 
 delete {
-  url: {{baseUrl}}/v1/projects/:projectId/servers/:serverId/backups/:backupId/volume-backups/:volumeBackupId
+  url: {{baseUrl}}/v1/projects/{{projectId}}/servers/{{serverId}}/backups/{{backupId}}/volume-backups/{{volumeBackupId}}
   body: none
   auth: inherit
 }
@@ -19,8 +19,8 @@ params:query {
 }
 
 params:path {
-  projectId: {{projectId}}
-  serverId: {{serverId}}
-  backupId: {{backupId}}
-  volumeBackupId: {{volumeBackupId}}
+  projectId: 
+  serverId: 
+  backupId: 
+  volumeBackupId: 
 }

@@ -9,7 +9,7 @@ auth {
 }
 
 get {
-  url: {{baseUrl}}/v2/users/:email/memberships
+  url: {{baseUrl}}/v2/users/{{email}}/memberships
   body: none
   auth: inherit
 }
@@ -21,5 +21,5 @@ params:query {
 }
 
 params:path {
-  email: {{email}}
+  email: 
 }

@@ -9,13 +9,13 @@ auth {
 }
 
 delete {
-  url: {{baseUrl}}/v1beta/projects/:projectId/regions/:region/shareExportPolicies/:policyId
+  url: {{baseUrl}}/v1beta/projects/{{projectId}}/regions/{{region}}/shareExportPolicies/{{policyId}}
   body: none
   auth: inherit
 }
 
 params:path {
-  projectId: {{projectId}}
-  region: {{region}}
-  policyId: {{policyId}}
+  projectId: 
+  region: 
+  policyId: 
 }

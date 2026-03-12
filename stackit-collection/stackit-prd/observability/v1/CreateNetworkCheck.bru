@@ -9,14 +9,14 @@ auth {
 }
 
 post {
-  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/network-checks
+  url: {{baseUrl}}/v1/projects/{{projectId}}/instances/{{instanceId}}/network-checks
   body: json
   auth: inherit
 }
 
 params:path {
-  instanceId: {{instanceId}}
-  projectId: {{projectId}}
+  instanceId: 
+  projectId: 
 }
 
 body:json {
