@@ -1,0 +1,15 @@
+meta {
+  name: Get details about a volume performance class.
+  type: http
+  seq: 128
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/volume-performance-classes/:volumePerformanceClass
+  body: none
+  auth: inherit
+}

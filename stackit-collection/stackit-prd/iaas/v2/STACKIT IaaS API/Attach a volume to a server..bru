@@ -1,0 +1,23 @@
+meta {
+  name: Attach a volume to a server.
+  type: http
+  seq: 121
+}
+
+auth {
+  mode: inherit
+}
+
+put {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/volume-attachments/:volumeId
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "deleteOnTermination": false,
+    "serverId": "",
+    "volumeId": ""
+  }
+}

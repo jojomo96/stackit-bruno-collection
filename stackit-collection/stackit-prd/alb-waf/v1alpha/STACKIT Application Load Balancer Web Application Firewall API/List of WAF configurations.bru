@@ -1,0 +1,25 @@
+meta {
+  name: List of WAF configurations
+  type: http
+  seq: 11
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1alpha/projects/:projectId/regions/:region/wafs
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~pageSize: 
+  ~pageId: 
+}
+
+params:path {
+  projectId: 
+  region: 
+}

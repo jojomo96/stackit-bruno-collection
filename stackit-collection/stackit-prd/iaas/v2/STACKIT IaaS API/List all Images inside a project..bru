@@ -1,0 +1,20 @@
+meta {
+  name: List all Images inside a project.
+  type: http
+  seq: 49
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/images
+  body: none
+  auth: inherit
+}
+
+params:query {
+  all: false
+  ~label_selector: 
+}

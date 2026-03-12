@@ -1,0 +1,15 @@
+meta {
+  name: Get Logs Instance
+  type: http
+  seq: 4
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1/projects/:projectId/regions/:regionId/instances/:instanceId
+  body: none
+  auth: inherit
+}

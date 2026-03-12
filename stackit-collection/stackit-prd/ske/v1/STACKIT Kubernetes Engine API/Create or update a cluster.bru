@@ -1,0 +1,149 @@
+meta {
+  name: Create or update a cluster
+  type: http
+  seq: 4
+}
+
+auth {
+  mode: inherit
+}
+
+put {
+  url: {{baseUrl}}/v1/projects/:projectId/clusters/:clusterName
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  clusterName: 
+}
+
+body:json {
+  {
+    "extensions": {
+      "acl": {
+        "allowedCidrs": [
+          "allowedCidrs",
+          "allowedCidrs",
+          "allowedCidrs",
+          "allowedCidrs",
+          "allowedCidrs"
+        ],
+        "enabled": true
+      },
+      "argus": {
+        "argusInstanceId": "argusInstanceId",
+        "enabled": true
+      },
+      "dns": {
+        "enabled": true,
+        "zones": [
+          "zones",
+          "zones",
+          "zones",
+          "zones",
+          "zones"
+        ]
+      }
+    },
+    "hibernation": {
+      "schedules": [
+        {
+          "end": "end",
+          "start": "start",
+          "timezone": "timezone"
+        },
+        {
+          "end": "end",
+          "start": "start",
+          "timezone": "timezone"
+        }
+      ]
+    },
+    "kubernetes": {
+      "allowPrivilegedContainers": true,
+      "version": "version"
+    },
+    "maintenance": {
+      "autoUpdate": {
+        "kubernetesVersion": true,
+        "machineImageVersion": true
+      },
+      "timeWindow": {
+        "end": "2000-01-23T04:56:07Z",
+        "start": "2000-01-23T04:56:07Z"
+      }
+    },
+    "network": {
+      "id": "id"
+    },
+    "nodepools": [
+      {
+        "allowSystemComponents": false,
+        "availabilityZones": [
+          "eu01-1",
+          "eu01-2"
+        ],
+        "cri": {
+          "name": "docker"
+        },
+        "labels": {},
+        "machine": {
+          "image": {
+            "name": "name",
+            "version": "version"
+          },
+          "type": "type"
+        },
+        "maxSurge": 2,
+        "maxUnavailable": 1,
+        "maximum": 10,
+        "minimum": 2,
+        "name": "",
+        "taints": [
+          {
+            "effect": "NoSchedule",
+            "key": "",
+            "value": ""
+          }
+        ],
+        "volume": {
+          "size": 50,
+          "type": "type"
+        }
+      }
+    ],
+    "status": {
+      "aggregated": "STATE_HEALTHY",
+      "creationTime": "2000-01-23T04:56:07Z",
+      "credentialsRotation": {
+        "lastCompletionTime": "2000-01-23T04:56:07Z",
+        "lastInitiationTime": "2000-01-23T04:56:07Z",
+        "phase": "NEVER"
+      },
+      "egressAddressRanges": [
+        "192.0.2.1/32"
+      ],
+      "error": {
+        "code": "SKE_UNSPECIFIED",
+        "details": "details",
+        "message": "message"
+      },
+      "errors": [
+        {
+          "code": "code",
+          "message": "message"
+        },
+        {
+          "code": "code",
+          "message": "message"
+        }
+      ],
+      "hibernated": true,
+      "podAddressRanges": [
+        "100.64.0.0/14"
+      ]
+    }
+  }
+}

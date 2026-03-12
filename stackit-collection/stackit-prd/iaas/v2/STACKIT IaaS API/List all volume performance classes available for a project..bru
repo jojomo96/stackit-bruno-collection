@@ -1,0 +1,19 @@
+meta {
+  name: List all volume performance classes available for a project.
+  type: http
+  seq: 127
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/volume-performance-classes
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~label_selector: 
+}

@@ -1,0 +1,30 @@
+meta {
+  name: Performs a SKUs search with specific attributes
+  type: http
+  seq: 11
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v2/skus/search
+  body: json
+  auth: inherit
+}
+
+params:query {
+  pageSize: 10
+  ~language: en
+  ~language: de
+  ~cursor: 
+}
+
+body:json {
+  {
+    "hardware": "Intel",
+    "metro": false,
+    "ram": 32
+  }
+}

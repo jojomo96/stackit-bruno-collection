@@ -1,0 +1,15 @@
+meta {
+  name: Get security group details.
+  type: http
+  seq: 72
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1/projects/:projectId/security-groups/:securityGroupId
+  body: none
+  auth: inherit
+}

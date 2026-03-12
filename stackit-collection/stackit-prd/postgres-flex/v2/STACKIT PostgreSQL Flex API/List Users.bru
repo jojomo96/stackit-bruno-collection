@@ -1,0 +1,21 @@
+meta {
+  name: List Users
+  type: http
+  seq: 18
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/instances/:instanceId/users
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  region: eu01
+  instanceId: 
+}

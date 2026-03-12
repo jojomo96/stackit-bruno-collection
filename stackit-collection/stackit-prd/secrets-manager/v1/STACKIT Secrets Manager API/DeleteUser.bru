@@ -1,0 +1,15 @@
+meta {
+  name: DeleteUser
+  type: http
+  seq: 14
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/users/:userId
+  body: none
+  auth: inherit
+}

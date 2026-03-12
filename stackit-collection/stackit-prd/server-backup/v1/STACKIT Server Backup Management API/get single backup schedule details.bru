@@ -1,0 +1,21 @@
+meta {
+  name: get single backup schedule details
+  type: http
+  seq: 7
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1/projects/:projectId/servers/:serverId/backup-schedules/:backupScheduleId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  serverId: 
+  backupScheduleId: 
+}

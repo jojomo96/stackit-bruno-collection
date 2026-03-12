@@ -1,0 +1,21 @@
+meta {
+  name: Delete Bucket
+  type: http
+  seq: 7
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v2/project/:projectId/regions/:region/bucket/:bucketName
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  region: 
+  bucketName: 
+}

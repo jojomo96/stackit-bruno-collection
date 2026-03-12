@@ -1,0 +1,20 @@
+meta {
+  name: List Databases parameter
+  type: http
+  seq: 17
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/parameter
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  instanceId: 
+}

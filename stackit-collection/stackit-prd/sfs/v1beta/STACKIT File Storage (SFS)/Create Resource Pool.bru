@@ -1,0 +1,33 @@
+meta {
+  name: Create Resource Pool
+  type: http
+  seq: 2
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1beta/projects/:projectId/regions/:region/resourcePools
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  region: 
+}
+
+body:json {
+  {
+    "availabilityZone": "",
+    "ipAcl": [],
+    "labels": {},
+    "name": "",
+    "performanceClass": "",
+    "sizeGigabytes": 0,
+    "snapshotScheduleName": "",
+    "snapshotsAreVisible": false
+  }
+}

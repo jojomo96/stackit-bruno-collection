@@ -1,0 +1,15 @@
+meta {
+  name: Delete a network interface.
+  type: http
+  seq: 57
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v1/projects/:projectId/networks/:networkId/nics/:nicId
+  body: none
+  auth: inherit
+}

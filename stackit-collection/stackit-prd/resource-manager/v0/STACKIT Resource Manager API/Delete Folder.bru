@@ -1,0 +1,19 @@
+meta {
+  name: Delete Folder
+  type: http
+  seq: 3
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v2/folders/:containerId
+  body: none
+  auth: inherit
+}
+
+params:query {
+  force: false
+}

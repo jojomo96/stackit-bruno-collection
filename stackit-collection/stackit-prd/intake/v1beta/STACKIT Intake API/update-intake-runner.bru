@@ -1,0 +1,25 @@
+meta {
+  name: update-intake-runner
+  type: http
+  seq: 5
+}
+
+auth {
+  mode: inherit
+}
+
+put {
+  url: {{baseUrl}}/v1beta/projects/:projectId/regions/:regionId/intake-runners/:intakeRunnerId
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "description": "",
+    "displayName": "",
+    "labels": {},
+    "maxMessageSizeKiB": 0,
+    "maxMessagesPerHour": 0
+  }
+}

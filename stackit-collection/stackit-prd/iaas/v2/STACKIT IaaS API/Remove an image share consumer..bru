@@ -1,0 +1,15 @@
+meta {
+  name: Remove an image share consumer.
+  type: http
+  seq: 58
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/images/:imageId/share/:consumerProjectId
+  body: none
+  auth: inherit
+}

@@ -1,0 +1,23 @@
+meta {
+  name: Update information of a server.
+  type: http
+  seq: 95
+}
+
+auth {
+  mode: inherit
+}
+
+patch {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "labels": {
+      "foo": "foobar"
+    }
+  }
+}

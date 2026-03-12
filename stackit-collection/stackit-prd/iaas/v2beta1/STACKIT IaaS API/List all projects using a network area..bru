@@ -1,0 +1,15 @@
+meta {
+  name: List all projects using a network area.
+  type: http
+  seq: 12
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2beta1/organizations/:organizationId/network-areas/:areaId/projects
+  body: none
+  auth: inherit
+}

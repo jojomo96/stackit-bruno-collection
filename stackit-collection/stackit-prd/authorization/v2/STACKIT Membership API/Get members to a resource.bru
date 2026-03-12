@@ -1,0 +1,24 @@
+meta {
+  name: Get members to a resource
+  type: http
+  seq: 6
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/:resourceType/:resourceId/members
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~subject: 
+}
+
+params:path {
+  resourceType: 
+  resourceId: 
+}

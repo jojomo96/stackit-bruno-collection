@@ -1,0 +1,15 @@
+meta {
+  name: Delete a routing table.
+  type: http
+  seq: 29
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v2/organizations/:organizationId/network-areas/:areaId/regions/:region/routing-tables/:routingTableId
+  body: none
+  auth: inherit
+}

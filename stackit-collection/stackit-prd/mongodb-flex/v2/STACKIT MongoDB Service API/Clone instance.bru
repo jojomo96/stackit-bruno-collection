@@ -1,0 +1,29 @@
+meta {
+  name: Clone instance
+  type: http
+  seq: 13
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/instances/:instanceId/clone
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  instanceId: 
+  region: eu01
+  region: eu02
+}
+
+body:json {
+  {
+    "instanceId": "",
+    "timestamp": ""
+  }
+}

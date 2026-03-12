@@ -1,0 +1,28 @@
+meta {
+  name: CreateInstance
+  type: http
+  seq: 2
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1/projects/:projectId/instances
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+}
+
+body:json {
+  {
+    "grafanaAdminEnabled": false,
+    "name": "",
+    "parameter": {},
+    "planId": ""
+  }
+}

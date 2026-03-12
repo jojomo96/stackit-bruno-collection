@@ -1,0 +1,28 @@
+meta {
+  name: Patch Instance.
+  type: http
+  seq: 6
+}
+
+auth {
+  mode: inherit
+}
+
+patch {
+  url: {{baseUrl}}/v1beta/projects/:projectId/instances/:instanceId
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "acl": [
+      "1.1.1.1/1",
+      "1.2.3.4/5"
+    ],
+    "feature_toggle": {
+      "default_email_notifications": "enabled",
+      "enable_local_login": true
+    }
+  }
+}

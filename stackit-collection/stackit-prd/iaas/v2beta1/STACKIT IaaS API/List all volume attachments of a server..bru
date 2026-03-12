@@ -1,0 +1,15 @@
+meta {
+  name: List all volume attachments of a server.
+  type: http
+  seq: 117
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2beta1/projects/:projectId/regions/:region/servers/:serverId/volume-attachments
+  body: none
+  auth: inherit
+}

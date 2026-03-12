@@ -1,0 +1,15 @@
+meta {
+  name: Get details about a backup.
+  type: http
+  seq: 46
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/backups/:backupId
+  body: none
+  auth: inherit
+}

@@ -1,0 +1,25 @@
+meta {
+  name: Delete Access Key
+  type: http
+  seq: 5
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v2/project/:projectId/regions/:region/access-key/:keyId
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~credentials-group: 
+}
+
+params:path {
+  projectId: 
+  region: 
+  keyId: 
+}

@@ -1,0 +1,19 @@
+meta {
+  name: Delete Folder Labels
+  type: http
+  seq: 6
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v2/folders/:containerId/labels
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~keys: []
+}

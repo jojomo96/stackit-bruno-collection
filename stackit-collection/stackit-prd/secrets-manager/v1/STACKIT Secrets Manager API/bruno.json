@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "STACKIT Secrets Manager API",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

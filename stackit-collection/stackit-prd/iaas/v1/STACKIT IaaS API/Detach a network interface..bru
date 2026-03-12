@@ -1,0 +1,15 @@
+meta {
+  name: Detach a network interface.
+  type: http
+  seq: 89
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v1/projects/:projectId/servers/:serverId/nics/:nicId
+  body: none
+  auth: inherit
+}

@@ -1,0 +1,20 @@
+meta {
+  name: ListCommands
+  type: http
+  seq: 3
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1beta/projects/:projectId/servers/:serverId/commands
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  serverId: 
+}

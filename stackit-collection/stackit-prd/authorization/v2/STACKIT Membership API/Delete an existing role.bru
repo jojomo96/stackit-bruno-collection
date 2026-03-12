@@ -1,0 +1,25 @@
+meta {
+  name: Delete an existing role
+  type: http
+  seq: 9
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v2/:resourceType/:resourceId/roles/:roleId
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~etag: 
+}
+
+params:path {
+  resourceType: 
+  resourceId: 
+  roleId: 
+}

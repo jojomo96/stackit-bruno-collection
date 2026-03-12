@@ -1,0 +1,20 @@
+meta {
+  name: Delete a zone
+  type: http
+  seq: 4
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v1/projects/:projectId/zones/:zoneId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  zoneId: 
+}

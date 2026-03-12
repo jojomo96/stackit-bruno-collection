@@ -1,0 +1,22 @@
+meta {
+  name: Create key ring
+  type: http
+  seq: 2
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1/projects/:projectId/regions/:regionId/keyrings
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "description": "",
+    "displayName": ""
+  }
+}

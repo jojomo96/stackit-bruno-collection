@@ -1,0 +1,46 @@
+meta {
+  name: Imports a zone
+  type: http
+  seq: 9
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1/projects/:projectId/zones/:zoneId/import
+  body: json
+  auth: inherit
+}
+
+params:query {
+  format: csv
+  importType: restore
+  ~format: json
+  ~format: bind
+  ~importType: delete
+  ~importType: update
+  ~importType: upsert
+}
+
+params:path {
+  projectId: 
+  zoneId: 
+}
+
+body:json {
+  {
+    "rrSets": [
+      {
+        "comment": "comment",
+        "content": [
+          "192.0.2.1"
+        ],
+        "name": "example.com",
+        "ttl": 3600,
+        "type": "A"
+      }
+    ]
+  }
+}

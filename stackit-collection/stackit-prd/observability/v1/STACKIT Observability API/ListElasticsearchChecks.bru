@@ -1,0 +1,20 @@
+meta {
+  name: ListElasticsearchChecks
+  type: http
+  seq: 58
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/elasticsearch-checks
+  body: none
+  auth: inherit
+}
+
+params:path {
+  instanceId: 
+  projectId: 
+}

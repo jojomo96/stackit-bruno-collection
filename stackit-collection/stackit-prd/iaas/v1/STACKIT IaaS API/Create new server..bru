@@ -1,0 +1,31 @@
+meta {
+  name: Create new server.
+  type: http
+  seq: 79
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1/projects/:projectId/servers
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "bootVolume": {
+      "source": {
+        "id": "70bb02f3-c11b-4321-bd78-8f8f4460f1b3",
+        "type": "volume"
+      }
+    },
+    "machineType": "t1.1",
+    "name": "bootFromExistingVolume",
+    "networking": {
+      "networkId": "ef018b02-74e9-4f70-87bb-ce1a9742afb9"
+    }
+  }
+}

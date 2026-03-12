@@ -1,0 +1,36 @@
+meta {
+  name: Create new routes in a routing table.
+  type: http
+  seq: 33
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v2/organizations/:organizationId/network-areas/:areaId/regions/:region/routing-tables/:routingTableId/routes
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "items": [
+      {
+        "createdAt": "",
+        "destination": {
+          "type": ""
+        },
+        "id": "",
+        "labels": {
+          "key": "value"
+        },
+        "nexthop": {
+          "type": ""
+        },
+        "updatedAt": ""
+      }
+    ]
+  }
+}

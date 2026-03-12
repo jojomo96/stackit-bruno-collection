@@ -1,0 +1,25 @@
+meta {
+  name: List all subscriptions of a project.
+  type: http
+  seq: 5
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1/vendors/projects/:projectId/subscriptions
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~cursor: 
+  ~limit: 
+  ~productId: 
+}
+
+params:path {
+  projectId: 
+}

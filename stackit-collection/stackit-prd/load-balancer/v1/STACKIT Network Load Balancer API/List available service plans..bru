@@ -1,0 +1,15 @@
+meta {
+  name: List available service plans.
+  type: http
+  seq: 1
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1/plans
+  body: none
+  auth: inherit
+}

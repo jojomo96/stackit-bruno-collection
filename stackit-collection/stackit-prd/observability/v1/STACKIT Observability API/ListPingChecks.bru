@@ -1,0 +1,20 @@
+meta {
+  name: ListPingChecks
+  type: http
+  seq: 84
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/ping-checks
+  body: none
+  auth: inherit
+}
+
+params:path {
+  instanceId: 
+  projectId: 
+}

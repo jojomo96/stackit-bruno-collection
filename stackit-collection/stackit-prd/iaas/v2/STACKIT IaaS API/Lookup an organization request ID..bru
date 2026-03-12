@@ -1,0 +1,15 @@
+meta {
+  name: Lookup an organization request ID.
+  type: http
+  seq: 37
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/organizations/:organizationId/requests/:requestId
+  body: none
+  auth: inherit
+}

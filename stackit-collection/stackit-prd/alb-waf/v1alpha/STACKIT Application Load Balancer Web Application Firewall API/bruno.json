@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "STACKIT Application Load Balancer Web Application Firewall API",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

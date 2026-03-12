@@ -1,0 +1,24 @@
+meta {
+  name: Get STACKIT:X SKU by ID
+  type: http
+  seq: 14
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/stackitx/skus/:skuId
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~language: en
+  ~language: de
+}
+
+params:path {
+  skuId: 
+}

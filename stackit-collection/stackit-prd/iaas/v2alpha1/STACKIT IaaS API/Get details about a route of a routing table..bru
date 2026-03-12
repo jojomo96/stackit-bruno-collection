@@ -1,0 +1,15 @@
+meta {
+  name: Get details about a route of a routing table.
+  type: http
+  seq: 10
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2alpha1/organizations/:organizationId/network-areas/:areaId/regions/:region/routing-tables/:routingTableId/routes/:routeId
+  body: none
+  auth: inherit
+}

@@ -1,0 +1,26 @@
+meta {
+  name: Create new public IP.
+  type: http
+  seq: 63
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1/projects/:projectId/public-ips
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "id": "",
+    "ip": "",
+    "labels": {
+      "key": "value"
+    },
+    "networkInterface": ""
+  }
+}

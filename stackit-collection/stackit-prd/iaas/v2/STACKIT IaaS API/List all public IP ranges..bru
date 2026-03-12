@@ -1,0 +1,15 @@
+meta {
+  name: List all public IP ranges.
+  type: http
+  seq: 6
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/networks/public-ip-ranges
+  body: none
+  auth: inherit
+}

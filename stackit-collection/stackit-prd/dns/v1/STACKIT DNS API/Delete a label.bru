@@ -1,0 +1,21 @@
+meta {
+  name: Delete a label
+  type: http
+  seq: 12
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v1/projects/:projectId/zones/:zoneId/labels/:key
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  zoneId: 
+  key: 
+}

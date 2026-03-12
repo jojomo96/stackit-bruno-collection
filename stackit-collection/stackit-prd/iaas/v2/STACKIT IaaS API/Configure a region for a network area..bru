@@ -1,0 +1,38 @@
+meta {
+  name: Configure a region for a network area.
+  type: http
+  seq: 17
+}
+
+auth {
+  mode: inherit
+}
+
+put {
+  url: {{baseUrl}}/v2/organizations/:organizationId/network-areas/:areaId/regions/:region
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "ipv4": {
+      "defaultNameservers": [
+        "10.1.2.10"
+      ],
+      "defaultPrefixLen": 0,
+      "maxPrefixLen": 0,
+      "minPrefixLen": 0,
+      "networkRanges": [
+        {
+          "createdAt": "",
+          "id": "",
+          "prefix": "192.168.0.0/24",
+          "updatedAt": ""
+        }
+      ],
+      "transferNetwork": "192.168.0.0/24"
+    },
+    "status": ""
+  }
+}

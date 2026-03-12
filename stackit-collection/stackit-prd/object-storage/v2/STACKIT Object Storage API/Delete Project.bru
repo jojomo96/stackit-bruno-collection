@@ -1,0 +1,20 @@
+meta {
+  name: Delete Project
+  type: http
+  seq: 1
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v2/project/:projectId/regions/:region
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  region: 
+}

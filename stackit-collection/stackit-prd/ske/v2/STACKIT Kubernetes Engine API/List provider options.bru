@@ -1,0 +1,23 @@
+meta {
+  name: List provider options
+  type: http
+  seq: 14
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/regions/:region/provider-options
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~versionState: SUPPORTED
+}
+
+params:path {
+  region: 
+}

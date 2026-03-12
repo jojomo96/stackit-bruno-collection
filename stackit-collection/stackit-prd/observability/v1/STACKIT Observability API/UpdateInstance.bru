@@ -1,0 +1,29 @@
+meta {
+  name: UpdateInstance
+  type: http
+  seq: 5
+}
+
+auth {
+  mode: inherit
+}
+
+put {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId
+  body: json
+  auth: inherit
+}
+
+params:path {
+  instanceId: 
+  projectId: 
+}
+
+body:json {
+  {
+    "grafanaAdminEnabled": false,
+    "name": "",
+    "parameter": {},
+    "planId": ""
+  }
+}

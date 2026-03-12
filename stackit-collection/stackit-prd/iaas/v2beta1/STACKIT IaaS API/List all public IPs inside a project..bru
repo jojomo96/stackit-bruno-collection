@@ -1,0 +1,19 @@
+meta {
+  name: List all public IPs inside a project.
+  type: http
+  seq: 75
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2beta1/projects/:projectId/regions/:region/public-ips
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~label_selector: 
+}

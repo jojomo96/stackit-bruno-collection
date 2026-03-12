@@ -1,0 +1,15 @@
+meta {
+  name: Lookup a project request ID.
+  type: http
+  seq: 81
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2beta1/projects/:projectId/regions/:region/requests/:requestId
+  body: none
+  auth: inherit
+}

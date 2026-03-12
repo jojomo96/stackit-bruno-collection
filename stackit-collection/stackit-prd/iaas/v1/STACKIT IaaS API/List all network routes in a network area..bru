@@ -1,0 +1,19 @@
+meta {
+  name: List all network routes in a network area.
+  type: http
+  seq: 18
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1/organizations/:organizationId/network-areas/:areaId/routes
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~label_selector: 
+}

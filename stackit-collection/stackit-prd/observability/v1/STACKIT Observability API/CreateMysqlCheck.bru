@@ -1,0 +1,26 @@
+meta {
+  name: CreateMysqlCheck
+  type: http
+  seq: 79
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/mysql-checks
+  body: json
+  auth: inherit
+}
+
+params:path {
+  instanceId: 
+  projectId: 
+}
+
+body:json {
+  {
+    "server": ""
+  }
+}

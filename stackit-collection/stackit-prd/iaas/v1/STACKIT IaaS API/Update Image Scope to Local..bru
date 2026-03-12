@@ -1,0 +1,15 @@
+meta {
+  name: Update Image Scope to Local.
+  type: http
+  seq: 40
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v1/projects/:projectId/images/:imageId/publish
+  body: none
+  auth: inherit
+}

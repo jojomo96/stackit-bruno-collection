@@ -1,0 +1,15 @@
+meta {
+  name: Delete an Image.
+  type: http
+  seq: 37
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v1/projects/:projectId/images/:imageId
+  body: none
+  auth: inherit
+}

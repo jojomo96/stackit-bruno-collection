@@ -1,0 +1,15 @@
+meta {
+  name: List of shared model
+  type: http
+  seq: 8
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1/regions/:regionId/models
+  body: none
+  auth: inherit
+}

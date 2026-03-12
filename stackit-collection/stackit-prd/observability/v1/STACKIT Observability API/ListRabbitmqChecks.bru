@@ -1,0 +1,20 @@
+meta {
+  name: ListRabbitmqChecks
+  type: http
+  seq: 90
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/rabbitmq-checks
+  body: none
+  auth: inherit
+}
+
+params:path {
+  instanceId: 
+  projectId: 
+}

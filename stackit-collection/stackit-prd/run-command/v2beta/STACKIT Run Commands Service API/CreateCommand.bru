@@ -1,0 +1,30 @@
+meta {
+  name: CreateCommand
+  type: http
+  seq: 4
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v2beta/projects/:projectId/regions/:region/servers/:serverId/commands
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  serverId: 
+  region: 
+}
+
+body:json {
+  {
+    "commandTemplateName": "RunShellScript",
+    "parameters": {
+      "script": "echo hello-world"
+    }
+  }
+}

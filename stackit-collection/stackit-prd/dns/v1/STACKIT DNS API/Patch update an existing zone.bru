@@ -1,0 +1,38 @@
+meta {
+  name: Patch update an existing zone
+  type: http
+  seq: 6
+}
+
+auth {
+  mode: inherit
+}
+
+patch {
+  url: {{baseUrl}}/v1/projects/:projectId/zones/:zoneId
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  zoneId: 
+}
+
+body:json {
+  {
+    "acl": "0.0.0.0/0,::/0",
+    "contactEmail": "hostmaster@stackit.cloud",
+    "defaultTTL": 3600,
+    "description": "this is our example zone",
+    "expireTime": 1209600,
+    "extensions": {},
+    "name": "test",
+    "negativeCache": 60,
+    "primaries": [
+      "1.2.3.4"
+    ],
+    "refreshTime": 3600,
+    "retryTime": 600
+  }
+}

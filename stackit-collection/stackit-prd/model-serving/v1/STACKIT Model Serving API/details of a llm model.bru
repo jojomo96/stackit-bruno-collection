@@ -1,0 +1,15 @@
+meta {
+  name: details of a llm model
+  type: http
+  seq: 6
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1/regions/:regionId/chat/models/:modelId
+  body: none
+  auth: inherit
+}

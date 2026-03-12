@@ -1,0 +1,23 @@
+meta {
+  name: Update a route of a routing table.
+  type: http
+  seq: 36
+}
+
+auth {
+  mode: inherit
+}
+
+patch {
+  url: {{baseUrl}}/v2/organizations/:organizationId/network-areas/:areaId/regions/:region/routing-tables/:routingTableId/routes/:routeId
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "labels": {
+      "key": "value"
+    }
+  }
+}

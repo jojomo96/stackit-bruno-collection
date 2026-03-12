@@ -1,0 +1,20 @@
+meta {
+  name: get list of updates
+  type: http
+  seq: 11
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1/projects/:projectId/servers/:serverId/updates
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  serverId: 
+}

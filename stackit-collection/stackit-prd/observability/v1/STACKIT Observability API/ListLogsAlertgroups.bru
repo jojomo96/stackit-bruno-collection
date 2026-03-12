@@ -1,0 +1,20 @@
+meta {
+  name: ListLogsAlertgroups
+  type: http
+  seq: 66
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/logs-alertgroups
+  body: none
+  auth: inherit
+}
+
+params:path {
+  instanceId: 
+  projectId: 
+}

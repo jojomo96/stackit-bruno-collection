@@ -1,0 +1,15 @@
+meta {
+  name: List all configured regions in a network area.
+  type: http
+  seq: 13
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2beta1/organizations/:organizationId/network-areas/:areaId/regions
+  body: none
+  auth: inherit
+}

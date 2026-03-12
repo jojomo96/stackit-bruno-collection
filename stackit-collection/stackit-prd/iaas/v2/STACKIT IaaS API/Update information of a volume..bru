@@ -1,0 +1,42 @@
+meta {
+  name: Update information of a volume.
+  type: http
+  seq: 133
+}
+
+auth {
+  mode: inherit
+}
+
+patch {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/volumes/:volumeId
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "bootable": true,
+    "description": "cool description dude. Wanna play some Snakeybus?",
+    "imageConfig": {
+      "architecture": "",
+      "bootMenu": false,
+      "cdromBus": "",
+      "diskBus": "",
+      "nicModel": "",
+      "operatingSystem": "",
+      "operatingSystemDistro": "",
+      "operatingSystemVersion": "",
+      "rescueBus": "",
+      "rescueDevice": "",
+      "secureBoot": false,
+      "uefi": false,
+      "videoModel": "",
+      "virtioScsi": false
+    },
+    "labels": {
+      "key": "value"
+    },
+    "name": "objectName26"
+  }
+}

@@ -1,0 +1,26 @@
+meta {
+  name: Patch Authentication.
+  type: http
+  seq: 11
+}
+
+auth {
+  mode: inherit
+}
+
+patch {
+  url: {{baseUrl}}/v1beta/projects/:projectId/instances/:instanceId/authentications/:authenticationId
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "auto_discover_url": "https://auth.example.com/.well-known/openid-configuration",
+    "client_id": "stackit-client",
+    "client_secret": "new-client-secret",
+    "icon_url": "https://stackit.example.com/icon.png",
+    "provider": "openidConnect",
+    "scopes": "openid profile email"
+  }
+}

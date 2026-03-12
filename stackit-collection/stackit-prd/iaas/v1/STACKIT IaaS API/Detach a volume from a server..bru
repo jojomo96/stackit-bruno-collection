@@ -1,0 +1,15 @@
+meta {
+  name: Detach a volume from a server.
+  type: http
+  seq: 105
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v1/projects/:projectId/servers/:serverId/volume-attachments/:volumeId
+  body: none
+  auth: inherit
+}

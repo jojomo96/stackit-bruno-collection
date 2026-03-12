@@ -1,0 +1,32 @@
+meta {
+  name: trigger restore of the requested backup
+  type: http
+  seq: 11
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/backups/:backupId/restore
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  serverId: 
+  region: 
+  backupId: 
+}
+
+body:json {
+  {
+    "startServerAfterRestore": false,
+    "volumeIds": [
+      "58335311-6acf-46c5-8652-cb96cd63181e",
+      "38345f49-047b-437d-83a1-458f04fa3182"
+    ]
+  }
+}

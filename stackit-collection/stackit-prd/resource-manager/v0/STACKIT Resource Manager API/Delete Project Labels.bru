@@ -1,0 +1,19 @@
+meta {
+  name: Delete Project Labels
+  type: http
+  seq: 13
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v2/projects/:containerId/labels
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~keys: []
+}

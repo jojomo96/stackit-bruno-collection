@@ -1,0 +1,29 @@
+meta {
+  name: Create Folder
+  type: http
+  seq: 2
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v2/folders
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "containerParentId": "name-of-parent-173523",
+    "labels": {},
+    "members": [
+      {
+        "role": "",
+        "subject": "max.musterman@mail.schwarz"
+      }
+    ],
+    "name": "My Folder"
+  }
+}

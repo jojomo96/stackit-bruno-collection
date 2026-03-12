@@ -1,0 +1,19 @@
+meta {
+  name: ListServiceStatusRegional
+  type: http
+  seq: 1
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/services
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~cursor: 
+}

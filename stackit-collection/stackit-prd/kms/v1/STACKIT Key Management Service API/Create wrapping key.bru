@@ -1,0 +1,26 @@
+meta {
+  name: Create wrapping key
+  type: http
+  seq: 23
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1/projects/:projectId/regions/:regionId/keyrings/:keyRingId/wrappingkeys
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "access_scope": "PUBLIC",
+    "algorithm": "rsa_2048_oaep_sha256",
+    "description": "",
+    "displayName": "",
+    "protection": "software",
+    "purpose": "wrap_symmetric_key"
+  }
+}

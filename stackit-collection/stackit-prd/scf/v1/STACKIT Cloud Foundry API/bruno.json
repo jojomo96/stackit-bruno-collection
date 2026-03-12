@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "STACKIT Cloud Foundry API",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

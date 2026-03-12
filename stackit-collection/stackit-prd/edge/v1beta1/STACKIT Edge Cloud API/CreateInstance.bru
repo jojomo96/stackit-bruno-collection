@@ -1,0 +1,23 @@
+meta {
+  name: CreateInstance
+  type: http
+  seq: 4
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1beta1/projects/:projectId/regions/:regionId/instances
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "description": "",
+    "displayName": "",
+    "planId": ""
+  }
+}

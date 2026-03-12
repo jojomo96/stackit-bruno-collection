@@ -1,0 +1,30 @@
+meta {
+  name: Create Access Key
+  type: http
+  seq: 4
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v2/project/:projectId/regions/:region/access-key
+  body: json
+  auth: inherit
+}
+
+params:query {
+  ~credentials-group: 
+}
+
+params:path {
+  projectId: 
+  region: 
+}
+
+body:json {
+  {
+    "expires": "2020-09-04T00:00:00.000Z"
+  }
+}

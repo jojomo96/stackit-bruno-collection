@@ -1,0 +1,23 @@
+meta {
+  name: Update a network route.
+  type: http
+  seq: 22
+}
+
+auth {
+  mode: inherit
+}
+
+patch {
+  url: {{baseUrl}}/v1/organizations/:organizationId/network-areas/:areaId/routes/:routeId
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "labels": {
+      "key": "value"
+    }
+  }
+}

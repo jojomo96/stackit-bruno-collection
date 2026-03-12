@@ -1,0 +1,21 @@
+meta {
+  name: CreateACL
+  type: http
+  seq: 7
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/acls
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "cidr": ""
+  }
+}

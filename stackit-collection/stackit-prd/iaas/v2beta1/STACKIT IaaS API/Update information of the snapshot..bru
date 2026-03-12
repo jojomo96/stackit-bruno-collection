@@ -1,0 +1,23 @@
+meta {
+  name: Update information of the snapshot.
+  type: http
+  seq: 126
+}
+
+auth {
+  mode: inherit
+}
+
+patch {
+  url: {{baseUrl}}/v2beta1/projects/:projectId/regions/:region/snapshots/:snapshotId
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "labels": {
+      "foo": "foobar"
+    }
+  }
+}

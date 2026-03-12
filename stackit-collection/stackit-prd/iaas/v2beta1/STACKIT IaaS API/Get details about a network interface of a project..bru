@@ -1,0 +1,15 @@
+meta {
+  name: Get details about a network interface of a project.
+  type: http
+  seq: 74
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2beta1/projects/:projectId/regions/:region/nics/:nicId
+  body: none
+  auth: inherit
+}

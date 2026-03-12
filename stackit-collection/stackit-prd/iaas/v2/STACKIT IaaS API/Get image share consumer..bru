@@ -1,0 +1,15 @@
+meta {
+  name: Get image share consumer.
+  type: http
+  seq: 59
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/images/:imageId/share/:consumerProjectId
+  body: none
+  auth: inherit
+}

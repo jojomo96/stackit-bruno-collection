@@ -1,0 +1,22 @@
+meta {
+  name: Get the status of a VPN gateway in a project.
+  type: http
+  seq: 12
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1alpha1/projects/:projectId/regions/:region/gateways/:gatewayId/status
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  region: eu01
+  region: eu02
+  gatewayId: 
+}

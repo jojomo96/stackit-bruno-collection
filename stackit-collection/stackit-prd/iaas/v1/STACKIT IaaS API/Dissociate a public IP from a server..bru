@@ -1,0 +1,15 @@
+meta {
+  name: Dissociate a public IP from a server.
+  type: http
+  seq: 91
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v1/projects/:projectId/servers/:serverId/public-ips/:publicIpId
+  body: none
+  auth: inherit
+}

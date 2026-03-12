@@ -1,0 +1,26 @@
+meta {
+  name: CreatePingCheck
+  type: http
+  seq: 85
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/ping-checks
+  body: json
+  auth: inherit
+}
+
+params:path {
+  instanceId: 
+  projectId: 
+}
+
+body:json {
+  {
+    "url": ""
+  }
+}

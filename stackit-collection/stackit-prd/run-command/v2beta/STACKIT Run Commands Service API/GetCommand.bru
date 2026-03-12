@@ -1,0 +1,22 @@
+meta {
+  name: GetCommand
+  type: http
+  seq: 5
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2beta/projects/:projectId/regions/:region/servers/:serverId/commands/:commandId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  region: 
+  serverId: 
+  commandId: 
+}

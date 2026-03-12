@@ -1,0 +1,20 @@
+meta {
+  name: List all servers inside a project.
+  type: http
+  seq: 78
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1/projects/:projectId/servers
+  body: none
+  auth: inherit
+}
+
+params:query {
+  details: false
+  ~label_selector: 
+}

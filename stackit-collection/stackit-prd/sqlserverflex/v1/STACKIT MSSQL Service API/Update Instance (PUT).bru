@@ -1,0 +1,31 @@
+meta {
+  name: Update Instance (PUT)
+  type: http
+  seq: 7
+}
+
+auth {
+  mode: inherit
+}
+
+put {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  instanceId: 
+}
+
+body:json {
+  {
+    "acl": {},
+    "backupSchedule": "6 6 * * *",
+    "flavorId": "4.16-Single",
+    "labels": {},
+    "name": "test-instance",
+    "version": "2022"
+  }
+}

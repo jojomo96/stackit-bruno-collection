@@ -1,0 +1,21 @@
+meta {
+  name: Retrieve a specific custom domain
+  type: http
+  seq: 10
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1beta2/projects/:projectId/distributions/:distributionId/customDomains/:domain
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  distributionId: 
+  domain: 
+}

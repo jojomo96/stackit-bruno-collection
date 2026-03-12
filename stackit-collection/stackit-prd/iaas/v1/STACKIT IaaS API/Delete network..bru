@@ -1,0 +1,15 @@
+meta {
+  name: Delete network.
+  type: http
+  seq: 52
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v1/projects/:projectId/networks/:networkId
+  body: none
+  auth: inherit
+}

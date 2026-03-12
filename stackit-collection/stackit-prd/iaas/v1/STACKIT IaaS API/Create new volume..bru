@@ -1,0 +1,22 @@
+meta {
+  name: Create new volume.
+  type: http
+  seq: 117
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1/projects/:projectId/volumes
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "availabilityZone": "eu01-1",
+    "size": 10
+  }
+}

@@ -1,0 +1,22 @@
+meta {
+  name: Get storage
+  type: http
+  seq: 24
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/storages/:flavor
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  flavor: 
+  region: eu01
+  region: eu02
+}

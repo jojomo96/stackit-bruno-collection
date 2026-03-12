@@ -1,0 +1,34 @@
+meta {
+  name: Patch updates a record set
+  type: http
+  seq: 22
+}
+
+auth {
+  mode: inherit
+}
+
+patch {
+  url: {{baseUrl}}/v1/projects/:projectId/zones/:zoneId/rrsets/:rrSetId
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  zoneId: 
+  rrSetId: 
+}
+
+body:json {
+  {
+    "comment": "this is our example comment",
+    "name": "example.com.",
+    "records": [
+      {
+        "content": "192.0.2.1"
+      }
+    ],
+    "ttl": 3600
+  }
+}

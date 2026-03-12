@@ -1,0 +1,15 @@
+meta {
+  name: Delete a network area.
+  type: http
+  seq: 9
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v2beta1/organizations/:organizationId/network-areas/:areaId
+  body: none
+  auth: inherit
+}

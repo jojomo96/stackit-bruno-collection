@@ -1,0 +1,15 @@
+meta {
+  name: Get details about a network route.
+  type: http
+  seq: 25
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2beta1/organizations/:organizationId/network-areas/:areaId/regions/:region/routes/:routeId
+  body: none
+  auth: inherit
+}

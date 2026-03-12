@@ -1,0 +1,38 @@
+meta {
+  name: Create instance
+  type: http
+  seq: 3
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/instances
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  region: eu01
+  region: eu02
+}
+
+body:json {
+  {
+    "acl": {},
+    "backupSchedule": "6 6 * * *",
+    "flavorId": "1.1",
+    "labels": {},
+    "name": "",
+    "options": {},
+    "replicas": 3,
+    "storage": {
+      "class": "",
+      "size": 10
+    },
+    "version": "1.0"
+  }
+}

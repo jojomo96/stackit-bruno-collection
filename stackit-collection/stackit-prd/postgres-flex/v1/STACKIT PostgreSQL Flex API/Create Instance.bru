@@ -1,0 +1,40 @@
+meta {
+  name: Create Instance
+  type: http
+  seq: 3
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1/projects/:projectId/instances
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+}
+
+body:json {
+  {
+    "acl": {
+      "items": [
+        "0.0.0.0/0"
+      ]
+    },
+    "backupSchedule": "6 6 * * *",
+    "flavorId": "1.1",
+    "labels": {},
+    "name": "",
+    "options": {},
+    "replicas": 3,
+    "storage": {
+      "class": "",
+      "size": 10
+    },
+    "version": "1.0"
+  }
+}

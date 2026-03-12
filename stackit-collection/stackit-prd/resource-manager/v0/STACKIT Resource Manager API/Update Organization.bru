@@ -1,0 +1,22 @@
+meta {
+  name: Update Organization
+  type: http
+  seq: 10
+}
+
+auth {
+  mode: inherit
+}
+
+patch {
+  url: {{baseUrl}}/v2/organizations/:id
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "labels": {},
+    "name": "My Organization"
+  }
+}

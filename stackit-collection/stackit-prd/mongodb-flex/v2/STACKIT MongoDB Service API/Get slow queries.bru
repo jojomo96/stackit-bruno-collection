@@ -1,0 +1,22 @@
+meta {
+  name: Get slow queries
+  type: http
+  seq: 8
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/instances/:instanceId/advisor/slow-queries
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  instanceId: 
+  region: eu01
+  region: eu02
+}

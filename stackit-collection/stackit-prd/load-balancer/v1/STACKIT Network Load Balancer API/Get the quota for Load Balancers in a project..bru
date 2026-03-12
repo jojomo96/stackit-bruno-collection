@@ -1,0 +1,19 @@
+meta {
+  name: Get the quota for Load Balancers in a project.
+  type: http
+  seq: 16
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1/projects/:projectId/quota
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+}

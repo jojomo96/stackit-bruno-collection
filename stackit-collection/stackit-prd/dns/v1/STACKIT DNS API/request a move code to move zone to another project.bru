@@ -1,0 +1,20 @@
+meta {
+  name: request a move code to move zone to another project
+  type: http
+  seq: 14
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1/projects/:projectId/zones/:zoneId/move-code
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  zoneId: 
+}

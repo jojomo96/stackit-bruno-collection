@@ -1,0 +1,21 @@
+meta {
+  name: Get Bucket
+  type: http
+  seq: 8
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/project/:projectId/regions/:region/bucket/:bucketName
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  region: 
+  bucketName: 
+}

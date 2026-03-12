@@ -1,0 +1,15 @@
+meta {
+  name: Get details about a network area.
+  type: http
+  seq: 11
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1/organizations/:organizationId/network-areas/:areaId
+  body: none
+  auth: inherit
+}

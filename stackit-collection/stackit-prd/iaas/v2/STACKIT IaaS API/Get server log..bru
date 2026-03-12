@@ -1,0 +1,19 @@
+meta {
+  name: Get server log.
+  type: http
+  seq: 98
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/log
+  body: none
+  auth: inherit
+}
+
+params:query {
+  length: 2000
+}

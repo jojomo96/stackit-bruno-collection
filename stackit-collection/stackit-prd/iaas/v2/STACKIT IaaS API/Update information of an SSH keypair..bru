@@ -1,0 +1,23 @@
+meta {
+  name: Update information of an SSH keypair.
+  type: http
+  seq: 5
+}
+
+auth {
+  mode: inherit
+}
+
+patch {
+  url: {{baseUrl}}/v2/keypairs/:keypairName
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "labels": {
+      "key": "value"
+    }
+  }
+}

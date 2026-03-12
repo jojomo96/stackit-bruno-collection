@@ -1,0 +1,19 @@
+meta {
+  name: ListCommandTemplates
+  type: http
+  seq: 1
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/command-templates
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~osType: 
+}

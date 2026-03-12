@@ -1,0 +1,25 @@
+meta {
+  name: List permissions of a user
+  type: http
+  seq: 3
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/users/:email/permissions
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~resource: 
+  ~resourceType: 
+  ~permissions: []
+}
+
+params:path {
+  email: 
+}

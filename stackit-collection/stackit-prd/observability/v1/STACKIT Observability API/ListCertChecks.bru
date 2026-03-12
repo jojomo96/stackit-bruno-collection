@@ -1,0 +1,20 @@
+meta {
+  name: ListCertChecks
+  type: http
+  seq: 48
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/cert-checks
+  body: none
+  auth: inherit
+}
+
+params:path {
+  instanceId: 
+  projectId: 
+}

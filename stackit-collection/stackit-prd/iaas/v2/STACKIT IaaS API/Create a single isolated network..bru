@@ -1,0 +1,26 @@
+meta {
+  name: Create a single isolated network.
+  type: http
+  seq: 60
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/isolated-network
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "dhcp": "",
+    "ipv4": {},
+    "labels": {
+      "key": "value"
+    },
+    "name": "objectName26"
+  }
+}

@@ -1,0 +1,33 @@
+meta {
+  name: Update schedule
+  type: http
+  seq: 11
+}
+
+auth {
+  mode: inherit
+}
+
+put {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/instances/:instanceId/backups
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  instanceId: 
+  region: eu01
+  region: eu02
+}
+
+body:json {
+  {
+    "backupSchedule": "",
+    "dailySnapshotRetentionDays": 0,
+    "monthlySnapshotRetentionMonths": 0,
+    "pointInTimeWindowHours": 0,
+    "snapshotRetentionDays": 0,
+    "weeklySnapshotRetentionWeeks": 0
+  }
+}

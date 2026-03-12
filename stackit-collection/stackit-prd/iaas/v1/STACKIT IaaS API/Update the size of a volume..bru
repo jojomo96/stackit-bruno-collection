@@ -1,0 +1,21 @@
+meta {
+  name: Update the size of a volume.
+  type: http
+  seq: 121
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1/projects/:projectId/volumes/:volumeId/resize
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "size": 1337
+  }
+}

@@ -1,0 +1,19 @@
+meta {
+  name: Get available permissions
+  type: http
+  seq: 1
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/permissions
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~resourceType: 
+}

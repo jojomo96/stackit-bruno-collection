@@ -1,0 +1,15 @@
+meta {
+  name: Delete an SSH keypair.
+  type: http
+  seq: 4
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v1/keypairs/:keypairName
+  body: none
+  auth: inherit
+}

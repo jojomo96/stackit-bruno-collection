@@ -1,0 +1,30 @@
+meta {
+  name: Create User
+  type: http
+  seq: 23
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/instances/:instanceId/users
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  instanceId: 
+  region: eu01
+  region: eu02
+}
+
+body:json {
+  {
+    "default_database": "",
+    "roles": [],
+    "username": ""
+  }
+}

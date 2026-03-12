@@ -1,0 +1,32 @@
+meta {
+  name: Create Instance
+  type: http
+  seq: 3
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1/projects/:projectId/instances
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+}
+
+body:json {
+  {
+    "acl": {},
+    "backupSchedule": "6 6 * * *",
+    "flavorId": "4.16-Single",
+    "labels": {},
+    "name": "test-instance",
+    "options": {},
+    "storage": {},
+    "version": "2022"
+  }
+}

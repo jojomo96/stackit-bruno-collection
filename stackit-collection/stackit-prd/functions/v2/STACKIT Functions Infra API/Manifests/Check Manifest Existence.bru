@@ -1,0 +1,18 @@
+meta {
+  name: Check Manifest Existence
+  type: http
+  seq: 1
+  tags: [
+    Manifests
+  ]
+}
+
+auth {
+  mode: inherit
+}
+
+head {
+  url: {{baseUrl}}/v2/:namespace/:name/manifests/:reference
+  body: none
+  auth: inherit
+}

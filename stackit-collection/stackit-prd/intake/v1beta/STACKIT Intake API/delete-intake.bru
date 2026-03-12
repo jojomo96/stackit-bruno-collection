@@ -1,0 +1,19 @@
+meta {
+  name: delete-intake
+  type: http
+  seq: 8
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v1beta/projects/:projectId/regions/:regionId/intakes/:intakeId
+  body: none
+  auth: inherit
+}
+
+params:query {
+  force: false
+}

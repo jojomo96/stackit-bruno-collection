@@ -1,0 +1,25 @@
+meta {
+  name: DeleteAlertrules
+  type: http
+  seq: 28
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/alertgroups/:groupName/alertrules
+  body: none
+  auth: inherit
+}
+
+params:query {
+  alertName: []
+}
+
+params:path {
+  groupName: 
+  instanceId: 
+  projectId: 
+}

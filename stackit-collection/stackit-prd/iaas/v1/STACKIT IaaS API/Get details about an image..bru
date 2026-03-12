@@ -1,0 +1,15 @@
+meta {
+  name: Get details about an image.
+  type: http
+  seq: 38
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1/projects/:projectId/images/:imageId
+  body: none
+  auth: inherit
+}

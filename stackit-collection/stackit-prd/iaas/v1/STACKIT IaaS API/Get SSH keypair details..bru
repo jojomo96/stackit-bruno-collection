@@ -1,0 +1,15 @@
+meta {
+  name: Get SSH keypair details.
+  type: http
+  seq: 5
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1/keypairs/:keypairName
+  body: none
+  auth: inherit
+}

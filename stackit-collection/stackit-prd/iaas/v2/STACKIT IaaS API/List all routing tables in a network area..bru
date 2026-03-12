@@ -1,0 +1,19 @@
+meta {
+  name: List all routing tables in a network area.
+  type: http
+  seq: 27
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/organizations/:organizationId/network-areas/:areaId/regions/:region/routing-tables
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~label_selector: 
+}

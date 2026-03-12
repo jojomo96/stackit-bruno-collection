@@ -1,0 +1,15 @@
+meta {
+  name: delete-instance
+  type: http
+  seq: 5
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v1beta1/projects/:projectId/regions/:regionId/instances/:instanceId
+  body: none
+  auth: inherit
+}

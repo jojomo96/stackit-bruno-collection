@@ -1,0 +1,26 @@
+meta {
+  name: Create new network routes.
+  type: http
+  seq: 19
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1/organizations/:organizationId/network-areas/:areaId/routes
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "ipv4": [
+      {
+        "nexthop": "10.1.2.10",
+        "prefix": "192.168.0.0/24"
+      }
+    ]
+  }
+}

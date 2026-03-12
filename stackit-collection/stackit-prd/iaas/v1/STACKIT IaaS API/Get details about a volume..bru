@@ -1,0 +1,15 @@
+meta {
+  name: Get details about a volume.
+  type: http
+  seq: 119
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1/projects/:projectId/volumes/:volumeId
+  body: none
+  auth: inherit
+}

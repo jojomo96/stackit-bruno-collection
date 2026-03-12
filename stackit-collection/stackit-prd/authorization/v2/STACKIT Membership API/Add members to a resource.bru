@@ -1,0 +1,31 @@
+meta {
+  name: Add members to a resource
+  type: http
+  seq: 4
+}
+
+auth {
+  mode: inherit
+}
+
+patch {
+  url: {{baseUrl}}/v2/:resourceId/members
+  body: json
+  auth: inherit
+}
+
+params:path {
+  resourceId: 
+}
+
+body:json {
+  {
+    "members": [
+      {
+        "role": "owner",
+        "subject": "user@mail.schwarz"
+      }
+    ],
+    "resourceType": "organization"
+  }
+}

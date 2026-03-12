@@ -1,0 +1,15 @@
+meta {
+  name: Restore Backup to the referenced source Volume.
+  type: http
+  seq: 34
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1/projects/:projectId/backups/:backupId/restore
+  body: none
+  auth: inherit
+}

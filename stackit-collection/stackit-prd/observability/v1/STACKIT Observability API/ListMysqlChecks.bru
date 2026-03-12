@@ -1,0 +1,20 @@
+meta {
+  name: ListMysqlChecks
+  type: http
+  seq: 78
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/mysql-checks
+  body: none
+  auth: inherit
+}
+
+params:path {
+  instanceId: 
+  projectId: 
+}

@@ -1,0 +1,15 @@
+meta {
+  name: Stop an existing server.
+  type: http
+  seq: 102
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1/projects/:projectId/servers/:serverId/stop
+  body: none
+  auth: inherit
+}

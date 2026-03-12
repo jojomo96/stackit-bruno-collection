@@ -1,0 +1,15 @@
+meta {
+  name: GetACL
+  type: http
+  seq: 10
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/acls/:aclId
+  body: none
+  auth: inherit
+}

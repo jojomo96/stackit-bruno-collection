@@ -1,0 +1,26 @@
+meta {
+  name: List all STACKIT:X SKUs
+  type: http
+  seq: 13
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/stackitx/skus
+  body: none
+  auth: inherit
+}
+
+params:query {
+  pageSize: 10
+  ~cursor: 
+  ~language: en
+  ~language: de
+  ~categoryName: 
+  ~productName: 
+  ~skuName: 
+  ~region: []
+}

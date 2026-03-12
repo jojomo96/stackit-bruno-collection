@@ -1,0 +1,22 @@
+meta {
+  name: Update Access Token
+  type: http
+  seq: 12
+}
+
+auth {
+  mode: inherit
+}
+
+put {
+  url: {{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/access-tokens/:tId
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "description": "",
+    "displayName": ""
+  }
+}

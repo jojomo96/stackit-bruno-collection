@@ -1,0 +1,15 @@
+meta {
+  name: List all rules for a security group.
+  type: http
+  seq: 87
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2beta1/projects/:projectId/regions/:region/security-groups/:securityGroupId/rules
+  body: none
+  auth: inherit
+}

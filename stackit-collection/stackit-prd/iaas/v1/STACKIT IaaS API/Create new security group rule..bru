@@ -1,0 +1,19 @@
+meta {
+  name: Create new security group rule.
+  type: http
+  seq: 75
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1/projects/:projectId/security-groups/:securityGroupId/rules
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {}
+}

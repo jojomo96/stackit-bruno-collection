@@ -1,0 +1,15 @@
+meta {
+  name: Delete a snapshot.
+  type: http
+  seq: 111
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v1/projects/:projectId/snapshots/:snapshotId
+  body: none
+  auth: inherit
+}

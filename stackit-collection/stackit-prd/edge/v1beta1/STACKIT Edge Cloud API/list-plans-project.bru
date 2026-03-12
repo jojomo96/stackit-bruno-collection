@@ -1,0 +1,15 @@
+meta {
+  name: list-plans-project
+  type: http
+  seq: 2
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1beta1/projects/:projectId/plans
+  body: none
+  auth: inherit
+}

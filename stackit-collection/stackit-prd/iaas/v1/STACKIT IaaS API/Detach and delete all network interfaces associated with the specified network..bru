@@ -1,0 +1,15 @@
+meta {
+  name: Detach and delete all network interfaces associated with the specified network.
+  type: http
+  seq: 86
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v1/projects/:projectId/servers/:serverId/networks/:networkId
+  body: none
+  auth: inherit
+}

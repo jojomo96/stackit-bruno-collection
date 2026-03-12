@@ -1,0 +1,21 @@
+meta {
+  name: Rescue an existing server.
+  type: http
+  seq: 107
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/rescue
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "image": "d61a8564-c8dd-4ffb-bc15-143e7d0c85ed"
+  }
+}

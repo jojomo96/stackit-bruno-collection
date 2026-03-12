@@ -1,0 +1,21 @@
+meta {
+  name: Update Image Parameters.
+  type: http
+  seq: 53
+}
+
+auth {
+  mode: inherit
+}
+
+patch {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/images/:imageId
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "fancyNewName"
+  }
+}

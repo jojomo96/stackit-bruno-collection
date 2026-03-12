@@ -1,0 +1,34 @@
+meta {
+  name: V3 Costs for all projects
+  type: http
+  seq: 1
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v3/costs/:customerAccountId
+  body: none
+  auth: inherit
+}
+
+params:query {
+  from: 
+  to: 
+  depth: auto
+  granularity: none
+  includeZeroCosts: false
+  ~depth: project
+  ~depth: service
+  ~granularity: daily
+  ~granularity: weekly
+  ~granularity: monthly
+  ~granularity: yearly
+}
+
+headers {
+  ~Accept: application/json
+  ~Accept: text/csv
+}

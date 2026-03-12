@@ -1,0 +1,21 @@
+meta {
+  name: Get platform
+  type: http
+  seq: 21
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1/projects/:projectId/regions/:region/platforms/:platformId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  region: 
+  platformId: 
+}

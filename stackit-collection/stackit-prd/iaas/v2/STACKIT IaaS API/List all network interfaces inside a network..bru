@@ -1,0 +1,19 @@
+meta {
+  name: List all network interfaces inside a network.
+  type: http
+  seq: 68
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/networks/:networkId/nics
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~label_selector: 
+}

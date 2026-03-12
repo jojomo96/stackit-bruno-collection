@@ -1,0 +1,22 @@
+meta {
+  name: Delete Share
+  type: http
+  seq: 8
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v1beta/projects/:projectId/regions/:region/resourcePools/:resourcePoolId/shares/:shareId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  region: 
+  resourcePoolId: 
+  shareId: 
+}

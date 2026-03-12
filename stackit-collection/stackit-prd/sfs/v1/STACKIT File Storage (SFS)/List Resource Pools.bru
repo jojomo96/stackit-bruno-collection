@@ -1,0 +1,20 @@
+meta {
+  name: List Resource Pools
+  type: http
+  seq: 1
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1/projects/:projectId/regions/:region/resourcePools
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  region: 
+}

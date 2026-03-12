@@ -1,0 +1,15 @@
+meta {
+  name: Delete All Access Tokens
+  type: http
+  seq: 6
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/access-tokens
+  body: none
+  auth: inherit
+}

@@ -1,0 +1,35 @@
+meta {
+  name: List Instances
+  type: http
+  seq: 2
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances
+  body: none
+  auth: inherit
+}
+
+params:query {
+  page: 1
+  size: 10
+  ~sort: index.desc
+  ~sort: index.asc
+  ~sort: id.desc
+  ~sort: id.asc
+  ~sort: is_deletable.desc
+  ~sort: is_deletable.asc
+  ~sort: name.asc
+  ~sort: name.desc
+  ~sort: status.asc
+  ~sort: status.desc
+}
+
+params:path {
+  projectId: 
+  region: eu01
+}

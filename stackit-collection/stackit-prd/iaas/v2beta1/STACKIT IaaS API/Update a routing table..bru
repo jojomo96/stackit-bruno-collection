@@ -1,0 +1,27 @@
+meta {
+  name: Update a routing table.
+  type: http
+  seq: 31
+}
+
+auth {
+  mode: inherit
+}
+
+patch {
+  url: {{baseUrl}}/v2beta1/organizations/:organizationId/network-areas/:areaId/regions/:region/routing-tables/:routingTableId
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "description": "cool description dude. Wanna play some Snakeybus?",
+    "dynamicRoutes": false,
+    "labels": {
+      "key": "value"
+    },
+    "name": "objectName26",
+    "systemRoutes": false
+  }
+}

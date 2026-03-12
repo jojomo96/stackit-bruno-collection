@@ -1,0 +1,15 @@
+meta {
+  name: Get all network interfaces.
+  type: http
+  seq: 101
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/nics
+  body: none
+  auth: inherit
+}

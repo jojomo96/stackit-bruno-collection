@@ -1,0 +1,46 @@
+meta {
+  name: Create Instance
+  type: http
+  seq: 3
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  region: eu01
+}
+
+body:json {
+  {
+    "backupSchedule": "6 6 * * *",
+    "encryption": {
+      "kekKeyId": "b710a4d0-6694-4cd3-b55d-16446375174e",
+      "kekKeyRingId": "48e3f816-3e38-44bb-bbff-22e05f0567de",
+      "kekKeyVersion": "1",
+      "serviceAccount": "example@compute.sa.stackit.cloud"
+    },
+    "flavorId": "4.16-Single",
+    "name": "mssql-instance",
+    "network": {
+      "accessScope": "PUBLIC",
+      "acl": [
+        "198.51.100.0/24"
+      ]
+    },
+    "retentionDays": 64,
+    "storage": {
+      "class": "premium-perf2-stackit",
+      "size": 10
+    },
+    "version": "2022"
+  }
+}

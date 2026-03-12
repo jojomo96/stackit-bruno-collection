@@ -1,0 +1,15 @@
+meta {
+  name: DisableServiceRegional
+  type: http
+  seq: 2
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/services/:serviceId
+  body: none
+  auth: inherit
+}

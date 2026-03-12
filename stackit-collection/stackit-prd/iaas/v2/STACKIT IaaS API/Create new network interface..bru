@@ -1,0 +1,38 @@
+meta {
+  name: Create new network interface.
+  type: http
+  seq: 69
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/networks/:networkId/nics
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "allowedAddresses": [],
+    "description": "cool description dude. Wanna play some Snakeybus?",
+    "device": "",
+    "id": "",
+    "ipv4": "10.1.2.10",
+    "ipv6": "2001:db8:0:8d3:0:8a2e:70:7344",
+    "labels": {
+      "key": "value"
+    },
+    "mac": "",
+    "name": "objectName26",
+    "networkId": "",
+    "nicSecurity": "",
+    "securityGroups": [
+      "d61a8564-c8dd-4ffb-bc15-143e7d0c85ed"
+    ],
+    "status": "",
+    "type": ""
+  }
+}

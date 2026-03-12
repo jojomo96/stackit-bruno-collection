@@ -1,0 +1,21 @@
+meta {
+  name: Delete Resource Pool
+  type: http
+  seq: 3
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v1beta/projects/:projectId/regions/:region/resourcePools/:resourcePoolId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  region: 
+  resourcePoolId: 
+}

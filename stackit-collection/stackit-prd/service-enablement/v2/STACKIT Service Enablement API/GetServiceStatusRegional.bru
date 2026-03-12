@@ -1,0 +1,15 @@
+meta {
+  name: GetServiceStatusRegional
+  type: http
+  seq: 3
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/services/:serviceId
+  body: none
+  auth: inherit
+}

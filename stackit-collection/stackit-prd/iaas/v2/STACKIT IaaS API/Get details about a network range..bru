@@ -1,0 +1,15 @@
+meta {
+  name: Get details about a network range.
+  type: http
+  seq: 21
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/organizations/:organizationId/network-areas/:areaId/regions/:region/network-ranges/:networkRangeId
+  body: none
+  auth: inherit
+}

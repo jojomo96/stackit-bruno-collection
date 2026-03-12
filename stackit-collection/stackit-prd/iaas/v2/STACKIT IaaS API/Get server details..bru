@@ -1,0 +1,19 @@
+meta {
+  name: Get server details.
+  type: http
+  seq: 94
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId
+  body: none
+  auth: inherit
+}
+
+params:query {
+  details: false
+}

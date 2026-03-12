@@ -1,0 +1,24 @@
+meta {
+  name: Get All Projects
+  type: http
+  seq: 11
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/projects
+  body: none
+  auth: inherit
+}
+
+params:query {
+  offset: 0
+  limit: 50
+  ~containerParentId: 
+  ~containerIds: []
+  ~member: 
+  ~creation-time-start: 
+}

@@ -1,0 +1,15 @@
+meta {
+  name: Deletes all expired access tokens
+  type: http
+  seq: 9
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v1/projects/:projectId/regions/:regionId/instances/:instanceId/access-tokens/expired
+  body: none
+  auth: inherit
+}

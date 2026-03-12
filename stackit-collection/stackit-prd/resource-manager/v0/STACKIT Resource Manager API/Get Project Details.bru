@@ -1,0 +1,19 @@
+meta {
+  name: Get Project Details
+  type: http
+  seq: 15
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/projects/:id
+  body: none
+  auth: inherit
+}
+
+params:query {
+  includeParents: false
+}

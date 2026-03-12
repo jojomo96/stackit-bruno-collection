@@ -1,0 +1,22 @@
+meta {
+  name: get single update schedule details
+  type: http
+  seq: 7
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/update-schedules/:scheduleId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  serverId: 
+  scheduleId: 
+  region: 
+}

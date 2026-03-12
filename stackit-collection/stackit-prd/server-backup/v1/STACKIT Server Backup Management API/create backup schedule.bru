@@ -1,0 +1,36 @@
+meta {
+  name: create backup schedule
+  type: http
+  seq: 5
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1/projects/:projectId/servers/:serverId/backup-schedules
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  serverId: 
+}
+
+body:json {
+  {
+    "backupProperties": {
+      "name": "Daily Backup",
+      "retentionPeriod": 3,
+      "volumeIds": [
+        "58335311-6acf-46c5-8652-cb96cd63181e",
+        "38345f49-047b-437d-83a1-458f04fa3182"
+      ]
+    },
+    "enabled": true,
+    "name": "Daily Schedule",
+    "rrule": "DTSTART;TZID=Europe/Sofia:20200803T023000 RRULE:FREQ=DAILY;INTERVAL=1"
+  }
+}

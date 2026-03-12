@@ -1,0 +1,15 @@
+meta {
+  name: Get Organization Details
+  type: http
+  seq: 9
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/organizations/:id
+  body: none
+  auth: inherit
+}

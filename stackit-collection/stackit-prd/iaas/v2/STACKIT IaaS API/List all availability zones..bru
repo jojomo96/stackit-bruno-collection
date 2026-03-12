@@ -1,0 +1,15 @@
+meta {
+  name: List all availability zones.
+  type: http
+  seq: 136
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/regions/:region/availability-zones
+  body: none
+  auth: inherit
+}

@@ -1,0 +1,15 @@
+meta {
+  name: List project quotas.
+  type: http
+  seq: 80
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/quotas
+  body: none
+  auth: inherit
+}

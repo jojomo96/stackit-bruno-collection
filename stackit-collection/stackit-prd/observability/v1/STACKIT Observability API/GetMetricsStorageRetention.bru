@@ -1,0 +1,20 @@
+meta {
+  name: GetMetricsStorageRetention
+  type: http
+  seq: 73
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/metrics-storage-retentions
+  body: none
+  auth: inherit
+}
+
+params:path {
+  instanceId: 
+  projectId: 
+}

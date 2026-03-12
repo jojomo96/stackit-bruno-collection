@@ -1,0 +1,21 @@
+meta {
+  name: DeleteAlertConfigReceiver
+  type: http
+  seq: 12
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/alertconfigs/receivers/:receiver
+  body: none
+  auth: inherit
+}
+
+params:path {
+  instanceId: 
+  projectId: 
+  receiver: 
+}

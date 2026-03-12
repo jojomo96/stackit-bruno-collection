@@ -1,0 +1,44 @@
+meta {
+  name: Patch endpoint
+  type: http
+  seq: 6
+}
+
+auth {
+  mode: inherit
+}
+
+patch {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/instances/:instanceId
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  instanceId: 
+  region: eu01
+  region: eu02
+}
+
+body:json {
+  {
+    "acl": {
+      "items": [
+        "193.148.2.0.0/19",
+        "45.129.40.0/21"
+      ]
+    },
+    "backupSchedule": "6 6 * * *",
+    "flavorId": "1.1",
+    "labels": {},
+    "name": "",
+    "options": {},
+    "replicas": 3,
+    "storage": {
+      "class": "",
+      "size": 10
+    },
+    "version": "1.0"
+  }
+}

@@ -1,0 +1,26 @@
+meta {
+  name: CreatePostgresqlCheck
+  type: http
+  seq: 88
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/postgresql-checks
+  body: json
+  auth: inherit
+}
+
+params:path {
+  instanceId: 
+  projectId: 
+}
+
+body:json {
+  {
+    "address": ""
+  }
+}

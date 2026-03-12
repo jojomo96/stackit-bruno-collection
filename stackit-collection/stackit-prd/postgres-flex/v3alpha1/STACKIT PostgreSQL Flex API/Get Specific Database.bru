@@ -1,0 +1,22 @@
+meta {
+  name: Get Specific Database
+  type: http
+  seq: 15
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId/databases/:databaseId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  region: eu01
+  instanceId: 
+  databaseId: 
+}

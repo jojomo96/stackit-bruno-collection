@@ -1,0 +1,47 @@
+meta {
+  name: Update a VPN gateway in a project.
+  type: http
+  seq: 5
+}
+
+auth {
+  mode: inherit
+}
+
+put {
+  url: {{baseUrl}}/v1alpha1/projects/:projectId/regions/:region/gateways/:gatewayId
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  region: eu01
+  region: eu02
+  gatewayId: 
+}
+
+body:json {
+  {
+    "availabilityZones": {
+      "tunnel1": "eu01-1",
+      "tunnel2": "eu01-1"
+    },
+    "bgp": {
+      "localAsn": 0,
+      "overrideAdvertisedRoutes": [
+        "10.10.10.10/32"
+      ]
+    },
+    "displayName": "my-vpn",
+    "labels": {
+      "contact": "max.mustermann@example.org",
+      "environment": "production",
+      "foo": "bar",
+      "onsite-target": "branch-office-berlin",
+      "team": "netops"
+    },
+    "planId": "p50",
+    "routingType": "POLICY_BASED"
+  }
+}

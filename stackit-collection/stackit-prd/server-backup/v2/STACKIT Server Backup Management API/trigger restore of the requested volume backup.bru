@@ -1,0 +1,29 @@
+meta {
+  name: trigger restore of the requested volume backup
+  type: http
+  seq: 13
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/backups/:backupId/volume-backups/:volumeBackupId/restore
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  serverId: 
+  region: 
+  backupId: 
+  volumeBackupId: 
+}
+
+body:json {
+  {
+    "restoreVolumeId": "69c2ae70-5bf9-4353-8ac6-2bc2ff0ba78e"
+  }
+}

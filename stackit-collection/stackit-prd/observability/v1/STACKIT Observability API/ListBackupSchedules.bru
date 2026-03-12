@@ -1,0 +1,27 @@
+meta {
+  name: ListBackupSchedules
+  type: http
+  seq: 44
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/backup-schedules
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~backupTarget: alertConfig
+  ~backupTarget: alertRules
+  ~backupTarget: scrapeConfig
+  ~backupTarget: grafana
+}
+
+params:path {
+  instanceId: 
+  projectId: 
+}

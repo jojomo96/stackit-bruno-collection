@@ -1,0 +1,15 @@
+meta {
+  name: Restore version
+  type: http
+  seq: 19
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1/projects/:projectId/regions/:regionId/keyrings/:keyRingId/keys/:keyId/versions/:versionNumber/restore
+  body: none
+  auth: inherit
+}

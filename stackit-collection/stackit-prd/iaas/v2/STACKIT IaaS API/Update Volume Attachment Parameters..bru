@@ -1,0 +1,21 @@
+meta {
+  name: Update Volume Attachment Parameters.
+  type: http
+  seq: 120
+}
+
+auth {
+  mode: inherit
+}
+
+patch {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/volume-attachments/:volumeId
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "deleteOnTermination": true
+  }
+}

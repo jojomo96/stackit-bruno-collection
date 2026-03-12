@@ -1,0 +1,26 @@
+meta {
+  name: move zone from one project to another
+  type: http
+  seq: 1
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1/projects/:projectId/move-zone
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+}
+
+body:json {
+  {
+    "code": "3sLuLCLpLEbbQ6GZ05tu2U56dmKx1uCdWquTHz6BK34=",
+    "zoneDnsName": "example.com"
+  }
+}

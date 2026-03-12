@@ -1,0 +1,19 @@
+meta {
+  name: List available service plans.
+  type: http
+  seq: 13
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/regions/:region/plans
+  body: none
+  auth: inherit
+}
+
+params:path {
+  region: 
+}

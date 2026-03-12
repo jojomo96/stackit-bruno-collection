@@ -1,0 +1,24 @@
+meta {
+  name: List all products
+  type: http
+  seq: 5
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/products
+  body: none
+  auth: inherit
+}
+
+params:query {
+  pageSize: 10
+  ~cursor: 
+  ~categoryName: 
+  ~productName: 
+  ~language: en
+  ~language: de
+}

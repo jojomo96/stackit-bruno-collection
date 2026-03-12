@@ -1,0 +1,31 @@
+meta {
+  name: Clone Instance
+  type: http
+  seq: 10
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId/clone
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  region: eu01
+  instanceId: 
+}
+
+body:json {
+  {
+    "instanceOverrides": {
+      "performanceClass": "premium-perf12-stackit",
+      "size": 10
+    },
+    "pointInTime": "2023-12-30T23:25:05Z"
+  }
+}

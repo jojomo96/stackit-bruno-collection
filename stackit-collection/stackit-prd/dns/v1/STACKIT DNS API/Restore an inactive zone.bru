@@ -1,0 +1,20 @@
+meta {
+  name: Restore an inactive zone
+  type: http
+  seq: 16
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1/projects/:projectId/zones/:zoneId/restores
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  zoneId: 
+}

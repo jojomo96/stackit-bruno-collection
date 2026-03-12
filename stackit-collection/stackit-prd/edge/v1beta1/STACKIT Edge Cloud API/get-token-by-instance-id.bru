@@ -1,0 +1,15 @@
+meta {
+  name: get-token-by-instance-id
+  type: http
+  seq: 9
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1beta1/projects/:projectId/regions/:regionId/instances/:instanceId/token
+  body: none
+  auth: inherit
+}

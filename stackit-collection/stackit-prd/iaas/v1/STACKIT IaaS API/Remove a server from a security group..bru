@@ -1,0 +1,15 @@
+meta {
+  name: Remove a server from a security group.
+  type: http
+  seq: 96
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v1/projects/:projectId/servers/:serverId/security-groups/:securityGroupId
+  body: none
+  auth: inherit
+}

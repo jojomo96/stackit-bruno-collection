@@ -1,0 +1,15 @@
+meta {
+  name: Remove image share.
+  type: http
+  seq: 54
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/images/:imageId/share
+  body: none
+  auth: inherit
+}

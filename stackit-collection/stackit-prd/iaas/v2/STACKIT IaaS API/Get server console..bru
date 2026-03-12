@@ -1,0 +1,15 @@
+meta {
+  name: Get server console.
+  type: http
+  seq: 96
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/console
+  body: none
+  auth: inherit
+}

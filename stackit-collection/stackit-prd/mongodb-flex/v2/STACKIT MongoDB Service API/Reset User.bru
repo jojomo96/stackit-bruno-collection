@@ -1,0 +1,23 @@
+meta {
+  name: Reset User
+  type: http
+  seq: 23
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/instances/:instanceId/users/:userId/reset
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  instanceId: 
+  userId: 
+  region: eu01
+  region: eu02
+}

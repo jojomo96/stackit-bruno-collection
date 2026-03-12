@@ -1,0 +1,20 @@
+meta {
+  name: Reject a subscription
+  type: http
+  seq: 8
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1/vendors/projects/:projectId/subscriptions/:subscriptionId/reject
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  subscriptionId: 
+}

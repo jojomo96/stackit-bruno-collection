@@ -1,0 +1,15 @@
+meta {
+  name: Deallocate an existing server.
+  type: http
+  seq: 84
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1/projects/:projectId/servers/:serverId/deallocate
+  body: none
+  auth: inherit
+}

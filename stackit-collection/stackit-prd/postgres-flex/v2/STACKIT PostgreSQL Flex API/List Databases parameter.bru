@@ -1,0 +1,21 @@
+meta {
+  name: List Databases parameter
+  type: http
+  seq: 17
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/instances/:instanceId/parameter
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  region: eu01
+  instanceId: 
+}

@@ -1,0 +1,15 @@
+meta {
+  name: Delete a network route.
+  type: http
+  seq: 24
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v2beta1/organizations/:organizationId/network-areas/:areaId/regions/:region/routes/:routeId
+  body: none
+  auth: inherit
+}

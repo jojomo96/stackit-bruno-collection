@@ -1,0 +1,21 @@
+meta {
+  name: DeleteRedisCheck
+  type: http
+  seq: 95
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/redis-checks/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 
+  instanceId: 
+  projectId: 
+}

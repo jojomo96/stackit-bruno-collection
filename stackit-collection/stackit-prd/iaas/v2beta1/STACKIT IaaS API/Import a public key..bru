@@ -1,0 +1,28 @@
+meta {
+  name: Import a public key.
+  type: http
+  seq: 2
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v2beta1/keypairs
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "createdAt": "",
+    "fingerprint": "",
+    "labels": {
+      "key": "value"
+    },
+    "name": "schluesselbaer26",
+    "publicKey": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIDsPd27M449akqCtdFg2+AmRVJz6eWio0oMP9dVg7Xe",
+    "updatedAt": ""
+  }
+}

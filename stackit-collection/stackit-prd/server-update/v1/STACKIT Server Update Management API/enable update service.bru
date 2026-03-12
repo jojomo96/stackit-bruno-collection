@@ -1,0 +1,26 @@
+meta {
+  name: enable update service
+  type: http
+  seq: 2
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1/projects/:projectId/servers/:serverId
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  serverId: 
+}
+
+body:json {
+  {
+    "updatePolicyId": "2ab33ea4-9b4b-492c-8679-3d664091c195"
+  }
+}

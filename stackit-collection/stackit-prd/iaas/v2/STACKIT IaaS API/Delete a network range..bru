@@ -1,0 +1,15 @@
+meta {
+  name: Delete a network range.
+  type: http
+  seq: 20
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v2/organizations/:organizationId/network-areas/:areaId/regions/:region/network-ranges/:networkRangeId
+  body: none
+  auth: inherit
+}

@@ -1,0 +1,15 @@
+meta {
+  name: Get details about a public IP.
+  type: http
+  seq: 65
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1/projects/:projectId/public-ips/:publicIpId
+  body: none
+  auth: inherit
+}

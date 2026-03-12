@@ -1,0 +1,26 @@
+meta {
+  name: Update network settings.
+  type: http
+  seq: 67
+}
+
+auth {
+  mode: inherit
+}
+
+patch {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/networks/:networkId
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "ipv4": {
+      "nameservers": [
+        "10.1.2.10"
+      ]
+    },
+    "name": "My Network"
+  }
+}

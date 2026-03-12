@@ -1,0 +1,15 @@
+meta {
+  name: Unrescue an existing server.
+  type: http
+  seq: 103
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1/projects/:projectId/servers/:serverId/unrescue
+  body: none
+  auth: inherit
+}

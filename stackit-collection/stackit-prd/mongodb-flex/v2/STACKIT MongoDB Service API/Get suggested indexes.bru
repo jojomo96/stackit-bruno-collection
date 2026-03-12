@@ -1,0 +1,22 @@
+meta {
+  name: Get suggested indexes
+  type: http
+  seq: 9
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/instances/:instanceId/advisor/suggested-indexes
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  instanceId: 
+  region: eu01
+  region: eu02
+}

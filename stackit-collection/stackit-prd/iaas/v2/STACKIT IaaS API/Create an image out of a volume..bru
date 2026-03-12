@@ -1,0 +1,23 @@
+meta {
+  name: Create an image out of a volume.
+  type: http
+  seq: 135
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/volumes/:volumeId/upload
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "diskFormat": "",
+    "name": "objectName26",
+    "protected": true
+  }
+}

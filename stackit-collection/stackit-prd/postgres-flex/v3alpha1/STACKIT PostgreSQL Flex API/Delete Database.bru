@@ -1,0 +1,22 @@
+meta {
+  name: Delete Database
+  type: http
+  seq: 14
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId/databases/:databaseId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  region: eu01
+  instanceId: 
+  databaseId: 
+}

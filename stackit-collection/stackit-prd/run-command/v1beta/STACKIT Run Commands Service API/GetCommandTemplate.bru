@@ -1,0 +1,21 @@
+meta {
+  name: GetCommandTemplate
+  type: http
+  seq: 2
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1beta/projects/:projectId/servers/:serverId/command-templates/:commandTemplateName
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  serverId: 
+  commandTemplateName: 
+}

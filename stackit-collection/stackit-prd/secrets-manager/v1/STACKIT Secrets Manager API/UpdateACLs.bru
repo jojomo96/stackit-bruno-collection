@@ -1,0 +1,25 @@
+meta {
+  name: UpdateACLs
+  type: http
+  seq: 8
+}
+
+auth {
+  mode: inherit
+}
+
+put {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/acls
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "cidrs": [
+      {
+        "cidr": ""
+      }
+    ]
+  }
+}

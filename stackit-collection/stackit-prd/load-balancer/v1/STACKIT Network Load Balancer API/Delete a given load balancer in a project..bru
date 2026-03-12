@@ -1,0 +1,20 @@
+meta {
+  name: Delete a given load balancer in a project.
+  type: http
+  seq: 12
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v1/projects/:projectId/load-balancers/:name
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: 
+  name: 
+}

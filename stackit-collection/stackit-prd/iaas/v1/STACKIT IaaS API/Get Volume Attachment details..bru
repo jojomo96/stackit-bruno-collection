@@ -1,0 +1,15 @@
+meta {
+  name: Get Volume Attachment details.
+  type: http
+  seq: 106
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1/projects/:projectId/servers/:serverId/volume-attachments/:volumeId
+  body: none
+  auth: inherit
+}

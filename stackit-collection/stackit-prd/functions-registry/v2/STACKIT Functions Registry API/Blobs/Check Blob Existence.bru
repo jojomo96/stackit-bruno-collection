@@ -1,0 +1,18 @@
+meta {
+  name: Check Blob Existence
+  type: http
+  seq: 1
+  tags: [
+    Blobs
+  ]
+}
+
+auth {
+  mode: inherit
+}
+
+head {
+  url: {{baseUrl}}/v2/:namespace/:name/blobs/:digest
+  body: none
+  auth: inherit
+}
