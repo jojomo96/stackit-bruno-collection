@@ -1,0 +1,81 @@
+name: Auto-Update STACKIT Bruno Collection
+
+on:
+  schedule:
+    - cron: '0 2 * * *' # Runs daily at 2:00 AM
+  workflow_dispatch: # Allows manual execution
+
+jobs:
+  update-collection:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Your Repository
+        uses: actions/checkout@v4
+        with:
+          path: my-repo
+
+      - name: Checkout STACKIT API Specifications
+        uses: actions/checkout@v4
+        with:
+          repository: stackitcloud/stackit-api-specifications
+          path: stackit-specs
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: |
+          npm install -g @usebruno/cli
+          npm install axios
+        working-directory: ./my-repo
+
+      - name: Convert All APIs to Bruno Master Collection
+        run: |
+          cd my-repo
+          
+          # Only remove the PRD folder so we don't touch QA or other custom folders
+          rm -rf stackit-collection/stackit-prd 
+          mkdir -p stackit-collection/stackit-prd
+          
+          # Initialize the master Bruno collection configuration if it doesn't exist yet
+          if [ ! -f "stackit-collection/bruno.json" ]; then
+            echo '{"version": "1", "name": "STACKIT APIs", "type": "collection", "ignore": ["node_modules", ".git"]}' > stackit-collection/bruno.json
+          fi
+          
+          # Loop through all OpenAPI files in the STACKIT repository (handling subdirectories correctly)
+          find ../stackit-specs/services -mindepth 2 -maxdepth 3 -type f \( -name "*.yaml" -o -name "*.json" \) | while read spec; do
+          
+            # Extract service name and version based on repo structure
+            relative_path=${spec#../stackit-specs/services/}
+            service_name=$(echo "$relative_path" | cut -d'/' -f1)
+            version=$(echo "$relative_path" | cut -d'/' -f2)
+          
+            echo "🔄 Importing $service_name ($version) to stackit-prd..."
+          
+            mkdir -p temp_import
+            bru import openapi --source "$spec" --output temp_import
+          
+            # Create the nested folder structure inside stackit-prd
+            mkdir -p "stackit-collection/stackit-prd/$service_name/$version"
+          
+            # Move the generated .bru files into the nested structure
+            find temp_import -mindepth 1 -maxdepth 1 ! -name "bruno.json" ! -name "environments" -exec cp -r {} "stackit-collection/stackit-prd/$service_name/$version/" \;
+          
+            # Cleanup temp directory for the next loop
+            rm -rf temp_import
+          done
+
+      - name: Inject Auth, Scripts, and Fix Variables
+        run: node scripts/inject-auth.js
+        working-directory: ./my-repo
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add stackit-collection
+          git commit -m "chore: auto-update Bruno collection with all STACKIT APIs" || exit 0
+          git push
+        working-directory: ./my-repo
