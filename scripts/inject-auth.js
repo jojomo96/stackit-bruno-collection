@@ -1,17 +1,14 @@
 const fs = require('fs');
 const path = require('path');
 
-// Target the Bruno collection directory
 const collectionDir = path.join(__dirname, '../stackit-collection');
 const collectionBruPath = path.join(collectionDir, 'collection.bru');
 
 // --- 1. INJECT AUTH & SCRIPTS INTO THE ROOT ---
 let collectionMeta = '';
 
-// Check if collection.bru exists; if not, create the basic meta block
 if (fs.existsSync(collectionBruPath)) {
     collectionMeta = fs.readFileSync(collectionBruPath, 'utf8');
-    // Strip existing auth/scripts just in case of a local re-run
     collectionMeta = collectionMeta.replace(/^auth\s*\{[\s\S]*?^\}\n*/gm, '');
     collectionMeta = collectionMeta.replace(/^auth:\w+\s*\{[\s\S]*?^\}\n*/gm, '');
     collectionMeta = collectionMeta.replace(/^script:pre-request\s*\{[\s\S]*?^\}\n*/gm, '');
@@ -68,7 +65,6 @@ script:pre-request {
   }
 
   if (needsRefresh) {
-    // Graceful exit for standard OAuth2 users
     if (!configRaw) {
       return; 
     }
@@ -111,7 +107,7 @@ script:pre-request {
 fs.writeFileSync(collectionBruPath, collectionMeta.trim() + "\n\n" + authSnippet.trim() + "\n\n" + preRequestSnippet.trim() + "\n", 'utf8');
 console.log("✅ Root collection.bru initialized with Auth & Scripts.");
 
-// --- 2. ENFORCE INHERITANCE AND FIX URL VARIABLES ---
+// --- 2. ENFORCE INHERITANCE AND FIX EMPTY VARIABLES ---
 function enforceAuthInheritance(dir) {
     if (!fs.existsSync(dir)) return;
     const files = fs.readdirSync(dir);
@@ -119,28 +115,39 @@ function enforceAuthInheritance(dir) {
     for (const file of files) {
         const fullPath = path.join(dir, file);
 
-        // If it's a directory, crawl deeper
         if (fs.statSync(fullPath).isDirectory()) {
             enforceAuthInheritance(fullPath);
         }
-        // If it's a .bru file (but not our root config or folder config), update it
         else if (fullPath.endsWith('.bru') && file !== 'collection.bru' && file !== 'folder.bru') {
             let content = fs.readFileSync(fullPath, 'utf8');
 
-            // 1. Strip any hardcoded auth that Bruno CLI might have generated
+            // 1. Strip hardcoded auth
             content = content.replace(/^auth\s*\{[\s\S]*?^\}\n*/gm, '');
             content = content.replace(/^auth:\w+\s*\{[\s\S]*?^\}\n*/gm, '');
 
-            // 2. Inject auth inheritance immediately after the meta block
+            // 2. Inject auth inheritance
             if (!content.includes('mode: inherit')) {
                 content = content.replace(/^(meta\s*\{[\s\S]*?^\})/m, '$1\n\nauth {\n  mode: inherit\n}');
             }
 
-            // 3. Fix URL variables: convert {projectId} to {{projectId}}
-            // Uses lookarounds to ensure we don't accidentally double-bracket something that is already {{bracketed}}
-            content = content.replace(/^( {2}url:\s*.*)$/gm, (urlLine) => {
-                return urlLine.replace(/(?<!\{)\{([a-zA-Z0-9_-]+)\}(?!\})/g, '{{$1}}');
-            });
+            // 3. Auto-populate empty path variables (e.g., changing 'projectId: ' to 'projectId: {{projectId}}')
+            let lines = content.split('\n');
+            let inPathParams = false;
+
+            for (let i = 0; i < lines.length; i++) {
+                if (lines[i].trim() === 'params:path {') {
+                    inPathParams = true;
+                } else if (inPathParams && lines[i].trim() === '}') {
+                    inPathParams = false;
+                } else if (inPathParams) {
+                    // Look for empty variables like "  projectId: " or "  region:"
+                    let match = lines[i].match(/^( +)([a-zA-Z0-9_-]+):\s*$/);
+                    if (match) {
+                        lines[i] = `${match[1]}${match[2]}: {{${match[2]}}}`;
+                    }
+                }
+            }
+            content = lines.join('\n');
 
             fs.writeFileSync(fullPath, content);
         }
@@ -148,4 +155,4 @@ function enforceAuthInheritance(dir) {
 }
 
 enforceAuthInheritance(collectionDir);
-console.log("✅ Enforced auth inheritance and fixed URL variables on all endpoints.");
+console.log("✅ Enforced auth inheritance and populated empty variables.");
