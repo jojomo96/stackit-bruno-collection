@@ -1,0 +1,21 @@
+meta {
+  name: Get a cluster
+  type: http
+  seq: 3
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/clusters/:clusterName
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  region: {{region}}
+  clusterName: {{clusterName}}
+}

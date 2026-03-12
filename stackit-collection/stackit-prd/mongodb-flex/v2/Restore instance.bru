@@ -1,0 +1,29 @@
+meta {
+  name: Restore instance
+  type: http
+  seq: 16
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/instances/:instanceId/restores
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  instanceId: {{instanceId}}
+  region: eu01
+  region: eu02
+}
+
+body:json {
+  {
+    "backupId": "",
+    "instanceId": ""
+  }
+}

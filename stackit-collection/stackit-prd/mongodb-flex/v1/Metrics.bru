@@ -1,0 +1,28 @@
+meta {
+  name: Metrics
+  type: http
+  seq: 14
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/metrics/:metric
+  body: none
+  auth: inherit
+}
+
+params:query {
+  granularity: 
+  ~period: 
+  ~start: 
+  ~end: 
+}
+
+params:path {
+  projectId: {{projectId}}
+  instanceId: {{instanceId}}
+  metric: {{metric}}
+}

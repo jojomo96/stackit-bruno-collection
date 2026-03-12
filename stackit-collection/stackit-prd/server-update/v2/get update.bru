@@ -1,0 +1,22 @@
+meta {
+  name: get update
+  type: http
+  seq: 11
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/updates/:updateId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  serverId: {{serverId}}
+  updateId: {{updateId}}
+  region: {{region}}
+}

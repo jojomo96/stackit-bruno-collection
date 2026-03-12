@@ -1,0 +1,20 @@
+meta {
+  name: ListPostgresqlChecks
+  type: http
+  seq: 87
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/postgresql-checks
+  body: none
+  auth: inherit
+}
+
+params:path {
+  instanceId: {{instanceId}}
+  projectId: {{projectId}}
+}

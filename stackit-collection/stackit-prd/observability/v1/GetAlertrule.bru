@@ -1,0 +1,22 @@
+meta {
+  name: GetAlertrule
+  type: http
+  seq: 33
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/alertgroups/:groupName/alertrules/:alertName
+  body: none
+  auth: inherit
+}
+
+params:path {
+  alertName: {{alertName}}
+  groupName: {{groupName}}
+  instanceId: {{instanceId}}
+  projectId: {{projectId}}
+}

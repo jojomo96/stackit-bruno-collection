@@ -1,0 +1,22 @@
+meta {
+  name: Get specific backup
+  type: http
+  seq: 11
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId/backups/:backupId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  region: eu01
+  instanceId: {{instanceId}}
+  backupId: {{backupId}}
+}

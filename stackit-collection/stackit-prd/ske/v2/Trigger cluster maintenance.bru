@@ -1,0 +1,21 @@
+meta {
+  name: Trigger cluster maintenance
+  type: http
+  seq: 10
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/clusters/:clusterName/maintenance
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  region: {{region}}
+  clusterName: {{clusterName}}
+}

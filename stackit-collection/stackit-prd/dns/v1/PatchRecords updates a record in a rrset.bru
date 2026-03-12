@@ -1,0 +1,32 @@
+meta {
+  name: PatchRecords updates a record in a rrset
+  type: http
+  seq: 23
+}
+
+auth {
+  mode: inherit
+}
+
+patch {
+  url: {{baseUrl}}/v1/projects/:projectId/zones/:zoneId/rrsets/:rrSetId/records
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  zoneId: {{zoneId}}
+  rrSetId: {{rrSetId}}
+}
+
+body:json {
+  {
+    "action": "add",
+    "records": [
+      {
+        "content": "192.0.2.1"
+      }
+    ]
+  }
+}

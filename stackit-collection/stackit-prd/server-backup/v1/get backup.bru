@@ -1,0 +1,21 @@
+meta {
+  name: get backup
+  type: http
+  seq: 12
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1/projects/:projectId/servers/:serverId/backups/:backupId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  serverId: {{serverId}}
+  backupId: {{backupId}}
+}

@@ -1,0 +1,27 @@
+meta {
+  name: Protect Instance
+  type: http
+  seq: 18
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId/protections
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  region: eu01
+  instanceId: {{instanceId}}
+}
+
+body:json {
+  {
+    "isDeletable": true
+  }
+}

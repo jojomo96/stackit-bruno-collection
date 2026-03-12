@@ -1,0 +1,29 @@
+meta {
+  name: Clone Instance
+  type: http
+  seq: 11
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/instances/:instanceId/clone
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  region: eu01
+  instanceId: {{instanceId}}
+}
+
+body:json {
+  {
+    "class": "premium-perf6-stackit",
+    "size": 10,
+    "timestamp": "2023-04-17T09:28:00+00:00"
+  }
+}

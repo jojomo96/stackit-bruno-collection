@@ -1,0 +1,22 @@
+meta {
+  name: Delete a existing VPN gateway in a project.
+  type: http
+  seq: 3
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v1alpha1/projects/:projectId/regions/:region/gateways/:gatewayId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  region: eu01
+  region: eu02
+  gatewayId: {{gatewayId}}
+}

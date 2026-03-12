@@ -1,0 +1,25 @@
+meta {
+  name: Resolve customer
+  type: http
+  seq: 4
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1/vendors/projects/:projectId/resolve-customer
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+}
+
+body:json {
+  {
+    "token": "VGhpcyBpcyBhIHRva2VuIGJ5IGRvbW15IHRva2VuIGFuZCBiYXNlNjQgZW5jb2RlZA=="
+  }
+}

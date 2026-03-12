@@ -1,0 +1,29 @@
+meta {
+  name: Update User
+  type: http
+  seq: 22
+}
+
+auth {
+  mode: inherit
+}
+
+patch {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/instances/:instanceId/users/:userId
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  region: eu01
+  instanceId: {{instanceId}}
+  userId: {{userId}}
+}
+
+body:json {
+  {
+    "database": "",
+    "roles": []
+  }
+}

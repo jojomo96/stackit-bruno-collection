@@ -1,0 +1,20 @@
+meta {
+  name: Get database collation list
+  type: http
+  seq: 12
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/collation
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  instanceId: {{instanceId}}
+}

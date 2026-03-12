@@ -1,0 +1,29 @@
+meta {
+  name: Create new distribution
+  type: http
+  seq: 2
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1beta/projects/:projectId/distributions
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+}
+
+body:json {
+  {
+    "originUrl": "httpbin.org",
+    "regions": [
+      "EU",
+      "ASIA"
+    ]
+  }
+}

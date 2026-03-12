@@ -48,7 +48,6 @@ script:pre-request {
   }
 
   if (needsRefresh) {
-    // Graceful exit for standard OAuth2 users
     if (!configRaw) {
       return; 
     }

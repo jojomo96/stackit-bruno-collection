@@ -1,0 +1,21 @@
+meta {
+  name: List current running restore jobs
+  type: http
+  seq: 19
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v3beta1/projects/:projectId/regions/:region/instances/:instanceId/restore-jobs
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  region: eu01
+  instanceId: {{instanceId}}
+}

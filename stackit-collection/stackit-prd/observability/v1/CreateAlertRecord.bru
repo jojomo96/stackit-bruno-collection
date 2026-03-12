@@ -1,0 +1,29 @@
+meta {
+  name: CreateAlertRecord
+  type: http
+  seq: 38
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/alertgroups/:groupName/records
+  body: json
+  auth: inherit
+}
+
+params:path {
+  groupName: {{groupName}}
+  instanceId: {{instanceId}}
+  projectId: {{projectId}}
+}
+
+body:json {
+  {
+    "expr": "",
+    "labels": {},
+    "record": ""
+  }
+}

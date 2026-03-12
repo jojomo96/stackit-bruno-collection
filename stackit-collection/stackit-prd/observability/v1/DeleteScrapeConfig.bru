@@ -1,0 +1,21 @@
+meta {
+  name: DeleteScrapeConfig
+  type: http
+  seq: 100
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/scrapeconfigs/:jobName
+  body: none
+  auth: inherit
+}
+
+params:path {
+  instanceId: {{instanceId}}
+  jobName: {{jobName}}
+  projectId: {{projectId}}
+}

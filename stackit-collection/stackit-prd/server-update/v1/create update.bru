@@ -1,0 +1,27 @@
+meta {
+  name: create update
+  type: http
+  seq: 12
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1/projects/:projectId/servers/:serverId/updates
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  serverId: {{serverId}}
+}
+
+body:json {
+  {
+    "backupBeforeUpdate": false,
+    "maintenanceWindow": 0
+  }
+}

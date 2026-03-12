@@ -1,0 +1,21 @@
+meta {
+  name: Terminate the Project
+  type: http
+  seq: 1
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  region: eu01
+  region: eu02
+}

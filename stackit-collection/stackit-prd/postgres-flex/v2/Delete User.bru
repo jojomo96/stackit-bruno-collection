@@ -1,0 +1,22 @@
+meta {
+  name: Delete User
+  type: http
+  seq: 20
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/instances/:instanceId/users/:userId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  region: eu01
+  instanceId: {{instanceId}}
+  userId: {{userId}}
+}

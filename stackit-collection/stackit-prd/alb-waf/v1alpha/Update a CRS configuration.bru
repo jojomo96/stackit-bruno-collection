@@ -1,0 +1,30 @@
+meta {
+  name: Update a CRS configuration
+  type: http
+  seq: 5
+}
+
+auth {
+  mode: inherit
+}
+
+put {
+  url: {{baseUrl}}/v1alpha/projects/:projectId/regions/:region/core-rule-sets/:name
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  region: {{region}}
+  name: {{name}}
+}
+
+body:json {
+  {
+    "active": true,
+    "name": "my-core-rule-set-config",
+    "projectId": "2438ac3c-37eb-4902-adef-ed16b4431030",
+    "region": "eu01"
+  }
+}

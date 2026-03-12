@@ -1,0 +1,25 @@
+meta {
+  name: List of CRS configurations
+  type: http
+  seq: 1
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1alpha/projects/:projectId/regions/:region/core-rule-sets
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~pageSize: 
+  ~pageId: 
+}
+
+params:path {
+  projectId: {{projectId}}
+  region: {{region}}
+}

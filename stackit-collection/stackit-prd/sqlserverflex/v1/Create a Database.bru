@@ -1,0 +1,31 @@
+meta {
+  name: Create a Database
+  type: http
+  seq: 15
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/databases
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  instanceId: {{instanceId}}
+}
+
+body:json {
+  {
+    "name": "Test",
+    "options": {
+      "collation": "Latin1_General_100_CI_AS_KS_WS",
+      "compatibilityLevel": "160",
+      "owner": "Herbert"
+    }
+  }
+}

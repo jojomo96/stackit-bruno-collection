@@ -1,0 +1,28 @@
+meta {
+  name: CreateElasticsearchCheck
+  type: http
+  seq: 59
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/elasticsearch-checks
+  body: json
+  auth: inherit
+}
+
+params:path {
+  instanceId: {{instanceId}}
+  projectId: {{projectId}}
+}
+
+body:json {
+  {
+    "password": "",
+    "server": "",
+    "username": ""
+  }
+}

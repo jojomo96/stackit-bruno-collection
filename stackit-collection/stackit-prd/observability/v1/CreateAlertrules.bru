@@ -1,0 +1,31 @@
+meta {
+  name: CreateAlertrules
+  type: http
+  seq: 31
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/alertgroups/:groupName/alertrules
+  body: json
+  auth: inherit
+}
+
+params:path {
+  groupName: {{groupName}}
+  instanceId: {{instanceId}}
+  projectId: {{projectId}}
+}
+
+body:json {
+  {
+    "alert": "",
+    "annotations": {},
+    "expr": "",
+    "for": "",
+    "labels": {}
+  }
+}

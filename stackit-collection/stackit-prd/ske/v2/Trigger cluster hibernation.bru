@@ -1,0 +1,21 @@
+meta {
+  name: Trigger cluster hibernation
+  type: http
+  seq: 6
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/clusters/:clusterName/hibernate
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  region: {{region}}
+  clusterName: {{clusterName}}
+}

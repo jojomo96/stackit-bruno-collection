@@ -1,0 +1,20 @@
+meta {
+  name: GetGrafanaConfigs
+  type: http
+  seq: 61
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/grafana-configs
+  body: none
+  auth: inherit
+}
+
+params:path {
+  instanceId: {{instanceId}}
+  projectId: {{projectId}}
+}

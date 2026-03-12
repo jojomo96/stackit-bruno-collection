@@ -1,0 +1,22 @@
+meta {
+  name: delete backup schedule
+  type: http
+  seq: 4
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/backup-schedules/:backupScheduleId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  serverId: {{serverId}}
+  region: {{region}}
+  backupScheduleId: {{backupScheduleId}}
+}

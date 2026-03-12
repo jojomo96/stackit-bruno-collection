@@ -1,0 +1,29 @@
+meta {
+  name: Update Database partially
+  type: http
+  seq: 16
+}
+
+auth {
+  mode: inherit
+}
+
+patch {
+  url: {{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId/databases/:databaseId
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  region: eu01
+  instanceId: {{instanceId}}
+  databaseId: {{databaseId}}
+}
+
+body:json {
+  {
+    "name": "MyDatabase",
+    "owner": "MyUser"
+  }
+}

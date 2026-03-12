@@ -1,0 +1,43 @@
+meta {
+  name: Get Flavors
+  type: http
+  seq: 1
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/flavors
+  body: none
+  auth: inherit
+}
+
+params:query {
+  page: 1
+  size: 10
+  ~sort: index.desc
+  ~sort: index.asc
+  ~sort: cpu.desc
+  ~sort: cpu.asc
+  ~sort: flavor_description.asc
+  ~sort: flavor_description.desc
+  ~sort: id.desc
+  ~sort: id.asc
+  ~sort: size_max.desc
+  ~sort: size_max.asc
+  ~sort: ram.desc
+  ~sort: ram.asc
+  ~sort: size_min.desc
+  ~sort: size_min.asc
+  ~sort: storage_class.asc
+  ~sort: storage_class.desc
+  ~sort: node_type.asc
+  ~sort: node_type.desc
+}
+
+params:path {
+  projectId: {{projectId}}
+  region: eu01
+}

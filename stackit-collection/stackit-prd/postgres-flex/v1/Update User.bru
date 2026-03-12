@@ -1,0 +1,28 @@
+meta {
+  name: Update User
+  type: http
+  seq: 22
+}
+
+auth {
+  mode: inherit
+}
+
+patch {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/users/:userId
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  instanceId: {{instanceId}}
+  userId: {{userId}}
+}
+
+body:json {
+  {
+    "database": "",
+    "roles": []
+  }
+}

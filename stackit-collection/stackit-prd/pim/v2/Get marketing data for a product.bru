@@ -1,0 +1,24 @@
+meta {
+  name: Get marketing data for a product
+  type: http
+  seq: 7
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/products/:productId/marketing
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~language: en
+  ~language: de
+}
+
+params:path {
+  productId: {{productId}}
+}

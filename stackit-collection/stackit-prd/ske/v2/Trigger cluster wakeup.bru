@@ -1,0 +1,21 @@
+meta {
+  name: Trigger cluster wakeup
+  type: http
+  seq: 13
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/clusters/:clusterName/wakeup
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  region: {{region}}
+  clusterName: {{clusterName}}
+}

@@ -1,0 +1,25 @@
+meta {
+  name: List memberships of a user
+  type: http
+  seq: 2
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/users/:email/memberships
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~resourceType: 
+  ~resourceId: 
+  ~parentResourceId: 
+}
+
+params:path {
+  email: {{email}}
+}

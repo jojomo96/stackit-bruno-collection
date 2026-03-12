@@ -1,0 +1,21 @@
+meta {
+  name: DeleteLogsAlertgroup
+  type: http
+  seq: 68
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/logs-alertgroups/:groupName
+  body: none
+  auth: inherit
+}
+
+params:path {
+  groupName: {{groupName}}
+  instanceId: {{instanceId}}
+  projectId: {{projectId}}
+}

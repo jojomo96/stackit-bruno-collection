@@ -1,0 +1,53 @@
+meta {
+  name: Update a single target pool of a load balancer in a project.
+  type: http
+  seq: 11
+}
+
+auth {
+  mode: inherit
+}
+
+put {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/load-balancers/:name/target-pools/:targetPoolName
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  region: {{region}}
+  name: {{name}}
+  targetPoolName: {{targetPoolName}}
+}
+
+body:json {
+  {
+    "activeHealthCheck": {
+      "altPort": 8090,
+      "healthyThreshold": 0,
+      "httpHealthChecks": {
+        "okStatuses": [],
+        "path": "",
+        "tls": {
+          "customCa": "",
+          "enabled": false,
+          "skipCertificateValidation": false
+        }
+      },
+      "interval": "3s",
+      "intervalJitter": "3s",
+      "timeout": "3s",
+      "unhealthyThreshold": 0
+    },
+    "name": "my-target-pool",
+    "targetPort": 5732,
+    "targets": [
+      {
+        "displayName": "my-target",
+        "ip": "192.0.2.5"
+      }
+    ],
+    "tlsConfig": {}
+  }
+}

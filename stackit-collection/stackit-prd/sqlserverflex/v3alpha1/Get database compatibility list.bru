@@ -1,0 +1,21 @@
+meta {
+  name: Get database compatibility list
+  type: http
+  seq: 13
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId/compatibility
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  region: eu01
+  instanceId: {{instanceId}}
+}

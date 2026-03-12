@@ -1,0 +1,20 @@
+meta {
+  name: GetLogsConfigs
+  type: http
+  seq: 71
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/logs-configs
+  body: none
+  auth: inherit
+}
+
+params:path {
+  instanceId: {{instanceId}}
+  projectId: {{projectId}}
+}

@@ -1,0 +1,39 @@
+meta {
+  name: update a service instance
+  type: http
+  seq: 5
+}
+
+auth {
+  mode: inherit
+}
+
+patch {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  instanceId: {{instanceId}}
+}
+
+body:json {
+  {
+    "instanceName": "",
+    "parameters": {
+      "enable_monitoring": false,
+      "graphite": "yourspace.your-graphite-endpoint.com:12345",
+      "max_disk_threshold": 90,
+      "metrics_frequency": 0,
+      "metrics_prefix": "my-prefix",
+      "monitoring_instance_id": "",
+      "sgw_acl": "0.0.0.0/0",
+      "syslog": [
+        "logs4.your-syslog-endpoint.com:54321"
+      ]
+    },
+    "planId": ""
+  }
+}

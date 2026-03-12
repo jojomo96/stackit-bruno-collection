@@ -1,0 +1,29 @@
+meta {
+  name: Trigger restore for a specific Database
+  type: http
+  seq: 10
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v3beta1/projects/:projectId/regions/:region/instances/:instanceId/backups/databases/:databaseName/restores
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  region: eu01
+  instanceId: {{instanceId}}
+  databaseName: {{databaseName}}
+}
+
+body:json {
+  {
+    "name": "MyDatabase",
+    "restoreDateTime": "2023-12-30T23:25:05Z"
+  }
+}

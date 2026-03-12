@@ -1,0 +1,26 @@
+meta {
+  name: CreateMongodbCheck
+  type: http
+  seq: 76
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/mongodb-checks
+  body: json
+  auth: inherit
+}
+
+params:path {
+  instanceId: {{instanceId}}
+  projectId: {{projectId}}
+}
+
+body:json {
+  {
+    "server": ""
+  }
+}

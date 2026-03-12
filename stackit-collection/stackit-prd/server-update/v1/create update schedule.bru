@@ -1,0 +1,29 @@
+meta {
+  name: create update schedule
+  type: http
+  seq: 7
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1/projects/:projectId/servers/:serverId/update-schedules
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  serverId: {{serverId}}
+}
+
+body:json {
+  {
+    "enabled": true,
+    "maintenanceWindow": 0,
+    "name": "Daily Schedule",
+    "rrule": "DTSTART;TZID=Europe/Sofia:20200803T023000 RRULE:FREQ=DAILY;INTERVAL=1"
+  }
+}

@@ -1,0 +1,21 @@
+meta {
+  name: DeleteNetworkCheck
+  type: http
+  seq: 83
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/network-checks/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: {{id}}
+  instanceId: {{instanceId}}
+  projectId: {{projectId}}
+}

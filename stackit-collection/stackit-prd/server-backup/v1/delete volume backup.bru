@@ -1,0 +1,26 @@
+meta {
+  name: delete volume backup
+  type: http
+  seq: 14
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v1/projects/:projectId/servers/:serverId/backups/:backupId/volume-backups/:volumeBackupId
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~force: 
+}
+
+params:path {
+  projectId: {{projectId}}
+  serverId: {{serverId}}
+  backupId: {{backupId}}
+  volumeBackupId: {{volumeBackupId}}
+}

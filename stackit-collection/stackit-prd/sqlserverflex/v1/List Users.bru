@@ -1,0 +1,20 @@
+meta {
+  name: List Users
+  type: http
+  seq: 21
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/users
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  instanceId: {{instanceId}}
+}

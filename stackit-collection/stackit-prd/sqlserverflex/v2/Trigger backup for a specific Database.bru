@@ -1,0 +1,23 @@
+meta {
+  name: Trigger backup for a specific Database
+  type: http
+  seq: 10
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/instances/:instanceId/backups/databases/:databaseName
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  instanceId: {{instanceId}}
+  databaseName: {{databaseName}}
+  region: eu01
+  region: eu02
+}

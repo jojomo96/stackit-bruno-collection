@@ -1,0 +1,42 @@
+meta {
+  name: Update Instance (PUT)
+  type: http
+  seq: 7
+}
+
+auth {
+  mode: inherit
+}
+
+put {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/instances/:instanceId
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  region: eu01
+  instanceId: {{instanceId}}
+}
+
+body:json {
+  {
+    "acl": {
+      "items": [
+        "0.0.0.0/0"
+      ]
+    },
+    "backupSchedule": "6 6 * * *",
+    "flavorId": "1.1",
+    "labels": {},
+    "name": "",
+    "options": {},
+    "replicas": 3,
+    "storage": {
+      "class": "",
+      "size": 10
+    },
+    "version": "1.0"
+  }
+}

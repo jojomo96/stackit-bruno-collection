@@ -1,0 +1,27 @@
+meta {
+  name: Update Backup Schedule
+  type: http
+  seq: 9
+}
+
+auth {
+  mode: inherit
+}
+
+put {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/instances/:instanceId/backups
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  region: eu01
+  instanceId: {{instanceId}}
+}
+
+body:json {
+  {
+    "backupSchedule": "6 6 * * *"
+  }
+}

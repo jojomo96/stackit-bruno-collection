@@ -1,0 +1,27 @@
+meta {
+  name: List products in a category
+  type: http
+  seq: 3
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/categories/:categoryId/products
+  body: none
+  auth: inherit
+}
+
+params:query {
+  pageSize: 10
+  ~cursor: 
+  ~productName: 
+  ~language: en
+  ~language: de
+}
+
+params:path {
+  categoryId: {{categoryId}}
+}

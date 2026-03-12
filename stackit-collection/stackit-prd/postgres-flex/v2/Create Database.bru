@@ -1,0 +1,28 @@
+meta {
+  name: Create Database
+  type: http
+  seq: 13
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/instances/:instanceId/databases
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  region: eu01
+  instanceId: {{instanceId}}
+}
+
+body:json {
+  {
+    "name": "Test",
+    "options": {}
+  }
+}

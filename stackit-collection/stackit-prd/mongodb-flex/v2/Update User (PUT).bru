@@ -1,0 +1,32 @@
+meta {
+  name: Update User (PUT)
+  type: http
+  seq: 22
+}
+
+auth {
+  mode: inherit
+}
+
+put {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/instances/:instanceId/users/:userId
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  instanceId: {{instanceId}}
+  userId: {{userId}}
+  region: eu01
+  region: eu02
+}
+
+body:json {
+  {
+    "database": "",
+    "roles": [
+      "readAnyDatabase"
+    ]
+  }
+}

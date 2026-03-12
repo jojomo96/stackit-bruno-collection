@@ -1,0 +1,24 @@
+meta {
+  name: Clear distribution cache
+  type: http
+  seq: 8
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId/cache/purge
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  distributionId: {{distributionId}}
+}
+
+body:json {
+  {}
+}

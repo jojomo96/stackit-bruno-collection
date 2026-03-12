@@ -1,0 +1,25 @@
+meta {
+  name: List Application Load Balancers in a project.
+  type: http
+  seq: 6
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/load-balancers
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~pageSize: 
+  ~pageId: 
+}
+
+params:path {
+  projectId: {{projectId}}
+  region: {{region}}
+}

@@ -1,0 +1,24 @@
+meta {
+  name: Update existing distribution
+  type: http
+  seq: 5
+}
+
+auth {
+  mode: inherit
+}
+
+patch {
+  url: {{baseUrl}}/v1beta2/projects/:projectId/distributions/:distributionId
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  distributionId: {{distributionId}}
+}
+
+body:json {
+  {}
+}

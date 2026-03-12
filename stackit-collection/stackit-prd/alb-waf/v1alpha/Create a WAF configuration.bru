@@ -1,0 +1,30 @@
+meta {
+  name: Create a WAF configuration
+  type: http
+  seq: 12
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1alpha/projects/:projectId/regions/:region/wafs
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  region: {{region}}
+}
+
+body:json {
+  {
+    "coreRuleSetName": "my-core-rule-set-config",
+    "name": "my-waf-config",
+    "projectId": "2438ac3c-37eb-4902-adef-ed16b4431030",
+    "region": "eu01",
+    "rulesConfigName": "my-rules-config"
+  }
+}

@@ -1,0 +1,22 @@
+meta {
+  name: Delete space
+  type: http
+  seq: 15
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v1/projects/:projectId/regions/:region/organizations/:organizationId/spaces/:spaceId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  region: {{region}}
+  organizationId: {{organizationId}}
+  spaceId: {{spaceId}}
+}

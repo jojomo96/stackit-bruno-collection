@@ -1,0 +1,24 @@
+meta {
+  name: Get Access Keys
+  type: http
+  seq: 6
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/project/:projectId/regions/:region/access-keys
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~credentials-group: 
+}
+
+params:path {
+  projectId: {{projectId}}
+  region: {{region}}
+}

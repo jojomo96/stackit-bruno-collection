@@ -1,0 +1,20 @@
+meta {
+  name: GetAlertConfigs
+  type: http
+  seq: 8
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/alertconfigs
+  body: none
+  auth: inherit
+}
+
+params:path {
+  instanceId: {{instanceId}}
+  projectId: {{projectId}}
+}

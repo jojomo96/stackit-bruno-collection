@@ -1,0 +1,33 @@
+meta {
+  name: List all distributions belonging to a specific project
+  type: http
+  seq: 1
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1beta2/projects/:projectId/distributions
+  body: none
+  auth: inherit
+}
+
+params:query {
+  pageSize: 20
+  withWafStatus: false
+  sortBy: createdAt
+  ~pageIdentifier: 
+  ~sortBy: id
+  ~sortBy: updatedAt
+  ~sortBy: originUrl
+  ~sortBy: status
+  ~sortBy: originUrlRelated
+  ~sortOrder: ascending
+  ~sortOrder: descending
+}
+
+params:path {
+  projectId: {{projectId}}
+}

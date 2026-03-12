@@ -1,0 +1,22 @@
+meta {
+  name: Get database collation list
+  type: http
+  seq: 13
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/instances/:instanceId/collation
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  instanceId: {{instanceId}}
+  region: eu01
+  region: eu02
+}

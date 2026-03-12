@@ -1,0 +1,21 @@
+meta {
+  name: DeleteRabbitmqCheck
+  type: http
+  seq: 92
+}
+
+auth {
+  mode: inherit
+}
+
+delete {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/rabbitmq-checks/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: {{id}}
+  instanceId: {{instanceId}}
+  projectId: {{projectId}}
+}

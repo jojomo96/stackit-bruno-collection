@@ -1,0 +1,27 @@
+meta {
+  name: Create User
+  type: http
+  seq: 19
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/users
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  instanceId: {{instanceId}}
+}
+
+body:json {
+  {
+    "roles": [],
+    "username": ""
+  }
+}

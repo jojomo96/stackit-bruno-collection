@@ -1,0 +1,32 @@
+meta {
+  name: Update User Partially
+  type: http
+  seq: 24
+}
+
+auth {
+  mode: inherit
+}
+
+patch {
+  url: {{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId/users/:userId
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  region: eu01
+  instanceId: {{instanceId}}
+  userId: {{userId}}
+}
+
+body:json {
+  {
+    "name": "myUser",
+    "roles": [
+      "createdb",
+      "login"
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+meta {
+  name: trigger a restart
+  type: http
+  seq: 17
+}
+
+auth {
+  mode: inherit
+}
+
+patch {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/restart
+  body: none
+  auth: inherit
+}
+
+params:path {
+  instanceId: {{instanceId}}
+  projectId: {{projectId}}
+}

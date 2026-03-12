@@ -1,0 +1,30 @@
+meta {
+  name: Update a rule configuration
+  type: http
+  seq: 10
+}
+
+auth {
+  mode: inherit
+}
+
+put {
+  url: {{baseUrl}}/v1alpha/projects/:projectId/regions/:region/rules/:name
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  region: {{region}}
+  name: {{name}}
+}
+
+body:json {
+  {
+    "name": "my-rules-config",
+    "projectId": "2438ac3c-37eb-4902-adef-ed16b4431030",
+    "region": "eu01",
+    "rules": "SecRule REQUEST_URI \"@streq /admin\" \"id:101,phase:2,t:lowercase,deny\""
+  }
+}

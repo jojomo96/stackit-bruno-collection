@@ -1,0 +1,25 @@
+meta {
+  name: List Instances
+  type: http
+  seq: 2
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/instances
+  body: none
+  auth: inherit
+}
+
+params:query {
+  tag: 
+}
+
+params:path {
+  projectId: {{projectId}}
+  region: eu01
+  region: eu02
+}

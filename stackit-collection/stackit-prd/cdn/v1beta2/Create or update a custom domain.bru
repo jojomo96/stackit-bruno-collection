@@ -1,0 +1,28 @@
+meta {
+  name: Create or update a custom domain
+  type: http
+  seq: 11
+}
+
+auth {
+  mode: inherit
+}
+
+put {
+  url: {{baseUrl}}/v1beta2/projects/:projectId/distributions/:distributionId/customDomains/:domain
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  distributionId: {{distributionId}}
+  domain: {{domain}}
+}
+
+body:json {
+  {
+    "certificate": {},
+    "intentId": ""
+  }
+}

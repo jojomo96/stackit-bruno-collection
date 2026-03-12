@@ -1,0 +1,19 @@
+meta {
+  name: List all WAF rule collections of the project
+  type: http
+  seq: 15
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1/projects/:projectId/waf/collections
+  body: none
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+}

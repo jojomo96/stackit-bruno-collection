@@ -1,0 +1,26 @@
+meta {
+  name: CreateCertCheck
+  type: http
+  seq: 49
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/cert-checks
+  body: json
+  auth: inherit
+}
+
+params:path {
+  instanceId: {{instanceId}}
+  projectId: {{projectId}}
+}
+
+body:json {
+  {
+    "source": ""
+  }
+}

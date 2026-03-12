@@ -1,0 +1,29 @@
+meta {
+  name: Clone an existing zone with all record sets to a new zone with a different name
+  type: http
+  seq: 7
+}
+
+auth {
+  mode: inherit
+}
+
+post {
+  url: {{baseUrl}}/v1/projects/:projectId/zones/:zoneId/clone
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  zoneId: {{zoneId}}
+}
+
+body:json {
+  {
+    "adjustRecords": true,
+    "description": "this is our example zone",
+    "dnsName": "example.com",
+    "name": "test"
+  }
+}

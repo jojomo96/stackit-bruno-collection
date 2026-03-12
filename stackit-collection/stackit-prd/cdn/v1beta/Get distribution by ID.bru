@@ -1,0 +1,24 @@
+meta {
+  name: Get distribution by ID
+  type: http
+  seq: 4
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId
+  body: none
+  auth: inherit
+}
+
+params:query {
+  withWafStatus: false
+}
+
+params:path {
+  projectId: {{projectId}}
+  distributionId: {{distributionId}}
+}

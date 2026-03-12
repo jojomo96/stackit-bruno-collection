@@ -1,0 +1,102 @@
+meta {
+  name: Update a load balancer in a project.
+  type: http
+  seq: 14
+}
+
+auth {
+  mode: inherit
+}
+
+put {
+  url: {{baseUrl}}/v1/projects/:projectId/load-balancers/:name
+  body: json
+  auth: inherit
+}
+
+params:path {
+  projectId: {{projectId}}
+  name: {{name}}
+}
+
+body:json {
+  {
+    "errors": [
+      {
+        "description": "",
+        "type": "TYPE_UNSPECIFIED"
+      }
+    ],
+    "externalAddress": "192.0.2.5",
+    "listeners": [
+      {
+        "displayName": "",
+        "name": "my-listener",
+        "port": 0,
+        "protocol": "PROTOCOL_UNSPECIFIED",
+        "serverNameIndicators": [
+          {
+            "name": ""
+          }
+        ],
+        "targetPool": "my-target-pool",
+        "tcp": {
+          "idleTimeout": "300s"
+        },
+        "udp": {
+          "idleTimeout": "60s"
+        }
+      }
+    ],
+    "name": "my-load-balancer",
+    "networks": [
+      {
+        "networkId": "2028e5d4-af4f-45e2-98df-502be37a4317",
+        "role": "ROLE_UNSPECIFIED"
+      }
+    ],
+    "options": {
+      "accessControl": {
+        "allowedSourceRanges": []
+      },
+      "ephemeralAddress": false,
+      "observability": {
+        "logs": {
+          "credentialsRef": "",
+          "pushUrl": "https://logs.stackit5.argus.eu01.stackit.cloud/instances/<argus-instance-id>/loki/api/v1/push"
+        },
+        "metrics": {
+          "credentialsRef": "",
+          "pushUrl": "https://push.metrics.stackit4.argus.eu01.stackit.cloud/instances/<argus-instance-id>/api/v1/receive"
+        }
+      },
+      "privateNetworkOnly": false
+    },
+    "planId": "",
+    "privateAddress": "10.0.0.1",
+    "status": "STATUS_UNSPECIFIED",
+    "targetPools": [
+      {
+        "activeHealthCheck": {
+          "healthyThreshold": 0,
+          "interval": "3s",
+          "intervalJitter": "3s",
+          "timeout": "3s",
+          "unhealthyThreshold": 0
+        },
+        "name": "my-target-pool",
+        "sessionPersistence": {
+          "useSourceIpAddress": true
+        },
+        "targetPort": 5732,
+        "targets": [
+          {
+            "displayName": "my-target",
+            "ip": "192.0.2.5"
+          }
+        ]
+      }
+    ],
+    "version": "lb-238165323"
+  }
+}

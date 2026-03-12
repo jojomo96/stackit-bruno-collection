@@ -1,0 +1,29 @@
+meta {
+  name: Get Metric
+  type: http
+  seq: 16
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/instances/:instanceId/metrics/:metric
+  body: none
+  auth: inherit
+}
+
+params:query {
+  granularity: 
+  ~period: 
+  ~start: 
+  ~end: 
+}
+
+params:path {
+  projectId: {{projectId}}
+  region: eu01
+  instanceId: {{instanceId}}
+  metric: {{metric}}
+}

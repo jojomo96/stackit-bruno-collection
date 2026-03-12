@@ -1,0 +1,24 @@
+meta {
+  name: Get product by ID.
+  type: http
+  seq: 2
+}
+
+auth {
+  mode: inherit
+}
+
+get {
+  url: {{baseUrl}}/v1/catalog/products/:productId
+  body: none
+  auth: inherit
+}
+
+params:query {
+  locale: en
+  ~locale: de
+}
+
+params:path {
+  productId: {{productId}}
+}
