@@ -107,7 +107,7 @@ script:pre-request {
 fs.writeFileSync(collectionBruPath, collectionMeta.trim() + "\n\n" + authSnippet.trim() + "\n\n" + preRequestSnippet.trim() + "\n", 'utf8');
 console.log("✅ Root collection.bru initialized with Auth & Scripts.");
 
-// --- 2. ENFORCE INHERITANCE AND FIX EMPTY VARIABLES ---
+// --- 2. ENFORCE INHERITANCE AND FIX URL VARIABLES ---
 function enforceAuthInheritance(dir) {
     if (!fs.existsSync(dir)) return;
     const files = fs.readdirSync(dir);
@@ -130,24 +130,15 @@ function enforceAuthInheritance(dir) {
                 content = content.replace(/^(meta\s*\{[\s\S]*?^\})/m, '$1\n\nauth {\n  mode: inherit\n}');
             }
 
-            // 3. Auto-populate empty path variables (e.g., changing 'projectId: ' to 'projectId: {{projectId}}')
-            let lines = content.split('\n');
-            let inPathParams = false;
+            // 3. Fix URL variables by forcing them to be standard {{env_vars}}
+            content = content.replace(/^( {2}url:\s*.*)$/gm, (urlLine) => {
+                // Look for /:variableName and replace it with /{{variableName}}
+                // The (?<=\/) ensures we only match path params and not ports like :8000
+                let fixedUrl = urlLine.replace(/(?<=\/):([a-zA-Z0-9_-]+)/g, '{{$1}}');
 
-            for (let i = 0; i < lines.length; i++) {
-                if (lines[i].trim() === 'params:path {') {
-                    inPathParams = true;
-                } else if (inPathParams && lines[i].trim() === '}') {
-                    inPathParams = false;
-                } else if (inPathParams) {
-                    // Look for empty variables like "  projectId: " or "  region:"
-                    let match = lines[i].match(/^( +)([a-zA-Z0-9_-]+):\s*$/);
-                    if (match) {
-                        lines[i] = `${match[1]}${match[2]}: {{${match[2]}}}`;
-                    }
-                }
-            }
-            content = lines.join('\n');
+                // As a fallback, also catch {variableName} just in case
+                return fixedUrl.replace(/(?<!\{)\{([a-zA-Z0-9_-]+)\}(?!\})/g, '{{$1}}');
+            });
 
             fs.writeFileSync(fullPath, content);
         }
@@ -155,4 +146,4 @@ function enforceAuthInheritance(dir) {
 }
 
 enforceAuthInheritance(collectionDir);
-console.log("✅ Enforced auth inheritance and populated empty variables.");
+console.log("✅ Enforced auth inheritance and fixed URL variables.");
