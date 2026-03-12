@@ -4,12 +4,8 @@ meta {
   seq: 24
 }
 
-auth {
-  mode: inherit
-}
-
 post {
-  url: {{baseUrl}}/v2/projects/{{projectId}}/regions/{{region}}/instances/{{instanceId}}/users/{{userId}}/reset
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/instances/:instanceId/users/:userId/reset
   body: none
   auth: inherit
 }

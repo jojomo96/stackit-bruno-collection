@@ -4,12 +4,8 @@ meta {
   seq: 1
 }
 
-auth {
-  mode: inherit
-}
-
 get {
-  url: {{baseUrl}}/v2alpha1/organizations/{{organizationId}}/network-areas/{{areaId}}/regions/{{region}}/routing-tables
+  url: {{baseUrl}}/v2alpha1/organizations/:organizationId/network-areas/:areaId/regions/:region/routing-tables
   body: none
   auth: inherit
 }

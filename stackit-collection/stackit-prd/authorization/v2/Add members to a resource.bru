@@ -4,12 +4,8 @@ meta {
   seq: 4
 }
 
-auth {
-  mode: inherit
-}
-
 patch {
-  url: {{baseUrl}}/v2/{{resourceId}}/members
+  url: {{baseUrl}}/v2/:resourceId/members
   body: json
   auth: inherit
 }

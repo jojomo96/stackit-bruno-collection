@@ -4,12 +4,8 @@ meta {
   seq: 64
 }
 
-auth {
-  mode: inherit
-}
-
 post {
-  url: {{baseUrl}}/v1/projects/{{projectId}}/instances/{{instanceId}}/http-checks
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/http-checks
   body: json
   auth: inherit
 }

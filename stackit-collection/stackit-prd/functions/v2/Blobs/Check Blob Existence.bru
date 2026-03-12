@@ -7,12 +7,8 @@ meta {
   ]
 }
 
-auth {
-  mode: inherit
-}
-
 head {
-  url: {{baseUrl}}/v2/{{namespace}}/{{name}}/blobs/{{digest}}
+  url: {{baseUrl}}/v2/:namespace/:name/blobs/:digest
   body: none
   auth: inherit
 }

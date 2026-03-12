@@ -4,12 +4,8 @@ meta {
   seq: 1
 }
 
-auth {
-  mode: inherit
-}
-
 get {
-  url: {{baseUrl}}/v3/costs/{{customerAccountId}}
+  url: {{baseUrl}}/v3/costs/:customerAccountId
   body: none
   auth: inherit
 }

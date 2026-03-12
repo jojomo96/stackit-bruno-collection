@@ -4,12 +4,8 @@ meta {
   seq: 8
 }
 
-auth {
-  mode: inherit
-}
-
 delete {
-  url: {{baseUrl}}/v2beta2/projects/{{projectId}}/regions/{{region}}/load-balancers/{{name}}
+  url: {{baseUrl}}/v2beta2/projects/:projectId/regions/:region/load-balancers/:name
   body: none
   auth: inherit
 }

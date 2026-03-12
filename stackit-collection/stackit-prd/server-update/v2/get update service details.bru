@@ -4,12 +4,8 @@ meta {
   seq: 2
 }
 
-auth {
-  mode: inherit
-}
-
 get {
-  url: {{baseUrl}}/v2/projects/{{projectId}}/regions/{{region}}/servers/{{serverId}}/service
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/service
   body: none
   auth: inherit
 }

@@ -4,12 +4,8 @@ meta {
   seq: 10
 }
 
-auth {
-  mode: inherit
-}
-
 put {
-  url: {{baseUrl}}/v1beta/projects/{{projectId}}/regions/{{regionId}}/intakes/{{intakeId}}
+  url: {{baseUrl}}/v1beta/projects/:projectId/regions/:regionId/intakes/:intakeId
   body: json
   auth: inherit
 }

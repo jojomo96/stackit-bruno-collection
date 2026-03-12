@@ -4,12 +4,8 @@ meta {
   seq: 45
 }
 
-auth {
-  mode: inherit
-}
-
 delete {
-  url: {{baseUrl}}/v2/projects/{{projectId}}/regions/{{region}}/backups/{{backupId}}
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/backups/:backupId
   body: none
   auth: inherit
 }

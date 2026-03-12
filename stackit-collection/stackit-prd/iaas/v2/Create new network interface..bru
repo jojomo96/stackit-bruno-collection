@@ -4,12 +4,8 @@ meta {
   seq: 69
 }
 
-auth {
-  mode: inherit
-}
-
 post {
-  url: {{baseUrl}}/v2/projects/{{projectId}}/regions/{{region}}/networks/{{networkId}}/nics
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/networks/:networkId/nics
   body: json
   auth: inherit
 }

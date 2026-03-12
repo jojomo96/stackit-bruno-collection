@@ -4,12 +4,8 @@ meta {
   seq: 17
 }
 
-auth {
-  mode: inherit
-}
-
 delete {
-  url: {{baseUrl}}/v1/projects/{{projectId}}/regions/{{region}}/shareExportPolicies/{{policyId}}
+  url: {{baseUrl}}/v1/projects/:projectId/regions/:region/shareExportPolicies/:policyId
   body: none
   auth: inherit
 }

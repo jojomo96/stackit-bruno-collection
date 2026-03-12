@@ -4,12 +4,8 @@ meta {
   seq: 7
 }
 
-auth {
-  mode: inherit
-}
-
 delete {
-  url: {{baseUrl}}/v2/projects/{{projectId}}/service-accounts/{{serviceAccountEmail}}/access-tokens/{{accessTokenId}}
+  url: {{baseUrl}}/v2/projects/:projectId/service-accounts/:serviceAccountEmail/access-tokens/:accessTokenId
   body: none
   auth: inherit
 }

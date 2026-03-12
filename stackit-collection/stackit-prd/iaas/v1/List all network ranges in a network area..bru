@@ -4,12 +4,8 @@ meta {
   seq: 13
 }
 
-auth {
-  mode: inherit
-}
-
 get {
-  url: {{baseUrl}}/v1/organizations/{{organizationId}}/network-areas/{{areaId}}/network-ranges
+  url: {{baseUrl}}/v1/organizations/:organizationId/network-areas/:areaId/network-ranges
   body: none
   auth: inherit
 }

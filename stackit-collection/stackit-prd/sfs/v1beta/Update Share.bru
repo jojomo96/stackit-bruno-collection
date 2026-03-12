@@ -4,12 +4,8 @@ meta {
   seq: 10
 }
 
-auth {
-  mode: inherit
-}
-
 patch {
-  url: {{baseUrl}}/v1beta/projects/{{projectId}}/regions/{{region}}/resourcePools/{{resourcePoolId}}/shares/{{shareId}}
+  url: {{baseUrl}}/v1beta/projects/:projectId/regions/:region/resourcePools/:resourcePoolId/shares/:shareId
   body: json
   auth: inherit
 }

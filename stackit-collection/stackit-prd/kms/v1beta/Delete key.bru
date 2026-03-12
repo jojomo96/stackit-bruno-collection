@@ -4,12 +4,8 @@ meta {
   seq: 7
 }
 
-auth {
-  mode: inherit
-}
-
 delete {
-  url: {{baseUrl}}/v1beta/projects/{{projectId}}/regions/{{regionId}}/keyrings/{{keyRingId}}/keys/{{keyId}}
+  url: {{baseUrl}}/v1beta/projects/:projectId/regions/:regionId/keyrings/:keyRingId/keys/:keyId
   body: none
   auth: inherit
 }

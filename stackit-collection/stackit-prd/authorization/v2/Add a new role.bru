@@ -4,12 +4,8 @@ meta {
   seq: 8
 }
 
-auth {
-  mode: inherit
-}
-
 post {
-  url: {{baseUrl}}/v2/{{resourceType}}/{{resourceId}}/roles
+  url: {{baseUrl}}/v2/:resourceType/:resourceId/roles
   body: json
   auth: inherit
 }

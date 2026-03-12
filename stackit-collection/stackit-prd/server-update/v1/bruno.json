@@ -1,9 +1,0 @@
-{
-  "version": "1",
-  "name": "STACKIT Server Update Management API",
-  "type": "collection",
-  "ignore": [
-    "node_modules",
-    ".git"
-  ]
-}

@@ -4,12 +4,8 @@ meta {
   seq: 121
 }
 
-auth {
-  mode: inherit
-}
-
 post {
-  url: {{baseUrl}}/v1/projects/{{projectId}}/volumes/{{volumeId}}/resize
+  url: {{baseUrl}}/v1/projects/:projectId/volumes/:volumeId/resize
   body: json
   auth: inherit
 }

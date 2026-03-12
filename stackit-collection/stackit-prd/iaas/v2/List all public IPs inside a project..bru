@@ -4,12 +4,8 @@ meta {
   seq: 75
 }
 
-auth {
-  mode: inherit
-}
-
 get {
-  url: {{baseUrl}}/v2/projects/{{projectId}}/regions/{{region}}/public-ips
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/public-ips
   body: none
   auth: inherit
 }

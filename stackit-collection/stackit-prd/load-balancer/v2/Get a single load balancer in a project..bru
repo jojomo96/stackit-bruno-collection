@@ -4,12 +4,8 @@ meta {
   seq: 9
 }
 
-auth {
-  mode: inherit
-}
-
 get {
-  url: {{baseUrl}}/v2/projects/{{projectId}}/regions/{{region}}/load-balancers/{{name}}
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/load-balancers/:name
   body: none
   auth: inherit
 }

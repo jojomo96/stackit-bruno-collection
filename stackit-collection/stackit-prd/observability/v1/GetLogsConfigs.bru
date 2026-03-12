@@ -4,12 +4,8 @@ meta {
   seq: 71
 }
 
-auth {
-  mode: inherit
-}
-
 get {
-  url: {{baseUrl}}/v1/projects/{{projectId}}/instances/{{instanceId}}/logs-configs
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/logs-configs
   body: none
   auth: inherit
 }

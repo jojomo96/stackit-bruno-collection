@@ -4,12 +4,8 @@ meta {
   seq: 99
 }
 
-auth {
-  mode: inherit
-}
-
 delete {
-  url: {{baseUrl}}/v2beta1/projects/{{projectId}}/regions/{{region}}/servers/{{serverId}}/networks/{{networkId}}
+  url: {{baseUrl}}/v2beta1/projects/:projectId/regions/:region/servers/:serverId/networks/:networkId
   body: none
   auth: inherit
 }

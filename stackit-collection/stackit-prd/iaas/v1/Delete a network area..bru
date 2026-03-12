@@ -4,12 +4,8 @@ meta {
   seq: 10
 }
 
-auth {
-  mode: inherit
-}
-
 delete {
-  url: {{baseUrl}}/v1/organizations/{{organizationId}}/network-areas/{{areaId}}
+  url: {{baseUrl}}/v1/organizations/:organizationId/network-areas/:areaId
   body: none
   auth: inherit
 }

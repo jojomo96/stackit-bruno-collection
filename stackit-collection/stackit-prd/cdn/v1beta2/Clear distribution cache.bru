@@ -4,12 +4,8 @@ meta {
   seq: 8
 }
 
-auth {
-  mode: inherit
-}
-
 post {
-  url: {{baseUrl}}/v1beta2/projects/{{projectId}}/distributions/{{distributionId}}/cache/purge
+  url: {{baseUrl}}/v1beta2/projects/:projectId/distributions/:distributionId/cache/purge
   body: json
   auth: inherit
 }

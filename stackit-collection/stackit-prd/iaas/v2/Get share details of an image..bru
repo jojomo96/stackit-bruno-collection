@@ -4,12 +4,8 @@ meta {
   seq: 55
 }
 
-auth {
-  mode: inherit
-}
-
 get {
-  url: {{baseUrl}}/v2/projects/{{projectId}}/regions/{{region}}/images/{{imageId}}/share
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/images/:imageId/share
   body: none
   auth: inherit
 }

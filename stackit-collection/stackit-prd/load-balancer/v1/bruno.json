@@ -1,9 +1,0 @@
-{
-  "version": "1",
-  "name": "STACKIT Network Load Balancer API",
-  "type": "collection",
-  "ignore": [
-    "node_modules",
-    ".git"
-  ]
-}

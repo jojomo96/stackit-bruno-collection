@@ -4,12 +4,8 @@ meta {
   seq: 21
 }
 
-auth {
-  mode: inherit
-}
-
 post {
-  url: {{baseUrl}}/v1beta/projects/{{projectId}}/regions/{{regionId}}/keyrings/{{keyRingId}}/keys/{{keyId}}/versions/{{versionNumber}}/verify
+  url: {{baseUrl}}/v1beta/projects/:projectId/regions/:regionId/keyrings/:keyRingId/keys/:keyId/versions/:versionNumber/verify
   body: json
   auth: inherit
 }

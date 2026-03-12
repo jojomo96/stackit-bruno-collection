@@ -4,12 +4,8 @@ meta {
   seq: 2
 }
 
-auth {
-  mode: inherit
-}
-
 get {
-  url: {{baseUrl}}/v1/catalog/products/{{productId}}
+  url: {{baseUrl}}/v1/catalog/products/:productId
   body: none
   auth: inherit
 }

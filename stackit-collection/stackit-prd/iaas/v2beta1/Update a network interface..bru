@@ -4,12 +4,8 @@ meta {
   seq: 72
 }
 
-auth {
-  mode: inherit
-}
-
 patch {
-  url: {{baseUrl}}/v2beta1/projects/{{projectId}}/regions/{{region}}/networks/{{networkId}}/nics/{{nicId}}
+  url: {{baseUrl}}/v2beta1/projects/:projectId/regions/:region/networks/:networkId/nics/:nicId
   body: json
   auth: inherit
 }

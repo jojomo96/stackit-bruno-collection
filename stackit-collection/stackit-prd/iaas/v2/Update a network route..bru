@@ -4,12 +4,8 @@ meta {
   seq: 26
 }
 
-auth {
-  mode: inherit
-}
-
 patch {
-  url: {{baseUrl}}/v2/organizations/{{organizationId}}/network-areas/{{areaId}}/regions/{{region}}/routes/{{routeId}}
+  url: {{baseUrl}}/v2/organizations/:organizationId/network-areas/:areaId/regions/:region/routes/:routeId
   body: json
   auth: inherit
 }

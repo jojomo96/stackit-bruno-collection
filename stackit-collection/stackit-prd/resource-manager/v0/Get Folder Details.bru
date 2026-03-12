@@ -4,12 +4,8 @@ meta {
   seq: 4
 }
 
-auth {
-  mode: inherit
-}
-
 get {
-  url: {{baseUrl}}/v2/folders/{{containerId}}
+  url: {{baseUrl}}/v2/folders/:containerId
   body: none
   auth: inherit
 }

@@ -4,12 +4,8 @@ meta {
   seq: 9
 }
 
-auth {
-  mode: inherit
-}
-
 get {
-  url: {{baseUrl}}/v2/products/{{productId}}/stackitx/skus
+  url: {{baseUrl}}/v2/products/:productId/stackitx/skus
   body: none
   auth: inherit
 }

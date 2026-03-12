@@ -4,12 +4,8 @@ meta {
   seq: 9
 }
 
-auth {
-  mode: inherit
-}
-
 delete {
-  url: {{baseUrl}}/v1beta2/projects/{{projectId}}/distributions/{{distributionId}}/customDomains/{{domain}}
+  url: {{baseUrl}}/v1beta2/projects/:projectId/distributions/:distributionId/customDomains/:domain
   body: none
   auth: inherit
 }

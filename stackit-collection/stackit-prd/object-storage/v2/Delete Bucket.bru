@@ -4,12 +4,8 @@ meta {
   seq: 7
 }
 
-auth {
-  mode: inherit
-}
-
 delete {
-  url: {{baseUrl}}/v2/project/{{projectId}}/regions/{{region}}/bucket/{{bucketName}}
+  url: {{baseUrl}}/v2/project/:projectId/regions/:region/bucket/:bucketName
   body: none
   auth: inherit
 }

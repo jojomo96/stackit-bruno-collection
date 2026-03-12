@@ -4,12 +4,8 @@ meta {
   seq: 87
 }
 
-auth {
-  mode: inherit
-}
-
 get {
-  url: {{baseUrl}}/v2/projects/{{projectId}}/regions/{{region}}/security-groups/{{securityGroupId}}/rules
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/security-groups/:securityGroupId/rules
   body: none
   auth: inherit
 }

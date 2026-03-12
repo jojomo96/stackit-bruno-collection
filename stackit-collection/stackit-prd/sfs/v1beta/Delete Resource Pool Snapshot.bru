@@ -4,12 +4,8 @@ meta {
   seq: 13
 }
 
-auth {
-  mode: inherit
-}
-
 delete {
-  url: {{baseUrl}}/v1beta/projects/{{projectId}}/regions/{{region}}/resourcePools/{{resourcePoolId}}/snapshots/{{snapshotName}}
+  url: {{baseUrl}}/v1beta/projects/:projectId/regions/:region/resourcePools/:resourcePoolId/snapshots/:snapshotName
   body: none
   auth: inherit
 }

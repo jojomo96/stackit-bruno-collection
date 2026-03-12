@@ -4,12 +4,8 @@ meta {
   seq: 13
 }
 
-auth {
-  mode: inherit
-}
-
 post {
-  url: {{baseUrl}}/v2alpha1/projects/{{projectId}}/regions/{{region}}/networks
+  url: {{baseUrl}}/v2alpha1/projects/:projectId/regions/:region/networks
   body: json
   auth: inherit
 }

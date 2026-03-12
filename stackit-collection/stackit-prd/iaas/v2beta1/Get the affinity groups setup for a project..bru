@@ -4,12 +4,8 @@ meta {
   seq: 39
 }
 
-auth {
-  mode: inherit
-}
-
 get {
-  url: {{baseUrl}}/v2beta1/projects/{{projectId}}/regions/{{region}}/affinity-groups
+  url: {{baseUrl}}/v2beta1/projects/:projectId/regions/:region/affinity-groups
   body: none
   auth: inherit
 }

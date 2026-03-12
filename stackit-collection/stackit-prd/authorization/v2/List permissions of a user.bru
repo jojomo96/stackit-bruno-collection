@@ -4,12 +4,8 @@ meta {
   seq: 3
 }
 
-auth {
-  mode: inherit
-}
-
 get {
-  url: {{baseUrl}}/v2/users/{{email}}/permissions
+  url: {{baseUrl}}/v2/users/:email/permissions
   body: none
   auth: inherit
 }

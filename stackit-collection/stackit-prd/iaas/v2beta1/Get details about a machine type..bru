@@ -4,12 +4,8 @@ meta {
   seq: 62
 }
 
-auth {
-  mode: inherit
-}
-
 get {
-  url: {{baseUrl}}/v2beta1/projects/{{projectId}}/regions/{{region}}/machine-types/{{machineType}}
+  url: {{baseUrl}}/v2beta1/projects/:projectId/regions/:region/machine-types/:machineType
   body: none
   auth: inherit
 }

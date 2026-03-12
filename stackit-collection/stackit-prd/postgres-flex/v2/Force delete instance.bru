@@ -4,12 +4,8 @@ meta {
   seq: 15
 }
 
-auth {
-  mode: inherit
-}
-
 delete {
-  url: {{baseUrl}}/v2/projects/{{projectId}}/regions/{{region}}/instances/{{instanceId}}/force
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/instances/:instanceId/force
   body: none
   auth: inherit
 }

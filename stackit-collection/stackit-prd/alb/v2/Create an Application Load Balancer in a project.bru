@@ -4,12 +4,8 @@ meta {
   seq: 7
 }
 
-auth {
-  mode: inherit
-}
-
 post {
-  url: {{baseUrl}}/v2/projects/{{projectId}}/regions/{{region}}/load-balancers
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/load-balancers
   body: json
   auth: inherit
 }

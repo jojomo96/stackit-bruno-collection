@@ -4,12 +4,8 @@ meta {
   seq: 55
 }
 
-auth {
-  mode: inherit
-}
-
 get {
-  url: {{baseUrl}}/v1/projects/{{projectId}}/networks/{{networkId}}/nics
+  url: {{baseUrl}}/v1/projects/:projectId/networks/:networkId/nics
   body: none
   auth: inherit
 }

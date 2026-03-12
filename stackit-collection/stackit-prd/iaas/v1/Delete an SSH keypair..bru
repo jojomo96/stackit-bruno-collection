@@ -4,12 +4,8 @@ meta {
   seq: 4
 }
 
-auth {
-  mode: inherit
-}
-
 delete {
-  url: {{baseUrl}}/v1/keypairs/{{keypairName}}
+  url: {{baseUrl}}/v1/keypairs/:keypairName
   body: none
   auth: inherit
 }

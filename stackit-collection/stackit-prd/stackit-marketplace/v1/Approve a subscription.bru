@@ -4,12 +4,8 @@ meta {
   seq: 7
 }
 
-auth {
-  mode: inherit
-}
-
 post {
-  url: {{baseUrl}}/v1/vendors/projects/{{projectId}}/subscriptions/{{subscriptionId}}/approve
+  url: {{baseUrl}}/v1/vendors/projects/:projectId/subscriptions/:subscriptionId/approve
   body: json
   auth: inherit
 }

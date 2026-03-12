@@ -4,12 +4,8 @@ meta {
   seq: 6
 }
 
-auth {
-  mode: inherit
-}
-
 get {
-  url: {{baseUrl}}/v2/project/{{projectId}}/regions/{{region}}/access-keys
+  url: {{baseUrl}}/v2/project/:projectId/regions/:region/access-keys
   body: none
   auth: inherit
 }

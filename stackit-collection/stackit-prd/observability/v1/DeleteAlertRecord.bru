@@ -4,12 +4,8 @@ meta {
   seq: 39
 }
 
-auth {
-  mode: inherit
-}
-
 delete {
-  url: {{baseUrl}}/v1/projects/{{projectId}}/instances/{{instanceId}}/alertgroups/{{groupName}}/records/{{alertRecord}}
+  url: {{baseUrl}}/v1/projects/:projectId/instances/:instanceId/alertgroups/:groupName/records/:alertRecord
   body: none
   auth: inherit
 }

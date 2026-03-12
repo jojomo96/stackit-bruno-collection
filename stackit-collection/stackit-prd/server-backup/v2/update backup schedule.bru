@@ -4,12 +4,8 @@ meta {
   seq: 6
 }
 
-auth {
-  mode: inherit
-}
-
 put {
-  url: {{baseUrl}}/v2/projects/{{projectId}}/regions/{{region}}/servers/{{serverId}}/backup-schedules/{{backupScheduleId}}
+  url: {{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/backup-schedules/:backupScheduleId
   body: json
   auth: inherit
 }
