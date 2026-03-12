@@ -128,15 +128,11 @@ function enforceAuthInheritance(dir) {
             // 2. Ensure the HTTP method block uses auth: inherit (inherits from collection)
             content = content.replace(/^( {2}auth:\s*).+$/gm, '$1inherit');
 
-            // // 3. Fix URL variables by forcing them to be standard {{env_vars}}
-            // content = content.replace(/^( {2}url:\s*.*)$/gm, (urlLine) => {
-            //     // Look for /:variableName and replace it with /{{variableName}}
-            //     // The (?<=\/) ensures we only match path params and not ports like :8000
-            //     let fixedUrl = urlLine.replace(/(?<=\/):([a-zA-Z0-9_-]+)/g, '{{$1}}');
-            //
-            //     // As a fallback, also catch {variableName} just in case
-            //     return fixedUrl.replace(/(?<!\{)\{([a-zA-Z0-9_-]+)\}(?!\})/g, '{{$1}}');
-            // });
+            // 3. Auto-fill empty path params with {{paramName}} variable references
+            content = content.replace(/^(params:path\s*\{)([\s\S]*?)(^\})/gm, (match, open, body, close) => {
+                const newBody = body.replace(/^([ \t]*)(~?)(\w+):[ \t]*$/gm, '$1$2$3: {{$3}}');
+                return open + newBody + close;
+            });
 
             fs.writeFileSync(fullPath, content);
         }
