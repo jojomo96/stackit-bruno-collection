@@ -118,17 +118,15 @@ function enforceAuthInheritance(dir) {
         if (fs.statSync(fullPath).isDirectory()) {
             enforceAuthInheritance(fullPath);
         }
-        else if (fullPath.endsWith('.bru') && file !== 'collection.bru' && file !== 'folder.bru') {
+        else if (fullPath.endsWith('.bru') && file !== 'collection.bru') {
             let content = fs.readFileSync(fullPath, 'utf8');
 
-            // 1. Strip hardcoded auth
+            // 1. Strip standalone auth blocks (auth { ... } and auth:type { ... })
             content = content.replace(/^auth\s*\{[\s\S]*?^\}\n*/gm, '');
             content = content.replace(/^auth:\w+\s*\{[\s\S]*?^\}\n*/gm, '');
 
-            // 2. Inject auth inheritance
-            if (!content.includes('mode: inherit')) {
-                content = content.replace(/^(meta\s*\{[\s\S]*?^\})/m, '$1\n\nauth {\n  mode: inherit\n}');
-            }
+            // 2. Ensure the HTTP method block uses auth: inherit (inherits from collection)
+            content = content.replace(/^( {2}auth:\s*).+$/gm, '$1inherit');
 
             // 3. Fix URL variables by forcing them to be standard {{env_vars}}
             content = content.replace(/^( {2}url:\s*.*)$/gm, (urlLine) => {
