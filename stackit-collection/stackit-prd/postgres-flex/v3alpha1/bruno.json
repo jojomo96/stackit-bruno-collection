@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "STACKIT PostgreSQL Flex API",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

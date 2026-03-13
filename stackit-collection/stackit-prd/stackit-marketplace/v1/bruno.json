@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "STACKIT Marketplace API",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "STACKIT Resource Manager API",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

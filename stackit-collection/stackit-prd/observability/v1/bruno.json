@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "STACKIT Observability API",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
