@@ -1,0 +1,64 @@
+info:
+  name: Update a single target pool of a load balancer in a project.
+  type: http
+  seq: 11
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/load-balancers/:name/target-pools/:targetPoolName"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+    - name: region
+      value: ""
+      type: path
+    - name: name
+      value: ""
+      type: path
+    - name: targetPoolName
+      value: ""
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "activeHealthCheck": {
+          "altPort": 8090,
+          "healthyThreshold": 0,
+          "httpHealthChecks": {
+            "okStatuses": [],
+            "path": "",
+            "tls": {
+              "customCa": "",
+              "enabled": false,
+              "skipCertificateValidation": false
+            }
+          },
+          "interval": "3s",
+          "intervalJitter": "3s",
+          "timeout": "3s",
+          "unhealthyThreshold": 0
+        },
+        "name": "my-target-pool",
+        "targetPort": 5732,
+        "targets": [
+          {
+            "displayName": "my-target",
+            "ip": "192.0.2.5"
+          }
+        ],
+        "tlsConfig": {}
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: |-
+  Replaces the content of a specific target pool in the Application Load Balancer (useful for adding or removing target servers).
+   Only updates the specified target pool, leaving others unchanged.
+   Cannot be used to create or rename target pools.

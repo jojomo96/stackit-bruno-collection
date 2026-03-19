@@ -1,0 +1,23 @@
+info:
+  name: Disables the functionality of load balancers for the project specified.
+  type: http
+  seq: 2
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/v1/projects/:projectId"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: |-
+  DEPRECATED! Disabling the load balancer functionality is now automatic. The endpoint is kept for compatibility.
+   Disable will disable the load balancer functionality for the project specified.

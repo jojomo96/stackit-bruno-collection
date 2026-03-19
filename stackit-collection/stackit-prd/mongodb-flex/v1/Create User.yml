@@ -1,0 +1,36 @@
+info:
+  name: Create User
+  type: http
+  seq: 18
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/users"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: project id
+    - name: instanceId
+      value: ""
+      type: path
+      description: instance id
+  body:
+    type: json
+    data: |-
+      {
+        "database": "",
+        "roles": [
+          "readAnyDatabase"
+        ],
+        "username": ""
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: create a new user for a mongodb instance

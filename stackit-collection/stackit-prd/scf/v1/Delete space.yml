@@ -1,0 +1,30 @@
+info:
+  name: Delete space
+  type: http
+  seq: 15
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/v1/projects/:projectId/regions/:region/organizations/:organizationId/spaces/:spaceId"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+    - name: region
+      value: ""
+      type: path
+    - name: organizationId
+      value: ""
+      type: path
+    - name: spaceId
+      value: ""
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Delete space.

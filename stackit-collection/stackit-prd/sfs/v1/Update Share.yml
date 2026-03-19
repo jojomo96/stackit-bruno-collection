@@ -1,0 +1,38 @@
+info:
+  name: Update Share
+  type: http
+  seq: 10
+
+http:
+  method: PATCH
+  url: "{{baseUrl}}/v1/projects/:projectId/regions/:region/resourcePools/:resourcePoolId/shares/:shareId"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+    - name: region
+      value: ""
+      type: path
+    - name: resourcePoolId
+      value: ""
+      type: path
+    - name: shareId
+      value: ""
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "exportPolicyName": "",
+        "labels": {},
+        "spaceHardLimitGigabytes": 0
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Updates a Shares in a Resource Pool in a project.

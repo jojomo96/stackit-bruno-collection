@@ -1,0 +1,27 @@
+info:
+  name: Trigger cluster wakeup
+  type: http
+  seq: 13
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/clusters/:clusterName/wakeup"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+    - name: region
+      value: ""
+      type: path
+    - name: clusterName
+      value: ""
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Trigger immediate wake up of the cluster. If the cluster is already in running state, this endpoint does nothing.

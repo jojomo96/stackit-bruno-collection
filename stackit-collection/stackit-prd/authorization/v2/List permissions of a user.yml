@@ -1,0 +1,33 @@
+info:
+  name: List permissions of a user
+  type: http
+  seq: 3
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v2/users/:email/permissions"
+  params:
+    - name: email
+      value: ""
+      type: path
+    - name: resource
+      value: ""
+      type: query
+      disabled: true
+    - name: resourceType
+      value: ""
+      type: query
+      disabled: true
+    - name: permissions
+      value: "[]"
+      type: query
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: List permissions of a user. An administrative access is needed to list any user's permissions, while the user can do it on his/her own email. Lists every resource of the given type where the user has any effective permissions. When requested, also lists why the permission is present.

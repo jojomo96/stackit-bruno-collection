@@ -1,0 +1,26 @@
+info:
+  name: Get storage
+  type: http
+  seq: 24
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v1/projects/:projectId/storages/:flavor"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: project id
+    - name: flavor
+      value: ""
+      type: path
+      description: flavor id
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: returns the storage for a certain flavor

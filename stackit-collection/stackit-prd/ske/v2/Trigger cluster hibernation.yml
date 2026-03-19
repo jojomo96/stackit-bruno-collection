@@ -1,0 +1,27 @@
+info:
+  name: Trigger cluster hibernation
+  type: http
+  seq: 6
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/clusters/:clusterName/hibernate"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+    - name: region
+      value: ""
+      type: path
+    - name: clusterName
+      value: ""
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Trigger immediate hibernation of the cluster. If the cluster is already in hibernation state, this endpoint does nothing.

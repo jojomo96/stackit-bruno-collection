@@ -1,0 +1,31 @@
+info:
+  name: create update
+  type: http
+  seq: 12
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v1/projects/:projectId/servers/:serverId/updates"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: project id
+    - name: serverId
+      value: ""
+      type: path
+      description: server id
+  body:
+    type: json
+    data: |-
+      {
+        "backupBeforeUpdate": false,
+        "maintenanceWindow": 0
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

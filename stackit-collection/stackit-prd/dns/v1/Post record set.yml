@@ -1,0 +1,40 @@
+info:
+  name: Post record set
+  type: http
+  seq: 19
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v1/projects/:projectId/zones/:zoneId/rrsets"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: project id
+    - name: zoneId
+      value: ""
+      type: path
+      description: zone id
+  body:
+    type: json
+    data: |-
+      {
+        "comment": "this is our example comment",
+        "name": "example.com.",
+        "records": [
+          {
+            "content": "192.0.2.1"
+          }
+        ],
+        "ttl": 3600,
+        "type": "A"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Post record set

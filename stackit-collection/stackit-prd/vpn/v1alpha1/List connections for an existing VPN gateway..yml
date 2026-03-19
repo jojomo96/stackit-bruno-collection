@@ -1,0 +1,35 @@
+info:
+  name: List connections for an existing VPN gateway.
+  type: http
+  seq: 6
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v1alpha1/projects/:projectId/regions/:region/gateways/:gatewayId/connections"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+    - name: region
+      value: eu01
+      type: path
+    - name: region
+      value: eu02
+      type: path
+      disabled: true
+    - name: gatewayId
+      value: ""
+      type: path
+    - name: label_selector
+      value: ?label_selector[environment]=production&label_selector[foo]=bar
+      type: query
+      description: Filter resources by labels.
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: List connections for an existing VPN gateway.

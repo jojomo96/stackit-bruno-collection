@@ -1,0 +1,28 @@
+info:
+  name: Update existing distribution
+  type: http
+  seq: 5
+
+http:
+  method: PATCH
+  url: "{{baseUrl}}/v1beta2/projects/:projectId/distributions/:distributionId"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: Your STACKIT Project Id
+    - name: distributionId
+      value: ""
+      type: path
+  body:
+    type: json
+    data: "{}"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Modify a CDN distribution with a partial update. Only the fields specified in the request will be modified.

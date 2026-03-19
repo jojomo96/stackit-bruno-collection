@@ -1,0 +1,57 @@
+info:
+  name: List all SKUs
+  type: http
+  seq: 10
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v2/skus"
+  params:
+    - name: cursor
+      value: ""
+      type: query
+      description: The cursor base64 encoded is used to retrieve the next page of results
+      disabled: true
+    - name: pageSize
+      value: "10"
+      type: query
+      description: The number of items to retrieve per page
+    - name: language
+      value: en
+      type: query
+      description: The language to retrieve the data in, available for en and de
+      disabled: true
+    - name: language
+      value: de
+      type: query
+      description: The language to retrieve the data in, available for en and de
+      disabled: true
+    - name: categoryName
+      value: ""
+      type: query
+      description: The category's name to retrieve the data for
+      disabled: true
+    - name: productName
+      value: ""
+      type: query
+      description: The product's name to retrieve the data for
+      disabled: true
+    - name: skuName
+      value: ""
+      type: query
+      description: The SKU's name to retrieve the data for
+      disabled: true
+    - name: region
+      value: "[]"
+      type: query
+      description: The region to retrieve the data in
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Retrieves a list of all SKUs, available for general public.

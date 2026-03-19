@@ -1,0 +1,36 @@
+info:
+  name: List Application Load Balancers in a project.
+  type: http
+  seq: 6
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/load-balancers"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+    - name: region
+      value: ""
+      type: path
+    - name: pageSize
+      value: ""
+      type: query
+      description: page_size specifies how many Application Load Balancers should be returned on this page. Must be a positive number <= 1000
+      disabled: true
+    - name: pageId
+      value: ""
+      type: query
+      description: page_id is a page identifier returned by the previous response and is used to request the next page
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: |-
+  Lists all Application Load Balancers in a project.
+   Includes details from creation or updates, along with their status and any error descriptions.

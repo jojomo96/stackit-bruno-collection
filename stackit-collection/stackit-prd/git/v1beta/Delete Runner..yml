@@ -1,0 +1,27 @@
+info:
+  name: Delete Runner.
+  type: http
+  seq: 12
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/v1beta/projects/:projectId/instances/:instanceId/runner"
+  params:
+    - name: projectId
+      value: 83b8e9c4-e3d1-4dc4-bb89-9854c8b5383e
+      type: path
+      description: Project identifier.
+    - name: instanceId
+      value: 83b8e9c4-e3d1-4dc4-bb89-9854c8b5383e
+      type: path
+      description: Instance identifier.
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: |
+  Deletes the runner associated to this STACKIT Git instance and destroys all associated data.

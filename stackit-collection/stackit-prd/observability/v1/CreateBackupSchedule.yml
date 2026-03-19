@@ -1,0 +1,50 @@
+info:
+  name: CreateBackupSchedule
+  type: http
+  seq: 45
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/backup-schedules"
+  params:
+    - name: instanceId
+      value: ""
+      type: path
+    - name: projectId
+      value: ""
+      type: path
+    - name: backupTarget
+      value: alertConfig
+      type: query
+      description: List of backup targets
+      disabled: true
+    - name: backupTarget
+      value: alertRules
+      type: query
+      description: List of backup targets
+      disabled: true
+    - name: backupTarget
+      value: scrapeConfig
+      type: query
+      description: List of backup targets
+      disabled: true
+    - name: backupTarget
+      value: grafana
+      type: query
+      description: List of backup targets
+      disabled: true
+  body:
+    type: json
+    data: |-
+      {
+        "schedule": ""
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Create backup schedule.

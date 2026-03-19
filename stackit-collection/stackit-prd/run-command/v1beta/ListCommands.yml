@@ -1,0 +1,26 @@
+info:
+  name: ListCommands
+  type: http
+  seq: 3
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v1beta/projects/:projectId/servers/:serverId/commands"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: ID of the project
+    - name: serverId
+      value: ""
+      type: path
+      description: Server ID of the machine
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Returns a list of commands

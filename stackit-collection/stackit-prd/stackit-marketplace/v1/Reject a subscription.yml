@@ -1,0 +1,26 @@
+info:
+  name: Reject a subscription
+  type: http
+  seq: 8
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v1/vendors/projects/:projectId/subscriptions/:subscriptionId/reject"
+  params:
+    - name: projectId
+      value: 14fef715-4ef3-4b10-8789-cd7f9bd09421
+      type: path
+      description: The project ID.
+    - name: subscriptionId
+      value: 14fef715-4ef3-4b10-8789-cd7f9bd09421
+      type: path
+      description: The subscription ID.
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Reject a subscription (in any lifecycle state). Only available for subscriptions to products with lifecycle state `PRODUCT_PREVIEW`.

@@ -1,0 +1,26 @@
+info:
+  name: details of a llm model
+  type: http
+  seq: 6
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v1/regions/:regionId/chat/models/:modelId"
+  params:
+    - name: regionId
+      value: eu01
+      type: path
+      description: region name
+    - name: modelId
+      value: 550e8400-e29b-41d4-a716-446655440000
+      type: path
+      description: model id
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: details of a llm model

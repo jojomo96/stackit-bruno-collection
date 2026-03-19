@@ -1,0 +1,30 @@
+info:
+  name: Delete Organization Labels
+  type: http
+  seq: 8
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/v2/organizations/:containerId/labels"
+  params:
+    - name: containerId
+      value: ""
+      type: path
+      description: Organization identifier - containerId as well as UUID identifier is supported.
+    - name: keys
+      value: "[]"
+      type: query
+      description: Label name.
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: |-
+  Deletes all organization labels by given keys.
+  - Specific labels may be deleted by key(s)
+  - If no key is specified, all labels will be deleted!

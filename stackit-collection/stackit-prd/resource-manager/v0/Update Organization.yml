@@ -1,0 +1,32 @@
+info:
+  name: Update Organization
+  type: http
+  seq: 10
+
+http:
+  method: PATCH
+  url: "{{baseUrl}}/v2/organizations/:id"
+  params:
+    - name: id
+      value: ""
+      type: path
+      description: Organization identifier - containerId as well as UUID identifier is supported.
+  body:
+    type: json
+    data: |-
+      {
+        "labels": {},
+        "name": "My Organization"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: |-
+  Update the organization and its metadata.
+  - Update organization name
+  - Update organization labels

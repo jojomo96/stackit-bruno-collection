@@ -1,0 +1,38 @@
+info:
+  name: Update information of a backup.
+  type: http
+  seq: 47
+
+http:
+  method: PATCH
+  url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/backups/:backupId"
+  params:
+    - name: projectId
+      value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+      type: path
+      description: The identifier (ID) of a STACKIT Project.
+    - name: region
+      value: eu01
+      type: path
+      description: The STACKIT Region of the resources.
+    - name: backupId
+      value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+      type: path
+      description: The identifier (ID) of a STACKIT Backup.
+  body:
+    type: json
+    data: |-
+      {
+        "labels": {
+          "foo": "foobar"
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Update name or labels of the backup.

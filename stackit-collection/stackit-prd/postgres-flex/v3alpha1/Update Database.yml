@@ -1,0 +1,41 @@
+info:
+  name: Update Database
+  type: http
+  seq: 17
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId/databases/:databaseId"
+  params:
+    - name: projectId
+      value: 19feb036-9b61-11ee-b9d1-0242ac120002
+      type: path
+      description: The STACKIT project ID.
+    - name: region
+      value: eu01
+      type: path
+      description: The region which should be addressed
+    - name: instanceId
+      value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+      type: path
+      description: The ID of the instance.
+    - name: databaseId
+      value: "16999"
+      type: path
+      description: The ID of the database.
+  body:
+    type: json
+    data: |-
+      {
+        "name": "MyDatabase",
+        "owner": "MyUser"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Update a database in an instance.

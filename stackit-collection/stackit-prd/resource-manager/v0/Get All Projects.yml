@@ -1,0 +1,55 @@
+info:
+  name: Get All Projects
+  type: http
+  seq: 11
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v2/projects"
+  params:
+    - name: containerParentId
+      value: ""
+      type: query
+      description: Identifier of the parent resource container - containerId as well as UUID identifier is supported.
+      disabled: true
+    - name: containerIds
+      value: "[]"
+      type: query
+      description: List of container identifiers - containerId as well as UUID identifier is supported.
+      disabled: true
+    - name: member
+      value: ""
+      type: query
+      description: E-Mail address of the user for whom the visible resource containers should be filtered.
+      disabled: true
+    - name: offset
+      value: "0"
+      type: query
+      description: The offset of the first item in the collection to return.
+    - name: limit
+      value: "50"
+      type: query
+      description: The maximum number of projects to return in the response. If not present, an appropriate default will be used. If maximum is exceeded, maximum is used.
+    - name: creation-time-start
+      value: 2021-01-20T00:00:00Z
+      type: query
+      description: A timestamp to specify the beginning of the creationTime from which entries should be returned. If not given, defaults to the beginning of time.
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: |-
+  Returns all projects and their metadata that: 
+  - Are children of the specific containerParentId
+  - Match the given containerIds
+  - User is member of
+
+  Filter:
+  - Either containerParentId OR containerIds OR member must be passed
+  - If containerId and containerParentId are given, both are used for filtering - containers must point to the same parent
+  - If member and containerParentId are given, both are used for filtering
+  - If member is given, containers must not point to the same container parent

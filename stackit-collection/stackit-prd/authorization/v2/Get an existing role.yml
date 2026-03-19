@@ -1,0 +1,27 @@
+info:
+  name: Get an existing role
+  type: http
+  seq: 10
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v2/:resourceType/:resourceId/roles/:roleId"
+  params:
+    - name: resourceType
+      value: ""
+      type: path
+    - name: resourceId
+      value: ""
+      type: path
+    - name: roleId
+      value: ""
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Get a custom role by ID.

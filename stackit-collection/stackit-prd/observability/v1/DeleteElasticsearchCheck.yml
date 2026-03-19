@@ -1,0 +1,27 @@
+info:
+  name: DeleteElasticsearchCheck
+  type: http
+  seq: 60
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/elasticsearch-checks/:id"
+  params:
+    - name: id
+      value: ""
+      type: path
+    - name: instanceId
+      value: ""
+      type: path
+    - name: projectId
+      value: ""
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Delete elasticsearch check.

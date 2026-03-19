@@ -1,0 +1,39 @@
+info:
+  name: UpdateAlertrule
+  type: http
+  seq: 34
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/alertgroups/:groupName/alertrules/:alertName"
+  params:
+    - name: alertName
+      value: ""
+      type: path
+    - name: groupName
+      value: ""
+      type: path
+    - name: instanceId
+      value: ""
+      type: path
+    - name: projectId
+      value: ""
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "annotations": {},
+        "expr": "",
+        "for": "",
+        "labels": {}
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Update alert rule.

@@ -1,0 +1,24 @@
+info:
+  name: trigger a recreate
+  type: http
+  seq: 16
+
+http:
+  method: PATCH
+  url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/recreate"
+  params:
+    - name: instanceId
+      value: ""
+      type: path
+      description: Instance id
+    - name: projectId
+      value: ""
+      type: path
+      description: Project id on which user has permissions
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,28 @@
+info:
+  name: Resolve customer
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v1/vendors/projects/:projectId/resolve-customer"
+  params:
+    - name: projectId
+      value: 14fef715-4ef3-4b10-8789-cd7f9bd09421
+      type: path
+      description: The project ID.
+  body:
+    type: json
+    data: |-
+      {
+        "token": "VGhpcyBpcyBhIHRva2VuIGJ5IGRvbW15IHRva2VuIGFuZCBiYXNlNjQgZW5jb2RlZA=="
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Get details about the requested subscription.

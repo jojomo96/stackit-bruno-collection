@@ -1,0 +1,33 @@
+info:
+  name: Create a rule configuration
+  type: http
+  seq: 7
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:region/rules"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+    - name: region
+      value: ""
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "name": "my-rules-config",
+        "projectId": "2438ac3c-37eb-4902-adef-ed16b4431030",
+        "region": "eu01",
+        "rules": "SecRule REQUEST_URI \"@streq /admin\" \"id:101,phase:2,t:lowercase,deny\""
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: With this endpoint a rule configuration is created and stored in this project. The rules are written in Seclang. This rule configuration is supposed to be referenced by a WAF configuration. It can be referenced by any number of WAF configurations in the same project. There is a limit of 1 MB of data on these rules.

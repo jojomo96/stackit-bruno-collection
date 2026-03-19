@@ -1,0 +1,41 @@
+info:
+  name: Organization - Download audit log entries
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v2/organizations/:organizationId"
+  params:
+    - name: organizationId
+      value: ""
+      type: path
+      description: ID of the organization for which entries should be returned.
+    - name: start-time-range
+      value: 2022-03-21T08:10:14.422Z
+      type: query
+      description: An ISO timestamp to specify the beginning of the time range from which entries should be returned, based on the eventTimeStamp. If not given, defaults to the beginning of time.
+    - name: end-time-range
+      value: 2022-03-21T08:10:14.422Z
+      type: query
+      description: An ISO timestamp to specify the end of the time range up until which entries should be returned, based on the eventTimeStamp. If not given, defaults to the time this request was received.
+    - name: limit
+      value: "50"
+      type: query
+      description: The maximum number of entries to return. If the value exceeds the allowed maximum, the maximum value will be used instead.
+    - name: cursor
+      value: ""
+      type: query
+      description: A pagination cursor to load further audit log entries for. May be included in the response of previous calls of the API.
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: |
+  Returns all audit log entries of the organization for the specified period. \
+  Period must not be longer than 24 hours within the last 90 days.

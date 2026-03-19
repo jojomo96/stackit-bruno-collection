@@ -1,0 +1,32 @@
+info:
+  name: get update
+  type: http
+  seq: 11
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/updates/:updateId"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: project id
+    - name: serverId
+      value: ""
+      type: path
+      description: server id
+    - name: updateId
+      value: ""
+      type: path
+      description: id of the update
+    - name: region
+      value: eu01
+      type: path
+      description: region
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

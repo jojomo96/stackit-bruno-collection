@@ -1,0 +1,34 @@
+info:
+  name: Delete Database
+  type: http
+  seq: 14
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/instances/:instanceId/databases/:databaseId"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: Project ID
+    - name: region
+      value: eu01
+      type: path
+      description: The region which should be addressed
+    - name: instanceId
+      value: ""
+      type: path
+      description: Instance ID
+    - name: databaseId
+      value: ""
+      type: path
+      description: Database ID
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Delete database for an instance

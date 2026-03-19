@@ -1,0 +1,49 @@
+info:
+  name: Update Instance (PUT)
+  type: http
+  seq: 8
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/instances/:instanceId"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: Project ID
+    - name: instanceId
+      value: ""
+      type: path
+      description: Instance ID
+    - name: region
+      value: eu01
+      type: path
+      description: The region which should be addressed
+    - name: region
+      value: eu02
+      type: path
+      description: The region which should be addressed
+      disabled: true
+  body:
+    type: json
+    data: |-
+      {
+        "acl": {},
+        "backupSchedule": "6 6 * * *",
+        "flavorId": "4.16-Single",
+        "labels": {},
+        "name": "test-instance",
+        "version": "2022"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: |
+  Update available instance of a mssql database.
+
+  **Please note that any changes applied via PUT or PATCH requests will initiate a reboot of the SQL Server Flex Instance.**

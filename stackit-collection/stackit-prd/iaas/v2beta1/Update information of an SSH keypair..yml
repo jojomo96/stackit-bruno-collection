@@ -1,0 +1,30 @@
+info:
+  name: Update information of an SSH keypair.
+  type: http
+  seq: 5
+
+http:
+  method: PATCH
+  url: "{{baseUrl}}/v2beta1/keypairs/:keypairName"
+  params:
+    - name: keypairName
+      value: keypair-123
+      type: path
+      description: The name of an SSH keypair.
+  body:
+    type: json
+    data: |-
+      {
+        "labels": {
+          "key": "value"
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Update labels of the SSH keypair.

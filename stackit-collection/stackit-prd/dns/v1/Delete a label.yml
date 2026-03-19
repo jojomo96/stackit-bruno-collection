@@ -1,0 +1,30 @@
+info:
+  name: Delete a label
+  type: http
+  seq: 12
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/v1/projects/:projectId/zones/:zoneId/labels/:key"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: project id
+    - name: zoneId
+      value: ""
+      type: path
+      description: zone id
+    - name: key
+      value: ""
+      type: path
+      description: key of the label
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Delete a label

@@ -1,0 +1,33 @@
+info:
+  name: Delete a custom domain
+  type: http
+  seq: 9
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/v1beta2/projects/:projectId/distributions/:distributionId/customDomains/:domain"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: Your STACKIT Project Id
+    - name: distributionId
+      value: ""
+      type: path
+    - name: domain
+      value: ""
+      type: path
+    - name: intentId
+      value: ""
+      type: query
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: |
+  Removes a custom domain

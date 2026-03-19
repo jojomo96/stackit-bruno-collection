@@ -1,0 +1,46 @@
+info:
+  name: RestoreBackup
+  type: http
+  seq: 42
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/backup-restores/:backupDate"
+  params:
+    - name: backupDate
+      value: ""
+      type: path
+    - name: instanceId
+      value: ""
+      type: path
+    - name: projectId
+      value: ""
+      type: path
+    - name: restoreTarget
+      value: alertConfig
+      type: query
+      description: List of restore targets
+    - name: restoreTarget
+      value: alertRules
+      type: query
+      description: List of restore targets
+      disabled: true
+    - name: restoreTarget
+      value: scrapeConfig
+      type: query
+      description: List of restore targets
+      disabled: true
+    - name: restoreTarget
+      value: grafana
+      type: query
+      description: List of restore targets
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Restore backup.

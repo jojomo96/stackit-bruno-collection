@@ -1,0 +1,34 @@
+info:
+  name: Create a WAF configuration
+  type: http
+  seq: 12
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:region/wafs"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+    - name: region
+      value: ""
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "coreRuleSetName": "my-core-rule-set-config",
+        "name": "my-waf-config",
+        "projectId": "2438ac3c-37eb-4902-adef-ed16b4431030",
+        "region": "eu01",
+        "rulesConfigName": "my-rules-config"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: This endpoint will create and store a WAF configuration in a project. The name of this WAF configuration is supposed to be used in the listener of an Application Load Balancer, which will activate this configuration and in addition it is possible to enable the core rule set. This WAF configuration can be used by any number of Application Load Balancers in the same project. The configuration has a reference to a rule configuration. This rule configuration has to exist when trying to create a WAF configuration. Later other configuration references will be added to this object.

@@ -1,0 +1,34 @@
+info:
+  name: Store a TLS certificate in a project.
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/certificates"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+    - name: region
+      value: ""
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "name": "my-tls-certificate",
+        "privateKey": "-----BEGIN EC PRIVATE KEY----- MYPriV4TE+Tls/CER71fICATE...-----END EC PRIVATE KEY-----",
+        "projectId": "2438ac3c-37eb-4902-adef-ed16b4431030",
+        "publicKey": "-----BEGIN CERTIFICATE----- MYPUbLiC+Tls/CER71fICATE...-----END CERTIFICATE-----",
+        "region": "eu01"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: CreateCertificate will store a TLS certificate in a project.

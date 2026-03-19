@@ -1,0 +1,37 @@
+info:
+  name: Create organization manager
+  type: http
+  seq: 8
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v1/projects/:projectId/regions/:region/organizations/:organizationId/organization_manager"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+    - name: region
+      value: ""
+      type: path
+    - name: organizationId
+      value: ""
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: |
+  Creates organization manager within an organization.
+
+  The organization manager will be backed by a CF user.
+  There is only one organization manager per organization.
+  The organization manager gets assigned the CF role Org Manager.
+
+  This endpoint does synchronously several non-atomic steps behind the scenes.
+  If any of those steps fail, the 'Delete Organization Manager' needs to be called first to clean up the failed creation attempt and afterwards the creation can be retried.
+
+  The password needs to be stored by the API callee since it cannot be retrieved after creation.

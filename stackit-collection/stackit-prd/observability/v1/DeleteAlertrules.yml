@@ -1,0 +1,31 @@
+info:
+  name: DeleteAlertrules
+  type: http
+  seq: 28
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/alertgroups/:groupName/alertrules"
+  params:
+    - name: groupName
+      value: ""
+      type: path
+    - name: instanceId
+      value: ""
+      type: path
+    - name: projectId
+      value: ""
+      type: path
+    - name: alertName
+      value: "[]"
+      type: query
+      description: Name of the alert rules that should be deleted
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Delete alert rules.

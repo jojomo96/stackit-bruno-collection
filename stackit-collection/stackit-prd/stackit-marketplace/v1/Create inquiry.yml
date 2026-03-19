@@ -1,0 +1,20 @@
+info:
+  name: Create inquiry
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v1/inquiries"
+  body:
+    type: json
+    data: "{}"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Create an inquiry to contact sales, become a vendor, request a private plan, register for testing, or suggest a product. Requests are limited to 10 per 5 minutes.

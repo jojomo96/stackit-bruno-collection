@@ -1,0 +1,30 @@
+info:
+  name: Delete Folder Labels
+  type: http
+  seq: 6
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/v2/folders/:containerId/labels"
+  params:
+    - name: containerId
+      value: ""
+      type: path
+      description: Folder identifier - containerId as well as UUID identifier is supported.
+    - name: keys
+      value: "[]"
+      type: query
+      description: Label name.
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: |-
+  Deletes all folder labels by given keys.
+  - Specific labels may be deleted by key(s)
+  - If no key is specified, all labels will be deleted!

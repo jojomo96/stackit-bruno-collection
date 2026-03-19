@@ -1,0 +1,30 @@
+info:
+  name: List Roles
+  type: http
+  seq: 19
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId/roles"
+  params:
+    - name: projectId
+      value: 19feb036-9b61-11ee-b9d1-0242ac120002
+      type: path
+      description: The STACKIT project ID.
+    - name: region
+      value: eu01
+      type: path
+      description: The region which should be addressed
+    - name: instanceId
+      value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+      type: path
+      description: The ID of the instance.
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: List available roles for an instance.

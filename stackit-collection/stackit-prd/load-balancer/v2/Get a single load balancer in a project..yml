@@ -1,0 +1,30 @@
+info:
+  name: Get a single load balancer in a project.
+  type: http
+  seq: 9
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/load-balancers/:name"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+    - name: region
+      value: ""
+      type: path
+    - name: name
+      value: ""
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: |-
+  Get Load Balancer will get a single load balancer of a project. This contains all the information set during
+   creation or updates. Additionally, it will have information about the state of the load balancer in the form
+   of a status field and error description feedback.

@@ -1,0 +1,37 @@
+info:
+  name: CreateAlertrules
+  type: http
+  seq: 31
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/alertgroups/:groupName/alertrules"
+  params:
+    - name: groupName
+      value: ""
+      type: path
+    - name: instanceId
+      value: ""
+      type: path
+    - name: projectId
+      value: ""
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "alert": "",
+        "annotations": {},
+        "expr": "",
+        "for": "",
+        "labels": {}
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Create alert rule.

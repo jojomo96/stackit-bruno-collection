@@ -1,0 +1,27 @@
+info:
+  name: List all network areas in an organization.
+  type: http
+  seq: 7
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v2/organizations/:organizationId/network-areas"
+  params:
+    - name: organizationId
+      value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+      type: path
+      description: The identifier (ID) of a STACKIT Organization.
+    - name: label_selector
+      value: ""
+      type: query
+      description: Filter resources by labels.
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Get a list of all visible network areas defined in an organization.

@@ -1,0 +1,30 @@
+info:
+  name: Detach a network interface.
+  type: http
+  seq: 89
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/v1/projects/:projectId/servers/:serverId/nics/:nicId"
+  params:
+    - name: projectId
+      value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+      type: path
+      description: The identifier (ID) of a STACKIT Project.
+    - name: serverId
+      value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+      type: path
+      description: The identifier (ID) of a STACKIT Server.
+    - name: nicId
+      value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+      type: path
+      description: The identifier (ID) of a network interface.
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Detach a network interface from a server.

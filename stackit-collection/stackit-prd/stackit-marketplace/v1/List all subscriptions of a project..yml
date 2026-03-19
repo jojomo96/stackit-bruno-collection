@@ -1,0 +1,34 @@
+info:
+  name: List all subscriptions of a project.
+  type: http
+  seq: 5
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v1/vendors/projects/:projectId/subscriptions"
+  params:
+    - name: projectId
+      value: 14fef715-4ef3-4b10-8789-cd7f9bd09421
+      type: path
+      description: The project ID.
+    - name: cursor
+      value: eyJrZXkiOiJ2YWx1ZSJ9
+      type: query
+      description: A pagination cursor that represents a position in the dataset. If given, results will be returned from the item after the cursor. If not given, results will be returned from the beginning.
+    - name: limit
+      value: "50"
+      type: query
+      description: The maximum number of items to return in the response. If maximum is exceeded, maximum is used.
+    - name: productId
+      value: marketplace-product-4c531ae5
+      type: query
+      description: The product ID.
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: List all subscriptions of a project.

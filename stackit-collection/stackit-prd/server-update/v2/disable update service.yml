@@ -1,0 +1,28 @@
+info:
+  name: disable update service
+  type: http
+  seq: 1
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/service"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: project id
+    - name: serverId
+      value: ""
+      type: path
+      description: server id
+    - name: region
+      value: eu01
+      type: path
+      description: region
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

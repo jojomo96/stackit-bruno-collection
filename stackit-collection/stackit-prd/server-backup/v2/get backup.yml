@@ -1,0 +1,32 @@
+info:
+  name: get backup
+  type: http
+  seq: 10
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/backups/:backupId"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: project id
+    - name: serverId
+      value: ""
+      type: path
+      description: server id
+    - name: region
+      value: eu01
+      type: path
+      description: region
+    - name: backupId
+      value: ""
+      type: path
+      description: id of the backup
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,38 @@
+info:
+  name: Create an image out of a volume.
+  type: http
+  seq: 135
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/volumes/:volumeId/upload"
+  params:
+    - name: projectId
+      value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+      type: path
+      description: The identifier (ID) of a STACKIT Project.
+    - name: volumeId
+      value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+      type: path
+      description: The identifier (ID) of a STACKIT Volume.
+    - name: region
+      value: eu01
+      type: path
+      description: The STACKIT Region of the resources.
+  body:
+    type: json
+    data: |-
+      {
+        "diskFormat": "",
+        "name": "objectName26",
+        "protected": true
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Create an image out a a volume.

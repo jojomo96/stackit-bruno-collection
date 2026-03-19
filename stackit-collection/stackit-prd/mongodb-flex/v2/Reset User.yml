@@ -1,0 +1,39 @@
+info:
+  name: Reset User
+  type: http
+  seq: 23
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/instances/:instanceId/users/:userId/reset"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: project id
+    - name: instanceId
+      value: ""
+      type: path
+      description: instance id
+    - name: userId
+      value: ""
+      type: path
+      description: user id
+    - name: region
+      value: eu01
+      type: path
+      description: The region which should be addressed
+    - name: region
+      value: eu02
+      type: path
+      description: The region which should be addressed
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: resets mongodb user's password

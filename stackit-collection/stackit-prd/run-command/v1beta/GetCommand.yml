@@ -1,0 +1,30 @@
+info:
+  name: GetCommand
+  type: http
+  seq: 5
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v1beta/projects/:projectId/servers/:serverId/commands/:commandId"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: ID of the project
+    - name: serverId
+      value: ""
+      type: path
+      description: Server ID of the machine
+    - name: commandId
+      value: ""
+      type: path
+      description: ID of the command
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Returns details about a command

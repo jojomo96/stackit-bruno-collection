@@ -1,0 +1,30 @@
+info:
+  name: Delete Access Key
+  type: http
+  seq: 5
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/v1/project/:projectId/access-key/:keyId"
+  params:
+    - name: projectId
+      value: cd5e788d-5b7b-4ab9-a20d-e790205df10b
+      type: path
+      description: STACKIT project ID
+    - name: keyId
+      value: abcABC_01234-0123456789abcABCabc0123456789==
+      type: path
+      description: Object storage access key
+    - name: credentials-group
+      value: ""
+      type: query
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Delete an access key from the given project.

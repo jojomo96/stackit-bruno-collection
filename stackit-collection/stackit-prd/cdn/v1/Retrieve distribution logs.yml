@@ -1,0 +1,239 @@
+info:
+  name: Retrieve distribution logs
+  type: http
+  seq: 12
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v1/projects/:projectId/distributions/:distributionId/logs"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: Your STACKIT Project Id
+    - name: distributionId
+      value: ""
+      type: path
+      description: Your CDN distribution Id
+    - name: from
+      value: ""
+      type: query
+      description: the start of the time range for which logs should be returned
+      disabled: true
+    - name: to
+      value: ""
+      type: query
+      description: |
+        the end of the time range for which logs should be returned. If not specified, 
+        "now" is used.
+      disabled: true
+    - name: pageSize
+      value: "20"
+      type: query
+      description: |
+        Quantifies how many log entries should be returned on this 
+        page. Must be a natural number between 1 and 1000 (inclusive)
+    - name: pageIdentifier
+      value: CiQ0NjExMDY1MS1kNDQ1LTQ3NjgtOTc3YS00MTIzMjlmMjliYjYgAQ
+      type: query
+      description: |
+        Identifier is returned by the previous response and is used to request the next page.
+
+        As the `pageIdentifier` encodes an element, inserts during pagination will *not* shift the result.
+        So a scenario like:  
+        - Start listing first page
+        - Insert new element
+        - Start listing second page
+        will *never* result in an element from the first page to get "pushed" to the second page, like it could 
+        occur with basic limit + offset pagination.
+
+        The identifier should be treated as an opaque string and never modified. Only pass values returned by the API.
+    - name: sortBy
+      value: timestamp
+      type: query
+      description: |
+        Sorts the log messages by a specific field. Defaults to `timestamp`.
+
+        Supported sort options:
+        - `timestamp`
+        - `dataCenterRegion`
+        - `requestCountryCode`
+        - `statusCode`
+        - `cacheHit`
+        - `size`
+        - `path`
+        - `host`
+    - name: sortBy
+      value: dataCenterRegion
+      type: query
+      description: |
+        Sorts the log messages by a specific field. Defaults to `timestamp`.
+
+        Supported sort options:
+        - `timestamp`
+        - `dataCenterRegion`
+        - `requestCountryCode`
+        - `statusCode`
+        - `cacheHit`
+        - `size`
+        - `path`
+        - `host`
+      disabled: true
+    - name: sortBy
+      value: requestCountryCode
+      type: query
+      description: |
+        Sorts the log messages by a specific field. Defaults to `timestamp`.
+
+        Supported sort options:
+        - `timestamp`
+        - `dataCenterRegion`
+        - `requestCountryCode`
+        - `statusCode`
+        - `cacheHit`
+        - `size`
+        - `path`
+        - `host`
+      disabled: true
+    - name: sortBy
+      value: statusCode
+      type: query
+      description: |
+        Sorts the log messages by a specific field. Defaults to `timestamp`.
+
+        Supported sort options:
+        - `timestamp`
+        - `dataCenterRegion`
+        - `requestCountryCode`
+        - `statusCode`
+        - `cacheHit`
+        - `size`
+        - `path`
+        - `host`
+      disabled: true
+    - name: sortBy
+      value: cacheHit
+      type: query
+      description: |
+        Sorts the log messages by a specific field. Defaults to `timestamp`.
+
+        Supported sort options:
+        - `timestamp`
+        - `dataCenterRegion`
+        - `requestCountryCode`
+        - `statusCode`
+        - `cacheHit`
+        - `size`
+        - `path`
+        - `host`
+      disabled: true
+    - name: sortBy
+      value: size
+      type: query
+      description: |
+        Sorts the log messages by a specific field. Defaults to `timestamp`.
+
+        Supported sort options:
+        - `timestamp`
+        - `dataCenterRegion`
+        - `requestCountryCode`
+        - `statusCode`
+        - `cacheHit`
+        - `size`
+        - `path`
+        - `host`
+      disabled: true
+    - name: sortBy
+      value: path
+      type: query
+      description: |
+        Sorts the log messages by a specific field. Defaults to `timestamp`.
+
+        Supported sort options:
+        - `timestamp`
+        - `dataCenterRegion`
+        - `requestCountryCode`
+        - `statusCode`
+        - `cacheHit`
+        - `size`
+        - `path`
+        - `host`
+      disabled: true
+    - name: sortBy
+      value: host
+      type: query
+      description: |
+        Sorts the log messages by a specific field. Defaults to `timestamp`.
+
+        Supported sort options:
+        - `timestamp`
+        - `dataCenterRegion`
+        - `requestCountryCode`
+        - `statusCode`
+        - `cacheHit`
+        - `size`
+        - `path`
+        - `host`
+      disabled: true
+    - name: sortOrder
+      value: ascending
+      type: query
+      disabled: true
+    - name: sortOrder
+      value: descending
+      type: query
+      disabled: true
+    - name: wafAction
+      value: BLOCKED
+      type: query
+      description: |
+        If this is set then only log entries with the chosen WAF rule action/outcome are returned.
+        Specifically, if `ALLOWED` then all requests with no violation are returned. If `BLOCKED` then those where
+        a WAF rule blocked a request and if `LOGGED` then only those requests where the WAF violation was only logged 
+        but the request not blocked
+      disabled: true
+    - name: wafAction
+      value: LOGGED
+      type: query
+      description: |
+        If this is set then only log entries with the chosen WAF rule action/outcome are returned.
+        Specifically, if `ALLOWED` then all requests with no violation are returned. If `BLOCKED` then those where
+        a WAF rule blocked a request and if `LOGGED` then only those requests where the WAF violation was only logged 
+        but the request not blocked
+      disabled: true
+    - name: wafAction
+      value: ALLOWED
+      type: query
+      description: |
+        If this is set then only log entries with the chosen WAF rule action/outcome are returned.
+        Specifically, if `ALLOWED` then all requests with no violation are returned. If `BLOCKED` then those where
+        a WAF rule blocked a request and if `LOGGED` then only those requests where the WAF violation was only logged 
+        but the request not blocked
+      disabled: true
+    - name: dataCenterRegion
+      value: AMS
+      type: query
+      description: |
+        Filters by the CDN data center region that served the request. Can be combined with other filters
+    - name: requestCountryCode
+      value: DE
+      type: query
+      description: |
+        Filters by the originating country of the user request. Can be combined with other filters
+    - name: statusCode
+      value: "202"
+      type: query
+      description: |
+        Filters by the HTTP status code returned to the client. Can be combined with other filters
+    - name: cacheHit
+      value: "true"
+      type: query
+      description: |
+        Filters based on whether the request was served from the CDN cache. Can be combined with other filters
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

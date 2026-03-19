@@ -1,0 +1,26 @@
+info:
+  name: ListACLs
+  type: http
+  seq: 6
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/acls"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: The STACKIT portal project UUID the Secrets Manager instance is part of.
+    - name: instanceId
+      value: ""
+      type: path
+      description: The Secrets Manager instance UUID.
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Returns the acls for the given Secrets Manager instance.

@@ -1,0 +1,28 @@
+info:
+  name: delete update schedule
+  type: http
+  seq: 8
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/v1/projects/:projectId/servers/:serverId/update-schedules/:scheduleId"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: project id
+    - name: serverId
+      value: ""
+      type: path
+      description: server id
+    - name: scheduleId
+      value: ""
+      type: path
+      description: update schedule id
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

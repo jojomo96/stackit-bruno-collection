@@ -1,0 +1,28 @@
+info:
+  name: get update
+  type: http
+  seq: 13
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v1/projects/:projectId/servers/:serverId/updates/:updateId"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: project id
+    - name: serverId
+      value: ""
+      type: path
+      description: server id
+    - name: updateId
+      value: ""
+      type: path
+      description: id of the update
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

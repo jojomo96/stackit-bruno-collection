@@ -1,0 +1,42 @@
+info:
+  name: update-instance
+  type: http
+  seq: 7
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/v1beta1/projects/:projectId/regions/:regionId/instances/:instanceId"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: The STACKIT portal project UUID the instance is part of.
+    - name: regionId
+      value: eu01
+      type: path
+      description: The STACKIT region the instance is part of.
+    - name: regionId
+      value: eu02
+      type: path
+      description: The STACKIT region the instance is part of.
+      disabled: true
+    - name: instanceId
+      value: ""
+      type: path
+      description: The full ID of the instance, <display_name>-<project_hash>.
+  body:
+    type: json
+    data: |-
+      {
+        "description": "",
+        "planId": ""
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Updates the given instance.

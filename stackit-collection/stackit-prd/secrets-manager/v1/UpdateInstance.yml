@@ -1,0 +1,38 @@
+info:
+  name: UpdateInstance
+  type: http
+  seq: 5
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: The STACKIT portal project UUID the Secrets Manager instance is part of.
+    - name: instanceId
+      value: ""
+      type: path
+      description: The Secrets Manager instance UUID.
+  body:
+    type: json
+    data: |-
+      {
+        "kmsKey": {
+          "keyId": "",
+          "keyRingId": "",
+          "keyVersion": 0,
+          "serviceAccountEmail": ""
+        },
+        "name": ""
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Updates the given Secrets Manager instance.

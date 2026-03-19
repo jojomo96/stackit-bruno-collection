@@ -1,0 +1,34 @@
+info:
+  name: List load balancers in a project.
+  type: http
+  seq: 10
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v1/projects/:projectId/load-balancers"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+    - name: pageSize
+      value: ""
+      type: query
+      description: page_size specifies how many load balancers should be returned on this page. Must be a positive number <= 1000
+      disabled: true
+    - name: pageId
+      value: ""
+      type: query
+      description: page_id is a page identifier returned by the previous response and is used to request the next page
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: |-
+  ListLoadBalancer will list load balancers of a project. This contains information set during
+   creation or updates for every load balancer in the project. Additionally, it will have information about
+   the state of the load balancer in the form of a status field and error description feedback.

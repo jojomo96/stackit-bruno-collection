@@ -1,0 +1,37 @@
+info:
+  name: delete backup
+  type: http
+  seq: 9
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/backups/:backupId"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: project id
+    - name: serverId
+      value: ""
+      type: path
+      description: server id
+    - name: region
+      value: eu01
+      type: path
+      description: region
+    - name: backupId
+      value: ""
+      type: path
+      description: id of the backup
+    - name: force
+      value: ""
+      type: query
+      description: force delete the backup
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

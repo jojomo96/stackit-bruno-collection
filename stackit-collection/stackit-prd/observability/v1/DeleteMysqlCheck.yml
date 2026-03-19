@@ -1,0 +1,27 @@
+info:
+  name: DeleteMysqlCheck
+  type: http
+  seq: 80
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/mysql-checks/:id"
+  params:
+    - name: id
+      value: ""
+      type: path
+    - name: instanceId
+      value: ""
+      type: path
+    - name: projectId
+      value: ""
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Delete mysql check.

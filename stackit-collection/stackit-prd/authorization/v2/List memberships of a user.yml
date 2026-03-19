@@ -1,0 +1,33 @@
+info:
+  name: List memberships of a user
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v2/users/:email/memberships"
+  params:
+    - name: email
+      value: ""
+      type: path
+    - name: resourceType
+      value: ""
+      type: query
+      disabled: true
+    - name: resourceId
+      value: ""
+      type: query
+      disabled: true
+    - name: parentResourceId
+      value: ""
+      type: query
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: List memberships of a user. An administrative access is needed to list any user's memberships, while the user can do it on his/her own email. You can use filters to scope the request to a project/folder/organization. In this case -if caller is not the subject-, owner permissions are required. Because of hierarchical role bindings, the user might have permissions on more resources.

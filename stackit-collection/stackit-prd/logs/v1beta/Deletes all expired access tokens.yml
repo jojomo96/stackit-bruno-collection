@@ -1,0 +1,35 @@
+info:
+  name: Deletes all expired access tokens
+  type: http
+  seq: 9
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/v1beta/projects/:projectId/regions/:regionId/instances/:instanceId/access-tokens/expired"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: The STACKIT portal project UUID the resource is located in.
+    - name: regionId
+      value: eu01
+      type: path
+      description: The STACKIT region name the resource is located in.
+    - name: regionId
+      value: eu02
+      type: path
+      description: The STACKIT region name the resource is located in.
+      disabled: true
+    - name: instanceId
+      value: ""
+      type: path
+      description: The Logs Instance UUID.
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Deletes all expired access tokens

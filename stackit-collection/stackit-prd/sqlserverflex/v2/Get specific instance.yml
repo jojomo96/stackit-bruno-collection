@@ -1,0 +1,35 @@
+info:
+  name: Get specific instance
+  type: http
+  seq: 6
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/instances/:instanceId"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: Project ID
+    - name: instanceId
+      value: ""
+      type: path
+      description: Instance ID
+    - name: region
+      value: eu01
+      type: path
+      description: The region which should be addressed
+    - name: region
+      value: eu02
+      type: path
+      description: The region which should be addressed
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Get specific available instances

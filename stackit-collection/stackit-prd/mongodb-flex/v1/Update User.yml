@@ -1,0 +1,39 @@
+info:
+  name: Update User
+  type: http
+  seq: 21
+
+http:
+  method: PATCH
+  url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/users/:userId"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: project id
+    - name: instanceId
+      value: ""
+      type: path
+      description: instance id
+    - name: userId
+      value: ""
+      type: path
+      description: user id
+  body:
+    type: json
+    data: |-
+      {
+        "database": "",
+        "roles": [
+          "readAnyDatabase"
+        ]
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: updates user for a mongodb instance

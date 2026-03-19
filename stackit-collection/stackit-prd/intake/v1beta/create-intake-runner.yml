@@ -1,0 +1,41 @@
+info:
+  name: create-intake-runner
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v1beta/projects/:projectId/regions/:regionId/intake-runners"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: The STACKIT portal project UUID the resource is located in.
+    - name: regionId
+      value: eu01
+      type: path
+      description: The STACKIT region name the resource is located in.
+    - name: regionId
+      value: eu02
+      type: path
+      description: The STACKIT region name the resource is located in.
+      disabled: true
+  body:
+    type: json
+    data: |-
+      {
+        "description": "",
+        "displayName": "",
+        "labels": {},
+        "maxMessageSizeKiB": 0,
+        "maxMessagesPerHour": 0
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Creates a new intake runner within the project.

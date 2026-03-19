@@ -1,0 +1,27 @@
+info:
+  name: Trigger cluster reconciliation
+  type: http
+  seq: 11
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/clusters/:clusterName/reconcile"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+    - name: region
+      value: ""
+      type: path
+    - name: clusterName
+      value: ""
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Trigger immediate reconciliation of the complete cluster without changing the cluster specification.

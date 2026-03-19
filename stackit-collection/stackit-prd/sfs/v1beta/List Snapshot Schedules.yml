@@ -1,0 +1,21 @@
+info:
+  name: List Snapshot Schedules
+  type: http
+  seq: 20
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v1beta/projects/:projectId/snapshotSchedules"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Lists snapshot schedules

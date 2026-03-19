@@ -1,0 +1,33 @@
+info:
+  name: Create a CRS configuration
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:region/core-rule-sets"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+    - name: region
+      value: ""
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "active": true,
+        "name": "my-core-rule-set-config",
+        "projectId": "2438ac3c-37eb-4902-adef-ed16b4431030",
+        "region": "eu01"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: With this endpoint a core rule set (CRS) configuration is created and stored in this project. Currently it is only possible to enable it. This rule configuration is supposed to be referenced by a WAF configuration. It can be referenced by any number of WAF configurations in the same project.

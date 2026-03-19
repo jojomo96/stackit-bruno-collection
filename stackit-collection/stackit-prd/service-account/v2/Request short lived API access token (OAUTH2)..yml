@@ -1,0 +1,31 @@
+info:
+  name: Request short lived API access token (OAUTH2).
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{baseUrl}}/token"
+  body:
+    type: form-urlencoded
+    data:
+      - name: assertion
+        value: ""
+        description: The self signed JWT. Must be given when grant_type is urn:ietf:params:oauth:grant-type:jwt-bearer
+      - name: grant_type
+        value: ""
+        description: Always use URL encoded values. E.g. urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
+      - name: refresh_token
+        value: ""
+        description: Refresh token provided by a previous call with a self signed token. Must be given when grant_type is refresh_token
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: |-
+  Request a short lived API access token with OAUTH2. Compatible with [Using JWTs as Authorization Grants](https://www.rfc-editor.org/rfc/rfc7523.html#section-2.1)
+  You can request a token with a self signed token, or with a refresh token.

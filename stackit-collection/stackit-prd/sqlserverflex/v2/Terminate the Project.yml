@@ -1,0 +1,31 @@
+info:
+  name: Terminate the Project
+  type: http
+  seq: 1
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/v2/projects/:projectId/regions/:region"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: Project ID
+    - name: region
+      value: eu01
+      type: path
+      description: The region which should be addressed
+    - name: region
+      value: eu02
+      type: path
+      description: The region which should be addressed
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Termination is the deletion of a whole project which causes the deletion of all instances for this project. Only System with permission system.databases-project.remove is able to call this resource

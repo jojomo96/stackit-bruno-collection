@@ -1,0 +1,6 @@
+name: Environment 1
+variables:
+  - name: baseUrl
+    value: https://sfs.api.stackit.cloud
+  - name: region
+    value: global

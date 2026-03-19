@@ -1,0 +1,30 @@
+info:
+  name: CreatePingCheck
+  type: http
+  seq: 85
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/ping-checks"
+  params:
+    - name: instanceId
+      value: ""
+      type: path
+    - name: projectId
+      value: ""
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "url": ""
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Create ping check.

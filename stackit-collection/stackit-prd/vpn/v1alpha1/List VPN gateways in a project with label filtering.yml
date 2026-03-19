@@ -1,0 +1,34 @@
+info:
+  name: List VPN gateways in a project with label filtering
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v1alpha1/projects/:projectId/regions/:region/gateways"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+    - name: region
+      value: eu01
+      type: path
+    - name: region
+      value: eu02
+      type: path
+      disabled: true
+    - name: label_selector
+      value: ?label_selector[environment]=production&label_selector[foo]=bar
+      type: query
+      description: Filter resources by labels.
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: |
+  Retrieve a list of all VPN gateways in a project. 
+  Filter the results using the `label_selector` query parameter.

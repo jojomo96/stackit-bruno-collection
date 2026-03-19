@@ -1,0 +1,22 @@
+info:
+  name: List all WAF rule collections of the project
+  type: http
+  seq: 15
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v1/projects/:projectId/waf/collections"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: Your STACKIT Project Id
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Returns all WAF rule collections available to the project

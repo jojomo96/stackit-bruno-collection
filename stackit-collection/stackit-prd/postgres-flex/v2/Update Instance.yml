@@ -1,0 +1,51 @@
+info:
+  name: Update Instance
+  type: http
+  seq: 6
+
+http:
+  method: PATCH
+  url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/instances/:instanceId"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: Project ID
+    - name: region
+      value: eu01
+      type: path
+      description: The region which should be addressed
+    - name: instanceId
+      value: ""
+      type: path
+      description: Instance ID
+  body:
+    type: json
+    data: |-
+      {
+        "acl": {
+          "items": [
+            "0.0.0.0/0"
+          ]
+        },
+        "backupSchedule": "6 6 * * *",
+        "flavorId": "1.1",
+        "labels": {},
+        "name": "",
+        "options": {},
+        "replicas": 3,
+        "storage": {
+          "class": "",
+          "size": 10
+        },
+        "version": "1.0"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Update available instance of a postgres database. Supported Versions are 12, 13, 14, 15 -- only upgrades are allowed!

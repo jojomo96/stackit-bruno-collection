@@ -1,0 +1,30 @@
+info:
+  name: delete auth token in shared model use
+  type: http
+  seq: 3
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/v1/projects/:projectId/regions/:regionId/tokens/:tId"
+  params:
+    - name: regionId
+      value: eu01
+      type: path
+      description: region name
+    - name: projectId
+      value: 904bb6ea-8632-4818-b26e-943557dc4f57
+      type: path
+      description: portal project id
+    - name: tId
+      value: 6406334b-960f-4b45-8d9f-aa28f6205efd
+      type: path
+      description: token id
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: delete auth token in shared model use

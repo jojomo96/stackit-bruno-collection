@@ -1,0 +1,30 @@
+info:
+  name: Delete a network range.
+  type: http
+  seq: 15
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/v1/organizations/:organizationId/network-areas/:areaId/network-ranges/:networkRangeId"
+  params:
+    - name: organizationId
+      value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+      type: path
+      description: The identifier (ID) of a STACKIT Organization.
+    - name: areaId
+      value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+      type: path
+      description: The identifier (ID) of a STACKIT Network Area.
+    - name: networkRangeId
+      value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+      type: path
+      description: The identifier (ID) of a STACKIT Network Range.
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Delete a network range of a network area. The deletion will fail if the network range is still used.

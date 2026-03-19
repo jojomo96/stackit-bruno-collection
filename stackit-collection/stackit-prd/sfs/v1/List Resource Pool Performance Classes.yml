@@ -1,0 +1,17 @@
+info:
+  name: List Resource Pool Performance Classes
+  type: http
+  seq: 20
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v1/resourcePoolPerformanceClasses"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Lists all performances classes available

@@ -1,0 +1,31 @@
+info:
+  name: Create an organization
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v1/projects/:projectId/regions/:region/organizations"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+    - name: region
+      value: ""
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "name": "my-org",
+        "platformId": "00000000-0000-0000-0000-000000000000"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Creates an organization without assigning any CF roles or creating a space.

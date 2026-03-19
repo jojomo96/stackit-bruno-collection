@@ -1,0 +1,53 @@
+info:
+  name: Create Instance
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances"
+  params:
+    - name: projectId
+      value: 19feb036-9b61-11ee-b9d1-0242ac120002
+      type: path
+      description: The STACKIT project ID.
+    - name: region
+      value: eu01
+      type: path
+      description: The region which should be addressed
+  body:
+    type: json
+    data: |-
+      {
+        "backupSchedule": "6 6 * * *",
+        "encryption": {
+          "kekKeyId": "48e3f816-3e38-44bb-bbff-22e05f0567de",
+          "kekKeyRingId": "48e3f816-3e38-44bb-bbff-22e05f0567de",
+          "kekKeyVersion": "1",
+          "serviceAccount": "example@compute.sa.stackit.cloud"
+        },
+        "flavorId": "1.2",
+        "name": "postgres-instance",
+        "network": {
+          "accessScope": "PUBLIC",
+          "acl": [
+            "198.51.100.0/24"
+          ]
+        },
+        "replicas": 1,
+        "retentionDays": 35,
+        "storage": {
+          "performanceClass": "premium-perf12-stackit",
+          "size": 10
+        },
+        "version": ""
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Create a new instance of a postgres database instance.

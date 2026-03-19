@@ -1,0 +1,36 @@
+info:
+  name: Update space
+  type: http
+  seq: 17
+
+http:
+  method: PATCH
+  url: "{{baseUrl}}/v1/projects/:projectId/regions/:region/organizations/:organizationId/spaces/:spaceId"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+    - name: region
+      value: ""
+      type: path
+    - name: organizationId
+      value: ""
+      type: path
+    - name: spaceId
+      value: ""
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "name": "space0"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Update space.

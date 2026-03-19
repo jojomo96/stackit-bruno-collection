@@ -1,0 +1,32 @@
+info:
+  name: UpdateMetricsStorageRetention
+  type: http
+  seq: 74
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/metrics-storage-retentions"
+  params:
+    - name: instanceId
+      value: ""
+      type: path
+    - name: projectId
+      value: ""
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "metricsRetentionTime1h": "",
+        "metricsRetentionTime5m": "",
+        "metricsRetentionTimeRaw": ""
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Update metric update retention time.

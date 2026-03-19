@@ -1,0 +1,34 @@
+info:
+  name: Get specific backup
+  type: http
+  seq: 10
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/instances/:instanceId/backups/:backupId"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: Project ID
+    - name: region
+      value: eu01
+      type: path
+      description: The region which should be addressed
+    - name: instanceId
+      value: ""
+      type: path
+      description: Instance ID
+    - name: backupId
+      value: ""
+      type: path
+      description: Backup ID
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Get specific available backup

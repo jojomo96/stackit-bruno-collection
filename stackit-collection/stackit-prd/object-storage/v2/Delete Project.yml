@@ -1,0 +1,26 @@
+info:
+  name: Delete Project
+  type: http
+  seq: 1
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/v2/project/:projectId/regions/:region"
+  params:
+    - name: projectId
+      value: cd5e788d-5b7b-4ab9-a20d-e790205df10b
+      type: path
+      description: STACKIT project ID
+    - name: region
+      value: eu01
+      type: path
+      description: STACKIT Region
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Delete the given project

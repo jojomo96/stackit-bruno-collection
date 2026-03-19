@@ -1,0 +1,26 @@
+info:
+  name: Get Access Keys
+  type: http
+  seq: 6
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v1/project/:projectId/access-keys"
+  params:
+    - name: projectId
+      value: cd5e788d-5b7b-4ab9-a20d-e790205df10b
+      type: path
+      description: STACKIT project ID
+    - name: credentials-group
+      value: ""
+      type: query
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Get a list of access keys for the given project.

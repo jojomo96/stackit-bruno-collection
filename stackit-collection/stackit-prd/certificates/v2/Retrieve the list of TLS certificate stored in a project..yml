@@ -1,0 +1,34 @@
+info:
+  name: Retrieve the list of TLS certificate stored in a project.
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/certificates"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+    - name: region
+      value: ""
+      type: path
+    - name: pageSize
+      value: ""
+      type: query
+      description: page_size specifies how many certificates should be returned on this page. Must be a positive number <= 1000
+      disabled: true
+    - name: pageId
+      value: ""
+      type: query
+      description: page_id is a page identifier returned by the previous response and is used to request the next page
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: ListCertificates will return the list of TLS certificates in a project.

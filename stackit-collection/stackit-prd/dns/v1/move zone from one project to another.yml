@@ -1,0 +1,29 @@
+info:
+  name: move zone from one project to another
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v1/projects/:projectId/move-zone"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: project id
+  body:
+    type: json
+    data: |-
+      {
+        "code": "3sLuLCLpLEbbQ6GZ05tu2U56dmKx1uCdWquTHz6BK34=",
+        "zoneDnsName": "example.com"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: move zone from one project to another

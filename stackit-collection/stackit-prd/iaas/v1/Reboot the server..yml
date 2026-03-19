@@ -1,0 +1,30 @@
+info:
+  name: Reboot the server.
+  type: http
+  seq: 93
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v1/projects/:projectId/servers/:serverId/reboot"
+  params:
+    - name: projectId
+      value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+      type: path
+      description: The identifier (ID) of a STACKIT Project.
+    - name: serverId
+      value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+      type: path
+      description: The identifier (ID) of a STACKIT Server.
+    - name: action
+      value: soft
+      type: query
+      description: Defines if it is a soft or a hard reboot.
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Reboot the server. A soft reboot will attempt to gracefully shut down the server by passing the command to the operating system. A hard reboot will power cycle the server without waiting for the operating system to shutdown properly.

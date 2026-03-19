@@ -1,0 +1,31 @@
+info:
+  name: Get product by ID.
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v1/catalog/products/:productId"
+  params:
+    - name: productId
+      value: marketplace-product-4c531ae5
+      type: path
+      description: Unique ID of the product.
+    - name: locale
+      value: de
+      type: query
+      description: Language of the response.
+      disabled: true
+    - name: locale
+      value: en
+      type: query
+      description: Language of the response.
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Gives information about a publicly available product.

@@ -1,0 +1,30 @@
+info:
+  name: Restore record set
+  type: http
+  seq: 24
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v1/projects/:projectId/zones/:zoneId/rrsets/:rrSetId/restores"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: project id
+    - name: zoneId
+      value: ""
+      type: path
+      description: zone id
+    - name: rrSetId
+      value: ""
+      type: path
+      description: record set id
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Restore record set

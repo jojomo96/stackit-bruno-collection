@@ -1,0 +1,34 @@
+info:
+  name: Create Project
+  type: http
+  seq: 12
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v2/projects"
+  body:
+    type: json
+    data: |-
+      {
+        "containerParentId": "name-of-parent-173523",
+        "labels": {},
+        "members": [
+          {
+            "role": "",
+            "subject": "max.musterman@mail.schwarz"
+          }
+        ],
+        "name": "My first project"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: |-
+  Create a new project. 
+  - The request is synchronous, but the workflow-based creation is asynchronous.
+  - Lifecycle state remains in CREATING, until workflow completes

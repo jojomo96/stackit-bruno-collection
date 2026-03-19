@@ -1,0 +1,37 @@
+info:
+  name: Update a WAF configuration
+  type: http
+  seq: 15
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:region/wafs/:name"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+    - name: region
+      value: ""
+      type: path
+    - name: name
+      value: ""
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "coreRuleSetName": "my-core-rule-set-config",
+        "name": "my-waf-config",
+        "projectId": "2438ac3c-37eb-4902-adef-ed16b4431030",
+        "region": "eu01",
+        "rulesConfigName": "my-rules-config"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: The update endpoint will update a stored WAF configuration in project and not yet but later will also update the Load Balancers that reference it.

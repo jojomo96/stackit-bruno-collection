@@ -1,0 +1,27 @@
+info:
+  name: DeleteScrapeConfig
+  type: http
+  seq: 100
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/scrapeconfigs/:jobName"
+  params:
+    - name: instanceId
+      value: ""
+      type: path
+    - name: jobName
+      value: ""
+      type: path
+    - name: projectId
+      value: ""
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Delete scrape config.

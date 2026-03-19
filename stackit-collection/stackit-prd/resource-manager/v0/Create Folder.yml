@@ -1,0 +1,31 @@
+info:
+  name: Create Folder
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v2/folders"
+  body:
+    type: json
+    data: |-
+      {
+        "containerParentId": "name-of-parent-173523",
+        "labels": {},
+        "members": [
+          {
+            "role": "",
+            "subject": "max.musterman@mail.schwarz"
+          }
+        ],
+        "name": "My Folder"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Create a new folder.

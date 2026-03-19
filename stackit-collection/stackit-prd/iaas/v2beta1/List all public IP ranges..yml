@@ -1,0 +1,17 @@
+info:
+  name: List all public IP ranges.
+  type: http
+  seq: 6
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v2beta1/networks/public-ip-ranges"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Get a list of all public IP ranges that STACKIT uses.

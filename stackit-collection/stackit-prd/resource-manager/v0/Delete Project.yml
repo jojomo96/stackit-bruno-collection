@@ -1,0 +1,25 @@
+info:
+  name: Delete Project
+  type: http
+  seq: 14
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/v2/projects/:id"
+  params:
+    - name: id
+      value: ""
+      type: path
+      description: Project identifier - containerId as well as UUID identifier is supported.
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: |-
+  Triggers the deletion of a project. 
+  - The request is synchronous, but the workflow-based deletion is asynchronous
+  - Lifecycle state remains in DELETING, until workflow completes

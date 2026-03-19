@@ -1,0 +1,42 @@
+info:
+  name: Attach a volume to a server.
+  type: http
+  seq: 121
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/volume-attachments/:volumeId"
+  params:
+    - name: projectId
+      value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+      type: path
+      description: The identifier (ID) of a STACKIT Project.
+    - name: region
+      value: eu01
+      type: path
+      description: The STACKIT Region of the resources.
+    - name: serverId
+      value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+      type: path
+      description: The identifier (ID) of a STACKIT Server.
+    - name: volumeId
+      value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+      type: path
+      description: The identifier (ID) of a STACKIT Volume.
+  body:
+    type: json
+    data: |-
+      {
+        "deleteOnTermination": false,
+        "serverId": "",
+        "volumeId": ""
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Attach an existing volume to an existing server.

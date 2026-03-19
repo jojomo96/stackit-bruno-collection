@@ -1,0 +1,41 @@
+info:
+  name: Import key
+  type: http
+  seq: 9
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v1beta/projects/:projectId/regions/:regionId/keyrings/:keyRingId/keys/:keyId/import"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: The STACKIT portal project UUID the key ring is part of.
+    - name: regionId
+      value: eu01
+      type: path
+      description: The STACKIT region name the key ring is located in.
+    - name: keyRingId
+      value: ""
+      type: path
+      description: The key ring UUID.
+    - name: keyId
+      value: ""
+      type: path
+      description: The key UUID.
+  body:
+    type: json
+    data: |-
+      {
+        "wrappedKey": "",
+        "wrappingKeyId": ""
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Imports a new version to the given key.

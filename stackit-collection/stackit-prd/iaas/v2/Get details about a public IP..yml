@@ -1,0 +1,30 @@
+info:
+  name: Get details about a public IP.
+  type: http
+  seq: 78
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/public-ips/:publicIpId"
+  params:
+    - name: projectId
+      value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+      type: path
+      description: The identifier (ID) of a STACKIT Project.
+    - name: region
+      value: eu01
+      type: path
+      description: The STACKIT Region of the resources.
+    - name: publicIpId
+      value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+      type: path
+      description: The identifier (ID) of a Public IP.
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Get details about a public IP inside a project.

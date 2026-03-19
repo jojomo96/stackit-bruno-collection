@@ -1,0 +1,27 @@
+info:
+  name: Get Share Export Policy
+  type: http
+  seq: 18
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v1beta/projects/:projectId/regions/:region/shareExportPolicies/:policyId"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+    - name: region
+      value: ""
+      type: path
+    - name: policyId
+      value: ""
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Retrieves a ShareExportPolicies in a Resource Pool in a project.

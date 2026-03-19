@@ -1,0 +1,48 @@
+info:
+  name: update backup schedule
+  type: http
+  seq: 6
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/backup-schedules/:backupScheduleId"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: project id
+    - name: serverId
+      value: ""
+      type: path
+      description: server id
+    - name: region
+      value: eu01
+      type: path
+      description: region
+    - name: backupScheduleId
+      value: ""
+      type: path
+      description: backup schedule id
+  body:
+    type: json
+    data: |-
+      {
+        "backupProperties": {
+          "name": "Daily Backup",
+          "retentionPeriod": 3,
+          "volumeIds": [
+            "58335311-6acf-46c5-8652-cb96cd63181e",
+            "38345f49-047b-437d-83a1-458f04fa3182"
+          ]
+        },
+        "enabled": true,
+        "name": "Daily Schedule",
+        "rrule": "DTSTART;TZID=Europe/Sofia:20200803T023000 RRULE:FREQ=DAILY;INTERVAL=1"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

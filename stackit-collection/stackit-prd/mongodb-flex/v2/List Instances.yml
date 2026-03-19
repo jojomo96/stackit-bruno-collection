@@ -1,0 +1,35 @@
+info:
+  name: List Instances
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/instances"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: project id
+    - name: tag
+      value: ""
+      type: query
+      description: instance tag
+    - name: region
+      value: eu01
+      type: path
+      description: The region which should be addressed
+    - name: region
+      value: eu02
+      type: path
+      description: The region which should be addressed
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: list all instances for a projectID

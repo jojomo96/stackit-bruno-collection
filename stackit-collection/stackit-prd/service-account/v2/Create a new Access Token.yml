@@ -1,0 +1,32 @@
+info:
+  name: Create a new Access Token
+  type: http
+  seq: 6
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v2/projects/:projectId/service-accounts/:serviceAccountEmail/access-tokens"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: The ID of the project.
+    - name: serviceAccountEmail
+      value: ""
+      type: path
+      description: The email of the Service Account.
+  body:
+    type: json
+    data: |-
+      {
+        "ttlDays": 0
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Create an Access Token for a Service Account. The service token can be then used for API calls. Save the response token, as it is not recoverable later. Token metadata can be requested until the token is not expired. A token cannot be created using another token from the same service account. Consider using service account keys instead as a more secure and automation friendly solution.

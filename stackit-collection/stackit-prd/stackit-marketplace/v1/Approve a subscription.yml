@@ -1,0 +1,32 @@
+info:
+  name: Approve a subscription
+  type: http
+  seq: 7
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v1/vendors/projects/:projectId/subscriptions/:subscriptionId/approve"
+  params:
+    - name: projectId
+      value: 14fef715-4ef3-4b10-8789-cd7f9bd09421
+      type: path
+      description: The project ID.
+    - name: subscriptionId
+      value: 14fef715-4ef3-4b10-8789-cd7f9bd09421
+      type: path
+      description: The subscription ID.
+  body:
+    type: json
+    data: |-
+      {
+        "instanceTarget": "https://marketplace-application.com/register?x-stackit–marketplace-token=eC1zdGFja2l0LW1hcmtldHBsYWNlLXRva2Vu"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Approve a pending subscription.

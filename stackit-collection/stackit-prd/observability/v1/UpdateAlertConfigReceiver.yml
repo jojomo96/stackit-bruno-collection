@@ -1,0 +1,61 @@
+info:
+  name: UpdateAlertConfigReceiver
+  type: http
+  seq: 14
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/alertconfigs/receivers/:receiver"
+  params:
+    - name: instanceId
+      value: ""
+      type: path
+    - name: projectId
+      value: ""
+      type: path
+    - name: receiver
+      value: ""
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "emailConfigs": [
+          {
+            "authIdentity": "",
+            "authPassword": "",
+            "authUsername": "",
+            "from": "",
+            "sendResolved": false,
+            "smarthost": "",
+            "to": ""
+          }
+        ],
+        "name": "",
+        "opsgenieConfigs": [
+          {
+            "apiKey": "",
+            "apiUrl": "",
+            "priority": "",
+            "sendResolved": false,
+            "tags": ""
+          }
+        ],
+        "webHookConfigs": [
+          {
+            "googleChat": false,
+            "msTeams": false,
+            "sendResolved": false,
+            "url": ""
+          }
+        ]
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Update alert config receiver.

@@ -1,0 +1,36 @@
+info:
+  name: Create or update a custom domain
+  type: http
+  seq: 11
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/v1beta2/projects/:projectId/distributions/:distributionId/customDomains/:domain"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: Your STACKIT Project Id
+    - name: distributionId
+      value: ""
+      type: path
+    - name: domain
+      value: ""
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "certificate": {},
+        "intentId": ""
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: |
+  Creates a new custom domain. If it already exists, this will overwrite the previous custom domain's properties.

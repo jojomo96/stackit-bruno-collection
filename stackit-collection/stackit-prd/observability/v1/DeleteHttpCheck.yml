@@ -1,0 +1,27 @@
+info:
+  name: DeleteHttpCheck
+  type: http
+  seq: 65
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/http-checks/:id"
+  params:
+    - name: instanceId
+      value: ""
+      type: path
+    - name: projectId
+      value: ""
+      type: path
+    - name: id
+      value: ""
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Delete http check.

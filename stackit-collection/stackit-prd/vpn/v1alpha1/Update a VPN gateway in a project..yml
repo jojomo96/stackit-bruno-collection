@@ -1,0 +1,58 @@
+info:
+  name: Update a VPN gateway in a project.
+  type: http
+  seq: 5
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/v1alpha1/projects/:projectId/regions/:region/gateways/:gatewayId"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+    - name: region
+      value: eu01
+      type: path
+    - name: region
+      value: eu02
+      type: path
+      disabled: true
+    - name: gatewayId
+      value: ""
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "availabilityZones": {
+          "tunnel1": "eu01-1",
+          "tunnel2": "eu01-1"
+        },
+        "bgp": {
+          "localAsn": 0,
+          "overrideAdvertisedRoutes": [
+            "10.10.10.10/32"
+          ]
+        },
+        "displayName": "my-vpn",
+        "labels": {
+          "contact": "max.mustermann@example.org",
+          "environment": "production",
+          "foo": "bar",
+          "onsite-target": "branch-office-berlin",
+          "team": "netops"
+        },
+        "planId": "p50",
+        "routingType": "POLICY_BASED"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: |
+  Modify the configuration of an existing VPN gateway.    
+  Certain changes may trigger infrastructure updates or temporary connection re-negotiations.

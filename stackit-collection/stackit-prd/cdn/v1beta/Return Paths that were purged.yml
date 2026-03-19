@@ -1,0 +1,44 @@
+info:
+  name: Return Paths that were purged
+  type: http
+  seq: 7
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId/cache/paths"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: Your STACKIT Project ID
+    - name: distributionId
+      value: ""
+      type: path
+    - name: path
+      value: ""
+      type: query
+      description: |
+        A substring of the search query.
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: |
+  This returns paths that are present in the cache purging history. 
+  Only substrings of the provided input are returned. 
+  The response is sorted in descending order by the most recent purge.
+
+  So, assuming you have have the following purged for a distribution
+  - `/test/1` at `2025-01-01`
+  - `/test/2` at `2025-01-02`
+  - `/someOtherPath/1` at `2025-01-03`
+  - `/test/1` at `2025-01-04`
+  - `/test/3` at `2025-01-05`,
+  this would return the following paths, in the following order, assuming `/te` was the search parameter:
+  - `/test/3`
+  - `/test/1`
+  - `/test/2`

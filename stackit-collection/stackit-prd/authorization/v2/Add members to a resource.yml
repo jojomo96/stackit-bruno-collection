@@ -1,0 +1,33 @@
+info:
+  name: Add members to a resource
+  type: http
+  seq: 4
+
+http:
+  method: PATCH
+  url: "{{baseUrl}}/v2/:resourceId/members"
+  params:
+    - name: resourceId
+      value: ""
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "members": [
+          {
+            "role": "owner",
+            "subject": "user@mail.schwarz"
+          }
+        ],
+        "resourceType": "organization"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Add members to the given resource with specified roles.

@@ -1,0 +1,38 @@
+info:
+  name: Delete a route in a routing table.
+  type: http
+  seq: 9
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/v2alpha1/organizations/:organizationId/network-areas/:areaId/regions/:region/routing-tables/:routingTableId/routes/:routeId"
+  params:
+    - name: organizationId
+      value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+      type: path
+      description: The identifier (ID) of a STACKIT Organization.
+    - name: areaId
+      value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+      type: path
+      description: The identifier (ID) of a STACKIT Network Area.
+    - name: region
+      value: eu01
+      type: path
+      description: The STACKIT Region of the resources.
+    - name: routingTableId
+      value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+      type: path
+      description: The identifier (ID) of a STACKIT Routing Table.
+    - name: routeId
+      value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+      type: path
+      description: The identifier (ID) of a STACKIT Route.
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Delete a route in an existing routing table.

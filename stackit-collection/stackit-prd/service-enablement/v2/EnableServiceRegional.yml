@@ -1,0 +1,27 @@
+info:
+  name: EnableServiceRegional
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/services/:serviceId"
+  params:
+    - name: region
+      value: ""
+      type: path
+    - name: projectId
+      value: ""
+      type: path
+    - name: serviceId
+      value: ""
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: enables the service in a project.

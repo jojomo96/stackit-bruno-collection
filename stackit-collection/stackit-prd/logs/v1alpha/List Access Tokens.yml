@@ -1,0 +1,35 @@
+info:
+  name: List Access Tokens
+  type: http
+  seq: 7
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/access-tokens"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: The STACKIT portal project UUID the resource is located in.
+    - name: regionId
+      value: eu01
+      type: path
+      description: The STACKIT region name the resource is located in.
+    - name: regionId
+      value: eu02
+      type: path
+      description: The STACKIT region name the resource is located in.
+      disabled: true
+    - name: instanceId
+      value: ""
+      type: path
+      description: The Logs Instance UUID.
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Returns a list of access tokens created for a Logs instance

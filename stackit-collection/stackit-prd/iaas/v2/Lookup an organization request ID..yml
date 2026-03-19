@@ -1,0 +1,26 @@
+info:
+  name: Lookup an organization request ID.
+  type: http
+  seq: 37
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v2/organizations/:organizationId/requests/:requestId"
+  params:
+    - name: organizationId
+      value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+      type: path
+      description: The identifier (ID) of a STACKIT Organization.
+    - name: requestId
+      value: req-d61a8564c8dd4ffbbc15143e7d0c85ed
+      type: path
+      description: The identifier (ID) of a STACKIT Request.
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Lookup an organization request ID from a previous request. This allows to find resource IDs of resources generated during a organization request.

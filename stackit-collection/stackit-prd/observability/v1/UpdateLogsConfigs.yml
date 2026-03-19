@@ -1,0 +1,30 @@
+info:
+  name: UpdateLogsConfigs
+  type: http
+  seq: 72
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/logs-configs"
+  params:
+    - name: instanceId
+      value: ""
+      type: path
+    - name: projectId
+      value: ""
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "retention": ""
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Update logs config.

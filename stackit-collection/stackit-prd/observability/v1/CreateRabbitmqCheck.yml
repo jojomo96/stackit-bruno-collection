@@ -1,0 +1,32 @@
+info:
+  name: CreateRabbitmqCheck
+  type: http
+  seq: 91
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/rabbitmq-checks"
+  params:
+    - name: instanceId
+      value: ""
+      type: path
+    - name: projectId
+      value: ""
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "password": "",
+        "url": "",
+        "username": ""
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Create rabbitmq check.

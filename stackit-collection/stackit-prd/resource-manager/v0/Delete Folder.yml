@@ -1,0 +1,29 @@
+info:
+  name: Delete Folder
+  type: http
+  seq: 3
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/v2/folders/:containerId"
+  params:
+    - name: containerId
+      value: ""
+      type: path
+      description: Folder identifier - containerId as well as UUID identifier is supported.
+    - name: force
+      value: "false"
+      type: query
+      description: If true, all nested, empty folders are deleted recursively - if no project is attached!
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: |-
+  Delete a folder and its metadata.
+  - Folder must not be parent of any other container
+  - A force flag may be set, deleting all underlying folders recursively - if no project is attached!

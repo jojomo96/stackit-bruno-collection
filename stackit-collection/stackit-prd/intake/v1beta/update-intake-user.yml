@@ -1,0 +1,49 @@
+info:
+  name: update-intake-user
+  type: http
+  seq: 15
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/v1beta/projects/:projectId/regions/:regionId/intakes/:intakeId/users/:intakeUserId"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: The STACKIT portal project UUID the resource is located in.
+    - name: regionId
+      value: eu01
+      type: path
+      description: The STACKIT region name the resource is located in.
+    - name: regionId
+      value: eu02
+      type: path
+      description: The STACKIT region name the resource is located in.
+      disabled: true
+    - name: intakeId
+      value: ""
+      type: path
+      description: The intake UUID.
+    - name: intakeUserId
+      value: ""
+      type: path
+      description: The intake user UUID.
+  body:
+    type: json
+    data: |-
+      {
+        "description": "",
+        "displayName": "",
+        "labels": {},
+        "password": "",
+        "type": "intake"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Updates the given intake user.

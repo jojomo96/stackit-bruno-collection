@@ -1,0 +1,30 @@
+info:
+  name: Delete network.
+  type: http
+  seq: 65
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/networks/:networkId"
+  params:
+    - name: projectId
+      value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+      type: path
+      description: The identifier (ID) of a STACKIT Project.
+    - name: region
+      value: eu01
+      type: path
+      description: The STACKIT Region of the resources.
+    - name: networkId
+      value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+      type: path
+      description: The identifier (ID) of a STACKIT Network.
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Delete a network. If the network is still in use, the deletion will fail.

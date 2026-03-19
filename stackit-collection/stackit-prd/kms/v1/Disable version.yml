@@ -1,0 +1,38 @@
+info:
+  name: Disable version
+  type: http
+  seq: 16
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v1/projects/:projectId/regions/:regionId/keyrings/:keyRingId/keys/:keyId/versions/:versionNumber/disable"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: The STACKIT portal project UUID the key ring is part of.
+    - name: regionId
+      value: eu01
+      type: path
+      description: The STACKIT region name the key ring is located in.
+    - name: keyRingId
+      value: ""
+      type: path
+      description: The key ring UUID.
+    - name: keyId
+      value: ""
+      type: path
+      description: The key UUID.
+    - name: versionNumber
+      value: ""
+      type: path
+      description: The version number.
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Disables the given version.

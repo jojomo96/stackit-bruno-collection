@@ -1,0 +1,78 @@
+info:
+  name: List Databases
+  type: http
+  seq: 12
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId/databases"
+  params:
+    - name: projectId
+      value: 19feb036-9b61-11ee-b9d1-0242ac120002
+      type: path
+      description: The STACKIT project ID.
+    - name: region
+      value: eu01
+      type: path
+      description: The region which should be addressed
+    - name: instanceId
+      value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+      type: path
+      description: The ID of the instance.
+    - name: page
+      value: "1"
+      type: query
+      description: Number of the page of items list to be returned.
+    - name: size
+      value: "10"
+      type: query
+      description: Number of items to be returned on each page.
+    - name: sort
+      value: created_at.desc
+      type: query
+      description: Sorting of the databases to be returned on each page.
+      disabled: true
+    - name: sort
+      value: created_at.asc
+      type: query
+      description: Sorting of the databases to be returned on each page.
+      disabled: true
+    - name: sort
+      value: database_id.desc
+      type: query
+      description: Sorting of the databases to be returned on each page.
+      disabled: true
+    - name: sort
+      value: database_id.asc
+      type: query
+      description: Sorting of the databases to be returned on each page.
+      disabled: true
+    - name: sort
+      value: database_name.desc
+      type: query
+      description: Sorting of the databases to be returned on each page.
+      disabled: true
+    - name: sort
+      value: database_name.asc
+      type: query
+      description: Sorting of the databases to be returned on each page.
+      disabled: true
+    - name: sort
+      value: database_owner.desc
+      type: query
+      description: Sorting of the databases to be returned on each page.
+      disabled: true
+    - name: sort
+      value: database_owner.asc
+      type: query
+      description: Sorting of the databases to be returned on each page.
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: List available databases for an instance.

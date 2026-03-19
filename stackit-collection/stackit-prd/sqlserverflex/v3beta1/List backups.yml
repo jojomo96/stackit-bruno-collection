@@ -1,0 +1,98 @@
+info:
+  name: List backups
+  type: http
+  seq: 8
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v3beta1/projects/:projectId/regions/:region/instances/:instanceId/backups"
+  params:
+    - name: projectId
+      value: 19feb036-9b61-11ee-b9d1-0242ac120002
+      type: path
+      description: The STACKIT project ID.
+    - name: region
+      value: eu01
+      type: path
+      description: The region which should be addressed
+    - name: instanceId
+      value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+      type: path
+      description: The ID of the instance.
+    - name: page
+      value: "1"
+      type: query
+      description: Number of the page of items list to be returned.
+    - name: size
+      value: "10"
+      type: query
+      description: Number of items to be returned on each page.
+    - name: sort
+      value: end_time.desc
+      type: query
+      description: Sorting of the backups to be returned on each page.
+      disabled: true
+    - name: sort
+      value: end_time.asc
+      type: query
+      description: Sorting of the backups to be returned on each page.
+      disabled: true
+    - name: sort
+      value: index.desc
+      type: query
+      description: Sorting of the backups to be returned on each page.
+      disabled: true
+    - name: sort
+      value: index.asc
+      type: query
+      description: Sorting of the backups to be returned on each page.
+      disabled: true
+    - name: sort
+      value: name.desc
+      type: query
+      description: Sorting of the backups to be returned on each page.
+      disabled: true
+    - name: sort
+      value: name.asc
+      type: query
+      description: Sorting of the backups to be returned on each page.
+      disabled: true
+    - name: sort
+      value: retained_until.desc
+      type: query
+      description: Sorting of the backups to be returned on each page.
+      disabled: true
+    - name: sort
+      value: retained_until.asc
+      type: query
+      description: Sorting of the backups to be returned on each page.
+      disabled: true
+    - name: sort
+      value: size.desc
+      type: query
+      description: Sorting of the backups to be returned on each page.
+      disabled: true
+    - name: sort
+      value: size.asc
+      type: query
+      description: Sorting of the backups to be returned on each page.
+      disabled: true
+    - name: sort
+      value: type.desc
+      type: query
+      description: Sorting of the backups to be returned on each page.
+      disabled: true
+    - name: sort
+      value: type.asc
+      type: query
+      description: Sorting of the backups to be returned on each page.
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: List all backups which are available for a specific instance.

@@ -1,0 +1,26 @@
+info:
+  name: Get a subscription
+  type: http
+  seq: 6
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v1/vendors/projects/:projectId/subscriptions/:subscriptionId"
+  params:
+    - name: projectId
+      value: 14fef715-4ef3-4b10-8789-cd7f9bd09421
+      type: path
+      description: The project ID.
+    - name: subscriptionId
+      value: 14fef715-4ef3-4b10-8789-cd7f9bd09421
+      type: path
+      description: The subscription ID.
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Get a subscription.

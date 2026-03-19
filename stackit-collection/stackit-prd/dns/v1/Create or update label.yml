@@ -1,0 +1,33 @@
+info:
+  name: Create or update label
+  type: http
+  seq: 11
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/v1/projects/:projectId/zones/:zoneId/labels"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: project id
+    - name: zoneId
+      value: ""
+      type: path
+      description: zone id
+  body:
+    type: json
+    data: |-
+      {
+        "key": "stage",
+        "value": "prod"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Create or update label

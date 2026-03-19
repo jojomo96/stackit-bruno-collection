@@ -1,0 +1,54 @@
+info:
+  name: update a service instance
+  type: http
+  seq: 5
+
+http:
+  method: PATCH
+  url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+    - name: instanceId
+      value: ""
+      type: path
+      description: id of the instance being updated
+  body:
+    type: json
+    data: |-
+      {
+        "instanceName": "",
+        "parameters": {
+          "enable_monitoring": false,
+          "graphite": "yourspace.your-graphite-endpoint.com:12345",
+          "java_garbage_collector": "UseSerialGC",
+          "java_heapspace": 0,
+          "java_maxmetaspace": 0,
+          "max_disk_threshold": 90,
+          "metrics_frequency": 0,
+          "metrics_prefix": "my-prefix",
+          "monitoring_instance_id": "",
+          "plugins": [
+            "analysis-phonetic"
+          ],
+          "sgw_acl": "0.0.0.0/0",
+          "syslog": [
+            "logs4.your-syslog-endpoint.com:54321"
+          ],
+          "tls-ciphers": [],
+          "tls-protocols": [
+            "TLSv1.2"
+          ]
+        },
+        "planId": ""
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Update a service instance. This could be a sgw acl update or a plan upgrade.

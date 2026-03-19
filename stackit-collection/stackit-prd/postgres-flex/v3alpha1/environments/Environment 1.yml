@@ -1,0 +1,6 @@
+name: Environment 1
+variables:
+  - name: baseUrl
+    value: https://postgres-flex-service.api.{{region}}stackit.cloud
+  - name: region
+    value: eu01.

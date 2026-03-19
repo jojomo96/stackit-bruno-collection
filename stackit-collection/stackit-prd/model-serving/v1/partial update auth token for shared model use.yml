@@ -1,0 +1,37 @@
+info:
+  name: partial update auth token for shared model use
+  type: http
+  seq: 5
+
+http:
+  method: PATCH
+  url: "{{baseUrl}}/v1/projects/:projectId/regions/:regionId/tokens/:tId"
+  params:
+    - name: regionId
+      value: eu01
+      type: path
+      description: region name
+    - name: projectId
+      value: 904bb6ea-8632-4818-b26e-943557dc4f57
+      type: path
+      description: portal project id
+    - name: tId
+      value: 6406334b-960f-4b45-8d9f-aa28f6205efd
+      type: path
+      description: token id
+  body:
+    type: json
+    data: |-
+      {
+        "description": "my token",
+        "name": "my-token"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: partial update auth token for shared model use

@@ -1,0 +1,26 @@
+info:
+  name: Delete a network area.
+  type: http
+  seq: 9
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/v2/organizations/:organizationId/network-areas/:areaId"
+  params:
+    - name: organizationId
+      value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+      type: path
+      description: The identifier (ID) of a STACKIT Organization.
+    - name: areaId
+      value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+      type: path
+      description: The identifier (ID) of a STACKIT Network Area.
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Delete an existing network area in an organization. This is only possible if no projects are using the area anymore.

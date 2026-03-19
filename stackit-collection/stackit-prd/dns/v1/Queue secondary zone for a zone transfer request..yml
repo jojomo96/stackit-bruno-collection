@@ -1,0 +1,26 @@
+info:
+  name: Queue secondary zone for a zone transfer request.
+  type: http
+  seq: 17
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v1/projects/:projectId/zones/:zoneId/retrieve"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: project id
+    - name: zoneId
+      value: ""
+      type: path
+      description: zone id
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: "The zone transfer will usually be performed within a few seconds, and will be tried only once by randomly choosing one of the configured primary name servers. If that single attempt fails, no further attempt will be performed. The zone will be transferred to our inbound name server regardless of its serial, but the internal zone distribution is only reliable if the zone's serial on the customer's primary name server is higher than on the STACKIT name server. <br>NOTE: As said above, this endpoint is not a reliable way to decrease a zone's serial. To guarantee consistent zones over all STACKIT location, the zone's serial MUST always be increased on zone changes."

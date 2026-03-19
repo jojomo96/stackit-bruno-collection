@@ -1,0 +1,27 @@
+info:
+  name: Delete a WAF configuration
+  type: http
+  seq: 13
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:region/wafs/:name"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+    - name: region
+      value: ""
+      type: path
+    - name: name
+      value: ""
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: This will delete the specified WAF configuration, but only if it is not used by any Application Load Balancer in the project.

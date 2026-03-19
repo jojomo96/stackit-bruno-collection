@@ -1,0 +1,36 @@
+info:
+  name: Create new Backup.
+  type: http
+  seq: 44
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v2beta1/projects/:projectId/regions/:region/backups"
+  params:
+    - name: projectId
+      value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+      type: path
+      description: The identifier (ID) of a STACKIT Project.
+    - name: region
+      value: eu01
+      type: path
+      description: The STACKIT Region of the resources.
+  body:
+    type: json
+    data: |-
+      {
+        "name": "abfahrtMitSnap",
+        "source": {
+          "id": "09876543-1234-4ffb-bc15-143e7d0c85ed",
+          "type": "snapshot"
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Create a new Backup in a project. If a snapshot ID is provided create the backup from the snapshot.

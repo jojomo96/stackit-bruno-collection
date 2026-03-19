@@ -1,0 +1,30 @@
+info:
+  name: Restore Backup to the referenced source Volume.
+  type: http
+  seq: 48
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/backups/:backupId/restore"
+  params:
+    - name: projectId
+      value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+      type: path
+      description: The identifier (ID) of a STACKIT Project.
+    - name: region
+      value: eu01
+      type: path
+      description: The STACKIT Region of the resources.
+    - name: backupId
+      value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+      type: path
+      description: The identifier (ID) of a STACKIT Backup.
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Restores a Backup to the existing Volume it references to. The use of this endpoint is disruptive as the volume needs to be detached. If a new volume is to be created use the volumes endpoint with the option to create from backup.

@@ -1,0 +1,35 @@
+info:
+  name: Get database compatibility list
+  type: http
+  seq: 14
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/instances/:instanceId/compatibility"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: The ID of the STACKIT project
+    - name: instanceId
+      value: ""
+      type: path
+      description: The ID of the instance
+    - name: region
+      value: eu01
+      type: path
+      description: The region which should be addressed
+    - name: region
+      value: eu02
+      type: path
+      description: The region which should be addressed
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Returns a list of compatibility levels for creating a new database

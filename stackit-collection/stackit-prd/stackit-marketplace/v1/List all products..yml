@@ -1,0 +1,43 @@
+info:
+  name: List all products.
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v1/catalog/products"
+  params:
+    - name: cursor
+      value: eyJrZXkiOiJ2YWx1ZSJ9
+      type: query
+      description: A pagination cursor that represents a position in the dataset. If given, results will be returned from the item after the cursor. If not given, results will be returned from the beginning.
+    - name: limit
+      value: "50"
+      type: query
+      description: The maximum number of items to return.
+    - name: locale
+      value: de
+      type: query
+      description: Language of the response.
+      disabled: true
+    - name: locale
+      value: en
+      type: query
+      description: Language of the response.
+    - name: filter
+      value: deliveryMethod eq "SAAS"
+      type: query
+      description: Filter the products based on attributes, e.g., `deliveryMethod eq "SAAS"`. The supported operators are:- `eq` (equal)- `co` (contains; `text co "searching"`)These expressions can be logically linked with `AND` and `OR`. Field names which can be used as filters are:- `text`- `deliveryMethod`- `categories`- `industries`- `vendor.name`- `pricingOptions.priceType`- `pricingOptions.pricingPlan`- `sovereignty`
+    - name: sort
+      value: name:asc
+      type: query
+      description: Sort the products based on attributes and order e.g. `name:asc`. Attributes with scalar types (`createdAt`) or keywords (`name`, `deliveryMethod`, `lifecycleState`, `vendor.name`) can be used as sort criteria. To set the sort order, append `asc` (ascending) or `desc` (descending) to the attribute, e.g. `name:asc`. To sort by multiple attributes, separate them with a comma. E.g `name:asc,price:desc`.
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Lists publicly available products.

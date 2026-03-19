@@ -1,0 +1,37 @@
+info:
+  name: Update schedule
+  type: http
+  seq: 11
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/backups"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: project id
+    - name: instanceId
+      value: ""
+      type: path
+      description: instance id
+  body:
+    type: json
+    data: |-
+      {
+        "backupSchedule": "",
+        "dailySnapshotRetentionDays": 0,
+        "monthlySnapshotRetentionMonths": 0,
+        "pointInTimeWindowHours": 0,
+        "snapshotRetentionDays": 0,
+        "weeklySnapshotRetentionWeeks": 0
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Updates a backup schedule<br/> Note that the time format is in UTC

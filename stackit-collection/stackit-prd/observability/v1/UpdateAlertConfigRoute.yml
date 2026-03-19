@@ -1,0 +1,57 @@
+info:
+  name: UpdateAlertConfigRoute
+  type: http
+  seq: 19
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/alertconfigs/routes/:receiver"
+  params:
+    - name: instanceId
+      value: ""
+      type: path
+    - name: projectId
+      value: ""
+      type: path
+    - name: receiver
+      value: ""
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "continue": false,
+        "groupBy": [],
+        "groupInterval": "",
+        "groupWait": "",
+        "match": {},
+        "matchRe": {},
+        "matchers": [],
+        "receiver": "",
+        "repeatInterval": "",
+        "routes": [
+          {
+            "continue": false,
+            "groupBy": [],
+            "groupInterval": "",
+            "groupWait": "",
+            "match": {},
+            "matchRe": {},
+            "matchers": [],
+            "receiver": "",
+            "repeatInterval": "",
+            "routes": [
+              {}
+            ]
+          }
+        ]
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Update alert receiver for route.

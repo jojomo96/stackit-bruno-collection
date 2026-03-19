@@ -1,0 +1,36 @@
+info:
+  name: Rescue an existing server.
+  type: http
+  seq: 107
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/rescue"
+  params:
+    - name: projectId
+      value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+      type: path
+      description: The identifier (ID) of a STACKIT Project.
+    - name: region
+      value: eu01
+      type: path
+      description: The STACKIT Region of the resources.
+    - name: serverId
+      value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+      type: path
+      description: The identifier (ID) of a STACKIT Server.
+  body:
+    type: json
+    data: |-
+      {
+        "image": "d61a8564-c8dd-4ffb-bc15-143e7d0c85ed"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Rescue an existing server. It is shutdown and the initial image is attached as the boot volume, while the boot volume is attached as secondary volume and the server is booted.

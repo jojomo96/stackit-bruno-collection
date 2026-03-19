@@ -1,0 +1,36 @@
+info:
+  name: Add a new role
+  type: http
+  seq: 8
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v2/:resourceType/:resourceId/roles"
+  params:
+    - name: resourceType
+      value: ""
+      type: path
+    - name: resourceId
+      value: ""
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "description": "Role for the development team.",
+        "name": "dev-team",
+        "permissions": [
+          {
+            "name": "iam.member.read"
+          }
+        ]
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Add new, user specified roles to a resource, and bind permissions to them. Permissions are predefined.

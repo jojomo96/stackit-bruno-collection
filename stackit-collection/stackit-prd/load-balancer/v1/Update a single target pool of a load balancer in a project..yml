@@ -1,0 +1,54 @@
+info:
+  name: Update a single target pool of a load balancer in a project.
+  type: http
+  seq: 15
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/v1/projects/:projectId/load-balancers/:name/target-pools/:targetPoolName"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+    - name: name
+      value: ""
+      type: path
+    - name: targetPoolName
+      value: ""
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "activeHealthCheck": {
+          "healthyThreshold": 0,
+          "interval": "3s",
+          "intervalJitter": "3s",
+          "timeout": "3s",
+          "unhealthyThreshold": 0
+        },
+        "name": "my-target-pool",
+        "sessionPersistence": {
+          "useSourceIpAddress": true
+        },
+        "targetPort": 5732,
+        "targets": [
+          {
+            "displayName": "my-target",
+            "ip": "192.0.2.5"
+          }
+        ]
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: |-
+  ReplaceTargetPool will replace a specific target pool of a load balancer with new content.
+   Useful to  add/remove target servers. will update a load balancer.
+   Only replaces the mentioned target pools and leaves others unchanged.
+   Cannot be used to create or rename a target pool.

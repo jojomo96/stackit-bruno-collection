@@ -1,0 +1,96 @@
+info:
+  name: PartialUpdateScrapeConfigs
+  type: http
+  seq: 98
+
+http:
+  method: PATCH
+  url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/scrapeconfigs"
+  params:
+    - name: instanceId
+      value: ""
+      type: path
+    - name: projectId
+      value: ""
+      type: path
+  body:
+    type: json
+    data: |-
+      [
+        {
+          "basicAuth": {
+            "password": "",
+            "username": ""
+          },
+          "bearerToken": "",
+          "honorLabels": false,
+          "honorTimeStamps": false,
+          "httpSdConfigs": [
+            {
+              "basicAuth": {
+                "password": "",
+                "username": ""
+              },
+              "oauth2": {
+                "clientId": "",
+                "clientSecret": "",
+                "scopes": [],
+                "tlsConfig": {
+                  "insecureSkipVerify": false
+                },
+                "tokenUrl": ""
+              },
+              "refreshInterval": "",
+              "tlsConfig": {
+                "insecureSkipVerify": false
+              },
+              "url": ""
+            }
+          ],
+          "jobName": "",
+          "metricsPath": "",
+          "metricsRelabelConfigs": [
+            {
+              "action": "replace",
+              "modulus": 0,
+              "regex": "",
+              "replacement": "",
+              "separator": "",
+              "sourceLabels": [],
+              "targetLabel": ""
+            }
+          ],
+          "oauth2": {
+            "clientId": "",
+            "clientSecret": "",
+            "scopes": [],
+            "tlsConfig": {
+              "insecureSkipVerify": false
+            },
+            "tokenUrl": ""
+          },
+          "params": {},
+          "sampleLimit": 0,
+          "scheme": "http",
+          "scrapeInterval": "",
+          "scrapeTimeout": "",
+          "staticConfigs": [
+            {
+              "labels": {},
+              "targets": []
+            }
+          ],
+          "tlsConfig": {
+            "insecureSkipVerify": false
+          }
+        }
+      ]
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Update scrape configs.

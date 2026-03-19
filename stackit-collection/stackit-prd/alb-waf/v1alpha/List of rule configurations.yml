@@ -1,0 +1,34 @@
+info:
+  name: List of rule configurations
+  type: http
+  seq: 6
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:region/rules"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+    - name: region
+      value: ""
+      type: path
+    - name: pageSize
+      value: ""
+      type: query
+      description: page_size specifies how many rule configurations should be returned on this page. Must be a positive number <= 1000
+      disabled: true
+    - name: pageId
+      value: ""
+      type: query
+      description: page_id is a page identifier returned by the previous response and is used to request the next page
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: List all existing rule configurations that are stored in the project.

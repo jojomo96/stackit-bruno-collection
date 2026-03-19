@@ -1,0 +1,32 @@
+info:
+  name: CreateElasticsearchCheck
+  type: http
+  seq: 59
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/elasticsearch-checks"
+  params:
+    - name: instanceId
+      value: ""
+      type: path
+    - name: projectId
+      value: ""
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "password": "",
+        "server": "",
+        "username": ""
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Create elasticsearch check.

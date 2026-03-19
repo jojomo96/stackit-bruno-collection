@@ -1,0 +1,57 @@
+info:
+  name: Put endpoint
+  type: http
+  seq: 7
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/instances/:instanceId"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: project id
+    - name: instanceId
+      value: ""
+      type: path
+      description: instance id
+    - name: region
+      value: eu01
+      type: path
+      description: The region which should be addressed
+    - name: region
+      value: eu02
+      type: path
+      description: The region which should be addressed
+      disabled: true
+  body:
+    type: json
+    data: |-
+      {
+        "acl": {
+          "items": [
+            "193.148.2.0.0/19",
+            "45.129.40.0/21"
+          ]
+        },
+        "backupSchedule": "6 6 * * *",
+        "flavorId": "1.1",
+        "labels": {},
+        "name": "",
+        "options": {},
+        "replicas": 3,
+        "storage": {
+          "class": "",
+          "size": 10
+        },
+        "version": "1.0"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Updates a deployment plan<br/> Note that the time format for the backupSchedule is in UTC

@@ -1,0 +1,54 @@
+info:
+  name: Create new distribution
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v1/projects/:projectId/distributions"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: Your STACKIT Project Id
+  body:
+    type: json
+    data: |-
+      {
+        "backend": {
+          "geofencing": {
+            "https://alternativeUrl.com": [
+              "DE",
+              "GB"
+            ]
+          },
+          "originUrl": "https://httpbin.org",
+          "type": "http"
+        },
+        "blockedCountries": [
+          "ES"
+        ],
+        "blockedIps": [
+          "1.2.3.4"
+        ],
+        "intentId": "someRandomValue",
+        "monthlyLimitBytes": 123000000,
+        "regions": [
+          "EU",
+          "ASIA"
+        ],
+        "waf": {
+          "enabledRuleIds": [],
+          "mode": "ENABLED",
+          "type": "FREE"
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: CreateDistribution will create a new CDN distribution

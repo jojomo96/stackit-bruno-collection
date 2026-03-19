@@ -1,0 +1,39 @@
+info:
+  name: CreateCommand
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/commands"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: ID of the project
+    - name: serverId
+      value: ""
+      type: path
+      description: Server ID of the machine
+    - name: region
+      value: eu01
+      type: path
+      description: region
+  body:
+    type: json
+    data: |-
+      {
+        "commandTemplateName": "RunShellScript",
+        "parameters": {
+          "script": "echo hello-world"
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Creates a new command for execution

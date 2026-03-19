@@ -1,0 +1,27 @@
+info:
+  name: Retrieve the public parts of a stored TLS certificate.
+  type: http
+  seq: 4
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v2beta/projects/:projectId/regions/:region/certificates/:id"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+    - name: region
+      value: ""
+      type: path
+    - name: id
+      value: ""
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: GetCertificate will return the public parts of a stored TLS certificate.

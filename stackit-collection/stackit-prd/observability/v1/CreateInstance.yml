@@ -1,0 +1,30 @@
+info:
+  name: CreateInstance
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v1/projects/:projectId/instances"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "grafanaAdminEnabled": false,
+        "name": "",
+        "parameter": {},
+        "planId": ""
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Create new instance.

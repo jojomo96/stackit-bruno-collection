@@ -1,0 +1,30 @@
+info:
+  name: Revoke Access Token
+  type: http
+  seq: 7
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/v2/projects/:projectId/service-accounts/:serviceAccountEmail/access-tokens/:accessTokenId"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: The ID of the project.
+    - name: serviceAccountEmail
+      value: ""
+      type: path
+      description: The ID of the Service Account.
+    - name: accessTokenId
+      value: ""
+      type: path
+      description: The ID of the Access Token.
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Revoke an Access Token. The access token is instantly revoked, any following calls with the token will be unauthorized. The token metadata is still stored until the expiration time.

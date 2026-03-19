@@ -1,0 +1,45 @@
+info:
+  name: Performs a SKUs search with specific attributes
+  type: http
+  seq: 11
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v2/skus/search"
+  params:
+    - name: language
+      value: en
+      type: query
+      description: The language to retrieve the data in, available for en and de
+      disabled: true
+    - name: language
+      value: de
+      type: query
+      description: The language to retrieve the data in, available for en and de
+      disabled: true
+    - name: pageSize
+      value: "10"
+      type: query
+      description: The number of items to retrieve per page
+    - name: cursor
+      value: ""
+      type: query
+      description: The cursor base64 encoded is used to retrieve the next page of results
+      disabled: true
+  body:
+    type: json
+    data: |-
+      {
+        "hardware": "Intel",
+        "metro": false,
+        "ram": 32
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Accepts a JSON object with a predefined set of optional attributes to be used as search criteria.

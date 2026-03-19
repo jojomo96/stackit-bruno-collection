@@ -1,0 +1,39 @@
+info:
+  name: get-token-by-instance-id
+  type: http
+  seq: 9
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v1beta1/projects/:projectId/regions/:regionId/instances/:instanceId/token"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: The STACKIT portal project UUID the instance is part of.
+    - name: regionId
+      value: eu01
+      type: path
+      description: The STACKIT region the instance is part of.
+    - name: regionId
+      value: eu02
+      type: path
+      description: The STACKIT region the instance is part of.
+      disabled: true
+    - name: instanceId
+      value: ""
+      type: path
+      description: The instance UUID.
+    - name: expirationSeconds
+      value: "3600"
+      type: query
+      description: Expiration of the token in seconds
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Returns an ServiceAccount token.

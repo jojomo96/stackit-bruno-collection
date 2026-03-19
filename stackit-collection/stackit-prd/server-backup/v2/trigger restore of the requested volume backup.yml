@@ -1,0 +1,42 @@
+info:
+  name: trigger restore of the requested volume backup
+  type: http
+  seq: 13
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/backups/:backupId/volume-backups/:volumeBackupId/restore"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: project id
+    - name: serverId
+      value: ""
+      type: path
+      description: server id
+    - name: region
+      value: eu01
+      type: path
+      description: region
+    - name: backupId
+      value: ""
+      type: path
+      description: id of the backup
+    - name: volumeBackupId
+      value: ""
+      type: path
+      description: id of the volume backup
+  body:
+    type: json
+    data: |-
+      {
+        "restoreVolumeId": "69c2ae70-5bf9-4353-8ac6-2bc2ff0ba78e"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,46 @@
+info:
+  name: Update Access Token
+  type: http
+  seq: 12
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/access-tokens/:tId"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: The STACKIT portal project UUID the resource is located in.
+    - name: regionId
+      value: eu01
+      type: path
+      description: The STACKIT region name the resource is located in.
+    - name: regionId
+      value: eu02
+      type: path
+      description: The STACKIT region name the resource is located in.
+      disabled: true
+    - name: instanceId
+      value: ""
+      type: path
+      description: The Logs Instance UUID.
+    - name: tId
+      value: ""
+      type: path
+      description: The access token UUID.
+  body:
+    type: json
+    data: |-
+      {
+        "description": "",
+        "displayName": ""
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Updates the given access token.

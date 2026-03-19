@@ -1,0 +1,115 @@
+info:
+  name: V3 Costs for a certain project
+  type: http
+  seq: 3
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v3/costs/:customerAccountId/projects/:projectId"
+  headers:
+    - name: Accept
+      value: application/json
+      description: Desired content type
+      disabled: true
+    - name: Accept
+      value: text/csv
+      description: Desired content type
+      disabled: true
+  params:
+    - name: customerAccountId
+      value: ""
+      type: path
+      description: ID of a customer account
+    - name: projectId
+      value: ""
+      type: path
+      description: ID of a project
+    - name: from
+      value: 2020-05-30
+      type: query
+      description: Inclusive start date of the selection range. Internally, usages are recorded in UTC. This means all usages starting on and after 00:00:00 UTC on the specified date are included.
+    - name: to
+      value: 2020-05-30
+      type: query
+      description: Inclusive end date of the selection range. Internally, usages are recorded in UTC. This means all usages starting up to and including 23:59:59 UTC on the specified date are included.
+    - name: depth
+      value: project
+      type: query
+      description: Depth of desired cost information. "project" provides costs grouped by project, without services. "service" provides costs separated on service level.
+      disabled: true
+    - name: depth
+      value: service
+      type: query
+      description: Depth of desired cost information. "project" provides costs grouped by project, without services. "service" provides costs separated on service level.
+      disabled: true
+    - name: depth
+      value: auto
+      type: query
+      description: Depth of desired cost information. "project" provides costs grouped by project, without services. "service" provides costs separated on service level.
+    - name: granularity
+      value: daily
+      type: query
+      description: |-
+        Define granularity of costs – Default is "none" which does NOT include detailed report data.
+
+        If "monthly", "weekly" or "yearly" is requested, the "from" parameter SHOULD be the first day and the "to" parameter SHOULD be the last day of that time period.
+        If not, they are normalized accordingly.
+
+        If "daily" is requested, the date range defined by "from" and "to" MUST NOT be longer than 92 days.
+      disabled: true
+    - name: granularity
+      value: weekly
+      type: query
+      description: |-
+        Define granularity of costs – Default is "none" which does NOT include detailed report data.
+
+        If "monthly", "weekly" or "yearly" is requested, the "from" parameter SHOULD be the first day and the "to" parameter SHOULD be the last day of that time period.
+        If not, they are normalized accordingly.
+
+        If "daily" is requested, the date range defined by "from" and "to" MUST NOT be longer than 92 days.
+      disabled: true
+    - name: granularity
+      value: monthly
+      type: query
+      description: |-
+        Define granularity of costs – Default is "none" which does NOT include detailed report data.
+
+        If "monthly", "weekly" or "yearly" is requested, the "from" parameter SHOULD be the first day and the "to" parameter SHOULD be the last day of that time period.
+        If not, they are normalized accordingly.
+
+        If "daily" is requested, the date range defined by "from" and "to" MUST NOT be longer than 92 days.
+      disabled: true
+    - name: granularity
+      value: yearly
+      type: query
+      description: |-
+        Define granularity of costs – Default is "none" which does NOT include detailed report data.
+
+        If "monthly", "weekly" or "yearly" is requested, the "from" parameter SHOULD be the first day and the "to" parameter SHOULD be the last day of that time period.
+        If not, they are normalized accordingly.
+
+        If "daily" is requested, the date range defined by "from" and "to" MUST NOT be longer than 92 days.
+      disabled: true
+    - name: granularity
+      value: none
+      type: query
+      description: |-
+        Define granularity of costs – Default is "none" which does NOT include detailed report data.
+
+        If "monthly", "weekly" or "yearly" is requested, the "from" parameter SHOULD be the first day and the "to" parameter SHOULD be the last day of that time period.
+        If not, they are normalized accordingly.
+
+        If "daily" is requested, the date range defined by "from" and "to" MUST NOT be longer than 92 days.
+    - name: includeZeroCosts
+      value: "false"
+      type: query
+      description: Whether costs of 0 should be included in the response
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Get costs for a certain project in a customer account

@@ -1,0 +1,43 @@
+info:
+  name: Create key
+  type: http
+  seq: 6
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v1beta/projects/:projectId/regions/:regionId/keyrings/:keyRingId/keys"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: The STACKIT portal project UUID the key ring is part of.
+    - name: regionId
+      value: eu01
+      type: path
+      description: The STACKIT region name the key ring is located in.
+    - name: keyRingId
+      value: ""
+      type: path
+      description: The key ring UUID.
+  body:
+    type: json
+    data: |-
+      {
+        "access_scope": "PUBLIC",
+        "algorithm": "aes_256_gcm",
+        "backend": "software",
+        "description": "",
+        "displayName": "",
+        "importOnly": false,
+        "protection": "software",
+        "purpose": "symmetric_encrypt_decrypt"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Creates a new key for the given key ring.

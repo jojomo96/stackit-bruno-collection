@@ -1,0 +1,41 @@
+info:
+  name: delete volume backup
+  type: http
+  seq: 12
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/backups/:backupId/volume-backups/:volumeBackupId"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: project id
+    - name: serverId
+      value: ""
+      type: path
+      description: server id
+    - name: region
+      value: eu01
+      type: path
+      description: region
+    - name: backupId
+      value: ""
+      type: path
+      description: id of the backup
+    - name: volumeBackupId
+      value: ""
+      type: path
+      description: id of the volume backup
+    - name: force
+      value: ""
+      type: query
+      description: Force delete the volume backup
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

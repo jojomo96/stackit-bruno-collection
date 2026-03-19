@@ -1,0 +1,24 @@
+info:
+  name: EnableService
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v1/projects/:projectId/services/:serviceId"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+    - name: serviceId
+      value: ""
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: enables the service in a project.

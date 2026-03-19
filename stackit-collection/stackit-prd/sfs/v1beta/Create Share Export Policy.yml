@@ -1,0 +1,41 @@
+info:
+  name: Create Share Export Policy
+  type: http
+  seq: 16
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v1beta/projects/:projectId/regions/:region/shareExportPolicies"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+    - name: region
+      value: ""
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "labels": {},
+        "name": "",
+        "rules": [
+          {
+            "description": "",
+            "ipAcl": [],
+            "order": 0,
+            "readOnly": false,
+            "setUuid": false,
+            "superUser": false
+          }
+        ]
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Creates a ShareExportPolicy in a Resource Pool in a project.

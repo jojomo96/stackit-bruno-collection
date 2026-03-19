@@ -1,0 +1,45 @@
+info:
+  name: UpdateGrafanaConfigs
+  type: http
+  seq: 62
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/grafana-configs"
+  params:
+    - name: instanceId
+      value: ""
+      type: path
+    - name: projectId
+      value: ""
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "genericOauth": {
+          "allowAssignGrafanaAdmin": false,
+          "apiUrl": "",
+          "authUrl": "",
+          "enabled": false,
+          "name": "",
+          "oauthClientId": "",
+          "oauthClientSecret": "",
+          "roleAttributePath": "",
+          "roleAttributeStrict": false,
+          "scopes": "",
+          "tokenUrl": "",
+          "usePkce": false
+        },
+        "publicReadAccess": false,
+        "useStackitSso": false
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Update grafana config.

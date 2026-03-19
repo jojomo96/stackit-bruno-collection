@@ -1,0 +1,32 @@
+info:
+  name: get single backup schedule details
+  type: http
+  seq: 5
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/backup-schedules/:backupScheduleId"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: project id
+    - name: serverId
+      value: ""
+      type: path
+      description: server id
+    - name: region
+      value: eu01
+      type: path
+      description: region
+    - name: backupScheduleId
+      value: ""
+      type: path
+      description: backup schedule id
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

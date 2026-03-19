@@ -1,0 +1,29 @@
+info:
+  name: Get distribution by Id
+  type: http
+  seq: 4
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v1/projects/:projectId/distributions/:distributionId"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: Your STACKIT Project Id
+    - name: distributionId
+      value: ""
+      type: path
+    - name: withWafStatus
+      value: "false"
+      type: query
+      description: If set, the top level of a distribution contains a `waf` property, which defines the status of the waf. This includes a list of all resolved rules.
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: This returns a specific distribution by its Id. If no distribution with the given Id exists the endpoint returns 404. Trying to get a deleted distributions also return 404.

@@ -1,0 +1,46 @@
+info:
+  name: Update a routing table.
+  type: http
+  seq: 5
+
+http:
+  method: PATCH
+  url: "{{baseUrl}}/v2alpha1/organizations/:organizationId/network-areas/:areaId/regions/:region/routing-tables/:routingTableId"
+  params:
+    - name: organizationId
+      value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+      type: path
+      description: The identifier (ID) of a STACKIT Organization.
+    - name: areaId
+      value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+      type: path
+      description: The identifier (ID) of a STACKIT Network Area.
+    - name: region
+      value: eu01
+      type: path
+      description: The STACKIT Region of the resources.
+    - name: routingTableId
+      value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+      type: path
+      description: The identifier (ID) of a STACKIT Routing Table.
+  body:
+    type: json
+    data: |-
+      {
+        "description": "cool description dude. Wanna play some Snakeybus?",
+        "dynamicRoutes": false,
+        "labels": {
+          "key": "value"
+        },
+        "name": "objectName26",
+        "systemRoutes": false
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Update a routing table defined in a network area.

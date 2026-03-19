@@ -1,0 +1,42 @@
+info:
+  name: update-instance-by-name
+  type: http
+  seq: 12
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/v1beta1/projects/:projectId/regions/:regionId/instancesbyname/:displayName"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: The STACKIT portal project UUID the instance is part of.
+    - name: regionId
+      value: eu01
+      type: path
+      description: The STACKIT region the instance is part of.
+    - name: regionId
+      value: eu02
+      type: path
+      description: The STACKIT region the instance is part of.
+      disabled: true
+    - name: displayName
+      value: ""
+      type: path
+      description: The instance display name.
+  body:
+    type: json
+    data: |-
+      {
+        "description": "",
+        "planId": ""
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Updates the given instance.

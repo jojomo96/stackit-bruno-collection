@@ -1,0 +1,52 @@
+info:
+  name: Update Instance Partially
+  type: http
+  seq: 6
+
+http:
+  method: PATCH
+  url: "{{baseUrl}}/v3beta1/projects/:projectId/regions/:region/instances/:instanceId"
+  params:
+    - name: projectId
+      value: 19feb036-9b61-11ee-b9d1-0242ac120002
+      type: path
+      description: The STACKIT project ID.
+    - name: region
+      value: eu01
+      type: path
+      description: The region which should be addressed
+    - name: instanceId
+      value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+      type: path
+      description: The ID of the instance.
+  body:
+    type: json
+    data: |-
+      {
+        "backupSchedule": "6 6 * * *",
+        "flavorId": "4.16-Single",
+        "name": "mssql-instance",
+        "network": {
+          "acl": [
+            "198.51.100.0/24"
+          ]
+        },
+        "replicas": 1,
+        "retentionDays": 64,
+        "storage": {
+          "size": 10
+        },
+        "version": "2022"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: |
+  Update an available instance of a mssql database. No fields are required.
+
+  **Please note that any changes applied via PUT or PATCH requests will initiate a reboot of the SQL Server Flex Instance.**

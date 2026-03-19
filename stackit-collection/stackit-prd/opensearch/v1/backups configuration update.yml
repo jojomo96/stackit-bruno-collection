@@ -1,0 +1,32 @@
+info:
+  name: backups configuration update
+  type: http
+  seq: 8
+
+http:
+  method: PATCH
+  url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/backups-config"
+  params:
+    - name: instanceId
+      value: ""
+      type: path
+      description: Instance id
+    - name: projectId
+      value: ""
+      type: path
+      description: Project id on which user has permissions
+  body:
+    type: json
+    data: |-
+      {
+        "encryption_key": ""
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Update the configuration for backups for your instance.

@@ -1,0 +1,30 @@
+info:
+  name: List all network ranges in a network area.
+  type: http
+  seq: 18
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v2beta1/organizations/:organizationId/network-areas/:areaId/regions/:region/network-ranges"
+  params:
+    - name: organizationId
+      value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+      type: path
+      description: The identifier (ID) of a STACKIT Organization.
+    - name: areaId
+      value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+      type: path
+      description: The identifier (ID) of a STACKIT Network Area.
+    - name: region
+      value: eu01
+      type: path
+      description: The STACKIT Region of the resources.
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Get a list of all network ranges in a network area.

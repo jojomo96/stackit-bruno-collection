@@ -1,0 +1,30 @@
+info:
+  name: List wrapping keys
+  type: http
+  seq: 22
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v1beta/projects/:projectId/regions/:regionId/keyrings/:keyRingId/wrappingkeys"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: The STACKIT portal project UUID the key ring is part of.
+    - name: regionId
+      value: eu01
+      type: path
+      description: The STACKIT region name the key ring is located in.
+    - name: keyRingId
+      value: ""
+      type: path
+      description: The key ring UUID.
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Returns the wrapping keys for the given key ring.

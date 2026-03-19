@@ -1,0 +1,30 @@
+info:
+  name: Get Storages
+  type: http
+  seq: 27
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v3beta1/projects/:projectId/regions/:region/storages/:flavorId"
+  params:
+    - name: projectId
+      value: 19feb036-9b61-11ee-b9d1-0242ac120002
+      type: path
+      description: The STACKIT project ID.
+    - name: region
+      value: eu01
+      type: path
+      description: The region which should be addressed
+    - name: flavorId
+      value: 4.16-Single
+      type: path
+      description: The id of an instance flavor.
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Get available storages for a specific flavor

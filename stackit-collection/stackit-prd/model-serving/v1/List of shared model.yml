@@ -1,0 +1,22 @@
+info:
+  name: List of shared model
+  type: http
+  seq: 8
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v1/regions/:regionId/models"
+  params:
+    - name: regionId
+      value: eu01
+      type: path
+      description: region name
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: List of shared model

@@ -1,0 +1,75 @@
+info:
+  name: Imports a zone
+  type: http
+  seq: 9
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v1/projects/:projectId/zones/:zoneId/import"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: project id
+    - name: zoneId
+      value: ""
+      type: path
+      description: zone id
+    - name: format
+      value: json
+      type: query
+      description: format of the data to import
+      disabled: true
+    - name: format
+      value: csv
+      type: query
+      description: format of the data to import
+    - name: format
+      value: bind
+      type: query
+      description: format of the data to import
+      disabled: true
+    - name: importType
+      value: restore
+      type: query
+      description: type of the zone import
+    - name: importType
+      value: delete
+      type: query
+      description: type of the zone import
+      disabled: true
+    - name: importType
+      value: update
+      type: query
+      description: type of the zone import
+      disabled: true
+    - name: importType
+      value: upsert
+      type: query
+      description: type of the zone import
+      disabled: true
+  body:
+    type: json
+    data: |-
+      {
+        "rrSets": [
+          {
+            "comment": "comment",
+            "content": [
+              "192.0.2.1"
+            ],
+            "name": "example.com",
+            "ttl": 3600,
+            "type": "A"
+          }
+        ]
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Imports a zone and overwrites/deletes/inserts all desired records

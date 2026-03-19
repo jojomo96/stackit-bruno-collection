@@ -1,0 +1,28 @@
+info:
+  name: Get relevant search filters for this distribution based on user input
+  type: http
+  seq: 13
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId/logs/searchFilters"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: Your STACKIT Project ID
+    - name: distributionId
+      value: ""
+      type: path
+      description: Your CDN distribution ID
+    - name: filter
+      value: ""
+      type: query
+      description: Required filter for search suggestions (e.g., status=4, requestCountry, cacheHit=tru, dataCenterRegion). The filter query cannot be empty.
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

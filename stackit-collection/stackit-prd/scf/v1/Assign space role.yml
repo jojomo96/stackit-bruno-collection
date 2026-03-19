@@ -1,0 +1,38 @@
+info:
+  name: Assign space role
+  type: http
+  seq: 18
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v1/projects/:projectId/regions/:region/organizations/:organizationId/spaces/:spaceId/roles"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+    - name: region
+      value: ""
+      type: path
+    - name: organizationId
+      value: ""
+      type: path
+    - name: spaceId
+      value: ""
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "type": "space_auditor",
+        "userGuid": "00000000-0000-0000-0000-000000000000",
+        "userName": "example@stackit.cloud"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Assign space role within an space. If the role is already assigned, the existing role GUID gets returned.

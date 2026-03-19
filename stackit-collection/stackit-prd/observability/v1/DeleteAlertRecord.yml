@@ -1,0 +1,30 @@
+info:
+  name: DeleteAlertRecord
+  type: http
+  seq: 39
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/alertgroups/:groupName/records/:alertRecord"
+  params:
+    - name: alertRecord
+      value: ""
+      type: path
+    - name: groupName
+      value: ""
+      type: path
+    - name: instanceId
+      value: ""
+      type: path
+    - name: projectId
+      value: ""
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Delete alert record.

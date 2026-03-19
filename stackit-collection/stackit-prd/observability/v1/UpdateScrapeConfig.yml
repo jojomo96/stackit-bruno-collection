@@ -1,0 +1,65 @@
+info:
+  name: UpdateScrapeConfig
+  type: http
+  seq: 102
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/scrapeconfigs/:jobName"
+  params:
+    - name: instanceId
+      value: ""
+      type: path
+    - name: jobName
+      value: ""
+      type: path
+    - name: projectId
+      value: ""
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "basicAuth": {
+          "password": "",
+          "username": ""
+        },
+        "bearerToken": "",
+        "honorLabels": false,
+        "honorTimeStamps": false,
+        "metricsPath": "",
+        "metricsRelabelConfigs": [
+          {
+            "action": "replace",
+            "modulus": 0,
+            "regex": "",
+            "replacement": "",
+            "separator": "",
+            "sourceLabels": [],
+            "targetLabel": ""
+          }
+        ],
+        "params": {},
+        "sampleLimit": 0,
+        "scheme": "http",
+        "scrapeInterval": "",
+        "scrapeTimeout": "",
+        "staticConfigs": [
+          {
+            "labels": {},
+            "targets": []
+          }
+        ],
+        "tlsConfig": {
+          "insecureSkipVerify": false
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Update scrape config.

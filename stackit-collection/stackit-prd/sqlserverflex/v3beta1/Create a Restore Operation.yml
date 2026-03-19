@@ -1,0 +1,42 @@
+info:
+  name: Create a Restore Operation
+  type: http
+  seq: 20
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v3beta1/projects/:projectId/regions/:region/instances/:instanceId/restores"
+  params:
+    - name: projectId
+      value: 19feb036-9b61-11ee-b9d1-0242ac120002
+      type: path
+      description: The STACKIT project ID.
+    - name: region
+      value: eu01
+      type: path
+      description: The region which should be addressed
+    - name: instanceId
+      value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+      type: path
+      description: The ID of the instance.
+  body:
+    type: json
+    data: |-
+      {
+        "database_name": "customer_production_db",
+        "source": {
+          "type": "BACKUP"
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: |
+  Triggers a new restore operation for the specified instance.
+  The request body defines the source 
+  (e.g., internal backup, external S3) and the target database.

@@ -1,0 +1,35 @@
+info:
+  name: Get storage
+  type: http
+  seq: 24
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/storages/:flavor"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: project id
+    - name: flavor
+      value: ""
+      type: path
+      description: flavor id
+    - name: region
+      value: eu01
+      type: path
+      description: The region which should be addressed
+    - name: region
+      value: eu02
+      type: path
+      description: The region which should be addressed
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: returns the storage for a certain flavor

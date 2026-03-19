@@ -1,0 +1,37 @@
+info:
+  name: Create Database
+  type: http
+  seq: 13
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId/databases"
+  params:
+    - name: projectId
+      value: 19feb036-9b61-11ee-b9d1-0242ac120002
+      type: path
+      description: The STACKIT project ID.
+    - name: region
+      value: eu01
+      type: path
+      description: The region which should be addressed
+    - name: instanceId
+      value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+      type: path
+      description: The ID of the instance.
+  body:
+    type: json
+    data: |-
+      {
+        "name": "MyDatabase",
+        "owner": "MyUser"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: "Create database for a user. Note: The name of a valid user must be provided in the 'options' map field using the key 'owner'"

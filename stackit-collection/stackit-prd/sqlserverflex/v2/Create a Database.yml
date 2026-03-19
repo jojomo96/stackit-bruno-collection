@@ -1,0 +1,46 @@
+info:
+  name: Create a Database
+  type: http
+  seq: 16
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/instances/:instanceId/databases"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: Project ID
+    - name: instanceId
+      value: ""
+      type: path
+      description: Instance ID
+    - name: region
+      value: eu01
+      type: path
+      description: The region which should be addressed
+    - name: region
+      value: eu02
+      type: path
+      description: The region which should be addressed
+      disabled: true
+  body:
+    type: json
+    data: |-
+      {
+        "name": "Test",
+        "options": {
+          "collation": "Latin1_General_100_CI_AS_KS_WS",
+          "compatibilityLevel": "160",
+          "owner": "Herbert"
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Create a Database for an instance

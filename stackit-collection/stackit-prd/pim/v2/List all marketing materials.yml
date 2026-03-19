@@ -1,0 +1,42 @@
+info:
+  name: List all marketing materials
+  type: http
+  seq: 4
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v2/marketing"
+  params:
+    - name: pageSize
+      value: "10"
+      type: query
+      description: The number of items to retrieve per page
+    - name: cursor
+      value: ""
+      type: query
+      description: The cursor base64 encoded is used to retrieve the next page of results
+      disabled: true
+    - name: language
+      value: en
+      type: query
+      description: The language to retrieve the data in, available for en and de
+      disabled: true
+    - name: language
+      value: de
+      type: query
+      description: The language to retrieve the data in, available for en and de
+      disabled: true
+    - name: productName
+      value: ""
+      type: query
+      description: The product's name to retrieve the data for
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Retrieves a list of all marketing materials for all products, available for general public.

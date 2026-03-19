@@ -1,0 +1,47 @@
+info:
+  name: CreateLogsAlertgroups
+  type: http
+  seq: 67
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/logs-alertgroups"
+  params:
+    - name: instanceId
+      value: ""
+      type: path
+    - name: projectId
+      value: ""
+      type: path
+  body:
+    type: json
+    data: |-
+      [
+        {
+          "interval": "60s",
+          "name": "string",
+          "rules": [
+            {
+              "alert": "string",
+              "annotations": {},
+              "expr": "string",
+              "for": "0s",
+              "labels": {}
+            },
+            {
+              "expr": "string",
+              "labels": {},
+              "record": "string"
+            }
+          ]
+        }
+      ]
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Create logs alert group config.

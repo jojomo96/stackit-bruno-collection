@@ -1,0 +1,40 @@
+info:
+  name: Clone Instance
+  type: http
+  seq: 10
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId/clone"
+  params:
+    - name: projectId
+      value: 19feb036-9b61-11ee-b9d1-0242ac120002
+      type: path
+      description: The STACKIT project ID.
+    - name: region
+      value: eu01
+      type: path
+      description: The region which should be addressed
+    - name: instanceId
+      value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+      type: path
+      description: The ID of the instance.
+  body:
+    type: json
+    data: |-
+      {
+        "instanceOverrides": {
+          "performanceClass": "premium-perf12-stackit",
+          "size": 10
+        },
+        "pointInTime": "2023-12-30T23:25:05Z"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Clone Instance

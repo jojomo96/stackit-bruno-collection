@@ -1,0 +1,22 @@
+info:
+  name: Get Buckets
+  type: http
+  seq: 10
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v1/project/:projectId/buckets"
+  params:
+    - name: projectId
+      value: cd5e788d-5b7b-4ab9-a20d-e790205df10b
+      type: path
+      description: STACKIT project ID
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Get the list of all buckets in the given project

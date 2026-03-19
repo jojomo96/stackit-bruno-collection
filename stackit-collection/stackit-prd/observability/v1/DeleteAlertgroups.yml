@@ -1,0 +1,28 @@
+info:
+  name: DeleteAlertgroups
+  type: http
+  seq: 20
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/alertgroups"
+  params:
+    - name: instanceId
+      value: ""
+      type: path
+    - name: projectId
+      value: ""
+      type: path
+    - name: groupName
+      value: "[]"
+      type: query
+      description: Name of the groups that should be deleted
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Delete alert groups.

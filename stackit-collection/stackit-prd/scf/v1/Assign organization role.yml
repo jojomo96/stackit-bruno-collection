@@ -1,0 +1,35 @@
+info:
+  name: Assign organization role
+  type: http
+  seq: 12
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v1/projects/:projectId/regions/:region/organizations/:organizationId/roles"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+    - name: region
+      value: ""
+      type: path
+    - name: organizationId
+      value: ""
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "type": "organization_user",
+        "userGuid": "00000000-0000-0000-0000-000000000000",
+        "userName": "example@stackit.cloud"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Assign organization role within an organization. If the role is already assigned, the existing role GUID gets returned.
