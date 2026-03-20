@@ -1,0 +1,33 @@
+info:
+  name: Delete a existing VPN gateway in a project.
+  type: http
+  seq: 3
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/v1beta1/projects/:projectId/regions/:region/gateways/:gatewayId"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+    - name: region
+      value: eu01
+      type: path
+    - name: region
+      value: eu02
+      type: path
+      disabled: true
+    - name: gatewayId
+      value: ""
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: |
+  Permanently remove a VPN gateway and all its associated connections.    
+  This operation is irreversible.

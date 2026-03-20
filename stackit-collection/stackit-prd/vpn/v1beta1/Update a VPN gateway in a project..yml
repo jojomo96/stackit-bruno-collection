@@ -1,11 +1,11 @@
 info:
-  name: Create a VPN gateway in a project.
+  name: Update a VPN gateway in a project.
   type: http
-  seq: 2
+  seq: 5
 
 http:
-  method: POST
-  url: "{{baseUrl}}/v1alpha1/projects/:projectId/regions/:region/gateways"
+  method: PUT
+  url: "{{baseUrl}}/v1beta1/projects/:projectId/regions/:region/gateways/:gatewayId"
   params:
     - name: projectId
       value: ""
@@ -17,6 +17,9 @@ http:
       value: eu02
       type: path
       disabled: true
+    - name: gatewayId
+      value: ""
+      type: path
   body:
     type: json
     data: |-
@@ -50,4 +53,6 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
-docs: Provision a new VPN gateway.
+docs: |
+  Modify the configuration of an existing VPN gateway.    
+  Certain changes may trigger infrastructure updates or temporary connection re-negotiations.

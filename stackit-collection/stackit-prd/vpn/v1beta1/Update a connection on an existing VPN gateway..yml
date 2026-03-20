@@ -1,0 +1,64 @@
+info:
+  name: Update a connection on an existing VPN gateway.
+  type: http
+  seq: 10
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/v1beta1/projects/:projectId/regions/:region/gateways/:gatewayId/connections/:connectionId"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+    - name: region
+      value: eu01
+      type: path
+    - name: region
+      value: eu02
+      type: path
+      disabled: true
+    - name: gatewayId
+      value: ""
+      type: path
+    - name: connectionId
+      value: ""
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "displayName": "my-connection",
+        "enabled": false,
+        "localSubnets": [
+          "10.10.10.10/32"
+        ],
+        "remoteSubnets": [
+          "10.10.10.10/32"
+        ],
+        "staticRoutes": [
+          "10.10.10.10/32"
+        ],
+        "tunnel1": {
+          "bgp": {
+            "remoteAsn": 0
+          },
+          "peering": {
+            "localAddress": "0.0.0.0",
+            "remoteAddress": "0.0.0.0"
+          },
+          "phase1": "",
+          "phase2": "",
+          "preSharedKey": "Super1Secret2Shared3Key4",
+          "remoteAddress": "0.0.0.0"
+        },
+        "tunnel2": {}
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Updating the configuration of an existing connection.

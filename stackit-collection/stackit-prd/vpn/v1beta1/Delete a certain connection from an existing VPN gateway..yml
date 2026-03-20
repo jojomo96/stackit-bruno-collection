@@ -1,0 +1,34 @@
+info:
+  name: Delete a certain connection from an existing VPN gateway.
+  type: http
+  seq: 8
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/v1beta1/projects/:projectId/regions/:region/gateways/:gatewayId/connections/:connectionId"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+    - name: region
+      value: eu01
+      type: path
+    - name: region
+      value: eu02
+      type: path
+      disabled: true
+    - name: gatewayId
+      value: ""
+      type: path
+    - name: connectionId
+      value: ""
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Delete a certain connection from an existing VPN gateway.

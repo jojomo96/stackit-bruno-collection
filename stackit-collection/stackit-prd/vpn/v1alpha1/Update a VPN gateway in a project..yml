@@ -42,7 +42,7 @@ http:
           "onsite-target": "branch-office-berlin",
           "team": "netops"
         },
-        "planId": "p50",
+        "planId": "p500",
         "routingType": "POLICY_BASED"
       }
   auth: inherit

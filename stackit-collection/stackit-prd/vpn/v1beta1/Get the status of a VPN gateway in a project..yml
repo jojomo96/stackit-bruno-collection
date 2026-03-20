@@ -1,0 +1,31 @@
+info:
+  name: Get the status of a VPN gateway in a project.
+  type: http
+  seq: 12
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v1beta1/projects/:projectId/regions/:region/gateways/:gatewayId/status"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+    - name: region
+      value: eu01
+      type: path
+    - name: region
+      value: eu02
+      type: path
+      disabled: true
+    - name: gatewayId
+      value: ""
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Get the status of a VPN gateway in a project.

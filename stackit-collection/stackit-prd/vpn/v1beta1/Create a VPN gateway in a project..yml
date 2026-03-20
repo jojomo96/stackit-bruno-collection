@@ -5,7 +5,7 @@ info:
 
 http:
   method: POST
-  url: "{{baseUrl}}/v1alpha1/projects/:projectId/regions/:region/gateways"
+  url: "{{baseUrl}}/v1beta1/projects/:projectId/regions/:region/gateways"
   params:
     - name: projectId
       value: ""
