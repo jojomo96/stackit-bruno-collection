@@ -82,7 +82,7 @@ http:
               "eu01-2"
             ],
             "cri": {
-              "name": "docker"
+              "name": "containerd"
             },
             "labels": {},
             "machine": {
