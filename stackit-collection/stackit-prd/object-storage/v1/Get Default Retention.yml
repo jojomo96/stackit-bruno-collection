@@ -1,20 +1,20 @@
 info:
-  name: Get Buckets
+  name: Get Default Retention
   type: http
-  seq: 13
+  seq: 11
 
 http:
   method: GET
-  url: "{{baseUrl}}/v2/project/:projectId/regions/:region/buckets"
+  url: "{{baseUrl}}/v1/project/:projectId/bucket/:bucketName/default-retention"
   params:
     - name: projectId
       value: cd5e788d-5b7b-4ab9-a20d-e790205df10b
       type: path
       description: STACKIT project ID
-    - name: region
-      value: eu01
+    - name: bucketName
+      value: bucket-1
       type: path
-      description: STACKIT Region
+      description: The name has to be dns-conform.
   auth: inherit
 
 settings:
@@ -23,4 +23,4 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
-docs: Get the list of all buckets in the given project
+docs: Get the default retention configuration for a bucket.

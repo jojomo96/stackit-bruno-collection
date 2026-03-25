@@ -1,0 +1,33 @@
+info:
+  name: Update Default Retention
+  type: http
+  seq: 12
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/v1/project/:projectId/bucket/:bucketName/default-retention"
+  params:
+    - name: projectId
+      value: cd5e788d-5b7b-4ab9-a20d-e790205df10b
+      type: path
+      description: STACKIT project ID
+    - name: bucketName
+      value: bucket-1
+      type: path
+      description: The name has to be dns-conform.
+  body:
+    type: json
+    data: |-
+      {
+        "days": 90,
+        "mode": "COMPLIANCE"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Set or update the default retention for a bucket.

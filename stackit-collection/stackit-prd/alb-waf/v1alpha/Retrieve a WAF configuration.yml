@@ -1,7 +1,7 @@
 info:
   name: Retrieve a WAF configuration
   type: http
-  seq: 14
+  seq: 15
 
 http:
   method: GET

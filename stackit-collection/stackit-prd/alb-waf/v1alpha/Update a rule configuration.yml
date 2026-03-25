@@ -1,7 +1,7 @@
 info:
   name: Update a rule configuration
   type: http
-  seq: 10
+  seq: 11
 
 http:
   method: PUT

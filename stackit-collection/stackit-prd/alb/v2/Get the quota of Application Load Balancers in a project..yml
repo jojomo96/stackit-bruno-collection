@@ -21,6 +21,4 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
-docs: |-
-  Retrieves the configured Application Load Balancer quota for the project. Limit can be changed via service request.
-   There can be 3 times as many TLS certificates and observability credentials as Load Balancers.
+docs: Retrieves the configured Application Load Balancer quota for the project. Limit can be changed via service request.

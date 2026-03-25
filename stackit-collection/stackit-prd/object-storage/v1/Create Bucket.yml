@@ -15,6 +15,10 @@ http:
       value: bucket-1
       type: path
       description: The name has to be dns-conform.
+    - name: objectLockEnabled
+      value: "false"
+      type: query
+      description: Enable S3 Object Lock on this bucket. Can only be set at creation time. Requires an active project-level compliance lock.
   auth: inherit
 
 settings:
@@ -23,6 +27,4 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
-docs: |-
-  Create a bucket for the given project. Bucket with the same name
-  cannot already exists in the object storage
+docs: Create a bucket for the given project. Bucket with the same name cannot already exists in the object storage

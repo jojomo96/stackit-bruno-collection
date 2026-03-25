@@ -1,19 +1,16 @@
 info:
-  name: Retrieve a rule configuration
+  name: Get the quota for TLS certificates in a project.
   type: http
-  seq: 10
+  seq: 5
 
 http:
   method: GET
-  url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:region/rules/:name"
+  url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/quotas"
   params:
     - name: projectId
       value: ""
       type: path
     - name: region
-      value: ""
-      type: path
-    - name: name
       value: ""
       type: path
   auth: inherit
@@ -24,4 +21,4 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
-docs: To retrieve an existing rule configuration this endpoint can be used.
+docs: Retrieves the configured TLS certificate quota for the project. Limit can be changed via service request.

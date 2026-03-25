@@ -1,11 +1,11 @@
 info:
-  name: Get Buckets
+  name: Delete Compliance Lock
   type: http
-  seq: 13
+  seq: 14
 
 http:
-  method: GET
-  url: "{{baseUrl}}/v1/project/:projectId/buckets"
+  method: DELETE
+  url: "{{baseUrl}}/v1/project/:projectId/compliance-lock"
   params:
     - name: projectId
       value: cd5e788d-5b7b-4ab9-a20d-e790205df10b
@@ -19,4 +19,4 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
-docs: Get the list of all buckets in the given project
+docs: Remove compliance lock from a project.

@@ -1,7 +1,7 @@
 opencollection: 1.0.0
 
 info:
-  name: Service Account API
+  name: STACKIT Service Account API
 bundled: false
 extensions:
   bruno:
