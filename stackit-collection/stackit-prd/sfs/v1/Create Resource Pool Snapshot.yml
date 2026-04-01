@@ -21,7 +21,8 @@ http:
     data: |-
       {
         "comment": "",
-        "name": ""
+        "name": "",
+        "snaplockRetentionHours": 0
       }
   auth: inherit
 

@@ -1,0 +1,24 @@
+info:
+  name: DeleteLock
+  type: http
+  seq: 24
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/v1/regions/:region/project/:projectId/locks"
+  params:
+    - name: region
+      value: ""
+      type: path
+    - name: projectId
+      value: ""
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Delete Lock

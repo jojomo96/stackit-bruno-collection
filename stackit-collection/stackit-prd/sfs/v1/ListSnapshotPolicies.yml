@@ -1,0 +1,25 @@
+info:
+  name: ListSnapshotPolicies
+  type: http
+  seq: 22
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v1/projects/:projectId/snapshotPolicies"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+    - name: immutable
+      value: ""
+      type: query
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: List Snapshot Policies

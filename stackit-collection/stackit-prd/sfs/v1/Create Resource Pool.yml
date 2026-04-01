@@ -23,6 +23,7 @@ http:
         "name": "",
         "performanceClass": "",
         "sizeGigabytes": 0,
+        "snapshotPolicyId": "",
         "snapshotsAreVisible": false
       }
   auth: inherit
