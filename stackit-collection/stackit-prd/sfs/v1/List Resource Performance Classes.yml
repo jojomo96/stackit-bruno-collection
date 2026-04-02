@@ -1,7 +1,7 @@
 info:
   name: List Resource Performance Classes
   type: http
-  seq: 26
+  seq: 28
 
 http:
   method: GET

@@ -1,7 +1,7 @@
 info:
   name: Delete Share Export Policy
   type: http
-  seq: 17
+  seq: 18
 
 http:
   method: DELETE

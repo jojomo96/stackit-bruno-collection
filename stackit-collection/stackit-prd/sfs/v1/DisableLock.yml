@@ -1,7 +1,7 @@
 info:
-  name: DeleteLock
+  name: DisableLock
   type: http
-  seq: 24
+  seq: 25
 
 http:
   method: DELETE
@@ -21,4 +21,4 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
-docs: Delete Lock
+docs: Clean up locks for a project so that it can be deleted successfully.

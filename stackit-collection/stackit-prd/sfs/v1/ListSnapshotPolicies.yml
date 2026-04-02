@@ -1,7 +1,7 @@
 info:
   name: ListSnapshotPolicies
   type: http
-  seq: 22
+  seq: 23
 
 http:
   method: GET

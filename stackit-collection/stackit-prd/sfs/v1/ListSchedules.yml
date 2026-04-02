@@ -1,7 +1,7 @@
 info:
   name: ListSchedules
   type: http
-  seq: 20
+  seq: 21
 
 http:
   method: GET

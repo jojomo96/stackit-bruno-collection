@@ -15,6 +15,10 @@ http:
       value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
       type: path
       description: The identifier (ID) of a STACKIT Volume.
+    - name: cascade
+      value: "false"
+      type: query
+      description: Cascade action.
   auth: inherit
 
 settings:

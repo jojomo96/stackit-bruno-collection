@@ -1,7 +1,7 @@
 info:
-  name: CreateLock
+  name: EnableLock
   type: http
-  seq: 25
+  seq: 27
 
 http:
   method: POST
@@ -21,4 +21,4 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
-docs: Create Lock
+docs: Enable Lock for a project. Necessary for immutable snapshots and to prevent accidental deletion of resources.

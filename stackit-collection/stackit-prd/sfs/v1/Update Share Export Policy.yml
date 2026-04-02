@@ -1,7 +1,7 @@
 info:
   name: Update Share Export Policy
   type: http
-  seq: 19
+  seq: 20
 
 http:
   method: PATCH
