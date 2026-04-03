@@ -150,6 +150,30 @@ http:
               "message": "message"
             }
           ],
+          "expiration": {
+            "kubernetes": {
+              "expirationDate": "2000-01-23T04:56:07Z",
+              "version": "version"
+            },
+            "nodepools": [
+              {
+                "kubernetesExpirationDate": "2000-01-23T04:56:07Z",
+                "kubernetesVersion": "kubernetesVersion",
+                "name": "name",
+                "osExpirationDate": "2000-01-23T04:56:07Z",
+                "osName": "osName",
+                "osVersion": "osVersion"
+              },
+              {
+                "kubernetesExpirationDate": "2000-01-23T04:56:07Z",
+                "kubernetesVersion": "kubernetesVersion",
+                "name": "name",
+                "osExpirationDate": "2000-01-23T04:56:07Z",
+                "osName": "osName",
+                "osVersion": "osVersion"
+              }
+            ]
+          },
           "hibernated": true,
           "identity": "identity",
           "podAddressRanges": [
