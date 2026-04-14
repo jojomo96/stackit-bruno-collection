@@ -15,6 +15,11 @@ http:
       value: eu01
       type: path
       description: The region which should be addressed
+    - name: region
+      value: eu02
+      type: path
+      description: The region which should be addressed
+      disabled: true
     - name: page
       value: "1"
       type: query
