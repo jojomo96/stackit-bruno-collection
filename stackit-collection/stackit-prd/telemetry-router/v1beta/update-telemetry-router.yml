@@ -1,0 +1,52 @@
+info:
+  name: update-telemetry-router
+  type: http
+  seq: 5
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/v1beta/projects/:projectId/regions/:regionId/telemetry-routers/:telemetryRouterId"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: The STACKIT portal project UUID the resource is located in.
+    - name: regionId
+      value: eu01
+      type: path
+      description: The STACKIT region name the resource is located in.
+    - name: regionId
+      value: eu02
+      type: path
+      description: The STACKIT region name the resource is located in.
+      disabled: true
+    - name: telemetryRouterId
+      value: ""
+      type: path
+      description: The Telemetry Router UUID.
+  body:
+    type: json
+    data: |-
+      {
+        "description": "",
+        "displayName": "",
+        "filter": {
+          "attributes": [
+            {
+              "key": "",
+              "level": "resource",
+              "matcher": "=",
+              "values": []
+            }
+          ]
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Updates the given Telemetry Router.

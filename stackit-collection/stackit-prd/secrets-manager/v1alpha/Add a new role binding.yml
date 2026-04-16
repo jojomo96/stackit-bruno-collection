@@ -1,0 +1,31 @@
+info:
+  name: Add a new role binding
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v1alpha/region/:region/instance/:resourceId:addRoleBinding"
+  params:
+    - name: region
+      value: ""
+      type: path
+    - name: resourceId
+      value: ""
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "role": "owner",
+        "subject": "user@mail.schwarz"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Add role binding to the given resource.

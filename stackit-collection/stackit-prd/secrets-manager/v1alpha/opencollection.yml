@@ -1,7 +1,7 @@
 opencollection: 1.0.0
 
 info:
-  name: STACKIT Functions Infra API
+  name: STACKIT Secrets Manager API
 bundled: false
 extensions:
   bruno:

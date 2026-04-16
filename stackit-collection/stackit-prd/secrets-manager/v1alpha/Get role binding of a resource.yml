@@ -1,0 +1,31 @@
+info:
+  name: Get role binding of a resource
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v1alpha/region/:region/instance/:resourceId:getRoleBinding"
+  params:
+    - name: region
+      value: ""
+      type: path
+    - name: resourceId
+      value: ""
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "role": "owner",
+        "subject": "user@mail.schwarz"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Get a specific role binding of the given resource.

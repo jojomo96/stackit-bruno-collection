@@ -1,0 +1,24 @@
+info:
+  name: List role bindings of a resource (GET)
+  type: http
+  seq: 9
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v1alpha/region/:region/secret-group/:resourceId:listRoleBindings"
+  params:
+    - name: region
+      value: ""
+      type: path
+    - name: resourceId
+      value: ""
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: List role bindings of the given resource.

@@ -1,0 +1,31 @@
+info:
+  name: Update an existing role binding (POST)
+  type: http
+  seq: 10
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v1alpha/region/:region/secret-group/:resourceId:updateRoleBinding"
+  params:
+    - name: region
+      value: ""
+      type: path
+    - name: resourceId
+      value: ""
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "role": "owner",
+        "subject": "user@mail.schwarz"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Update a role binding.
