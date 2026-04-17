@@ -1,7 +1,7 @@
 opencollection: 1.0.0
 
 info:
-  name: STACKIT Functions Registry API
+  name: STACKIT Dremio API
 bundled: false
 extensions:
   bruno:

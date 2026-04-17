@@ -1,0 +1,67 @@
+info:
+  name: update-dremio
+  type: http
+  seq: 5
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/dremios/:dremioId"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: The STACKIT portal project UUID the resource is located in.
+    - name: regionId
+      value: eu01
+      type: path
+      description: The STACKIT region name the resource is located in.
+    - name: regionId
+      value: eu02
+      type: path
+      description: The STACKIT region name the resource is located in.
+      disabled: true
+    - name: dremioId
+      value: ""
+      type: path
+      description: The Dremio UUID.
+  body:
+    type: json
+    data: |-
+      {
+        "authentication": {
+          "azuread": {
+            "authorityUrl": "",
+            "clientId": "",
+            "clientSecret": "",
+            "redirectUrl": ""
+          },
+          "oauth": {
+            "authorityUrl": "",
+            "clientId": "",
+            "clientSecret": "",
+            "jwtClaims": {
+              "userName": "email"
+            },
+            "parameters": [
+              {
+                "name": "",
+                "value": ""
+              }
+            ],
+            "redirectUrl": "",
+            "scope": ""
+          },
+          "type": "local-only"
+        },
+        "description": "",
+        "displayName": ""
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Updates the given Dremio. Please note that changing certain fields will trigger a Dremio restart and will incur downtime. See the request body information for more details.

@@ -1,0 +1,46 @@
+info:
+  name: create-dremio-user
+  type: http
+  seq: 7
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/dremios/:dremioId/users"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: The STACKIT portal project UUID the resource is located in.
+    - name: regionId
+      value: eu01
+      type: path
+      description: The STACKIT region name the resource is located in.
+    - name: regionId
+      value: eu02
+      type: path
+      description: The STACKIT region name the resource is located in.
+      disabled: true
+    - name: dremioId
+      value: ""
+      type: path
+      description: The Dremio UUID.
+  body:
+    type: json
+    data: |-
+      {
+        "description": "",
+        "email": "",
+        "firstName": "",
+        "lastName": "",
+        "name": "",
+        "password": ""
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Creates a new dremio admin user for the given dremio instance
