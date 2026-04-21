@@ -15,7 +15,7 @@ http:
       value: "20"
       type: query
       description: |
-        Quantifies how many distributions should be returned on this 
+        Quantifies how many distributions should be returned on this
         page. Must be a natural number between 1 and 100 (inclusive)
     - name: withWafStatus
       value: "false"
@@ -28,11 +28,11 @@ http:
         Identifier is returned by the previous response and is used to request the next page.
 
         As the `pageIdentifier` encodes an element, inserts during pagination will *not* shift the result.
-        So a scenario like:  
+        So a scenario like:
         - Start listing first page
         - Insert new element
         - Start listing second page
-        will *never* result in an element from the first page to get "pushed" to the second page, like it could 
+        will *never* result in an element from the first page to get "pushed" to the second page, like it could
         occur with basic limit + offset pagination.
 
         The identifier should be treated as an opaque string and never modified. Only pass values returned by the API.
@@ -42,7 +42,7 @@ http:
       description: |
         The following sort options exist. We default to `createdAt`
         - `id` - Sort by distribution ID using String comparison
-        - `updatedAt` - Sort by when the distribution configuration was last modified, 
+        - `updatedAt` - Sort by when the distribution configuration was last modified,
           for example by changing the regions or response headers
         - `createdAt` - Sort by when the distribution was initially created.
         - `originUrl` - Sort by originURL using String comparison
@@ -55,7 +55,7 @@ http:
       description: |
         The following sort options exist. We default to `createdAt`
         - `id` - Sort by distribution ID using String comparison
-        - `updatedAt` - Sort by when the distribution configuration was last modified, 
+        - `updatedAt` - Sort by when the distribution configuration was last modified,
           for example by changing the regions or response headers
         - `createdAt` - Sort by when the distribution was initially created.
         - `originUrl` - Sort by originURL using String comparison
@@ -68,7 +68,7 @@ http:
       description: |
         The following sort options exist. We default to `createdAt`
         - `id` - Sort by distribution ID using String comparison
-        - `updatedAt` - Sort by when the distribution configuration was last modified, 
+        - `updatedAt` - Sort by when the distribution configuration was last modified,
           for example by changing the regions or response headers
         - `createdAt` - Sort by when the distribution was initially created.
         - `originUrl` - Sort by originURL using String comparison
@@ -80,7 +80,7 @@ http:
       description: |
         The following sort options exist. We default to `createdAt`
         - `id` - Sort by distribution ID using String comparison
-        - `updatedAt` - Sort by when the distribution configuration was last modified, 
+        - `updatedAt` - Sort by when the distribution configuration was last modified,
           for example by changing the regions or response headers
         - `createdAt` - Sort by when the distribution was initially created.
         - `originUrl` - Sort by originURL using String comparison
@@ -93,7 +93,7 @@ http:
       description: |
         The following sort options exist. We default to `createdAt`
         - `id` - Sort by distribution ID using String comparison
-        - `updatedAt` - Sort by when the distribution configuration was last modified, 
+        - `updatedAt` - Sort by when the distribution configuration was last modified,
           for example by changing the regions or response headers
         - `createdAt` - Sort by when the distribution was initially created.
         - `originUrl` - Sort by originURL using String comparison
@@ -106,7 +106,7 @@ http:
       description: |
         The following sort options exist. We default to `createdAt`
         - `id` - Sort by distribution ID using String comparison
-        - `updatedAt` - Sort by when the distribution configuration was last modified, 
+        - `updatedAt` - Sort by when the distribution configuration was last modified,
           for example by changing the regions or response headers
         - `createdAt` - Sort by when the distribution was initially created.
         - `originUrl` - Sort by originURL using String comparison
@@ -130,5 +130,5 @@ settings:
   maxRedirects: 5
 
 docs: |
-  ListDistributions returns a list of all CDN distributions associated with 
+  ListDistributions returns a list of all CDN distributions associated with
   a given project, ordered by their distribution ID.

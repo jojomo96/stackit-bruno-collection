@@ -1,7 +1,7 @@
 opencollection: 1.0.0
 
 info:
-  name: STACKIT CDN API
+  name: STACKIT CDN API (DEPRECATED)
 bundled: false
 extensions:
   bruno:

@@ -28,8 +28,8 @@ settings:
   maxRedirects: 5
 
 docs: |
-  This returns paths that are present in the cache purging history. 
-  Only substrings of the provided input are returned. 
+  This returns paths that are present in the cache purging history.
+  Only substrings of the provided input are returned.
   The response is sorted in descending order by the most recent purge.
 
   So, assuming you have have the following purged for a distribution

@@ -22,15 +22,15 @@ http:
       value: ""
       type: query
       description: |
-        the end of the time range for which statistics should be returned. If not specified, 
-        the end of the current time interval is used, e.g. next day for daily, 
+        the end of the time range for which statistics should be returned. If not specified,
+        the end of the current time interval is used, e.g. next day for daily,
         next month for monthly, and so on.
       disabled: true
     - name: interval
       value: hourly
       type: query
       description: |
-        Over which interval should statistics be aggregated? 
+        Over which interval should statistics be aggregated?
         defaults to hourly resolution
 
         **NOTE**: Intervals are grouped in buckets that start and end based on a day in UTC+0 time.
@@ -40,7 +40,7 @@ http:
       value: daily
       type: query
       description: |
-        Over which interval should statistics be aggregated? 
+        Over which interval should statistics be aggregated?
         defaults to hourly resolution
 
         **NOTE**: Intervals are grouped in buckets that start and end based on a day in UTC+0 time.
@@ -50,7 +50,7 @@ http:
       value: monthly
       type: query
       description: |
-        Over which interval should statistics be aggregated? 
+        Over which interval should statistics be aggregated?
         defaults to hourly resolution
 
         **NOTE**: Intervals are grouped in buckets that start and end based on a day in UTC+0 time.
@@ -60,7 +60,7 @@ http:
       value: yearly
       type: query
       description: |
-        Over which interval should statistics be aggregated? 
+        Over which interval should statistics be aggregated?
         defaults to hourly resolution
 
         **NOTE**: Intervals are grouped in buckets that start and end based on a day in UTC+0 time.
@@ -84,5 +84,5 @@ docs: |
 
   **Important Note:** Lower bounds are inclusive, upper bounds are exclusive. If you, for example, want a daily grouped which starts on the 1st Jan and also contains the full 10th Jan day, you would define `2025-01-01T00:00:00Z` as the lower and `2025-01-11T00:00:00Z` as the upper bound.
 
-  The upper bound is optional. If you omit it, the API will use the start of the next interval as the upper bound.  
+  The upper bound is optional. If you omit it, the API will use the start of the next interval as the upper bound.
   Example: if `interval` is `hourly`, `from` would default to the start of the next hour, if it's `daily`, `from` would default to the start of the next day, etc.

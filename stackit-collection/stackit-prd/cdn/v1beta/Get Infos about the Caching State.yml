@@ -29,5 +29,5 @@ settings:
 docs: |
   Return caching info metadata, which contains the last cache purging time and a history of the most recent *full* purges.
 
-  If (and only if) you provide the path query parameter, the history will also contain granular cache purges. 
+  If (and only if) you provide the path query parameter, the history will also contain granular cache purges.
   The request will not fail if no data about a path is found.

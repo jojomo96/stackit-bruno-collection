@@ -26,5 +26,5 @@ settings:
   maxRedirects: 5
 
 docs: |
-  Clear the cache for this distribution. 
+  Clear the cache for this distribution.
   All content, regardless of its staleness, will get refetched from the host.

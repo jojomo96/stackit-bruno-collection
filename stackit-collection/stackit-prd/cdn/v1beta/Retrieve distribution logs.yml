@@ -24,7 +24,7 @@ http:
       value: ""
       type: query
       description: |
-        the end of the time range for which logs should be returned. If not specified, 
+        the end of the time range for which logs should be returned. If not specified,
         "now" is used.
       disabled: true
     - name: wafAction
@@ -33,7 +33,7 @@ http:
       description: |
         If this is set then only log entries with the chosen WAF rule action/outcome are returned.
         Specifically, if `ALLOWED` then all requests with no violation are returned. If `BLOCKED` then those where
-        a WAF rule blocked a request and if `LOGGED` then only those requests where the WAF violation was only logged 
+        a WAF rule blocked a request and if `LOGGED` then only those requests where the WAF violation was only logged
         but the request not blocked
       disabled: true
     - name: wafAction
@@ -42,7 +42,7 @@ http:
       description: |
         If this is set then only log entries with the chosen WAF rule action/outcome are returned.
         Specifically, if `ALLOWED` then all requests with no violation are returned. If `BLOCKED` then those where
-        a WAF rule blocked a request and if `LOGGED` then only those requests where the WAF violation was only logged 
+        a WAF rule blocked a request and if `LOGGED` then only those requests where the WAF violation was only logged
         but the request not blocked
       disabled: true
     - name: wafAction
@@ -51,14 +51,14 @@ http:
       description: |
         If this is set then only log entries with the chosen WAF rule action/outcome are returned.
         Specifically, if `ALLOWED` then all requests with no violation are returned. If `BLOCKED` then those where
-        a WAF rule blocked a request and if `LOGGED` then only those requests where the WAF violation was only logged 
+        a WAF rule blocked a request and if `LOGGED` then only those requests where the WAF violation was only logged
         but the request not blocked
       disabled: true
     - name: pageSize
       value: "20"
       type: query
       description: |
-        Quantifies how many log entries should be returned on this 
+        Quantifies how many log entries should be returned on this
         page. Must be a natural number between 1 and 1000 (inclusive)
     - name: pageIdentifier
       value: CiQ0NjExMDY1MS1kNDQ1LTQ3NjgtOTc3YS00MTIzMjlmMjliYjYgAQ
@@ -67,11 +67,11 @@ http:
         Identifier is returned by the previous response and is used to request the next page.
 
         As the `pageIdentifier` encodes an element, inserts during pagination will *not* shift the result.
-        So a scenario like:  
+        So a scenario like:
         - Start listing first page
         - Insert new element
         - Start listing second page
-        will *never* result in an element from the first page to get "pushed" to the second page, like it could 
+        will *never* result in an element from the first page to get "pushed" to the second page, like it could
         occur with basic limit + offset pagination.
 
         The identifier should be treated as an opaque string and never modified. Only pass values returned by the API.
