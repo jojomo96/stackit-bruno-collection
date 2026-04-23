@@ -29,4 +29,252 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: created (standard distribution)
+    description: |
+      The distribution in its initial state.
+      This will have the status `CREATING`.
+
+      Using the `GET` endpoint and the `id` you can poll the status of the distribution.
+      More info about the contents can be found in the *Get distribution by ID* response example.
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+      body:
+        type: json
+        data: |-
+          {
+            "originUrl": "httpbin.org",
+            "regions": [
+              "EU",
+              "ASIA"
+            ]
+          }
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "distribution": {
+              "config": {
+                "backend": {
+                  "originRequestHeaders": {},
+                  "originUrl": "https://httpbin.org",
+                  "type": "http"
+                },
+                "regions": [
+                  "EU",
+                  "ASIA"
+                ]
+              },
+              "createdAt": "2024-09-26T09:00:00.12345Z",
+              "domains": [],
+              "id": "8bfaecd1-f880-4fa1-9884-1fb492aa4647",
+              "projectId": "d043e216-af6e-445f-b5a5-cd67b2593278",
+              "status": "CREATING",
+              "updatedAt": "2024-09-26T09:00:00.12345Z"
+            }
+          }
+  - name: 400 Response (standard distribution)
+    description: bad request
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+      body:
+        type: json
+        data: |-
+          {
+            "originUrl": "httpbin.org",
+            "regions": [
+              "EU",
+              "ASIA"
+            ]
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "description": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+  - name: 401 Response (standard distribution)
+    description: unauthorized - please make sure the "Authorization" header is set and uses correct credentials
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+      body:
+        type: json
+        data: |-
+          {
+            "originUrl": "httpbin.org",
+            "regions": [
+              "EU",
+              "ASIA"
+            ]
+          }
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: text/plain
+      body:
+        type: text
+        data: ""
+  - name: 422 Response (standard distribution)
+    description: unprocessable entity - please make sure the body you provided is constructed according to spec
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+      body:
+        type: json
+        data: |-
+          {
+            "originUrl": "httpbin.org",
+            "regions": [
+              "EU",
+              "ASIA"
+            ]
+          }
+    response:
+      status: 422
+      statusText: Unprocessable Entity
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "description": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+  - name: 500 Response (standard distribution)
+    description: internal error - please try again later or contact support if the issue persists
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+      body:
+        type: json
+        data: |-
+          {
+            "originUrl": "httpbin.org",
+            "regions": [
+              "EU",
+              "ASIA"
+            ]
+          }
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "description": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+  - name: default Response (standard distribution)
+    description: Default error response
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+      body:
+        type: json
+        data: |-
+          {
+            "originUrl": "httpbin.org",
+            "regions": [
+              "EU",
+              "ASIA"
+            ]
+          }
+    response:
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "description": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+
 docs: CreateDistribution will create a new CDN distribution

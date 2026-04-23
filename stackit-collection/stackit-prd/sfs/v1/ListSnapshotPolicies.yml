@@ -22,4 +22,76 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 200 Response
+    description: OK
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/snapshotPolicies"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: immutable
+          value: ""
+          type: query
+          disabled: true
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "snapshotPolicies": [
+              {
+                "comment": "",
+                "createdAt": "",
+                "enabled": false,
+                "id": "",
+                "name": "",
+                "schedules": [
+                  {
+                    "count": 0,
+                    "prefix": "",
+                    "retentionPeriod": "",
+                    "scheduleId": ""
+                  }
+                ]
+              }
+            ]
+          }
+  - name: default Response
+    description: Default error response
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/snapshotPolicies"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: immutable
+          value: ""
+          type: query
+          disabled: true
+    response:
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 0,
+            "details": [
+              {
+                "@type": ""
+              }
+            ],
+            "message": ""
+          }
+
 docs: List Snapshot Policies

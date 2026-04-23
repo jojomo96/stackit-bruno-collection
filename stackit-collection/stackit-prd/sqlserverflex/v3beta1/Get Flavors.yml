@@ -126,4 +126,951 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 200 Response
+    description: "OK: The response contains a list with all available flavors for the project."
+    request:
+      url: "{{baseUrl}}/v3beta1/projects/:projectId/regions/:region/flavors"
+      method: GET
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: region
+          value: eu02
+          type: path
+          description: The region which should be addressed
+          disabled: true
+        - name: page
+          value: "1"
+          type: query
+          description: Number of the page of items list to be returned.
+        - name: size
+          value: "10"
+          type: query
+          description: Number of items to be returned on each page.
+        - name: sort
+          value: index.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: index.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: cpu.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: cpu.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: flavor_description.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: flavor_description.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: id.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: id.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: size_max.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: size_max.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: ram.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: ram.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: size_min.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: size_min.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: storage_class.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: storage_class.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: node_type.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: node_type.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "flavors": [
+              {
+                "cpu": 4,
+                "description": "Small, Compute optimized",
+                "id": "4.16-Single",
+                "maxGB": 1000,
+                "memory": 16,
+                "minGB": 10,
+                "nodeType": "single",
+                "storageClasses": [
+                  {
+                    "class": "premium-perf2-stackit",
+                    "maxIoPerSec": 1000,
+                    "maxThroughInMb": 100
+                  }
+                ]
+              }
+            ],
+            "pagination": {
+              "page": 0,
+              "size": 0,
+              "sort": "",
+              "totalPages": 0,
+              "totalRows": 0
+            }
+          }
+  - name: 400 Response
+    description: Bad Request
+    request:
+      url: "{{baseUrl}}/v3beta1/projects/:projectId/regions/:region/flavors"
+      method: GET
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: region
+          value: eu02
+          type: path
+          description: The region which should be addressed
+          disabled: true
+        - name: page
+          value: "1"
+          type: query
+          description: Number of the page of items list to be returned.
+        - name: size
+          value: "10"
+          type: query
+          description: Number of items to be returned on each page.
+        - name: sort
+          value: index.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: index.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: cpu.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: cpu.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: flavor_description.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: flavor_description.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: id.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: id.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: size_max.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: size_max.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: ram.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: ram.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: size_min.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: size_min.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: storage_class.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: storage_class.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: node_type.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: node_type.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "database not found",
+            "traceId": "885bef8bbc18649c",
+            "type": "INTERNAL_ERROR"
+          }
+  - name: 401 Response
+    description: User is not allowed to perform this operation or credentials are not correct
+    request:
+      url: "{{baseUrl}}/v3beta1/projects/:projectId/regions/:region/flavors"
+      method: GET
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: region
+          value: eu02
+          type: path
+          description: The region which should be addressed
+          disabled: true
+        - name: page
+          value: "1"
+          type: query
+          description: Number of the page of items list to be returned.
+        - name: size
+          value: "10"
+          type: query
+          description: Number of items to be returned on each page.
+        - name: sort
+          value: index.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: index.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: cpu.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: cpu.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: flavor_description.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: flavor_description.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: id.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: id.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: size_max.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: size_max.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: ram.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: ram.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: size_min.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: size_min.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: storage_class.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: storage_class.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: node_type.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: node_type.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "database not found",
+            "traceId": "885bef8bbc18649c",
+            "type": "INTERNAL_ERROR"
+          }
+  - name: 403 Response
+    description: "Forbidden: No access for the requested resource."
+    request:
+      url: "{{baseUrl}}/v3beta1/projects/:projectId/regions/:region/flavors"
+      method: GET
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: region
+          value: eu02
+          type: path
+          description: The region which should be addressed
+          disabled: true
+        - name: page
+          value: "1"
+          type: query
+          description: Number of the page of items list to be returned.
+        - name: size
+          value: "10"
+          type: query
+          description: Number of items to be returned on each page.
+        - name: sort
+          value: index.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: index.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: cpu.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: cpu.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: flavor_description.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: flavor_description.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: id.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: id.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: size_max.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: size_max.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: ram.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: ram.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: size_min.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: size_min.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: storage_class.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: storage_class.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: node_type.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: node_type.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "database not found",
+            "traceId": "885bef8bbc18649c",
+            "type": "INTERNAL_ERROR"
+          }
+  - name: 404 Response
+    description: "Not found: The requested resource was not found."
+    request:
+      url: "{{baseUrl}}/v3beta1/projects/:projectId/regions/:region/flavors"
+      method: GET
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: region
+          value: eu02
+          type: path
+          description: The region which should be addressed
+          disabled: true
+        - name: page
+          value: "1"
+          type: query
+          description: Number of the page of items list to be returned.
+        - name: size
+          value: "10"
+          type: query
+          description: Number of items to be returned on each page.
+        - name: sort
+          value: index.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: index.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: cpu.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: cpu.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: flavor_description.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: flavor_description.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: id.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: id.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: size_max.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: size_max.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: ram.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: ram.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: size_min.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: size_min.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: storage_class.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: storage_class.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: node_type.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: node_type.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "database not found",
+            "traceId": "885bef8bbc18649c",
+            "type": "INTERNAL_ERROR"
+          }
+  - name: 500 Response
+    description: "Internal Server Error: An internal occurred while processing the request. Please contact the support or try again later."
+    request:
+      url: "{{baseUrl}}/v3beta1/projects/:projectId/regions/:region/flavors"
+      method: GET
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: region
+          value: eu02
+          type: path
+          description: The region which should be addressed
+          disabled: true
+        - name: page
+          value: "1"
+          type: query
+          description: Number of the page of items list to be returned.
+        - name: size
+          value: "10"
+          type: query
+          description: Number of items to be returned on each page.
+        - name: sort
+          value: index.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: index.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: cpu.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: cpu.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: flavor_description.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: flavor_description.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: id.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: id.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: size_max.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: size_max.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: ram.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: ram.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: size_min.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: size_min.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: storage_class.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: storage_class.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: node_type.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: node_type.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "database not found",
+            "traceId": "885bef8bbc18649c",
+            "type": "INTERNAL_ERROR"
+          }
+  - name: 501 Response
+    description: Endpoint not implemented yet
+    request:
+      url: "{{baseUrl}}/v3beta1/projects/:projectId/regions/:region/flavors"
+      method: GET
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: region
+          value: eu02
+          type: path
+          description: The region which should be addressed
+          disabled: true
+        - name: page
+          value: "1"
+          type: query
+          description: Number of the page of items list to be returned.
+        - name: size
+          value: "10"
+          type: query
+          description: Number of items to be returned on each page.
+        - name: sort
+          value: index.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: index.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: cpu.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: cpu.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: flavor_description.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: flavor_description.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: id.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: id.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: size_max.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: size_max.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: ram.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: ram.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: size_min.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: size_min.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: storage_class.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: storage_class.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: node_type.asc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+        - name: sort
+          value: node_type.desc
+          type: query
+          description: Sorting of the flavors to be returned on each page.
+          disabled: true
+    response:
+      status: 501
+      statusText: Not Implemented
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "database not found",
+            "traceId": "885bef8bbc18649c",
+            "type": "INTERNAL_ERROR"
+          }
+
 docs: Get all available flavors for a project.

@@ -15,7 +15,7 @@ http:
       value: "20"
       type: query
       description: |
-        Quantifies how many distributions should be returned on this 
+        Quantifies how many distributions should be returned on this
         page. Must be a natural number between 1 and 100 (inclusive)
     - name: withWafStatus
       value: "false"
@@ -28,11 +28,11 @@ http:
         Identifier is returned by the previous response and is used to request the next page.
 
         As the `pageIdentifier` encodes an element, inserts during pagination will *not* shift the result.
-        So a scenario like:  
+        So a scenario like:
         - Start listing first page
         - Insert new element
         - Start listing second page
-        will *never* result in an element from the first page to get "pushed" to the second page, like it could 
+        will *never* result in an element from the first page to get "pushed" to the second page, like it could
         occur with basic limit + offset pagination.
 
         The identifier should be treated as an opaque string and never modified. Only pass values returned by the API.
@@ -42,7 +42,7 @@ http:
       description: |
         The following sort options exist. We default to `createdAt`
         - `id` - Sort by distribution Id using String comparison
-        - `updatedAt` - Sort by when the distribution configuration was last modified, 
+        - `updatedAt` - Sort by when the distribution configuration was last modified,
           for example by changing the regions or response headers
         - `createdAt` - Sort by when the distribution was initially created.
         - `originUrl` - Sort by originUrl using String comparison
@@ -55,7 +55,7 @@ http:
       description: |
         The following sort options exist. We default to `createdAt`
         - `id` - Sort by distribution Id using String comparison
-        - `updatedAt` - Sort by when the distribution configuration was last modified, 
+        - `updatedAt` - Sort by when the distribution configuration was last modified,
           for example by changing the regions or response headers
         - `createdAt` - Sort by when the distribution was initially created.
         - `originUrl` - Sort by originUrl using String comparison
@@ -68,7 +68,7 @@ http:
       description: |
         The following sort options exist. We default to `createdAt`
         - `id` - Sort by distribution Id using String comparison
-        - `updatedAt` - Sort by when the distribution configuration was last modified, 
+        - `updatedAt` - Sort by when the distribution configuration was last modified,
           for example by changing the regions or response headers
         - `createdAt` - Sort by when the distribution was initially created.
         - `originUrl` - Sort by originUrl using String comparison
@@ -80,7 +80,7 @@ http:
       description: |
         The following sort options exist. We default to `createdAt`
         - `id` - Sort by distribution Id using String comparison
-        - `updatedAt` - Sort by when the distribution configuration was last modified, 
+        - `updatedAt` - Sort by when the distribution configuration was last modified,
           for example by changing the regions or response headers
         - `createdAt` - Sort by when the distribution was initially created.
         - `originUrl` - Sort by originUrl using String comparison
@@ -93,7 +93,7 @@ http:
       description: |
         The following sort options exist. We default to `createdAt`
         - `id` - Sort by distribution Id using String comparison
-        - `updatedAt` - Sort by when the distribution configuration was last modified, 
+        - `updatedAt` - Sort by when the distribution configuration was last modified,
           for example by changing the regions or response headers
         - `createdAt` - Sort by when the distribution was initially created.
         - `originUrl` - Sort by originUrl using String comparison
@@ -106,7 +106,7 @@ http:
       description: |
         The following sort options exist. We default to `createdAt`
         - `id` - Sort by distribution Id using String comparison
-        - `updatedAt` - Sort by when the distribution configuration was last modified, 
+        - `updatedAt` - Sort by when the distribution configuration was last modified,
           for example by changing the regions or response headers
         - `createdAt` - Sort by when the distribution was initially created.
         - `originUrl` - Sort by originUrl using String comparison
@@ -129,6 +129,1097 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: content - no extra pages
+    description: |
+      There are distributions present, but not enough to start a new page.
+      Because of that no `nextPageIdentifier` is present.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/distributions"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project Id
+        - name: pageSize
+          value: "20"
+          type: query
+          description: |
+            Quantifies how many distributions should be returned on this
+            page. Must be a natural number between 1 and 100 (inclusive)
+        - name: withWafStatus
+          value: "false"
+          type: query
+          description: If set, the top level of a distribution contains a `waf` property, which defines the status of the waf. This includes a list of all resolved rules.
+        - name: pageIdentifier
+          value: CiQ0NjExMDY1MS1kNDQ1LTQ3NjgtOTc3YS00MTIzMjlmMjliYjYgAQ
+          type: query
+          description: |
+            Identifier is returned by the previous response and is used to request the next page.
+
+            As the `pageIdentifier` encodes an element, inserts during pagination will *not* shift the result.
+            So a scenario like:
+            - Start listing first page
+            - Insert new element
+            - Start listing second page
+            will *never* result in an element from the first page to get "pushed" to the second page, like it could
+            occur with basic limit + offset pagination.
+
+            The identifier should be treated as an opaque string and never modified. Only pass values returned by the API.
+        - name: sortBy
+          value: id
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+          disabled: true
+        - name: sortBy
+          value: updatedAt
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+          disabled: true
+        - name: sortBy
+          value: createdAt
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+        - name: sortBy
+          value: originUrl
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+          disabled: true
+        - name: sortBy
+          value: status
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+          disabled: true
+        - name: sortBy
+          value: originUrlRelated
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+          disabled: true
+        - name: sortOrder
+          value: ascending
+          type: query
+          disabled: true
+        - name: sortOrder
+          value: descending
+          type: query
+          disabled: true
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "distributions": [
+              {
+                "config": {
+                  "backend": {
+                    "geofencing": {},
+                    "originRequestHeaders": {},
+                    "originUrl": "https://httpbin.org",
+                    "type": "http"
+                  },
+                  "blockedCountries": [],
+                  "blockedIps": [],
+                  "regions": [
+                    "EU",
+                    "ASIA"
+                  ],
+                  "waf": {
+                    "enabledRuleIds": [
+                      "@builtin/crs/request/942511",
+                      "@builtin/crs/request/942512"
+                    ],
+                    "mode": "LOG_ONLY",
+                    "type": "FREE"
+                  }
+                },
+                "createdAt": "2024-09-26T09:00:00.12345Z",
+                "domains": [],
+                "id": "8bfaecd1-f880-4fa1-9884-1fb492aa4647",
+                "projectId": "d043e216-af6e-445f-b5a5-cd67b2593278",
+                "status": "CREATING",
+                "updatedAt": "2024-09-26T09:00:00.12345Z"
+              },
+              {
+                "config": {
+                  "backend": {
+                    "geofencing": {},
+                    "originRequestHeaders": {},
+                    "originUrl": "https://httpbin.org",
+                    "type": "http"
+                  },
+                  "blockedCountries": [],
+                  "blockedIps": [],
+                  "regions": [
+                    "EU",
+                    "ASIA"
+                  ],
+                  "waf": {
+                    "enabledRuleIds": [
+                      "@builtin/crs/request/942511",
+                      "@builtin/crs/request/942512"
+                    ],
+                    "mode": "LOG_ONLY",
+                    "type": "FREE"
+                  }
+                },
+                "createdAt": "2024-08-26T09:00:00.12345Z",
+                "domains": [
+                  {
+                    "name": "hwx6z5y5msddf57g0zg22c2pkr.aa.dev.cdn.onstackit.cloud",
+                    "status": "ACTIVE",
+                    "type": "managed"
+                  }
+                ],
+                "id": "8bfaecd1-f880-4fa1-1234-1fb492aa4647",
+                "projectId": "d043e216-af6e-445f-b5a5-cd67b2593278",
+                "status": "ACTIVE",
+                "updatedAt": "2024-08-26T09:00:00.12345Z"
+              }
+            ]
+          }
+  - name: content - with extra pages
+    description: |
+      There are distributions present, with more distributions on subsequent pages.
+      As such, the `nextPageIdentifier` is present.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/distributions"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project Id
+        - name: pageSize
+          value: "20"
+          type: query
+          description: |
+            Quantifies how many distributions should be returned on this
+            page. Must be a natural number between 1 and 100 (inclusive)
+        - name: withWafStatus
+          value: "false"
+          type: query
+          description: If set, the top level of a distribution contains a `waf` property, which defines the status of the waf. This includes a list of all resolved rules.
+        - name: pageIdentifier
+          value: CiQ0NjExMDY1MS1kNDQ1LTQ3NjgtOTc3YS00MTIzMjlmMjliYjYgAQ
+          type: query
+          description: |
+            Identifier is returned by the previous response and is used to request the next page.
+
+            As the `pageIdentifier` encodes an element, inserts during pagination will *not* shift the result.
+            So a scenario like:
+            - Start listing first page
+            - Insert new element
+            - Start listing second page
+            will *never* result in an element from the first page to get "pushed" to the second page, like it could
+            occur with basic limit + offset pagination.
+
+            The identifier should be treated as an opaque string and never modified. Only pass values returned by the API.
+        - name: sortBy
+          value: id
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+          disabled: true
+        - name: sortBy
+          value: updatedAt
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+          disabled: true
+        - name: sortBy
+          value: createdAt
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+        - name: sortBy
+          value: originUrl
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+          disabled: true
+        - name: sortBy
+          value: status
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+          disabled: true
+        - name: sortBy
+          value: originUrlRelated
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+          disabled: true
+        - name: sortOrder
+          value: ascending
+          type: query
+          disabled: true
+        - name: sortOrder
+          value: descending
+          type: query
+          disabled: true
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "distributions": [
+              {
+                "config": {
+                  "backend": {
+                    "geofencing": {},
+                    "originRequestHeaders": {
+                      "exampleHeader": "Example Value"
+                    },
+                    "originUrl": "https://httpbin.org",
+                    "type": "http"
+                  },
+                  "blockedCountries": [],
+                  "blockedIps": [],
+                  "regions": [
+                    "EU",
+                    "ASIA"
+                  ],
+                  "waf": {
+                    "enabledRuleIds": [
+                      "@builtin/crs/request/942511",
+                      "@builtin/crs/request/942512"
+                    ],
+                    "mode": "LOG_ONLY",
+                    "type": "FREE"
+                  }
+                },
+                "createdAt": "2024-09-26T09:00:00.12345Z",
+                "domains": [],
+                "id": "8bfaecd1-f880-4fa1-9884-1fb492aa4647",
+                "projectId": "d043e216-af6e-445f-b5a5-cd67b2593278",
+                "status": "CREATING",
+                "updatedAt": "2024-09-26T09:00:00.12345Z"
+              },
+              {
+                "config": {
+                  "backend": {
+                    "geofencing": {},
+                    "originRequestHeaders": {},
+                    "originUrl": "https://httpbin.org",
+                    "type": "http"
+                  },
+                  "blockedCountries": [],
+                  "blockedIps": [],
+                  "regions": [
+                    "EU",
+                    "ASIA"
+                  ],
+                  "waf": {
+                    "enabledRuleIds": [
+                      "@builtin/crs/request/942511",
+                      "@builtin/crs/request/942512"
+                    ],
+                    "mode": "LOG_ONLY",
+                    "type": "FREE"
+                  }
+                },
+                "createdAt": "2024-08-26T09:00:00.12345Z",
+                "domains": [
+                  {
+                    "name": "hwx6z5y5msddf57g0zg22c2pkr.aa.dev.cdn.onstackit.cloud",
+                    "status": "ACTIVE",
+                    "type": "managed"
+                  }
+                ],
+                "id": "8bfaecd1-f880-4fa1-1234-1fb492aa4647",
+                "projectId": "d043e216-af6e-445f-b5a5-cd67b2593278",
+                "status": "ACTIVE",
+                "updatedAt": "2024-08-26T09:00:00.12345Z"
+              }
+            ],
+            "nextPageIdentifier": "CiQ0NjExMDY1MS1kNDQ1LTQ3NjgtOTc3YS00MTIzMjlmMjliYjYgAQ"
+          }
+  - name: empty
+    description: |
+      If no distributions are assigned to a project, this returns an empty list.
+
+      **NOTE: An empty list is not returned as a 404. The 'resource' exists, it just happens to be empty**
+
+      Because no further pages are available, there is no `nextPageIdentifier`
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/distributions"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project Id
+        - name: pageSize
+          value: "20"
+          type: query
+          description: |
+            Quantifies how many distributions should be returned on this
+            page. Must be a natural number between 1 and 100 (inclusive)
+        - name: withWafStatus
+          value: "false"
+          type: query
+          description: If set, the top level of a distribution contains a `waf` property, which defines the status of the waf. This includes a list of all resolved rules.
+        - name: pageIdentifier
+          value: CiQ0NjExMDY1MS1kNDQ1LTQ3NjgtOTc3YS00MTIzMjlmMjliYjYgAQ
+          type: query
+          description: |
+            Identifier is returned by the previous response and is used to request the next page.
+
+            As the `pageIdentifier` encodes an element, inserts during pagination will *not* shift the result.
+            So a scenario like:
+            - Start listing first page
+            - Insert new element
+            - Start listing second page
+            will *never* result in an element from the first page to get "pushed" to the second page, like it could
+            occur with basic limit + offset pagination.
+
+            The identifier should be treated as an opaque string and never modified. Only pass values returned by the API.
+        - name: sortBy
+          value: id
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+          disabled: true
+        - name: sortBy
+          value: updatedAt
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+          disabled: true
+        - name: sortBy
+          value: createdAt
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+        - name: sortBy
+          value: originUrl
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+          disabled: true
+        - name: sortBy
+          value: status
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+          disabled: true
+        - name: sortBy
+          value: originUrlRelated
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+          disabled: true
+        - name: sortOrder
+          value: ascending
+          type: query
+          disabled: true
+        - name: sortOrder
+          value: descending
+          type: query
+          disabled: true
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "distributions": []
+          }
+  - name: 401 Response
+    description: unauthorized - please make sure the "Authorization" header is set and uses correct credentials
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/distributions"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project Id
+        - name: pageSize
+          value: "20"
+          type: query
+          description: |
+            Quantifies how many distributions should be returned on this
+            page. Must be a natural number between 1 and 100 (inclusive)
+        - name: withWafStatus
+          value: "false"
+          type: query
+          description: If set, the top level of a distribution contains a `waf` property, which defines the status of the waf. This includes a list of all resolved rules.
+        - name: pageIdentifier
+          value: CiQ0NjExMDY1MS1kNDQ1LTQ3NjgtOTc3YS00MTIzMjlmMjliYjYgAQ
+          type: query
+          description: |
+            Identifier is returned by the previous response and is used to request the next page.
+
+            As the `pageIdentifier` encodes an element, inserts during pagination will *not* shift the result.
+            So a scenario like:
+            - Start listing first page
+            - Insert new element
+            - Start listing second page
+            will *never* result in an element from the first page to get "pushed" to the second page, like it could
+            occur with basic limit + offset pagination.
+
+            The identifier should be treated as an opaque string and never modified. Only pass values returned by the API.
+        - name: sortBy
+          value: id
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+          disabled: true
+        - name: sortBy
+          value: updatedAt
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+          disabled: true
+        - name: sortBy
+          value: createdAt
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+        - name: sortBy
+          value: originUrl
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+          disabled: true
+        - name: sortBy
+          value: status
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+          disabled: true
+        - name: sortBy
+          value: originUrlRelated
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+          disabled: true
+        - name: sortOrder
+          value: ascending
+          type: query
+          disabled: true
+        - name: sortOrder
+          value: descending
+          type: query
+          disabled: true
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: text/plain
+      body:
+        type: text
+        data: ""
+  - name: 422 Response
+    description: unprocessable entity - please make sure the body you provided is constructed according to spec
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/distributions"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project Id
+        - name: pageSize
+          value: "20"
+          type: query
+          description: |
+            Quantifies how many distributions should be returned on this
+            page. Must be a natural number between 1 and 100 (inclusive)
+        - name: withWafStatus
+          value: "false"
+          type: query
+          description: If set, the top level of a distribution contains a `waf` property, which defines the status of the waf. This includes a list of all resolved rules.
+        - name: pageIdentifier
+          value: CiQ0NjExMDY1MS1kNDQ1LTQ3NjgtOTc3YS00MTIzMjlmMjliYjYgAQ
+          type: query
+          description: |
+            Identifier is returned by the previous response and is used to request the next page.
+
+            As the `pageIdentifier` encodes an element, inserts during pagination will *not* shift the result.
+            So a scenario like:
+            - Start listing first page
+            - Insert new element
+            - Start listing second page
+            will *never* result in an element from the first page to get "pushed" to the second page, like it could
+            occur with basic limit + offset pagination.
+
+            The identifier should be treated as an opaque string and never modified. Only pass values returned by the API.
+        - name: sortBy
+          value: id
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+          disabled: true
+        - name: sortBy
+          value: updatedAt
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+          disabled: true
+        - name: sortBy
+          value: createdAt
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+        - name: sortBy
+          value: originUrl
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+          disabled: true
+        - name: sortBy
+          value: status
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+          disabled: true
+        - name: sortBy
+          value: originUrlRelated
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+          disabled: true
+        - name: sortOrder
+          value: ascending
+          type: query
+          disabled: true
+        - name: sortOrder
+          value: descending
+          type: query
+          disabled: true
+    response:
+      status: 422
+      statusText: Unprocessable Entity
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+  - name: 500 Response
+    description: internal error - please try again later or contact support if the issue persists
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/distributions"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project Id
+        - name: pageSize
+          value: "20"
+          type: query
+          description: |
+            Quantifies how many distributions should be returned on this
+            page. Must be a natural number between 1 and 100 (inclusive)
+        - name: withWafStatus
+          value: "false"
+          type: query
+          description: If set, the top level of a distribution contains a `waf` property, which defines the status of the waf. This includes a list of all resolved rules.
+        - name: pageIdentifier
+          value: CiQ0NjExMDY1MS1kNDQ1LTQ3NjgtOTc3YS00MTIzMjlmMjliYjYgAQ
+          type: query
+          description: |
+            Identifier is returned by the previous response and is used to request the next page.
+
+            As the `pageIdentifier` encodes an element, inserts during pagination will *not* shift the result.
+            So a scenario like:
+            - Start listing first page
+            - Insert new element
+            - Start listing second page
+            will *never* result in an element from the first page to get "pushed" to the second page, like it could
+            occur with basic limit + offset pagination.
+
+            The identifier should be treated as an opaque string and never modified. Only pass values returned by the API.
+        - name: sortBy
+          value: id
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+          disabled: true
+        - name: sortBy
+          value: updatedAt
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+          disabled: true
+        - name: sortBy
+          value: createdAt
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+        - name: sortBy
+          value: originUrl
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+          disabled: true
+        - name: sortBy
+          value: status
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+          disabled: true
+        - name: sortBy
+          value: originUrlRelated
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+          disabled: true
+        - name: sortOrder
+          value: ascending
+          type: query
+          disabled: true
+        - name: sortOrder
+          value: descending
+          type: query
+          disabled: true
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+  - name: default Response
+    description: Default error response
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/distributions"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project Id
+        - name: pageSize
+          value: "20"
+          type: query
+          description: |
+            Quantifies how many distributions should be returned on this
+            page. Must be a natural number between 1 and 100 (inclusive)
+        - name: withWafStatus
+          value: "false"
+          type: query
+          description: If set, the top level of a distribution contains a `waf` property, which defines the status of the waf. This includes a list of all resolved rules.
+        - name: pageIdentifier
+          value: CiQ0NjExMDY1MS1kNDQ1LTQ3NjgtOTc3YS00MTIzMjlmMjliYjYgAQ
+          type: query
+          description: |
+            Identifier is returned by the previous response and is used to request the next page.
+
+            As the `pageIdentifier` encodes an element, inserts during pagination will *not* shift the result.
+            So a scenario like:
+            - Start listing first page
+            - Insert new element
+            - Start listing second page
+            will *never* result in an element from the first page to get "pushed" to the second page, like it could
+            occur with basic limit + offset pagination.
+
+            The identifier should be treated as an opaque string and never modified. Only pass values returned by the API.
+        - name: sortBy
+          value: id
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+          disabled: true
+        - name: sortBy
+          value: updatedAt
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+          disabled: true
+        - name: sortBy
+          value: createdAt
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+        - name: sortBy
+          value: originUrl
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+          disabled: true
+        - name: sortBy
+          value: status
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+          disabled: true
+        - name: sortBy
+          value: originUrlRelated
+          type: query
+          description: |
+            The following sort options exist. We default to `createdAt`
+            - `id` - Sort by distribution Id using String comparison
+            - `updatedAt` - Sort by when the distribution configuration was last modified,
+              for example by changing the regions or response headers
+            - `createdAt` - Sort by when the distribution was initially created.
+            - `originUrl` - Sort by originUrl using String comparison
+            - `status` - Sort by distribution status, using String comparison
+            - `originUrlRelated` - The originUrl is segmented and reversed before sorting. E.g. `www.example.com` is converted to `com.example.www` for sorting. This way, distributions pointing to the same domain trees are grouped next to each other.
+          disabled: true
+        - name: sortOrder
+          value: ascending
+          type: query
+          disabled: true
+        - name: sortOrder
+          value: descending
+          type: query
+          disabled: true
+    response:
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+
 docs: |
-  ListDistributions returns a list of all CDN distributions associated with 
+  ListDistributions returns a list of all CDN distributions associated with
   a given project, ordered by their distribution Id.

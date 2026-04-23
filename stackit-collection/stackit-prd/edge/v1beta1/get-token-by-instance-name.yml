@@ -36,4 +36,191 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 200 Response
+    description: Token for instance successfully retrieved.
+    request:
+      url: "{{baseUrl}}/v1beta1/projects/:projectId/regions/:regionId/instancesbyname/:displayName/token"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the instance is part of.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region the instance is part of.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region the instance is part of.
+          disabled: true
+        - name: displayName
+          value: ""
+          type: path
+          description: The instance display name.
+        - name: expirationSeconds
+          value: "3600"
+          type: query
+          description: Expiration of the included token in seconds
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "token": ""
+          }
+  - name: 400 Response
+    description: Bad request
+    request:
+      url: "{{baseUrl}}/v1beta1/projects/:projectId/regions/:regionId/instancesbyname/:displayName/token"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the instance is part of.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region the instance is part of.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region the instance is part of.
+          disabled: true
+        - name: displayName
+          value: ""
+          type: path
+          description: The instance display name.
+        - name: expirationSeconds
+          value: "3600"
+          type: query
+          description: Expiration of the included token in seconds
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": "400",
+            "message": "Bad request"
+          }
+  - name: 401 Response
+    description: Unauthorized. You may have provided no or wrong credentials.
+    request:
+      url: "{{baseUrl}}/v1beta1/projects/:projectId/regions/:regionId/instancesbyname/:displayName/token"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the instance is part of.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region the instance is part of.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region the instance is part of.
+          disabled: true
+        - name: displayName
+          value: ""
+          type: path
+          description: The instance display name.
+        - name: expirationSeconds
+          value: "3600"
+          type: query
+          description: Expiration of the included token in seconds
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": "401",
+            "message": "Authorization failed"
+          }
+  - name: 404 Response
+    description: Not found. Instance not found or not ready. Check response document for details.
+    request:
+      url: "{{baseUrl}}/v1beta1/projects/:projectId/regions/:regionId/instancesbyname/:displayName/token"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the instance is part of.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region the instance is part of.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region the instance is part of.
+          disabled: true
+        - name: displayName
+          value: ""
+          type: path
+          description: The instance display name.
+        - name: expirationSeconds
+          value: "3600"
+          type: query
+          description: Expiration of the included token in seconds
+    response:
+      status: 404
+      statusText: Not Found
+      body:
+        type: text
+        data: ""
+  - name: 500 Response
+    description: Internal server error. Check response document for details.
+    request:
+      url: "{{baseUrl}}/v1beta1/projects/:projectId/regions/:regionId/instancesbyname/:displayName/token"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the instance is part of.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region the instance is part of.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region the instance is part of.
+          disabled: true
+        - name: displayName
+          value: ""
+          type: path
+          description: The instance display name.
+        - name: expirationSeconds
+          value: "3600"
+          type: query
+          description: Expiration of the included token in seconds
+    response:
+      status: 500
+      statusText: Internal Server Error
+      body:
+        type: text
+        data: ""
+
 docs: Returns an ServiceAccount token.

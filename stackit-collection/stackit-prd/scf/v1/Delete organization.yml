@@ -24,4 +24,176 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 202 Response
+    description: Accepted. Deletion happens asynchronously.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/regions/:region/organizations/:organizationId"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: ""
+          type: path
+        - name: organizationId
+          value: ""
+          type: path
+    response:
+      status: 202
+      statusText: Accepted
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "guid": "00000000-0000-0000-0000-000000000000",
+            "platformId": "00000000-0000-0000-0000-000000000000",
+            "projectId": "00000000-0000-0000-0000-000000000000",
+            "region": "eu01"
+          }
+  - name: 400 Response
+    description: Invalid request.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/regions/:region/organizations/:organizationId"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: ""
+          type: path
+        - name: organizationId
+          value: ""
+          type: path
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "Some information about what caused the Error"
+          }
+  - name: 401 Response
+    description: Unauthorized. Authentication is required.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/regions/:region/organizations/:organizationId"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: ""
+          type: path
+        - name: organizationId
+          value: ""
+          type: path
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "Some information about what caused the Error"
+          }
+  - name: 403 Response
+    description: Unauthorized. Authentication is required.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/regions/:region/organizations/:organizationId"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: ""
+          type: path
+        - name: organizationId
+          value: ""
+          type: path
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "Some information about what caused the Error"
+          }
+  - name: 404 Response
+    description: Not Found.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/regions/:region/organizations/:organizationId"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: ""
+          type: path
+        - name: organizationId
+          value: ""
+          type: path
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "Some information about what caused the Error"
+          }
+  - name: 500 Response
+    description: Internal Server Error.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/regions/:region/organizations/:organizationId"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: ""
+          type: path
+        - name: organizationId
+          value: ""
+          type: path
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "Some information about what caused the Error"
+          }
+
 docs: Delete an organization.

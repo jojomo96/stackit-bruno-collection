@@ -36,6 +36,254 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 200 Response
+    description: Contains an array of all matched audit log entries and a pagination cursor.
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: ID of the project for which entries should be returned.
+        - name: start-time-range
+          value: 2022-03-21T08:10:14.422Z
+          type: query
+          description: An ISO timestamp to specify the beginning of the time range from which entries should be returned, based on the eventTimeStamp. If not given, defaults to the beginning of time.
+        - name: end-time-range
+          value: 2022-03-21T08:10:14.422Z
+          type: query
+          description: An ISO timestamp to specify the end of the time range up until which entries should be returned, based on the eventTimeStamp. If not given, defaults to the time this request was received.
+        - name: limit
+          value: "50"
+          type: query
+          description: The maximum number of entries to return. If the value exceeds the allowed maximum, the maximum value will be used instead.
+        - name: cursor
+          value: ""
+          type: query
+          description: A pagination cursor to load further audit log entries for. May be included in the response of previous calls of the API.
+          disabled: true
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "cursor": "",
+            "items": [
+              {
+                "context": {
+                  "folderId": "",
+                  "organizationId": "",
+                  "projectId": ""
+                },
+                "correlationId": "",
+                "details": {},
+                "eventName": "",
+                "eventSource": "",
+                "eventTimeStamp": "",
+                "eventType": "ADMIN_ACTIVITY",
+                "eventVersion": "",
+                "id": "",
+                "initiator": {
+                  "email": "",
+                  "id": ""
+                },
+                "receivedTimeStamp": "",
+                "region": "",
+                "request": {
+                  "body": {},
+                  "endpoint": "",
+                  "headers": {},
+                  "parameters": {}
+                },
+                "resourceId": "",
+                "resourceName": "",
+                "result": {},
+                "serviceAccountDelegationInfo": {
+                  "principals": [
+                    {
+                      "email": "",
+                      "id": ""
+                    }
+                  ]
+                },
+                "severity": "INFO",
+                "sourceIpAddress": "",
+                "userAgent": "",
+                "visibility": "PUBLIC"
+              }
+            ],
+            "limit": 0
+          }
+  - name: Bad Request Example
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: ID of the project for which entries should be returned.
+        - name: start-time-range
+          value: 2022-03-21T08:10:14.422Z
+          type: query
+          description: An ISO timestamp to specify the beginning of the time range from which entries should be returned, based on the eventTimeStamp. If not given, defaults to the beginning of time.
+        - name: end-time-range
+          value: 2022-03-21T08:10:14.422Z
+          type: query
+          description: An ISO timestamp to specify the end of the time range up until which entries should be returned, based on the eventTimeStamp. If not given, defaults to the time this request was received.
+        - name: limit
+          value: "50"
+          type: query
+          description: The maximum number of entries to return. If the value exceeds the allowed maximum, the maximum value will be used instead.
+        - name: cursor
+          value: ""
+          type: query
+          description: A pagination cursor to load further audit log entries for. May be included in the response of previous calls of the API.
+          disabled: true
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "Invalid value SCHWARZ for field visibility. Allowed values are PUBLIC, PRIVATE",
+            "path": "/v2/entries",
+            "status": "Bad Request",
+            "timestamp": "2019-08-24T14:15:22Z"
+          }
+  - name: Unauthorized Example
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: ID of the project for which entries should be returned.
+        - name: start-time-range
+          value: 2022-03-21T08:10:14.422Z
+          type: query
+          description: An ISO timestamp to specify the beginning of the time range from which entries should be returned, based on the eventTimeStamp. If not given, defaults to the beginning of time.
+        - name: end-time-range
+          value: 2022-03-21T08:10:14.422Z
+          type: query
+          description: An ISO timestamp to specify the end of the time range up until which entries should be returned, based on the eventTimeStamp. If not given, defaults to the time this request was received.
+        - name: limit
+          value: "50"
+          type: query
+          description: The maximum number of entries to return. If the value exceeds the allowed maximum, the maximum value will be used instead.
+        - name: cursor
+          value: ""
+          type: query
+          description: A pagination cursor to load further audit log entries for. May be included in the response of previous calls of the API.
+          disabled: true
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "The request could not be authorized",
+            "path": "/v2/requested/path/entries",
+            "status": "Unauthorized",
+            "timestamp": "2019-08-24T14:15:22Z"
+          }
+  - name: Not Found Example
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: ID of the project for which entries should be returned.
+        - name: start-time-range
+          value: 2022-03-21T08:10:14.422Z
+          type: query
+          description: An ISO timestamp to specify the beginning of the time range from which entries should be returned, based on the eventTimeStamp. If not given, defaults to the beginning of time.
+        - name: end-time-range
+          value: 2022-03-21T08:10:14.422Z
+          type: query
+          description: An ISO timestamp to specify the end of the time range up until which entries should be returned, based on the eventTimeStamp. If not given, defaults to the time this request was received.
+        - name: limit
+          value: "50"
+          type: query
+          description: The maximum number of entries to return. If the value exceeds the allowed maximum, the maximum value will be used instead.
+        - name: cursor
+          value: ""
+          type: query
+          description: A pagination cursor to load further audit log entries for. May be included in the response of previous calls of the API.
+          disabled: true
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "{resourceId} not found.",
+            "path": "v2/requested/{resourceId}/entries",
+            "status": "Not Found",
+            "timestamp": "2019-08-24T14:15:22Z"
+          }
+  - name: Too Many Requests Example
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: ID of the project for which entries should be returned.
+        - name: start-time-range
+          value: 2022-03-21T08:10:14.422Z
+          type: query
+          description: An ISO timestamp to specify the beginning of the time range from which entries should be returned, based on the eventTimeStamp. If not given, defaults to the beginning of time.
+        - name: end-time-range
+          value: 2022-03-21T08:10:14.422Z
+          type: query
+          description: An ISO timestamp to specify the end of the time range up until which entries should be returned, based on the eventTimeStamp. If not given, defaults to the time this request was received.
+        - name: limit
+          value: "50"
+          type: query
+          description: The maximum number of entries to return. If the value exceeds the allowed maximum, the maximum value will be used instead.
+        - name: cursor
+          value: ""
+          type: query
+          description: A pagination cursor to load further audit log entries for. May be included in the response of previous calls of the API.
+          disabled: true
+    response:
+      status: 429
+      statusText: Too Many Requests
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "Too many requests",
+            "status": "429"
+          }
+
 docs: |
   Returns all audit log entries of the project for the specified period. \
   Period must not be longer than 24 hours within the last 90 days.

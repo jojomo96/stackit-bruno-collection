@@ -18,8 +18,8 @@ http:
       value: ""
       type: query
       description: |
-        While optional, it is greatly encouraged to provide an `intentId`. 
-        This is used to deduplicate requests.  
+        While optional, it is greatly encouraged to provide an `intentId`.
+        This is used to deduplicate requests.
         If multiple DELETE-Requests with the same `intentId` are received, all but the first request are dropped.
       disabled: true
   auth: inherit
@@ -29,6 +29,253 @@ settings:
   timeout: 0
   followRedirects: true
   maxRedirects: 5
+
+examples:
+  - name: deleted
+    description: In case the distribution has already finished deleting, an empty response is returned
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/distributions/:distributionId"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project Id
+        - name: distributionId
+          value: ""
+          type: path
+        - name: intentId
+          value: ""
+          type: query
+          description: |
+            While optional, it is greatly encouraged to provide an `intentId`.
+            This is used to deduplicate requests.
+            If multiple DELETE-Requests with the same `intentId` are received, all but the first request are dropped.
+          disabled: true
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: "{}"
+  - name: deleting
+    description: |
+      Similar to `UPDATING`, this status is set when a Delete-Request was received.
+      It will remain with this status until the deletion was synchronized.
+
+      Once synchronized, the distribution is deleted.
+      Further attempts to delete this response will return an empty response.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/distributions/:distributionId"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project Id
+        - name: distributionId
+          value: ""
+          type: path
+        - name: intentId
+          value: ""
+          type: query
+          description: |
+            While optional, it is greatly encouraged to provide an `intentId`.
+            This is used to deduplicate requests.
+            If multiple DELETE-Requests with the same `intentId` are received, all but the first request are dropped.
+          disabled: true
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "distribution": {
+              "config": {
+                "backend": {
+                  "geofencing": {},
+                  "originRequestHeaders": {},
+                  "originUrl": "https://httpbin.org",
+                  "type": "http"
+                },
+                "blockedCountries": [],
+                "blockedIps": [],
+                "regions": [
+                  "EU",
+                  "ASIA"
+                ],
+                "waf": {
+                  "enabledRuleIds": [],
+                  "mode": "LOG_ONLY",
+                  "type": "FREE"
+                }
+              },
+              "createdAt": "2024-09-26T09:00:00.12345Z",
+              "domains": [],
+              "id": "8bfaecd1-f880-4fa1-9884-1fb492aa4647",
+              "projectId": "d043e216-af6e-445f-b5a5-cd67b2593278",
+              "status": "DELETING",
+              "updatedAt": "2024-09-26T09:00:00.12345Z"
+            }
+          }
+  - name: 401 Response
+    description: unauthorized - please make sure the "Authorization" header is set and uses correct credentials
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/distributions/:distributionId"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project Id
+        - name: distributionId
+          value: ""
+          type: path
+        - name: intentId
+          value: ""
+          type: query
+          description: |
+            While optional, it is greatly encouraged to provide an `intentId`.
+            This is used to deduplicate requests.
+            If multiple DELETE-Requests with the same `intentId` are received, all but the first request are dropped.
+          disabled: true
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: text/plain
+      body:
+        type: text
+        data: ""
+  - name: 422 Response
+    description: unprocessable entity - please make sure the body you provided is constructed according to spec
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/distributions/:distributionId"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project Id
+        - name: distributionId
+          value: ""
+          type: path
+        - name: intentId
+          value: ""
+          type: query
+          description: |
+            While optional, it is greatly encouraged to provide an `intentId`.
+            This is used to deduplicate requests.
+            If multiple DELETE-Requests with the same `intentId` are received, all but the first request are dropped.
+          disabled: true
+    response:
+      status: 422
+      statusText: Unprocessable Entity
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+  - name: 500 Response
+    description: internal error - please try again later or contact support if the issue persists
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/distributions/:distributionId"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project Id
+        - name: distributionId
+          value: ""
+          type: path
+        - name: intentId
+          value: ""
+          type: query
+          description: |
+            While optional, it is greatly encouraged to provide an `intentId`.
+            This is used to deduplicate requests.
+            If multiple DELETE-Requests with the same `intentId` are received, all but the first request are dropped.
+          disabled: true
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+  - name: default Response
+    description: Default error response
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/distributions/:distributionId"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project Id
+        - name: distributionId
+          value: ""
+          type: path
+        - name: intentId
+          value: ""
+          type: query
+          description: |
+            While optional, it is greatly encouraged to provide an `intentId`.
+            This is used to deduplicate requests.
+            If multiple DELETE-Requests with the same `intentId` are received, all but the first request are dropped.
+          disabled: true
+    response:
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
 
 docs: |
   DeleteDistribution accepts a project- and distribution-Id and will delete a distribution.

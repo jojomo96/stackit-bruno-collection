@@ -421,4 +421,2153 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 200 Response
+    description: OK
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/zones/:zoneId/rrsets"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: page
+          value: "1"
+          type: query
+          description: page
+        - name: pageSize
+          value: "100"
+          type: query
+          description: page size
+        - name: name[eq]
+          value: ""
+          type: query
+          description: filter name equal
+          disabled: true
+        - name: name[like]
+          value: ""
+          type: query
+          description: filter name like
+          disabled: true
+        - name: type[eq]
+          value: A
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: AAAA
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: SOA
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: CNAME
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: NS
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: MX
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: TXT
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: SRV
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: PTR
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: ALIAS
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: DNAME
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: CAA
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: DNSKEY
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: DS
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: LOC
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: NAPTR
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: SSHFP
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: TLSA
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: URI
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: CERT
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: SVCB
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: TYPE
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: CSYNC
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: HINFO
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: HTTPS
+          type: query
+          description: filter type
+          disabled: true
+        - name: state[eq]
+          value: CREATING
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[eq]
+          value: CREATE_SUCCEEDED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[eq]
+          value: CREATE_FAILED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[eq]
+          value: DELETING
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[eq]
+          value: DELETE_SUCCEEDED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[eq]
+          value: DELETE_FAILED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[eq]
+          value: UPDATING
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[eq]
+          value: UPDATE_SUCCEEDED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[eq]
+          value: UPDATE_FAILED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: CREATING
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: CREATE_SUCCEEDED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: CREATE_FAILED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: DELETING
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: DELETE_SUCCEEDED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: DELETE_FAILED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: UPDATING
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: UPDATE_SUCCEEDED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: UPDATE_FAILED
+          type: query
+          description: filter state
+          disabled: true
+        - name: active[eq]
+          value: ""
+          type: query
+          description: filter active equal
+          disabled: true
+        - name: creationStarted[gt]
+          value: ""
+          type: query
+          description: filter creation started greater with utc timestamp
+          disabled: true
+        - name: creationStarted[lt]
+          value: ""
+          type: query
+          description: filter creation started lesser with utc timestamp
+          disabled: true
+        - name: creationStarted[gte]
+          value: ""
+          type: query
+          description: filter creation started greater equal with utc timestamp
+          disabled: true
+        - name: creationStarted[lte]
+          value: ""
+          type: query
+          description: filter creation started lesser equal with utc timestamp
+          disabled: true
+        - name: creationFinished[gt]
+          value: ""
+          type: query
+          description: filter creation finished greater with utc timestamp
+          disabled: true
+        - name: creationFinished[lt]
+          value: ""
+          type: query
+          description: filter creation finished lesser with utc timestamp
+          disabled: true
+        - name: creationFinished[gte]
+          value: ""
+          type: query
+          description: filter creation finished greater equal with utc timestamp
+          disabled: true
+        - name: creationFinished[lte]
+          value: ""
+          type: query
+          description: filter creation finished lesser equal with utc timestamp
+          disabled: true
+        - name: updateStarted[gt]
+          value: ""
+          type: query
+          description: filter update started greater with utc timestamp
+          disabled: true
+        - name: updateStarted[lt]
+          value: ""
+          type: query
+          description: filter update started lesser with utc timestamp
+          disabled: true
+        - name: updateStarted[gte]
+          value: ""
+          type: query
+          description: filter update started greater equal with utc timestamp
+          disabled: true
+        - name: updateStarted[lte]
+          value: ""
+          type: query
+          description: filter update started lesser equal with utc timestamp
+          disabled: true
+        - name: updateFinished[gt]
+          value: ""
+          type: query
+          description: filter update finished greater with utc timestamp
+          disabled: true
+        - name: updateFinished[lt]
+          value: ""
+          type: query
+          description: filter update finished lesser with utc timestamp
+          disabled: true
+        - name: updateFinished[gte]
+          value: ""
+          type: query
+          description: filter update finished greater equal with utc timestamp
+          disabled: true
+        - name: updateFinished[lte]
+          value: ""
+          type: query
+          description: filter update finished lesser equal with utc timestamp
+          disabled: true
+        - name: orderBy[name]
+          value: ASC
+          type: query
+          description: order by name
+          disabled: true
+        - name: orderBy[name]
+          value: DESC
+          type: query
+          description: order by name
+          disabled: true
+        - name: orderBy[creationStarted]
+          value: ASC
+          type: query
+          description: order by creationStarted
+          disabled: true
+        - name: orderBy[creationStarted]
+          value: DESC
+          type: query
+          description: order by creationStarted
+          disabled: true
+        - name: orderBy[creationFinished]
+          value: ASC
+          type: query
+          description: order by creationFinished
+          disabled: true
+        - name: orderBy[creationFinished]
+          value: DESC
+          type: query
+          description: order by creationFinished
+          disabled: true
+        - name: orderBy[updateStarted]
+          value: ASC
+          type: query
+          description: order by updateStarted
+          disabled: true
+        - name: orderBy[updateStarted]
+          value: DESC
+          type: query
+          description: order by updateStarted
+          disabled: true
+        - name: orderBy[updateFinished]
+          value: ASC
+          type: query
+          description: order by updateFinished
+          disabled: true
+        - name: orderBy[updateFinished]
+          value: DESC
+          type: query
+          description: order by updateFinished
+          disabled: true
+        - name: orderBy[type]
+          value: ASC
+          type: query
+          description: order by type
+          disabled: true
+        - name: orderBy[type]
+          value: DESC
+          type: query
+          description: order by type
+          disabled: true
+        - name: orderBy[state]
+          value: ASC
+          type: query
+          description: order by state
+          disabled: true
+        - name: orderBy[state]
+          value: DESC
+          type: query
+          description: order by state
+          disabled: true
+        - name: orderBy[recordCount]
+          value: ASC
+          type: query
+          description: order by record count
+          disabled: true
+        - name: orderBy[recordCount]
+          value: DESC
+          type: query
+          description: order by record count
+          disabled: true
+        - name: zoneId
+          value: ""
+          type: path
+          description: zone id
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "itemsPerPage": 1,
+            "message": "Success",
+            "rrSets": [
+              {
+                "active": true,
+                "comment": "This is a comment",
+                "creationFinished": "2022-01-31 10:00:00+00:00",
+                "creationStarted": "2022-01-31 10:00:00+00:00",
+                "error": "error message",
+                "id": "37403b63-86ce-41e9-9b0b-1d8c5b3b2b96",
+                "name": "example.com.",
+                "records": [
+                  {
+                    "content": "192.0.2.1",
+                    "id": "37403b63-86ce-41e9-9b0b-1d8c5b3b2b96"
+                  }
+                ],
+                "state": "CREATE_SUCCEEDED",
+                "ttl": 3600,
+                "type": "A",
+                "updateFinished": "2022-01-31 10:00:00+00:00",
+                "updateStarted": "2022-01-31 10:00:00+00:00"
+              }
+            ],
+            "totalItems": 1,
+            "totalPages": 1
+          }
+  - name: 400 Response
+    description: Bad Request
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/zones/:zoneId/rrsets"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: page
+          value: "1"
+          type: query
+          description: page
+        - name: pageSize
+          value: "100"
+          type: query
+          description: page size
+        - name: name[eq]
+          value: ""
+          type: query
+          description: filter name equal
+          disabled: true
+        - name: name[like]
+          value: ""
+          type: query
+          description: filter name like
+          disabled: true
+        - name: type[eq]
+          value: A
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: AAAA
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: SOA
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: CNAME
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: NS
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: MX
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: TXT
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: SRV
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: PTR
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: ALIAS
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: DNAME
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: CAA
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: DNSKEY
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: DS
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: LOC
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: NAPTR
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: SSHFP
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: TLSA
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: URI
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: CERT
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: SVCB
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: TYPE
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: CSYNC
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: HINFO
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: HTTPS
+          type: query
+          description: filter type
+          disabled: true
+        - name: state[eq]
+          value: CREATING
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[eq]
+          value: CREATE_SUCCEEDED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[eq]
+          value: CREATE_FAILED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[eq]
+          value: DELETING
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[eq]
+          value: DELETE_SUCCEEDED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[eq]
+          value: DELETE_FAILED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[eq]
+          value: UPDATING
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[eq]
+          value: UPDATE_SUCCEEDED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[eq]
+          value: UPDATE_FAILED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: CREATING
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: CREATE_SUCCEEDED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: CREATE_FAILED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: DELETING
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: DELETE_SUCCEEDED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: DELETE_FAILED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: UPDATING
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: UPDATE_SUCCEEDED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: UPDATE_FAILED
+          type: query
+          description: filter state
+          disabled: true
+        - name: active[eq]
+          value: ""
+          type: query
+          description: filter active equal
+          disabled: true
+        - name: creationStarted[gt]
+          value: ""
+          type: query
+          description: filter creation started greater with utc timestamp
+          disabled: true
+        - name: creationStarted[lt]
+          value: ""
+          type: query
+          description: filter creation started lesser with utc timestamp
+          disabled: true
+        - name: creationStarted[gte]
+          value: ""
+          type: query
+          description: filter creation started greater equal with utc timestamp
+          disabled: true
+        - name: creationStarted[lte]
+          value: ""
+          type: query
+          description: filter creation started lesser equal with utc timestamp
+          disabled: true
+        - name: creationFinished[gt]
+          value: ""
+          type: query
+          description: filter creation finished greater with utc timestamp
+          disabled: true
+        - name: creationFinished[lt]
+          value: ""
+          type: query
+          description: filter creation finished lesser with utc timestamp
+          disabled: true
+        - name: creationFinished[gte]
+          value: ""
+          type: query
+          description: filter creation finished greater equal with utc timestamp
+          disabled: true
+        - name: creationFinished[lte]
+          value: ""
+          type: query
+          description: filter creation finished lesser equal with utc timestamp
+          disabled: true
+        - name: updateStarted[gt]
+          value: ""
+          type: query
+          description: filter update started greater with utc timestamp
+          disabled: true
+        - name: updateStarted[lt]
+          value: ""
+          type: query
+          description: filter update started lesser with utc timestamp
+          disabled: true
+        - name: updateStarted[gte]
+          value: ""
+          type: query
+          description: filter update started greater equal with utc timestamp
+          disabled: true
+        - name: updateStarted[lte]
+          value: ""
+          type: query
+          description: filter update started lesser equal with utc timestamp
+          disabled: true
+        - name: updateFinished[gt]
+          value: ""
+          type: query
+          description: filter update finished greater with utc timestamp
+          disabled: true
+        - name: updateFinished[lt]
+          value: ""
+          type: query
+          description: filter update finished lesser with utc timestamp
+          disabled: true
+        - name: updateFinished[gte]
+          value: ""
+          type: query
+          description: filter update finished greater equal with utc timestamp
+          disabled: true
+        - name: updateFinished[lte]
+          value: ""
+          type: query
+          description: filter update finished lesser equal with utc timestamp
+          disabled: true
+        - name: orderBy[name]
+          value: ASC
+          type: query
+          description: order by name
+          disabled: true
+        - name: orderBy[name]
+          value: DESC
+          type: query
+          description: order by name
+          disabled: true
+        - name: orderBy[creationStarted]
+          value: ASC
+          type: query
+          description: order by creationStarted
+          disabled: true
+        - name: orderBy[creationStarted]
+          value: DESC
+          type: query
+          description: order by creationStarted
+          disabled: true
+        - name: orderBy[creationFinished]
+          value: ASC
+          type: query
+          description: order by creationFinished
+          disabled: true
+        - name: orderBy[creationFinished]
+          value: DESC
+          type: query
+          description: order by creationFinished
+          disabled: true
+        - name: orderBy[updateStarted]
+          value: ASC
+          type: query
+          description: order by updateStarted
+          disabled: true
+        - name: orderBy[updateStarted]
+          value: DESC
+          type: query
+          description: order by updateStarted
+          disabled: true
+        - name: orderBy[updateFinished]
+          value: ASC
+          type: query
+          description: order by updateFinished
+          disabled: true
+        - name: orderBy[updateFinished]
+          value: DESC
+          type: query
+          description: order by updateFinished
+          disabled: true
+        - name: orderBy[type]
+          value: ASC
+          type: query
+          description: order by type
+          disabled: true
+        - name: orderBy[type]
+          value: DESC
+          type: query
+          description: order by type
+          disabled: true
+        - name: orderBy[state]
+          value: ASC
+          type: query
+          description: order by state
+          disabled: true
+        - name: orderBy[state]
+          value: DESC
+          type: query
+          description: order by state
+          disabled: true
+        - name: orderBy[recordCount]
+          value: ASC
+          type: query
+          description: order by record count
+          disabled: true
+        - name: orderBy[recordCount]
+          value: DESC
+          type: query
+          description: order by record count
+          disabled: true
+        - name: zoneId
+          value: ""
+          type: path
+          description: zone id
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": "Error",
+            "message": "Error message"
+          }
+  - name: 401 Response
+    description: Unauthorized
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/zones/:zoneId/rrsets"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: page
+          value: "1"
+          type: query
+          description: page
+        - name: pageSize
+          value: "100"
+          type: query
+          description: page size
+        - name: name[eq]
+          value: ""
+          type: query
+          description: filter name equal
+          disabled: true
+        - name: name[like]
+          value: ""
+          type: query
+          description: filter name like
+          disabled: true
+        - name: type[eq]
+          value: A
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: AAAA
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: SOA
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: CNAME
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: NS
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: MX
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: TXT
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: SRV
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: PTR
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: ALIAS
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: DNAME
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: CAA
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: DNSKEY
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: DS
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: LOC
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: NAPTR
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: SSHFP
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: TLSA
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: URI
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: CERT
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: SVCB
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: TYPE
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: CSYNC
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: HINFO
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: HTTPS
+          type: query
+          description: filter type
+          disabled: true
+        - name: state[eq]
+          value: CREATING
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[eq]
+          value: CREATE_SUCCEEDED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[eq]
+          value: CREATE_FAILED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[eq]
+          value: DELETING
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[eq]
+          value: DELETE_SUCCEEDED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[eq]
+          value: DELETE_FAILED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[eq]
+          value: UPDATING
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[eq]
+          value: UPDATE_SUCCEEDED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[eq]
+          value: UPDATE_FAILED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: CREATING
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: CREATE_SUCCEEDED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: CREATE_FAILED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: DELETING
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: DELETE_SUCCEEDED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: DELETE_FAILED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: UPDATING
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: UPDATE_SUCCEEDED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: UPDATE_FAILED
+          type: query
+          description: filter state
+          disabled: true
+        - name: active[eq]
+          value: ""
+          type: query
+          description: filter active equal
+          disabled: true
+        - name: creationStarted[gt]
+          value: ""
+          type: query
+          description: filter creation started greater with utc timestamp
+          disabled: true
+        - name: creationStarted[lt]
+          value: ""
+          type: query
+          description: filter creation started lesser with utc timestamp
+          disabled: true
+        - name: creationStarted[gte]
+          value: ""
+          type: query
+          description: filter creation started greater equal with utc timestamp
+          disabled: true
+        - name: creationStarted[lte]
+          value: ""
+          type: query
+          description: filter creation started lesser equal with utc timestamp
+          disabled: true
+        - name: creationFinished[gt]
+          value: ""
+          type: query
+          description: filter creation finished greater with utc timestamp
+          disabled: true
+        - name: creationFinished[lt]
+          value: ""
+          type: query
+          description: filter creation finished lesser with utc timestamp
+          disabled: true
+        - name: creationFinished[gte]
+          value: ""
+          type: query
+          description: filter creation finished greater equal with utc timestamp
+          disabled: true
+        - name: creationFinished[lte]
+          value: ""
+          type: query
+          description: filter creation finished lesser equal with utc timestamp
+          disabled: true
+        - name: updateStarted[gt]
+          value: ""
+          type: query
+          description: filter update started greater with utc timestamp
+          disabled: true
+        - name: updateStarted[lt]
+          value: ""
+          type: query
+          description: filter update started lesser with utc timestamp
+          disabled: true
+        - name: updateStarted[gte]
+          value: ""
+          type: query
+          description: filter update started greater equal with utc timestamp
+          disabled: true
+        - name: updateStarted[lte]
+          value: ""
+          type: query
+          description: filter update started lesser equal with utc timestamp
+          disabled: true
+        - name: updateFinished[gt]
+          value: ""
+          type: query
+          description: filter update finished greater with utc timestamp
+          disabled: true
+        - name: updateFinished[lt]
+          value: ""
+          type: query
+          description: filter update finished lesser with utc timestamp
+          disabled: true
+        - name: updateFinished[gte]
+          value: ""
+          type: query
+          description: filter update finished greater equal with utc timestamp
+          disabled: true
+        - name: updateFinished[lte]
+          value: ""
+          type: query
+          description: filter update finished lesser equal with utc timestamp
+          disabled: true
+        - name: orderBy[name]
+          value: ASC
+          type: query
+          description: order by name
+          disabled: true
+        - name: orderBy[name]
+          value: DESC
+          type: query
+          description: order by name
+          disabled: true
+        - name: orderBy[creationStarted]
+          value: ASC
+          type: query
+          description: order by creationStarted
+          disabled: true
+        - name: orderBy[creationStarted]
+          value: DESC
+          type: query
+          description: order by creationStarted
+          disabled: true
+        - name: orderBy[creationFinished]
+          value: ASC
+          type: query
+          description: order by creationFinished
+          disabled: true
+        - name: orderBy[creationFinished]
+          value: DESC
+          type: query
+          description: order by creationFinished
+          disabled: true
+        - name: orderBy[updateStarted]
+          value: ASC
+          type: query
+          description: order by updateStarted
+          disabled: true
+        - name: orderBy[updateStarted]
+          value: DESC
+          type: query
+          description: order by updateStarted
+          disabled: true
+        - name: orderBy[updateFinished]
+          value: ASC
+          type: query
+          description: order by updateFinished
+          disabled: true
+        - name: orderBy[updateFinished]
+          value: DESC
+          type: query
+          description: order by updateFinished
+          disabled: true
+        - name: orderBy[type]
+          value: ASC
+          type: query
+          description: order by type
+          disabled: true
+        - name: orderBy[type]
+          value: DESC
+          type: query
+          description: order by type
+          disabled: true
+        - name: orderBy[state]
+          value: ASC
+          type: query
+          description: order by state
+          disabled: true
+        - name: orderBy[state]
+          value: DESC
+          type: query
+          description: order by state
+          disabled: true
+        - name: orderBy[recordCount]
+          value: ASC
+          type: query
+          description: order by record count
+          disabled: true
+        - name: orderBy[recordCount]
+          value: DESC
+          type: query
+          description: order by record count
+          disabled: true
+        - name: zoneId
+          value: ""
+          type: path
+          description: zone id
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": "Error",
+            "message": "Error message"
+          }
+  - name: 404 Response
+    description: Not Found
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/zones/:zoneId/rrsets"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: page
+          value: "1"
+          type: query
+          description: page
+        - name: pageSize
+          value: "100"
+          type: query
+          description: page size
+        - name: name[eq]
+          value: ""
+          type: query
+          description: filter name equal
+          disabled: true
+        - name: name[like]
+          value: ""
+          type: query
+          description: filter name like
+          disabled: true
+        - name: type[eq]
+          value: A
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: AAAA
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: SOA
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: CNAME
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: NS
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: MX
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: TXT
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: SRV
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: PTR
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: ALIAS
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: DNAME
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: CAA
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: DNSKEY
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: DS
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: LOC
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: NAPTR
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: SSHFP
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: TLSA
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: URI
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: CERT
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: SVCB
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: TYPE
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: CSYNC
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: HINFO
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: HTTPS
+          type: query
+          description: filter type
+          disabled: true
+        - name: state[eq]
+          value: CREATING
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[eq]
+          value: CREATE_SUCCEEDED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[eq]
+          value: CREATE_FAILED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[eq]
+          value: DELETING
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[eq]
+          value: DELETE_SUCCEEDED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[eq]
+          value: DELETE_FAILED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[eq]
+          value: UPDATING
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[eq]
+          value: UPDATE_SUCCEEDED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[eq]
+          value: UPDATE_FAILED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: CREATING
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: CREATE_SUCCEEDED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: CREATE_FAILED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: DELETING
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: DELETE_SUCCEEDED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: DELETE_FAILED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: UPDATING
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: UPDATE_SUCCEEDED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: UPDATE_FAILED
+          type: query
+          description: filter state
+          disabled: true
+        - name: active[eq]
+          value: ""
+          type: query
+          description: filter active equal
+          disabled: true
+        - name: creationStarted[gt]
+          value: ""
+          type: query
+          description: filter creation started greater with utc timestamp
+          disabled: true
+        - name: creationStarted[lt]
+          value: ""
+          type: query
+          description: filter creation started lesser with utc timestamp
+          disabled: true
+        - name: creationStarted[gte]
+          value: ""
+          type: query
+          description: filter creation started greater equal with utc timestamp
+          disabled: true
+        - name: creationStarted[lte]
+          value: ""
+          type: query
+          description: filter creation started lesser equal with utc timestamp
+          disabled: true
+        - name: creationFinished[gt]
+          value: ""
+          type: query
+          description: filter creation finished greater with utc timestamp
+          disabled: true
+        - name: creationFinished[lt]
+          value: ""
+          type: query
+          description: filter creation finished lesser with utc timestamp
+          disabled: true
+        - name: creationFinished[gte]
+          value: ""
+          type: query
+          description: filter creation finished greater equal with utc timestamp
+          disabled: true
+        - name: creationFinished[lte]
+          value: ""
+          type: query
+          description: filter creation finished lesser equal with utc timestamp
+          disabled: true
+        - name: updateStarted[gt]
+          value: ""
+          type: query
+          description: filter update started greater with utc timestamp
+          disabled: true
+        - name: updateStarted[lt]
+          value: ""
+          type: query
+          description: filter update started lesser with utc timestamp
+          disabled: true
+        - name: updateStarted[gte]
+          value: ""
+          type: query
+          description: filter update started greater equal with utc timestamp
+          disabled: true
+        - name: updateStarted[lte]
+          value: ""
+          type: query
+          description: filter update started lesser equal with utc timestamp
+          disabled: true
+        - name: updateFinished[gt]
+          value: ""
+          type: query
+          description: filter update finished greater with utc timestamp
+          disabled: true
+        - name: updateFinished[lt]
+          value: ""
+          type: query
+          description: filter update finished lesser with utc timestamp
+          disabled: true
+        - name: updateFinished[gte]
+          value: ""
+          type: query
+          description: filter update finished greater equal with utc timestamp
+          disabled: true
+        - name: updateFinished[lte]
+          value: ""
+          type: query
+          description: filter update finished lesser equal with utc timestamp
+          disabled: true
+        - name: orderBy[name]
+          value: ASC
+          type: query
+          description: order by name
+          disabled: true
+        - name: orderBy[name]
+          value: DESC
+          type: query
+          description: order by name
+          disabled: true
+        - name: orderBy[creationStarted]
+          value: ASC
+          type: query
+          description: order by creationStarted
+          disabled: true
+        - name: orderBy[creationStarted]
+          value: DESC
+          type: query
+          description: order by creationStarted
+          disabled: true
+        - name: orderBy[creationFinished]
+          value: ASC
+          type: query
+          description: order by creationFinished
+          disabled: true
+        - name: orderBy[creationFinished]
+          value: DESC
+          type: query
+          description: order by creationFinished
+          disabled: true
+        - name: orderBy[updateStarted]
+          value: ASC
+          type: query
+          description: order by updateStarted
+          disabled: true
+        - name: orderBy[updateStarted]
+          value: DESC
+          type: query
+          description: order by updateStarted
+          disabled: true
+        - name: orderBy[updateFinished]
+          value: ASC
+          type: query
+          description: order by updateFinished
+          disabled: true
+        - name: orderBy[updateFinished]
+          value: DESC
+          type: query
+          description: order by updateFinished
+          disabled: true
+        - name: orderBy[type]
+          value: ASC
+          type: query
+          description: order by type
+          disabled: true
+        - name: orderBy[type]
+          value: DESC
+          type: query
+          description: order by type
+          disabled: true
+        - name: orderBy[state]
+          value: ASC
+          type: query
+          description: order by state
+          disabled: true
+        - name: orderBy[state]
+          value: DESC
+          type: query
+          description: order by state
+          disabled: true
+        - name: orderBy[recordCount]
+          value: ASC
+          type: query
+          description: order by record count
+          disabled: true
+        - name: orderBy[recordCount]
+          value: DESC
+          type: query
+          description: order by record count
+          disabled: true
+        - name: zoneId
+          value: ""
+          type: path
+          description: zone id
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "Success"
+          }
+  - name: 502 Response
+    description: Bad Gateway
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/zones/:zoneId/rrsets"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: page
+          value: "1"
+          type: query
+          description: page
+        - name: pageSize
+          value: "100"
+          type: query
+          description: page size
+        - name: name[eq]
+          value: ""
+          type: query
+          description: filter name equal
+          disabled: true
+        - name: name[like]
+          value: ""
+          type: query
+          description: filter name like
+          disabled: true
+        - name: type[eq]
+          value: A
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: AAAA
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: SOA
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: CNAME
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: NS
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: MX
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: TXT
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: SRV
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: PTR
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: ALIAS
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: DNAME
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: CAA
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: DNSKEY
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: DS
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: LOC
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: NAPTR
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: SSHFP
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: TLSA
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: URI
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: CERT
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: SVCB
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: TYPE
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: CSYNC
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: HINFO
+          type: query
+          description: filter type
+          disabled: true
+        - name: type[eq]
+          value: HTTPS
+          type: query
+          description: filter type
+          disabled: true
+        - name: state[eq]
+          value: CREATING
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[eq]
+          value: CREATE_SUCCEEDED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[eq]
+          value: CREATE_FAILED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[eq]
+          value: DELETING
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[eq]
+          value: DELETE_SUCCEEDED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[eq]
+          value: DELETE_FAILED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[eq]
+          value: UPDATING
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[eq]
+          value: UPDATE_SUCCEEDED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[eq]
+          value: UPDATE_FAILED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: CREATING
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: CREATE_SUCCEEDED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: CREATE_FAILED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: DELETING
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: DELETE_SUCCEEDED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: DELETE_FAILED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: UPDATING
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: UPDATE_SUCCEEDED
+          type: query
+          description: filter state
+          disabled: true
+        - name: state[neq]
+          value: UPDATE_FAILED
+          type: query
+          description: filter state
+          disabled: true
+        - name: active[eq]
+          value: ""
+          type: query
+          description: filter active equal
+          disabled: true
+        - name: creationStarted[gt]
+          value: ""
+          type: query
+          description: filter creation started greater with utc timestamp
+          disabled: true
+        - name: creationStarted[lt]
+          value: ""
+          type: query
+          description: filter creation started lesser with utc timestamp
+          disabled: true
+        - name: creationStarted[gte]
+          value: ""
+          type: query
+          description: filter creation started greater equal with utc timestamp
+          disabled: true
+        - name: creationStarted[lte]
+          value: ""
+          type: query
+          description: filter creation started lesser equal with utc timestamp
+          disabled: true
+        - name: creationFinished[gt]
+          value: ""
+          type: query
+          description: filter creation finished greater with utc timestamp
+          disabled: true
+        - name: creationFinished[lt]
+          value: ""
+          type: query
+          description: filter creation finished lesser with utc timestamp
+          disabled: true
+        - name: creationFinished[gte]
+          value: ""
+          type: query
+          description: filter creation finished greater equal with utc timestamp
+          disabled: true
+        - name: creationFinished[lte]
+          value: ""
+          type: query
+          description: filter creation finished lesser equal with utc timestamp
+          disabled: true
+        - name: updateStarted[gt]
+          value: ""
+          type: query
+          description: filter update started greater with utc timestamp
+          disabled: true
+        - name: updateStarted[lt]
+          value: ""
+          type: query
+          description: filter update started lesser with utc timestamp
+          disabled: true
+        - name: updateStarted[gte]
+          value: ""
+          type: query
+          description: filter update started greater equal with utc timestamp
+          disabled: true
+        - name: updateStarted[lte]
+          value: ""
+          type: query
+          description: filter update started lesser equal with utc timestamp
+          disabled: true
+        - name: updateFinished[gt]
+          value: ""
+          type: query
+          description: filter update finished greater with utc timestamp
+          disabled: true
+        - name: updateFinished[lt]
+          value: ""
+          type: query
+          description: filter update finished lesser with utc timestamp
+          disabled: true
+        - name: updateFinished[gte]
+          value: ""
+          type: query
+          description: filter update finished greater equal with utc timestamp
+          disabled: true
+        - name: updateFinished[lte]
+          value: ""
+          type: query
+          description: filter update finished lesser equal with utc timestamp
+          disabled: true
+        - name: orderBy[name]
+          value: ASC
+          type: query
+          description: order by name
+          disabled: true
+        - name: orderBy[name]
+          value: DESC
+          type: query
+          description: order by name
+          disabled: true
+        - name: orderBy[creationStarted]
+          value: ASC
+          type: query
+          description: order by creationStarted
+          disabled: true
+        - name: orderBy[creationStarted]
+          value: DESC
+          type: query
+          description: order by creationStarted
+          disabled: true
+        - name: orderBy[creationFinished]
+          value: ASC
+          type: query
+          description: order by creationFinished
+          disabled: true
+        - name: orderBy[creationFinished]
+          value: DESC
+          type: query
+          description: order by creationFinished
+          disabled: true
+        - name: orderBy[updateStarted]
+          value: ASC
+          type: query
+          description: order by updateStarted
+          disabled: true
+        - name: orderBy[updateStarted]
+          value: DESC
+          type: query
+          description: order by updateStarted
+          disabled: true
+        - name: orderBy[updateFinished]
+          value: ASC
+          type: query
+          description: order by updateFinished
+          disabled: true
+        - name: orderBy[updateFinished]
+          value: DESC
+          type: query
+          description: order by updateFinished
+          disabled: true
+        - name: orderBy[type]
+          value: ASC
+          type: query
+          description: order by type
+          disabled: true
+        - name: orderBy[type]
+          value: DESC
+          type: query
+          description: order by type
+          disabled: true
+        - name: orderBy[state]
+          value: ASC
+          type: query
+          description: order by state
+          disabled: true
+        - name: orderBy[state]
+          value: DESC
+          type: query
+          description: order by state
+          disabled: true
+        - name: orderBy[recordCount]
+          value: ASC
+          type: query
+          description: order by record count
+          disabled: true
+        - name: orderBy[recordCount]
+          value: DESC
+          type: query
+          description: order by record count
+          disabled: true
+        - name: zoneId
+          value: ""
+          type: path
+          description: zone id
+    response:
+      status: 502
+      statusText: Bad Gateway
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "Success"
+          }
+
 docs: All RRSet

@@ -42,6 +42,166 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 200 Response
+    description: OK
+    request:
+      url: "{{baseUrl}}/v2/projects"
+      method: GET
+      params:
+        - name: containerParentId
+          value: ""
+          type: query
+          description: Identifier of the parent resource container - containerId as well as UUID identifier is supported.
+          disabled: true
+        - name: containerIds
+          value: "[]"
+          type: query
+          description: List of container identifiers - containerId as well as UUID identifier is supported.
+          disabled: true
+        - name: member
+          value: ""
+          type: query
+          description: E-Mail address of the user for whom the visible resource containers should be filtered.
+          disabled: true
+        - name: offset
+          value: "0"
+          type: query
+          description: The offset of the first item in the collection to return.
+        - name: limit
+          value: "50"
+          type: query
+          description: The maximum number of projects to return in the response. If not present, an appropriate default will be used. If maximum is exceeded, maximum is used.
+        - name: creation-time-start
+          value: 2021-01-20T00:00:00Z
+          type: query
+          description: A timestamp to specify the beginning of the creationTime from which entries should be returned. If not given, defaults to the beginning of time.
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "items": [
+              {
+                "containerId": "my-first-project-45789",
+                "creationTime": "2021-08-24T14:15:22Z",
+                "labels": {},
+                "lifecycleState": "CREATING",
+                "name": "My first project",
+                "parent": {
+                  "containerId": "container-name-Rq86WY1",
+                  "id": "54066bf4-1aff-4f7b-9f83-fb23c348fee3",
+                  "type": "ORGANIZATION"
+                },
+                "projectId": "54066bf4-1aff-4f7b-9f83-fb23c348fee3",
+                "updateTime": "2021-08-24T14:15:22Z"
+              }
+            ],
+            "limit": 0,
+            "offset": 0
+          }
+  - name: Bad Request
+    request:
+      url: "{{baseUrl}}/v2/projects"
+      method: GET
+      params:
+        - name: containerParentId
+          value: ""
+          type: query
+          description: Identifier of the parent resource container - containerId as well as UUID identifier is supported.
+          disabled: true
+        - name: containerIds
+          value: "[]"
+          type: query
+          description: List of container identifiers - containerId as well as UUID identifier is supported.
+          disabled: true
+        - name: member
+          value: ""
+          type: query
+          description: E-Mail address of the user for whom the visible resource containers should be filtered.
+          disabled: true
+        - name: offset
+          value: "0"
+          type: query
+          description: The offset of the first item in the collection to return.
+        - name: limit
+          value: "50"
+          type: query
+          description: The maximum number of projects to return in the response. If not present, an appropriate default will be used. If maximum is exceeded, maximum is used.
+        - name: creation-time-start
+          value: 2021-01-20T00:00:00Z
+          type: query
+          description: A timestamp to specify the beginning of the creationTime from which entries should be returned. If not given, defaults to the beginning of time.
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": "Bad Request",
+            "message": "Validation of {param-one} failed.",
+            "path": "/path/where/error/occurred",
+            "status": 400,
+            "timeStamp": "2019-08-24T14:15:22Z"
+          }
+  - name: Forbidden
+    request:
+      url: "{{baseUrl}}/v2/projects"
+      method: GET
+      params:
+        - name: containerParentId
+          value: ""
+          type: query
+          description: Identifier of the parent resource container - containerId as well as UUID identifier is supported.
+          disabled: true
+        - name: containerIds
+          value: "[]"
+          type: query
+          description: List of container identifiers - containerId as well as UUID identifier is supported.
+          disabled: true
+        - name: member
+          value: ""
+          type: query
+          description: E-Mail address of the user for whom the visible resource containers should be filtered.
+          disabled: true
+        - name: offset
+          value: "0"
+          type: query
+          description: The offset of the first item in the collection to return.
+        - name: limit
+          value: "50"
+          type: query
+          description: The maximum number of projects to return in the response. If not present, an appropriate default will be used. If maximum is exceeded, maximum is used.
+        - name: creation-time-start
+          value: 2021-01-20T00:00:00Z
+          type: query
+          description: A timestamp to specify the beginning of the creationTime from which entries should be returned. If not given, defaults to the beginning of time.
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": "Forbidden",
+            "message": "Access to this resource is forbidden.",
+            "path": "/path/where/error/occurred",
+            "status": 403,
+            "timeStamp": "2019-08-24T14:15:22Z"
+          }
+
 docs: |-
   Returns all projects and their metadata that: 
   - Are children of the specific containerParentId

@@ -29,4 +29,216 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 200 Response
+    description: List of platforms.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/regions/:region/platforms"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: ""
+          type: path
+        - name: page
+          value: "1"
+          type: query
+          description: Which page is returned
+        - name: perPage
+          value: "100"
+          type: query
+          description: Elements to be returned per page
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "pagination": {
+              "totalPages": 4,
+              "totalResults": 400
+            },
+            "resources": [
+              {
+                "apiUrl": "https://api.system.01.cf.eu01.stackit.cloud",
+                "consoleUrl": "https://console.apps.01.cf.eu01.stackit.cloud/",
+                "displayName": "SIT Dedicated",
+                "guid": "00000000-0000-0000-0000-000000000000",
+                "region": "eu01",
+                "systemId": "004.scf.eu01"
+              }
+            ]
+          }
+  - name: 400 Response
+    description: Invalid request.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/regions/:region/platforms"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: ""
+          type: path
+        - name: page
+          value: "1"
+          type: query
+          description: Which page is returned
+        - name: perPage
+          value: "100"
+          type: query
+          description: Elements to be returned per page
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "Some information about what caused the Error"
+          }
+  - name: 401 Response
+    description: Unauthorized. Authentication is required.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/regions/:region/platforms"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: ""
+          type: path
+        - name: page
+          value: "1"
+          type: query
+          description: Which page is returned
+        - name: perPage
+          value: "100"
+          type: query
+          description: Elements to be returned per page
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "Some information about what caused the Error"
+          }
+  - name: 403 Response
+    description: Unauthorized. Authentication is required.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/regions/:region/platforms"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: ""
+          type: path
+        - name: page
+          value: "1"
+          type: query
+          description: Which page is returned
+        - name: perPage
+          value: "100"
+          type: query
+          description: Elements to be returned per page
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "Some information about what caused the Error"
+          }
+  - name: 404 Response
+    description: Not Found.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/regions/:region/platforms"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: ""
+          type: path
+        - name: page
+          value: "1"
+          type: query
+          description: Which page is returned
+        - name: perPage
+          value: "100"
+          type: query
+          description: Elements to be returned per page
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "Some information about what caused the Error"
+          }
+  - name: 500 Response
+    description: Internal Server Error.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/regions/:region/platforms"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: ""
+          type: path
+        - name: page
+          value: "1"
+          type: query
+          description: Which page is returned
+        - name: perPage
+          value: "100"
+          type: query
+          description: Elements to be returned per page
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "Some information about what caused the Error"
+          }
+
 docs: List all platforms available for a STACKIT project

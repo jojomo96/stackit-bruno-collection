@@ -31,4 +31,189 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 202 Response
+    description: OK
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/regions/:regionId/tokens"
+      method: POST
+      params:
+        - name: regionId
+          value: eu01
+          type: path
+          description: region name
+        - name: projectId
+          value: 904bb6ea-8632-4818-b26e-943557dc4f57
+          type: path
+          description: portal project id
+      body:
+        type: json
+        data: |-
+          {
+            "description": "my token",
+            "name": "my-token",
+            "ttlDuration": "5h30m40s"
+          }
+    response:
+      status: 202
+      statusText: Accepted
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "",
+            "token": {
+              "content": "ey...",
+              "description": "token description",
+              "id": "",
+              "name": "my-token",
+              "region": "eu01",
+              "state": "creating",
+              "validUntil": ""
+            }
+          }
+  - name: 400 Response
+    description: invalid input
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/regions/:regionId/tokens"
+      method: POST
+      params:
+        - name: regionId
+          value: eu01
+          type: path
+          description: region name
+        - name: projectId
+          value: 904bb6ea-8632-4818-b26e-943557dc4f57
+          type: path
+          description: portal project id
+      body:
+        type: json
+        data: |-
+          {
+            "description": "my token",
+            "name": "my-token",
+            "ttlDuration": "5h30m40s"
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": "",
+            "message": ""
+          }
+  - name: 401 Response
+    description: unauthorized
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/regions/:regionId/tokens"
+      method: POST
+      params:
+        - name: regionId
+          value: eu01
+          type: path
+          description: region name
+        - name: projectId
+          value: 904bb6ea-8632-4818-b26e-943557dc4f57
+          type: path
+          description: portal project id
+      body:
+        type: json
+        data: |-
+          {
+            "description": "my token",
+            "name": "my-token",
+            "ttlDuration": "5h30m40s"
+          }
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": "",
+            "message": ""
+          }
+  - name: 409 Response
+    description: conflict
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/regions/:regionId/tokens"
+      method: POST
+      params:
+        - name: regionId
+          value: eu01
+          type: path
+          description: region name
+        - name: projectId
+          value: 904bb6ea-8632-4818-b26e-943557dc4f57
+          type: path
+          description: portal project id
+      body:
+        type: json
+        data: |-
+          {
+            "description": "my token",
+            "name": "my-token",
+            "ttlDuration": "5h30m40s"
+          }
+    response:
+      status: 409
+      statusText: Conflict
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": "",
+            "message": ""
+          }
+  - name: 500 Response
+    description: internal server error
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/regions/:regionId/tokens"
+      method: POST
+      params:
+        - name: regionId
+          value: eu01
+          type: path
+          description: region name
+        - name: projectId
+          value: 904bb6ea-8632-4818-b26e-943557dc4f57
+          type: path
+          description: portal project id
+      body:
+        type: json
+        data: |-
+          {
+            "description": "my token",
+            "name": "my-token",
+            "ttlDuration": "5h30m40s"
+          }
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": "",
+            "message": ""
+          }
+
 docs: create auth token for shared model use

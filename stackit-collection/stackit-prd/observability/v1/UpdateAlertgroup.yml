@@ -47,4 +47,225 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 202 Response
+    description: Update alert group.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/alertgroups/:groupName"
+      method: PUT
+      params:
+        - name: groupName
+          value: ""
+          type: path
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          [
+            {
+              "interval": "60s",
+              "name": "string",
+              "rules": [
+                {
+                  "alert": "string",
+                  "annotations": {},
+                  "expr": "string",
+                  "for": "0s",
+                  "labels": {}
+                },
+                {
+                  "expr": "string",
+                  "labels": {},
+                  "record": "string"
+                }
+              ]
+            }
+          ]
+    response:
+      status: 202
+      statusText: Accepted
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "data": [
+              {
+                "interval": "5m",
+                "name": "test alert",
+                "rules": [
+                  {
+                    "alert": "up test",
+                    "annotations": {
+                      "test": "test"
+                    },
+                    "expr": "up == 1",
+                    "for": "30s",
+                    "labels": {
+                      "test": "test"
+                    }
+                  }
+                ]
+              }
+            ],
+            "message": "Alert group updated successfully"
+          }
+  - name: 400 Response
+    description: Something went wrong updating the alert group.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/alertgroups/:groupName"
+      method: PUT
+      params:
+        - name: groupName
+          value: ""
+          type: path
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          [
+            {
+              "interval": "60s",
+              "name": "string",
+              "rules": [
+                {
+                  "alert": "string",
+                  "annotations": {},
+                  "expr": "string",
+                  "for": "0s",
+                  "labels": {}
+                },
+                {
+                  "expr": "string",
+                  "labels": {},
+                  "record": "string"
+                }
+              ]
+            }
+          ]
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "Could not update alert group config"
+          }
+  - name: 403 Response
+    description: You are not authorized
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/alertgroups/:groupName"
+      method: PUT
+      params:
+        - name: groupName
+          value: ""
+          type: path
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          [
+            {
+              "interval": "60s",
+              "name": "string",
+              "rules": [
+                {
+                  "alert": "string",
+                  "annotations": {},
+                  "expr": "string",
+                  "for": "0s",
+                  "labels": {}
+                },
+                {
+                  "expr": "string",
+                  "labels": {},
+                  "record": "string"
+                }
+              ]
+            }
+          ]
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "detail": "You do not have permission to perform this action."
+          }
+  - name: 404 Response
+    description: Alert group not found.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/alertgroups/:groupName"
+      method: PUT
+      params:
+        - name: groupName
+          value: ""
+          type: path
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          [
+            {
+              "interval": "60s",
+              "name": "string",
+              "rules": [
+                {
+                  "alert": "string",
+                  "annotations": {},
+                  "expr": "string",
+                  "for": "0s",
+                  "labels": {}
+                },
+                {
+                  "expr": "string",
+                  "labels": {},
+                  "record": "string"
+                }
+              ]
+            }
+          ]
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "Alert group not found."
+          }
+
 docs: Update alert group config.

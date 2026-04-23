@@ -41,4 +41,154 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 200 Response
+    description: Get all backups
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/backups"
+      method: GET
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+        - name: backupTarget
+          value: alertConfig
+          type: query
+          description: List of backup targets
+          disabled: true
+        - name: backupTarget
+          value: alertRules
+          type: query
+          description: List of backup targets
+          disabled: true
+        - name: backupTarget
+          value: scrapeConfig
+          type: query
+          description: List of backup targets
+          disabled: true
+        - name: backupTarget
+          value: grafana
+          type: query
+          description: List of backup targets
+          disabled: true
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "alertConfigBackups": [
+              "11-08-2021T14:08:21",
+              "14-08-2021T06:35:40"
+            ],
+            "alertRulesBackups": [
+              "11-08-2021T14:08:22",
+              "14-08-2021T06:35:41"
+            ],
+            "grafanaBackups": [
+              "11-08-2021T14:08:31",
+              "14-08-2021T06:35:43"
+            ],
+            "message": "Successfully got backups",
+            "scrapeConfigBackups": [
+              "11-08-2021T14:08:23",
+              "14-08-2021T06:35:42"
+            ]
+          }
+  - name: 403 Response
+    description: You do not have permission to perform this action.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/backups"
+      method: GET
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+        - name: backupTarget
+          value: alertConfig
+          type: query
+          description: List of backup targets
+          disabled: true
+        - name: backupTarget
+          value: alertRules
+          type: query
+          description: List of backup targets
+          disabled: true
+        - name: backupTarget
+          value: scrapeConfig
+          type: query
+          description: List of backup targets
+          disabled: true
+        - name: backupTarget
+          value: grafana
+          type: query
+          description: List of backup targets
+          disabled: true
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "detail": "You do not have permission to perform this action."
+          }
+  - name: 502 Response
+    description: Connection to object storage could not be established.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/backups"
+      method: GET
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+        - name: backupTarget
+          value: alertConfig
+          type: query
+          description: List of backup targets
+          disabled: true
+        - name: backupTarget
+          value: alertRules
+          type: query
+          description: List of backup targets
+          disabled: true
+        - name: backupTarget
+          value: scrapeConfig
+          type: query
+          description: List of backup targets
+          disabled: true
+        - name: backupTarget
+          value: grafana
+          type: query
+          description: List of backup targets
+          disabled: true
+    response:
+      status: 502
+      statusText: Bad Gateway
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "Could not get backups from storage"
+          }
+
 docs: Get backups.

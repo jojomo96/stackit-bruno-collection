@@ -19,4 +19,56 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 200 Response
+    description: Service plans response
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/offerings"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Project id on which user has permissions
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "offerings": [
+              {
+                "description": "",
+                "documentationUrl": "",
+                "imageUrl": "",
+                "latest": false,
+                "lifecycle": "deprecated",
+                "name": "",
+                "plans": [
+                  {
+                    "description": "",
+                    "free": false,
+                    "id": "",
+                    "name": "",
+                    "skuName": ""
+                  }
+                ],
+                "quotaCount": 0,
+                "schema": {
+                  "create": {
+                    "parameters": {}
+                  },
+                  "update": {
+                    "parameters": {}
+                  }
+                },
+                "version": "11"
+              }
+            ]
+          }
+
 docs: Get the service offerings that the service broker offers.

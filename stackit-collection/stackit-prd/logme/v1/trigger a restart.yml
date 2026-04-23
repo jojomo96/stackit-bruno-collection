@@ -22,3 +22,85 @@ settings:
   timeout: 0
   followRedirects: true
   maxRedirects: 5
+
+examples:
+  - name: 202 Response
+    description: Accepted
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/restart"
+      method: PATCH
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+          description: Instance id
+        - name: projectId
+          value: ""
+          type: path
+          description: Project id on which user has permissions
+    response:
+      status: 202
+      statusText: Accepted
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "instanceId": ""
+          }
+  - name: 404 Response
+    description: Not Found
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/restart"
+      method: PATCH
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+          description: Instance id
+        - name: projectId
+          value: ""
+          type: path
+          description: Project id on which user has permissions
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "description": "",
+            "error": ""
+          }
+  - name: 500 Response
+    description: Internal Server Error
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/restart"
+      method: PATCH
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+          description: Instance id
+        - name: projectId
+          value: ""
+          type: path
+          description: Project id on which user has permissions
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "description": "",
+            "error": ""
+          }

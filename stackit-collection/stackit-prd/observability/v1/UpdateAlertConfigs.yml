@@ -102,4 +102,411 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 202 Response
+    description: Update alert config.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/alertconfigs"
+      method: PUT
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "global": {
+              "opsgenieApiKey": "",
+              "opsgenieApiUrl": "",
+              "resolveTimeout": "",
+              "smtpAuthIdentity": "",
+              "smtpAuthPassword": "",
+              "smtpAuthUsername": "",
+              "smtpFrom": "",
+              "smtpSmarthost": ""
+            },
+            "inhibitRules": {
+              "equal": [],
+              "sourceMatch": {},
+              "sourceMatchRe": {},
+              "targetMatch": {},
+              "targetMatchRe": {}
+            },
+            "receivers": [
+              {
+                "emailConfigs": [
+                  {
+                    "authIdentity": "",
+                    "authPassword": "",
+                    "authUsername": "",
+                    "from": "",
+                    "sendResolved": false,
+                    "smarthost": "",
+                    "to": ""
+                  }
+                ],
+                "name": "",
+                "opsgenieConfigs": [
+                  {
+                    "apiKey": "",
+                    "apiUrl": "",
+                    "priority": "",
+                    "sendResolved": false,
+                    "tags": ""
+                  }
+                ],
+                "webHookConfigs": [
+                  {
+                    "googleChat": false,
+                    "msTeams": false,
+                    "sendResolved": false,
+                    "url": ""
+                  }
+                ]
+              }
+            ],
+            "route": {
+              "continue": false,
+              "groupBy": [],
+              "groupInterval": "",
+              "groupWait": "",
+              "match": {},
+              "matchRe": {},
+              "receiver": "",
+              "repeatInterval": "",
+              "routes": [
+                {
+                  "continue": false,
+                  "groupBy": [],
+                  "groupInterval": "",
+                  "groupWait": "",
+                  "match": {},
+                  "matchRe": {},
+                  "matchers": [],
+                  "receiver": "",
+                  "repeatInterval": "",
+                  "routes": [
+                    {}
+                  ]
+                }
+              ]
+            }
+          }
+    response:
+      status: 202
+      statusText: Accepted
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "data": {
+              "global": {
+                "resolveTimeout": "5m",
+                "smtpAuthIdentity": "alertmanager@example.org",
+                "smtpAuthPassword": "password",
+                "smtpAuthUsername": "alertmanager",
+                "smtpFrom": "alertmanager@example.org",
+                "smtpSmarthost": "localhost:25"
+              },
+              "inhibitRules": [
+                {
+                  "equal": [
+                    "alertname",
+                    "cluster",
+                    "service"
+                  ],
+                  "sourceMatch": {
+                    "severity": "criticals"
+                  },
+                  "targetMatch": {
+                    "severity": "warning"
+                  }
+                }
+              ],
+              "receivers": [
+                {
+                  "emailConfigs": [
+                    {
+                      "to": "team-X+alerts@example.org"
+                    }
+                  ],
+                  "name": "team-X-mails"
+                },
+                {
+                  "emailConfigs": [
+                    {
+                      "to": "team-X+papers@example.org"
+                    }
+                  ],
+                  "name": "team-X-paper"
+                },
+                {
+                  "emailConfigs": [
+                    {
+                      "to": "team-Y+paper@example.org"
+                    }
+                  ],
+                  "name": "team-Y-paper"
+                },
+                {
+                  "emailConfigs": [
+                    {
+                      "to": "team-X+alerts-critical@example.org"
+                    }
+                  ],
+                  "name": "team-X-pager",
+                  "opsgenieConfigs": [
+                    {
+                      "apiKey": "12345678",
+                      "apiUrl": "https://example.opsgenie.org"
+                    }
+                  ]
+                }
+              ],
+              "route": {
+                "groupBy": [
+                  "alertname",
+                  "cluster",
+                  "service"
+                ],
+                "groupInterval": "5m",
+                "groupWait": "30s",
+                "receiver": "team-X-mails",
+                "repeatInterval": "3h",
+                "routes": [
+                  {
+                    "matchRe": {
+                      "service": "^(foo1|foo2|baz)$"
+                    },
+                    "receiver": "team-X-paper"
+                  },
+                  {
+                    "match": {
+                      "service": "files"
+                    },
+                    "receiver": "team-X-pager"
+                  }
+                ]
+              }
+            },
+            "message": "Success"
+          }
+  - name: 400 Response
+    description: Something went wrong updating the alert config.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/alertconfigs"
+      method: PUT
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "global": {
+              "opsgenieApiKey": "",
+              "opsgenieApiUrl": "",
+              "resolveTimeout": "",
+              "smtpAuthIdentity": "",
+              "smtpAuthPassword": "",
+              "smtpAuthUsername": "",
+              "smtpFrom": "",
+              "smtpSmarthost": ""
+            },
+            "inhibitRules": {
+              "equal": [],
+              "sourceMatch": {},
+              "sourceMatchRe": {},
+              "targetMatch": {},
+              "targetMatchRe": {}
+            },
+            "receivers": [
+              {
+                "emailConfigs": [
+                  {
+                    "authIdentity": "",
+                    "authPassword": "",
+                    "authUsername": "",
+                    "from": "",
+                    "sendResolved": false,
+                    "smarthost": "",
+                    "to": ""
+                  }
+                ],
+                "name": "",
+                "opsgenieConfigs": [
+                  {
+                    "apiKey": "",
+                    "apiUrl": "",
+                    "priority": "",
+                    "sendResolved": false,
+                    "tags": ""
+                  }
+                ],
+                "webHookConfigs": [
+                  {
+                    "googleChat": false,
+                    "msTeams": false,
+                    "sendResolved": false,
+                    "url": ""
+                  }
+                ]
+              }
+            ],
+            "route": {
+              "continue": false,
+              "groupBy": [],
+              "groupInterval": "",
+              "groupWait": "",
+              "match": {},
+              "matchRe": {},
+              "receiver": "",
+              "repeatInterval": "",
+              "routes": [
+                {
+                  "continue": false,
+                  "groupBy": [],
+                  "groupInterval": "",
+                  "groupWait": "",
+                  "match": {},
+                  "matchRe": {},
+                  "matchers": [],
+                  "receiver": "",
+                  "repeatInterval": "",
+                  "routes": [
+                    {}
+                  ]
+                }
+              ]
+            }
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "Could not update alert config"
+          }
+  - name: 403 Response
+    description: You are not authorized
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/alertconfigs"
+      method: PUT
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "global": {
+              "opsgenieApiKey": "",
+              "opsgenieApiUrl": "",
+              "resolveTimeout": "",
+              "smtpAuthIdentity": "",
+              "smtpAuthPassword": "",
+              "smtpAuthUsername": "",
+              "smtpFrom": "",
+              "smtpSmarthost": ""
+            },
+            "inhibitRules": {
+              "equal": [],
+              "sourceMatch": {},
+              "sourceMatchRe": {},
+              "targetMatch": {},
+              "targetMatchRe": {}
+            },
+            "receivers": [
+              {
+                "emailConfigs": [
+                  {
+                    "authIdentity": "",
+                    "authPassword": "",
+                    "authUsername": "",
+                    "from": "",
+                    "sendResolved": false,
+                    "smarthost": "",
+                    "to": ""
+                  }
+                ],
+                "name": "",
+                "opsgenieConfigs": [
+                  {
+                    "apiKey": "",
+                    "apiUrl": "",
+                    "priority": "",
+                    "sendResolved": false,
+                    "tags": ""
+                  }
+                ],
+                "webHookConfigs": [
+                  {
+                    "googleChat": false,
+                    "msTeams": false,
+                    "sendResolved": false,
+                    "url": ""
+                  }
+                ]
+              }
+            ],
+            "route": {
+              "continue": false,
+              "groupBy": [],
+              "groupInterval": "",
+              "groupWait": "",
+              "match": {},
+              "matchRe": {},
+              "receiver": "",
+              "repeatInterval": "",
+              "routes": [
+                {
+                  "continue": false,
+                  "groupBy": [],
+                  "groupInterval": "",
+                  "groupWait": "",
+                  "match": {},
+                  "matchRe": {},
+                  "matchers": [],
+                  "receiver": "",
+                  "repeatInterval": "",
+                  "routes": [
+                    {}
+                  ]
+                }
+              ]
+            }
+          }
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "detail": "You do not have permission to perform this action."
+          }
+
 docs: Update alert config.

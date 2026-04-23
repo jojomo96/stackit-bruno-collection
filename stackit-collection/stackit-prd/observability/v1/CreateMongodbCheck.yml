@@ -27,4 +27,140 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 200 Response
+    description: Get added check (mongodbCheck) and all configured checks (mongodbChecks).
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/mongodb-checks"
+      method: POST
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "server": ""
+          }
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "Successfully created mongodb check",
+            "mongodbCheck": {
+              "id": "74ebf3218591a92cc7a7845f0e249b24",
+              "server": "mongodb://127.0.0.2:27017/?connect=direct"
+            },
+            "mongodbChecks": [
+              {
+                "id": "058e329ae4975a91f0a55b5f643932fc",
+                "server": "mongodb://127.0.0.1:27017/?connect=direct"
+              },
+              {
+                "id": "74ebf3218591a92cc7a7845f0e249b24",
+                "server": "mongodb://127.0.0.2:27017/?connect=direct"
+              }
+            ]
+          }
+  - name: Global error
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/mongodb-checks"
+      method: POST
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "server": ""
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          [
+            "instance is not ready"
+          ]
+  - name: Field specific error
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/mongodb-checks"
+      method: POST
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "server": ""
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "server": [
+              "This field may not be blank."
+            ]
+          }
+  - name: 403 Response
+    description: You are not authorized.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/mongodb-checks"
+      method: POST
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "server": ""
+          }
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "detail": "You do not have permission to perform this action."
+          }
+
 docs: Create mongodb check.

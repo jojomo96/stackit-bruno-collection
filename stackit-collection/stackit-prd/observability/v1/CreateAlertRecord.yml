@@ -32,4 +32,120 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 202 Response
+    description: Create alert record.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/alertgroups/:groupName/records"
+      method: POST
+      params:
+        - name: groupName
+          value: ""
+          type: path
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "expr": "",
+            "labels": {},
+            "record": ""
+          }
+    response:
+      status: 202
+      statusText: Accepted
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "data": [
+              {
+                "expr": "sum without(instance, method, controller, status_code)(rate(prometheus_http_requests_total[5m]))",
+                "labels": {
+                  "test": "test"
+                },
+                "record": "job:prometheus_http_requests_total:rate5m"
+              }
+            ],
+            "message": "Alert record successfully created"
+          }
+  - name: 400 Response
+    description: Something went wrong
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/alertgroups/:groupName/records"
+      method: POST
+      params:
+        - name: groupName
+          value: ""
+          type: path
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "expr": "",
+            "labels": {},
+            "record": ""
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "Something wrong"
+          }
+  - name: 403 Response
+    description: You are not authorized
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/alertgroups/:groupName/records"
+      method: POST
+      params:
+        - name: groupName
+          value: ""
+          type: path
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "expr": "",
+            "labels": {},
+            "record": ""
+          }
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "detail": "You do not have permission to perform this action."
+          }
+
 docs: Create alert record.

@@ -68,4 +68,389 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 201 Response
+    description: Destination was created successfully
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/regions/:regionId/telemetry-routers/:telemetryRouterId/destinations"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the resource is located in.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region name the resource is located in.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region name the resource is located in.
+          disabled: true
+        - name: telemetryRouterId
+          value: ""
+          type: path
+          description: The Telemetry Router UUID.
+      body:
+        type: json
+        data: |-
+          {
+            "config": {
+              "configType": "OpenTelemetry",
+              "filter": {
+                "attributes": [
+                  {
+                    "key": "",
+                    "level": "resource",
+                    "matcher": "=",
+                    "values": []
+                  }
+                ]
+              },
+              "openTelemetry": {
+                "basicAuth": {
+                  "password": "",
+                  "username": ""
+                },
+                "bearerToken": "",
+                "uri": ""
+              },
+              "s3": {
+                "accessKey": {
+                  "id": "",
+                  "secret": ""
+                },
+                "bucket": "",
+                "endpoint": ""
+              }
+            },
+            "description": "",
+            "displayName": ""
+          }
+    response:
+      status: 201
+      statusText: Created
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "config": {
+              "configType": "OpenTelemetry",
+              "filter": {
+                "attributes": [
+                  {
+                    "key": "",
+                    "level": "resource",
+                    "matcher": "=",
+                    "values": []
+                  }
+                ]
+              },
+              "openTelemetry": {
+                "basicAuth": {
+                  "password": "",
+                  "username": ""
+                },
+                "bearerToken": "",
+                "uri": ""
+              },
+              "s3": {
+                "accessKey": {
+                  "id": "",
+                  "secret": ""
+                },
+                "bucket": "",
+                "endpoint": ""
+              }
+            },
+            "creationTime": "",
+            "credentialType": "bearerToken",
+            "description": "",
+            "displayName": "",
+            "id": "",
+            "status": "reconciling"
+          }
+  - name: 400 Response
+    description: Bad Request. The data provided by the client did not match expectations.
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/regions/:regionId/telemetry-routers/:telemetryRouterId/destinations"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the resource is located in.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region name the resource is located in.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region name the resource is located in.
+          disabled: true
+        - name: telemetryRouterId
+          value: ""
+          type: path
+          description: The Telemetry Router UUID.
+      body:
+        type: json
+        data: |-
+          {
+            "config": {
+              "configType": "OpenTelemetry",
+              "filter": {
+                "attributes": [
+                  {
+                    "key": "",
+                    "level": "resource",
+                    "matcher": "=",
+                    "values": []
+                  }
+                ]
+              },
+              "openTelemetry": {
+                "basicAuth": {
+                  "password": "",
+                  "username": ""
+                },
+                "bearerToken": "",
+                "uri": ""
+              },
+              "s3": {
+                "accessKey": {
+                  "id": "",
+                  "secret": ""
+                },
+                "bucket": "",
+                "endpoint": ""
+              }
+            },
+            "description": "",
+            "displayName": ""
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": ""
+          }
+  - name: 401 Response
+    description: Unauthorized. You may have provided no or wrong credentials.
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/regions/:regionId/telemetry-routers/:telemetryRouterId/destinations"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the resource is located in.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region name the resource is located in.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region name the resource is located in.
+          disabled: true
+        - name: telemetryRouterId
+          value: ""
+          type: path
+          description: The Telemetry Router UUID.
+      body:
+        type: json
+        data: |-
+          {
+            "config": {
+              "configType": "OpenTelemetry",
+              "filter": {
+                "attributes": [
+                  {
+                    "key": "",
+                    "level": "resource",
+                    "matcher": "=",
+                    "values": []
+                  }
+                ]
+              },
+              "openTelemetry": {
+                "basicAuth": {
+                  "password": "",
+                  "username": ""
+                },
+                "bearerToken": "",
+                "uri": ""
+              },
+              "s3": {
+                "accessKey": {
+                  "id": "",
+                  "secret": ""
+                },
+                "bucket": "",
+                "endpoint": ""
+              }
+            },
+            "description": "",
+            "displayName": ""
+          }
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": ""
+          }
+  - name: 409 Response
+    description: Conflict. The resource has been modified by some other client. Please try again.
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/regions/:regionId/telemetry-routers/:telemetryRouterId/destinations"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the resource is located in.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region name the resource is located in.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region name the resource is located in.
+          disabled: true
+        - name: telemetryRouterId
+          value: ""
+          type: path
+          description: The Telemetry Router UUID.
+      body:
+        type: json
+        data: |-
+          {
+            "config": {
+              "configType": "OpenTelemetry",
+              "filter": {
+                "attributes": [
+                  {
+                    "key": "",
+                    "level": "resource",
+                    "matcher": "=",
+                    "values": []
+                  }
+                ]
+              },
+              "openTelemetry": {
+                "basicAuth": {
+                  "password": "",
+                  "username": ""
+                },
+                "bearerToken": "",
+                "uri": ""
+              },
+              "s3": {
+                "accessKey": {
+                  "id": "",
+                  "secret": ""
+                },
+                "bucket": "",
+                "endpoint": ""
+              }
+            },
+            "description": "",
+            "displayName": ""
+          }
+    response:
+      status: 409
+      statusText: Conflict
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": ""
+          }
+  - name: 500 Response
+    description: Internal server error. The application experienced some unexpected situation.
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/regions/:regionId/telemetry-routers/:telemetryRouterId/destinations"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the resource is located in.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region name the resource is located in.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region name the resource is located in.
+          disabled: true
+        - name: telemetryRouterId
+          value: ""
+          type: path
+          description: The Telemetry Router UUID.
+      body:
+        type: json
+        data: |-
+          {
+            "config": {
+              "configType": "OpenTelemetry",
+              "filter": {
+                "attributes": [
+                  {
+                    "key": "",
+                    "level": "resource",
+                    "matcher": "=",
+                    "values": []
+                  }
+                ]
+              },
+              "openTelemetry": {
+                "basicAuth": {
+                  "password": "",
+                  "username": ""
+                },
+                "bearerToken": "",
+                "uri": ""
+              },
+              "s3": {
+                "accessKey": {
+                  "id": "",
+                  "secret": ""
+                },
+                "bucket": "",
+                "endpoint": ""
+              }
+            },
+            "description": "",
+            "displayName": ""
+          }
+    response:
+      status: 500
+      statusText: Internal Server Error
+      body:
+        type: text
+        data: ""
+
 docs: Creates a new Destination within the project.

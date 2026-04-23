@@ -19,4 +19,158 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: default
+    request:
+      url: "{{baseUrl}}/v1beta2/projects/:projectId/waf/collections"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project Id
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "collections": [
+              {
+                "groups": [
+                  {
+                    "description": {},
+                    "name": {
+                      "en": "Method Enforcement"
+                    },
+                    "rules": [
+                      {
+                        "code": "911100",
+                        "description": {
+                          "en": "Method is not allowed by policy"
+                        },
+                        "id": "@builtin/crs/request/911100"
+                      }
+                    ]
+                  }
+                ],
+                "id": "@builtin/crs/request",
+                "name": {
+                  "en": "CRS Request"
+                }
+              }
+            ]
+          }
+  - name: 401 Response
+    description: unauthorized - please make sure the "Authorization" header is set and uses correct credentials
+    request:
+      url: "{{baseUrl}}/v1beta2/projects/:projectId/waf/collections"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project Id
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: text/plain
+      body:
+        type: text
+        data: ""
+  - name: 422 Response
+    description: unprocessable entity - please make sure the body you provided is constructed according to spec
+    request:
+      url: "{{baseUrl}}/v1beta2/projects/:projectId/waf/collections"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project Id
+    response:
+      status: 422
+      statusText: Unprocessable Entity
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+  - name: 500 Response
+    description: internal error - please try again later or contact support if the issue persists
+    request:
+      url: "{{baseUrl}}/v1beta2/projects/:projectId/waf/collections"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project Id
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+  - name: default Response
+    description: Default error response
+    request:
+      url: "{{baseUrl}}/v1beta2/projects/:projectId/waf/collections"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project Id
+    response:
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+
 docs: Returns all WAF rule collections available to the project

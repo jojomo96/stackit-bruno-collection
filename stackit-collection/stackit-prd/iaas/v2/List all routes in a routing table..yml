@@ -36,4 +36,726 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 200 Response
+    description: List all routing table routes.
+    request:
+      url: "{{baseUrl}}/v2/organizations/:organizationId/network-areas/:areaId/regions/:region/routing-tables/:routingTableId/routes"
+      method: GET
+      params:
+        - name: organizationId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Organization.
+        - name: areaId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Network Area.
+        - name: region
+          value: eu01
+          type: path
+          description: The STACKIT Region of the resources.
+        - name: routingTableId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Routing Table.
+        - name: label_selector
+          value: ""
+          type: query
+          description: Filter resources by labels.
+          disabled: true
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "items": [
+              {
+                "createdAt": "",
+                "destination": {
+                  "type": ""
+                },
+                "id": "",
+                "labels": {
+                  "key": "value"
+                },
+                "nexthop": {
+                  "type": ""
+                },
+                "updatedAt": ""
+              }
+            ]
+          }
+  - name: InvalidAffinityGroupPolicy
+    request:
+      url: "{{baseUrl}}/v2/organizations/:organizationId/network-areas/:areaId/regions/:region/routing-tables/:routingTableId/routes"
+      method: GET
+      params:
+        - name: organizationId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Organization.
+        - name: areaId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Network Area.
+        - name: region
+          value: eu01
+          type: path
+          description: The STACKIT Region of the resources.
+        - name: routingTableId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Routing Table.
+        - name: label_selector
+          value: ""
+          type: query
+          description: Filter resources by labels.
+          disabled: true
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "msg": "The affinity group policy is not supported"
+          }
+  - name: InvalidBootDeviceSize
+    request:
+      url: "{{baseUrl}}/v2/organizations/:organizationId/network-areas/:areaId/regions/:region/routing-tables/:routingTableId/routes"
+      method: GET
+      params:
+        - name: organizationId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Organization.
+        - name: areaId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Network Area.
+        - name: region
+          value: eu01
+          type: path
+          description: The STACKIT Region of the resources.
+        - name: routingTableId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Routing Table.
+        - name: label_selector
+          value: ""
+          type: query
+          description: Filter resources by labels.
+          disabled: true
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "msg": "boot device size is not valid or missing"
+          }
+  - name: InvalidMachineType
+    request:
+      url: "{{baseUrl}}/v2/organizations/:organizationId/network-areas/:areaId/regions/:region/routing-tables/:routingTableId/routes"
+      method: GET
+      params:
+        - name: organizationId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Organization.
+        - name: areaId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Network Area.
+        - name: region
+          value: eu01
+          type: path
+          description: The STACKIT Region of the resources.
+        - name: routingTableId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Routing Table.
+        - name: label_selector
+          value: ""
+          type: query
+          description: Filter resources by labels.
+          disabled: true
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "msg": "machine type is not valid"
+          }
+  - name: InvalidParameter
+    request:
+      url: "{{baseUrl}}/v2/organizations/:organizationId/network-areas/:areaId/regions/:region/routing-tables/:routingTableId/routes"
+      method: GET
+      params:
+        - name: organizationId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Organization.
+        - name: areaId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Network Area.
+        - name: region
+          value: eu01
+          type: path
+          description: The STACKIT Region of the resources.
+        - name: routingTableId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Routing Table.
+        - name: label_selector
+          value: ""
+          type: query
+          description: Filter resources by labels.
+          disabled: true
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "msg": "request body has an error: doesn't match schema: Error at \"/name\": value must be a string"
+          }
+  - name: InvalidPublicKey
+    request:
+      url: "{{baseUrl}}/v2/organizations/:organizationId/network-areas/:areaId/regions/:region/routing-tables/:routingTableId/routes"
+      method: GET
+      params:
+        - name: organizationId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Organization.
+        - name: areaId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Network Area.
+        - name: region
+          value: eu01
+          type: path
+          description: The STACKIT Region of the resources.
+        - name: routingTableId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Routing Table.
+        - name: label_selector
+          value: ""
+          type: query
+          description: Filter resources by labels.
+          disabled: true
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "msg": "invalid pubkey"
+          }
+  - name: InvalidUUID
+    request:
+      url: "{{baseUrl}}/v2/organizations/:organizationId/network-areas/:areaId/regions/:region/routing-tables/:routingTableId/routes"
+      method: GET
+      params:
+        - name: organizationId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Organization.
+        - name: areaId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Network Area.
+        - name: region
+          value: eu01
+          type: path
+          description: The STACKIT Region of the resources.
+        - name: routingTableId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Routing Table.
+        - name: label_selector
+          value: ""
+          type: query
+          description: Filter resources by labels.
+          disabled: true
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "msg": "invalid uuid"
+          }
+  - name: 401 Response
+    description: A request which was not authorized.
+    request:
+      url: "{{baseUrl}}/v2/organizations/:organizationId/network-areas/:areaId/regions/:region/routing-tables/:routingTableId/routes"
+      method: GET
+      params:
+        - name: organizationId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Organization.
+        - name: areaId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Network Area.
+        - name: region
+          value: eu01
+          type: path
+          description: The STACKIT Region of the resources.
+        - name: routingTableId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Routing Table.
+        - name: label_selector
+          value: ""
+          type: query
+          description: Filter resources by labels.
+          disabled: true
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 401,
+            "msg": "Unauthorized"
+          }
+  - name: 403 Response
+    description: A request which was forbidden.
+    request:
+      url: "{{baseUrl}}/v2/organizations/:organizationId/network-areas/:areaId/regions/:region/routing-tables/:routingTableId/routes"
+      method: GET
+      params:
+        - name: organizationId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Organization.
+        - name: areaId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Network Area.
+        - name: region
+          value: eu01
+          type: path
+          description: The STACKIT Region of the resources.
+        - name: routingTableId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Routing Table.
+        - name: label_selector
+          value: ""
+          type: query
+          description: Filter resources by labels.
+          disabled: true
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 403,
+            "msg": "Forbidden"
+          }
+  - name: AreaNotFound
+    request:
+      url: "{{baseUrl}}/v2/organizations/:organizationId/network-areas/:areaId/regions/:region/routing-tables/:routingTableId/routes"
+      method: GET
+      params:
+        - name: organizationId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Organization.
+        - name: areaId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Network Area.
+        - name: region
+          value: eu01
+          type: path
+          description: The STACKIT Region of the resources.
+        - name: routingTableId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Routing Table.
+        - name: label_selector
+          value: ""
+          type: query
+          description: Filter resources by labels.
+          disabled: true
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "msg": "area not found"
+          }
+  - name: KeypairNotFound
+    request:
+      url: "{{baseUrl}}/v2/organizations/:organizationId/network-areas/:areaId/regions/:region/routing-tables/:routingTableId/routes"
+      method: GET
+      params:
+        - name: organizationId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Organization.
+        - name: areaId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Network Area.
+        - name: region
+          value: eu01
+          type: path
+          description: The STACKIT Region of the resources.
+        - name: routingTableId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Routing Table.
+        - name: label_selector
+          value: ""
+          type: query
+          description: Filter resources by labels.
+          disabled: true
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "msg": "keypair not found"
+          }
+  - name: NetworkNotFound
+    request:
+      url: "{{baseUrl}}/v2/organizations/:organizationId/network-areas/:areaId/regions/:region/routing-tables/:routingTableId/routes"
+      method: GET
+      params:
+        - name: organizationId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Organization.
+        - name: areaId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Network Area.
+        - name: region
+          value: eu01
+          type: path
+          description: The STACKIT Region of the resources.
+        - name: routingTableId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Routing Table.
+        - name: label_selector
+          value: ""
+          type: query
+          description: Filter resources by labels.
+          disabled: true
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "msg": "network not found"
+          }
+  - name: NetworkRangeNotFound
+    request:
+      url: "{{baseUrl}}/v2/organizations/:organizationId/network-areas/:areaId/regions/:region/routing-tables/:routingTableId/routes"
+      method: GET
+      params:
+        - name: organizationId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Organization.
+        - name: areaId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Network Area.
+        - name: region
+          value: eu01
+          type: path
+          description: The STACKIT Region of the resources.
+        - name: routingTableId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Routing Table.
+        - name: label_selector
+          value: ""
+          type: query
+          description: Filter resources by labels.
+          disabled: true
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "msg": "network range not found"
+          }
+  - name: OrganizationNotFound
+    request:
+      url: "{{baseUrl}}/v2/organizations/:organizationId/network-areas/:areaId/regions/:region/routing-tables/:routingTableId/routes"
+      method: GET
+      params:
+        - name: organizationId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Organization.
+        - name: areaId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Network Area.
+        - name: region
+          value: eu01
+          type: path
+          description: The STACKIT Region of the resources.
+        - name: routingTableId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Routing Table.
+        - name: label_selector
+          value: ""
+          type: query
+          description: Filter resources by labels.
+          disabled: true
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "msg": "organization not found"
+          }
+  - name: ProjectNotFound
+    request:
+      url: "{{baseUrl}}/v2/organizations/:organizationId/network-areas/:areaId/regions/:region/routing-tables/:routingTableId/routes"
+      method: GET
+      params:
+        - name: organizationId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Organization.
+        - name: areaId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Network Area.
+        - name: region
+          value: eu01
+          type: path
+          description: The STACKIT Region of the resources.
+        - name: routingTableId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Routing Table.
+        - name: label_selector
+          value: ""
+          type: query
+          description: Filter resources by labels.
+          disabled: true
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "msg": "project not found"
+          }
+  - name: RequestNotFound
+    request:
+      url: "{{baseUrl}}/v2/organizations/:organizationId/network-areas/:areaId/regions/:region/routing-tables/:routingTableId/routes"
+      method: GET
+      params:
+        - name: organizationId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Organization.
+        - name: areaId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Network Area.
+        - name: region
+          value: eu01
+          type: path
+          description: The STACKIT Region of the resources.
+        - name: routingTableId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Routing Table.
+        - name: label_selector
+          value: ""
+          type: query
+          description: Filter resources by labels.
+          disabled: true
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "msg": "request not found"
+          }
+  - name: RouteNotFound
+    request:
+      url: "{{baseUrl}}/v2/organizations/:organizationId/network-areas/:areaId/regions/:region/routing-tables/:routingTableId/routes"
+      method: GET
+      params:
+        - name: organizationId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Organization.
+        - name: areaId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Network Area.
+        - name: region
+          value: eu01
+          type: path
+          description: The STACKIT Region of the resources.
+        - name: routingTableId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Routing Table.
+        - name: label_selector
+          value: ""
+          type: query
+          description: Filter resources by labels.
+          disabled: true
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "msg": "route not found"
+          }
+  - name: 500 Response
+    description: Internal Server Error, returns a 500 if something is broken on IaaS API Side.
+    request:
+      url: "{{baseUrl}}/v2/organizations/:organizationId/network-areas/:areaId/regions/:region/routing-tables/:routingTableId/routes"
+      method: GET
+      params:
+        - name: organizationId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Organization.
+        - name: areaId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Network Area.
+        - name: region
+          value: eu01
+          type: path
+          description: The STACKIT Region of the resources.
+        - name: routingTableId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Routing Table.
+        - name: label_selector
+          value: ""
+          type: query
+          description: Filter resources by labels.
+          disabled: true
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 500,
+            "msg": "internal server error"
+          }
+
 docs: Get a list of all routes in a routing table.

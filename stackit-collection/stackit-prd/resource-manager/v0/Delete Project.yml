@@ -19,6 +19,49 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 202 Response
+    description: Deletion process triggered
+    request:
+      url: "{{baseUrl}}/v2/projects/:id"
+      method: DELETE
+      params:
+        - name: id
+          value: ""
+          type: path
+          description: Project identifier - containerId as well as UUID identifier is supported.
+    response:
+      status: 202
+      statusText: Accepted
+      body:
+        type: text
+        data: ""
+  - name: Cannot delete label because of policy
+    request:
+      url: "{{baseUrl}}/v2/projects/:id"
+      method: DELETE
+      params:
+        - name: id
+          value: ""
+          type: path
+          description: Project identifier - containerId as well as UUID identifier is supported.
+    response:
+      status: 409
+      statusText: Conflict
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": "Conflict",
+            "message": "Request aborted due conflict.",
+            "path": "/path/where/error/occurred",
+            "status": 409,
+            "timeStamp": "2019-08-24T14:15:22Z"
+          }
+
 docs: |-
   Triggers the deletion of a project. 
   - The request is synchronous, but the workflow-based deletion is asynchronous

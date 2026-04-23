@@ -19,4 +19,92 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 200 Response
+    description: OK
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Project ID
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "count": 0,
+            "items": [
+              {
+                "id": "df727477-8991-486c-a3ed-d11d9d9beb1c",
+                "name": "",
+                "status": "RUNNING"
+              }
+            ]
+          }
+  - name: 400 Response
+    description: Bad Request
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Project ID
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "fields": {},
+            "message": "database not found",
+            "type": ""
+          }
+  - name: 405 Response
+    description: Method Not Allowed
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Project ID
+    response:
+      status: 405
+      statusText: Method Not Allowed
+      body:
+        type: text
+        data: ""
+  - name: 500 Response
+    description: Internal Server Error
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Project ID
+    response:
+      status: 500
+      statusText: Internal Server Error
+      body:
+        type: text
+        data: ""
+
 docs: List available instances

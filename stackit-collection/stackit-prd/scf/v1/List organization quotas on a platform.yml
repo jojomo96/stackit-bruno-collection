@@ -24,4 +24,201 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 200 Response
+    description: List of organization quotas.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/regions/:region/platforms/:platformId/quotas"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: ""
+          type: path
+        - name: platformId
+          value: ""
+          type: path
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          [
+            {
+              "apps": {
+                "logRateLimitInBytesPerSecond": 1024,
+                "perAppTasks": 15,
+                "perProcessMemoryInMb": 512,
+                "totalInstances": 10,
+                "totalMemoryInMb": 1024
+              },
+              "createdAt": "2024-10-28T07:07:54.52Z",
+              "domains": {
+                "totalDomains": 10
+              },
+              "guid": "00000000-0000-0000-0000-000000000000",
+              "name": "Default Quota",
+              "orgId": "00000000-0000-0000-0000-000000000000",
+              "platformId": "00000000-0000-0000-0000-000000000000",
+              "projectId": "00000000-0000-0000-0000-000000000000",
+              "region": "eu01",
+              "routes": {
+                "totalReservedPorts": 20,
+                "totalRoutes": 100
+              },
+              "services": {
+                "paidServicesAllowed": false,
+                "totalServiceInstances": 50,
+                "totalServiceKeys": 15
+              },
+              "updatedAt": "2024-10-28T07:07:54.53Z"
+            }
+          ]
+  - name: 400 Response
+    description: Invalid request.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/regions/:region/platforms/:platformId/quotas"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: ""
+          type: path
+        - name: platformId
+          value: ""
+          type: path
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "Some information about what caused the Error"
+          }
+  - name: 401 Response
+    description: Unauthorized. Authentication is required.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/regions/:region/platforms/:platformId/quotas"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: ""
+          type: path
+        - name: platformId
+          value: ""
+          type: path
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "Some information about what caused the Error"
+          }
+  - name: 403 Response
+    description: Unauthorized. Authentication is required.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/regions/:region/platforms/:platformId/quotas"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: ""
+          type: path
+        - name: platformId
+          value: ""
+          type: path
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "Some information about what caused the Error"
+          }
+  - name: 404 Response
+    description: Not Found.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/regions/:region/platforms/:platformId/quotas"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: ""
+          type: path
+        - name: platformId
+          value: ""
+          type: path
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "Some information about what caused the Error"
+          }
+  - name: 500 Response
+    description: Internal Server Error.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/regions/:region/platforms/:platformId/quotas"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: ""
+          type: path
+        - name: platformId
+          value: ""
+          type: path
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "Some information about what caused the Error"
+          }
+
 docs: Returns a list of organization quotas on a platform.

@@ -29,5 +29,178 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 202 Response
+    description: Instance has been created.
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/instances"
+      method: POST
+      params:
+        - name: projectId
+          value: 83b8e9c4-e3d1-4dc4-bb89-9854c8b5383e
+          type: path
+          description: Project identifier.
+      body:
+        type: json
+        data: |-
+          {
+            "acl": [
+              "1.2.3.4/1"
+            ],
+            "flavor": "git-100",
+            "name": ""
+          }
+    response:
+      status: 202
+      statusText: Accepted
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "acl": [],
+            "consumed_disk": "",
+            "consumed_object_storage": "",
+            "created": "",
+            "feature_toggle": {
+              "default_email_notifications": "enabled",
+              "enable_commit_signatures": false,
+              "enable_local_login": false
+            },
+            "flavor": "",
+            "id": "",
+            "name": "",
+            "state": "Creating",
+            "url": "",
+            "version": ""
+          }
+  - name: 400 Response
+    description: Bad Request.
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/instances"
+      method: POST
+      params:
+        - name: projectId
+          value: 83b8e9c4-e3d1-4dc4-bb89-9854c8b5383e
+          type: path
+          description: Project identifier.
+      body:
+        type: json
+        data: |-
+          {
+            "acl": [
+              "1.2.3.4/1"
+            ],
+            "flavor": "git-100",
+            "name": ""
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [],
+            "message": "Internal server error."
+          }
+  - name: 401 Response
+    description: Unauthorized.
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/instances"
+      method: POST
+      params:
+        - name: projectId
+          value: 83b8e9c4-e3d1-4dc4-bb89-9854c8b5383e
+          type: path
+          description: Project identifier.
+      body:
+        type: json
+        data: |-
+          {
+            "acl": [
+              "1.2.3.4/1"
+            ],
+            "flavor": "git-100",
+            "name": ""
+          }
+    response:
+      status: 401
+      statusText: Unauthorized
+      body:
+        type: text
+        data: ""
+  - name: 409 Response
+    description: Conflict.
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/instances"
+      method: POST
+      params:
+        - name: projectId
+          value: 83b8e9c4-e3d1-4dc4-bb89-9854c8b5383e
+          type: path
+          description: Project identifier.
+      body:
+        type: json
+        data: |-
+          {
+            "acl": [
+              "1.2.3.4/1"
+            ],
+            "flavor": "git-100",
+            "name": ""
+          }
+    response:
+      status: 409
+      statusText: Conflict
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [],
+            "message": "Internal server error."
+          }
+  - name: 500 Response
+    description: Internal server error.
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/instances"
+      method: POST
+      params:
+        - name: projectId
+          value: 83b8e9c4-e3d1-4dc4-bb89-9854c8b5383e
+          type: path
+          description: Project identifier.
+      body:
+        type: json
+        data: |-
+          {
+            "acl": [
+              "1.2.3.4/1"
+            ],
+            "flavor": "git-100",
+            "name": ""
+          }
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [],
+            "message": "Internal server error."
+          }
+
 docs: |
   Creates a new STACKIT Git instance as a project resource.

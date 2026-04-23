@@ -24,4 +24,133 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 202 Response
+    description: Delete alert group.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/logs-alertgroups/:groupName"
+      method: DELETE
+      params:
+        - name: groupName
+          value: ""
+          type: path
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+    response:
+      status: 202
+      statusText: Accepted
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "data": [
+              {
+                "interval": "5m",
+                "name": "test alert",
+                "rules": [
+                  {
+                    "alert": "up test",
+                    "annotations": {
+                      "test": "test"
+                    },
+                    "expr": "up == 1",
+                    "for": "30s",
+                    "labels": {
+                      "test": "test"
+                    }
+                  }
+                ]
+              }
+            ],
+            "message": "Alert group has been deleted successfully"
+          }
+  - name: 400 Response
+    description: Something went wrong deleting the alert group.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/logs-alertgroups/:groupName"
+      method: DELETE
+      params:
+        - name: groupName
+          value: ""
+          type: path
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "Could not delete alert group config"
+          }
+  - name: 403 Response
+    description: You are not authorized
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/logs-alertgroups/:groupName"
+      method: DELETE
+      params:
+        - name: groupName
+          value: ""
+          type: path
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "detail": "You do not have permission to perform this action."
+          }
+  - name: 404 Response
+    description: Alert group not found.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/logs-alertgroups/:groupName"
+      method: DELETE
+      params:
+        - name: groupName
+          value: ""
+          type: path
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "Alert group not found."
+          }
+
 docs: Delete logs alert group config.

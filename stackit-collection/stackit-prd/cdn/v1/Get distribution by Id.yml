@@ -26,4 +26,418 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: active
+    description: |
+      After a CDN distribution was created and properly initialized,
+      it switches into the `ACTIVE` status.
+      The notable difference is the `domains` field is populated and contains
+      the STACKIT CDN domain through which your content is made available.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/distributions/:distributionId"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project Id
+        - name: distributionId
+          value: ""
+          type: path
+        - name: withWafStatus
+          value: "false"
+          type: query
+          description: If set, the top level of a distribution contains a `waf` property, which defines the status of the waf. This includes a list of all resolved rules.
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "distribution": {
+              "config": {
+                "backend": {
+                  "geofencing": {},
+                  "originRequestHeaders": {},
+                  "originUrl": "https://httpbin.org",
+                  "type": "http"
+                },
+                "blockedCountries": [],
+                "blockedIps": [],
+                "regions": [
+                  "EU",
+                  "ASIA"
+                ],
+                "waf": {
+                  "enabledRuleIds": [],
+                  "mode": "DISABLED",
+                  "type": "FREE"
+                }
+              },
+              "createdAt": "2024-09-26T09:00:00.12345Z",
+              "domains": [
+                {
+                  "name": "hwx6z5y5msddf57g0zg22c2pkr.aa.dev.cdn.onstackit.cloud",
+                  "status": "ACTIVE",
+                  "type": "managed"
+                }
+              ],
+              "id": "8bfaecd1-f880-4fa1-9884-1fb492aa4647",
+              "projectId": "d043e216-af6e-445f-b5a5-cd67b2593278",
+              "status": "ACTIVE",
+              "updatedAt": "2024-09-26T09:00:00.12345Z"
+            }
+          }
+  - name: creating
+    description: |
+      The distribution is in status "creating" while provisioning the resource. It is not ready to use yet.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/distributions/:distributionId"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project Id
+        - name: distributionId
+          value: ""
+          type: path
+        - name: withWafStatus
+          value: "false"
+          type: query
+          description: If set, the top level of a distribution contains a `waf` property, which defines the status of the waf. This includes a list of all resolved rules.
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "distribution": {
+              "config": {
+                "backend": {
+                  "geofencing": {},
+                  "originRequestHeaders": {},
+                  "originUrl": "https://httpbin.org",
+                  "type": "http"
+                },
+                "blockedCountries": [],
+                "blockedIps": [],
+                "regions": [
+                  "EU",
+                  "ASIA"
+                ],
+                "waf": {
+                  "enabledRuleIds": [],
+                  "mode": "LOG_ONLY",
+                  "type": "FREE"
+                }
+              },
+              "createdAt": "2024-09-26T09:00:00.12345Z",
+              "domains": [],
+              "id": "8bfaecd1-f880-4fa1-9884-1fb492aa4647",
+              "projectId": "d043e216-af6e-445f-b5a5-cd67b2593278",
+              "status": "CREATING",
+              "updatedAt": "2024-09-26T09:00:00.12345Z"
+            }
+          }
+  - name: deleting
+    description: |
+      Similar to `UPDATING`, this status is set when a Delete-Request was received.
+      It will remain with this status until the deletion was synchronized.
+
+      Once synchronized, the distribution is deleted.
+      Further attempts to get this distributions result in a 404.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/distributions/:distributionId"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project Id
+        - name: distributionId
+          value: ""
+          type: path
+        - name: withWafStatus
+          value: "false"
+          type: query
+          description: If set, the top level of a distribution contains a `waf` property, which defines the status of the waf. This includes a list of all resolved rules.
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "distribution": {
+              "config": {
+                "backend": {
+                  "geofencing": {},
+                  "originRequestHeaders": {},
+                  "originUrl": "https://httpbin.org",
+                  "type": "http"
+                },
+                "blockedCountries": [],
+                "blockedIps": [],
+                "regions": [
+                  "EU",
+                  "ASIA"
+                ],
+                "waf": {
+                  "enabledRuleIds": [],
+                  "mode": "LOG_ONLY",
+                  "type": "FREE"
+                }
+              },
+              "createdAt": "2024-09-26T09:00:00.12345Z",
+              "domains": [],
+              "id": "8bfaecd1-f880-4fa1-9884-1fb492aa4647",
+              "projectId": "d043e216-af6e-445f-b5a5-cd67b2593278",
+              "status": "DELETING",
+              "updatedAt": "2024-09-26T09:00:00.12345Z"
+            }
+          }
+  - name: updating
+    description: |
+      This status is set after a modification
+      on the configuration was issued until the update was synchronized.
+
+      Once synchronized, the status goes back to `ACTIVE`.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/distributions/:distributionId"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project Id
+        - name: distributionId
+          value: ""
+          type: path
+        - name: withWafStatus
+          value: "false"
+          type: query
+          description: If set, the top level of a distribution contains a `waf` property, which defines the status of the waf. This includes a list of all resolved rules.
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "distribution": {
+              "config": {
+                "backend": {
+                  "geofencing": {},
+                  "originRequestHeaders": {},
+                  "originUrl": "https://httpbin.org",
+                  "type": "http"
+                },
+                "blockedCountries": [],
+                "blockedIps": [],
+                "regions": [
+                  "EU",
+                  "ASIA"
+                ],
+                "waf": {
+                  "enabledRuleIds": [],
+                  "mode": "LOG_ONLY",
+                  "type": "FREE"
+                }
+              },
+              "createdAt": "2024-09-26T09:00:00.12345Z",
+              "domains": [],
+              "id": "8bfaecd1-f880-4fa1-9884-1fb492aa4647",
+              "projectId": "d043e216-af6e-445f-b5a5-cd67b2593278",
+              "status": "UPDATING",
+              "updatedAt": "2024-09-26T09:00:00.12345Z"
+            }
+          }
+  - name: 401 Response
+    description: unauthorized - please make sure the "Authorization" header is set and uses correct credentials
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/distributions/:distributionId"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project Id
+        - name: distributionId
+          value: ""
+          type: path
+        - name: withWafStatus
+          value: "false"
+          type: query
+          description: If set, the top level of a distribution contains a `waf` property, which defines the status of the waf. This includes a list of all resolved rules.
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: text/plain
+      body:
+        type: text
+        data: ""
+  - name: 404 Response
+    description: The distribution was not found. It either never existed or was deleted.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/distributions/:distributionId"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project Id
+        - name: distributionId
+          value: ""
+          type: path
+        - name: withWafStatus
+          value: "false"
+          type: query
+          description: If set, the top level of a distribution contains a `waf` property, which defines the status of the waf. This includes a list of all resolved rules.
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+  - name: 422 Response
+    description: unprocessable entity - please make sure the body you provided is constructed according to spec
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/distributions/:distributionId"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project Id
+        - name: distributionId
+          value: ""
+          type: path
+        - name: withWafStatus
+          value: "false"
+          type: query
+          description: If set, the top level of a distribution contains a `waf` property, which defines the status of the waf. This includes a list of all resolved rules.
+    response:
+      status: 422
+      statusText: Unprocessable Entity
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+  - name: 500 Response
+    description: internal error - please try again later or contact support if the issue persists
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/distributions/:distributionId"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project Id
+        - name: distributionId
+          value: ""
+          type: path
+        - name: withWafStatus
+          value: "false"
+          type: query
+          description: If set, the top level of a distribution contains a `waf` property, which defines the status of the waf. This includes a list of all resolved rules.
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+  - name: default Response
+    description: Default error response
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/distributions/:distributionId"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project Id
+        - name: distributionId
+          value: ""
+          type: path
+        - name: withWafStatus
+          value: "false"
+          type: query
+          description: If set, the top level of a distribution contains a `waf` property, which defines the status of the waf. This includes a list of all resolved rules.
+    response:
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+
 docs: This returns a specific distribution by its Id. If no distribution with the given Id exists the endpoint returns 404. Trying to get a deleted distributions also return 404.

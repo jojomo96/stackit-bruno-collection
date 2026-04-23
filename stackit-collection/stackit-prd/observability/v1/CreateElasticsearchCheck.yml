@@ -29,4 +29,154 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 200 Response
+    description: Get added check (elasticsearchCheck) and all configured checks (elasticsearchChecks).
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/elasticsearch-checks"
+      method: POST
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "password": "",
+            "server": "",
+            "username": ""
+          }
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "elasticsearchCheck": {
+              "id": "06db0f4180251258cbecf430a95cefaf",
+              "server": "http://localhost:9300"
+            },
+            "elasticsearchChecks": [
+              {
+                "id": "c5a0ab6ad3af3e3bb44a4d369c5aa36d",
+                "server": "http://localhost:9200"
+              },
+              {
+                "id": "06db0f4180251258cbecf430a95cefaf",
+                "server": "http://localhost:9300"
+              }
+            ],
+            "message": "Successfully created elasticsearch check"
+          }
+  - name: Global error
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/elasticsearch-checks"
+      method: POST
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "password": "",
+            "server": "",
+            "username": ""
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          [
+            "instance is not ready"
+          ]
+  - name: Field specific error
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/elasticsearch-checks"
+      method: POST
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "password": "",
+            "server": "",
+            "username": ""
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "password": [
+              "This field may not be blank."
+            ],
+            "server": [
+              "This field may not be blank."
+            ],
+            "username": [
+              "This field may not be blank."
+            ]
+          }
+  - name: 403 Response
+    description: You are not authorized.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/elasticsearch-checks"
+      method: POST
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "password": "",
+            "server": "",
+            "username": ""
+          }
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "detail": "You do not have permission to perform this action."
+          }
+
 docs: Create elasticsearch check.

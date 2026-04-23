@@ -18,4 +18,58 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 200 Response
+    description: Get all instances for a project
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "instances": [
+              {
+                "id": "test-awesome",
+                "instance": "9449de83-64ac-45dc-9967-e7c75bbdca70",
+                "name": "testing",
+                "planName": "Observability-Basic-EU01",
+                "serviceName": "STACKIT Observability",
+                "status": "CREATE_SUCCEEDED"
+              }
+            ],
+            "message": "Successfully got instances"
+          }
+  - name: 403 Response
+    description: You do not have permission to perform this action.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "detail": "You do not have permission to perform this action."
+          }
+
 docs: Get all instances for a project.

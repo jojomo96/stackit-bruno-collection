@@ -21,4 +21,42 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 202 Response
+    description: Accepted
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/services/:serviceId"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: serviceId
+          value: ""
+          type: path
+    response:
+      status: 202
+      statusText: Accepted
+      body:
+        type: text
+        data: ""
+  - name: 404 Response
+    description: service not found
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/services/:serviceId"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: serviceId
+          value: ""
+          type: path
+    response:
+      status: 404
+      statusText: Not Found
+      body:
+        type: text
+        data: ""
+
 docs: enables the service in a project.

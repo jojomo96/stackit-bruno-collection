@@ -91,4 +91,304 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 202 Response
+    description: Create scrape target.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/scrapeconfigs"
+      method: POST
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "basicAuth": {
+              "password": "",
+              "username": ""
+            },
+            "bearerToken": "",
+            "honorLabels": false,
+            "honorTimeStamps": false,
+            "httpSdConfigs": [
+              {
+                "basicAuth": {
+                  "password": "",
+                  "username": ""
+                },
+                "oauth2": {
+                  "clientId": "",
+                  "clientSecret": "",
+                  "scopes": [],
+                  "tlsConfig": {
+                    "insecureSkipVerify": false
+                  },
+                  "tokenUrl": ""
+                },
+                "refreshInterval": "",
+                "tlsConfig": {
+                  "insecureSkipVerify": false
+                },
+                "url": ""
+              }
+            ],
+            "jobName": "",
+            "metricsPath": "",
+            "metricsRelabelConfigs": [
+              {
+                "action": "replace",
+                "modulus": 0,
+                "regex": "",
+                "replacement": "",
+                "separator": "",
+                "sourceLabels": [],
+                "targetLabel": ""
+              }
+            ],
+            "oauth2": {
+              "clientId": "",
+              "clientSecret": "",
+              "scopes": [],
+              "tlsConfig": {
+                "insecureSkipVerify": false
+              },
+              "tokenUrl": ""
+            },
+            "params": {},
+            "sampleLimit": 0,
+            "scheme": "http",
+            "scrapeInterval": "",
+            "scrapeTimeout": "",
+            "staticConfigs": [
+              {
+                "labels": {},
+                "targets": []
+              }
+            ],
+            "tlsConfig": {
+              "insecureSkipVerify": false
+            }
+          }
+    response:
+      status: 202
+      statusText: Accepted
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "data": [
+              {
+                "jobName": "test",
+                "metricsPath": "/metrics",
+                "scheme": "https",
+                "scrapeInterval": "5m",
+                "scrapeTimeout": "1m",
+                "staticConfigs": [
+                  {
+                    "targets": [
+                      "example.com"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "message": "Scrape target successfully created"
+          }
+  - name: 400 Response
+    description: Something went wrong.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/scrapeconfigs"
+      method: POST
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "basicAuth": {
+              "password": "",
+              "username": ""
+            },
+            "bearerToken": "",
+            "honorLabels": false,
+            "honorTimeStamps": false,
+            "httpSdConfigs": [
+              {
+                "basicAuth": {
+                  "password": "",
+                  "username": ""
+                },
+                "oauth2": {
+                  "clientId": "",
+                  "clientSecret": "",
+                  "scopes": [],
+                  "tlsConfig": {
+                    "insecureSkipVerify": false
+                  },
+                  "tokenUrl": ""
+                },
+                "refreshInterval": "",
+                "tlsConfig": {
+                  "insecureSkipVerify": false
+                },
+                "url": ""
+              }
+            ],
+            "jobName": "",
+            "metricsPath": "",
+            "metricsRelabelConfigs": [
+              {
+                "action": "replace",
+                "modulus": 0,
+                "regex": "",
+                "replacement": "",
+                "separator": "",
+                "sourceLabels": [],
+                "targetLabel": ""
+              }
+            ],
+            "oauth2": {
+              "clientId": "",
+              "clientSecret": "",
+              "scopes": [],
+              "tlsConfig": {
+                "insecureSkipVerify": false
+              },
+              "tokenUrl": ""
+            },
+            "params": {},
+            "sampleLimit": 0,
+            "scheme": "http",
+            "scrapeInterval": "",
+            "scrapeTimeout": "",
+            "staticConfigs": [
+              {
+                "labels": {},
+                "targets": []
+              }
+            ],
+            "tlsConfig": {
+              "insecureSkipVerify": false
+            }
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "Something went wrong"
+          }
+  - name: 403 Response
+    description: You are not authorized
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/scrapeconfigs"
+      method: POST
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "basicAuth": {
+              "password": "",
+              "username": ""
+            },
+            "bearerToken": "",
+            "honorLabels": false,
+            "honorTimeStamps": false,
+            "httpSdConfigs": [
+              {
+                "basicAuth": {
+                  "password": "",
+                  "username": ""
+                },
+                "oauth2": {
+                  "clientId": "",
+                  "clientSecret": "",
+                  "scopes": [],
+                  "tlsConfig": {
+                    "insecureSkipVerify": false
+                  },
+                  "tokenUrl": ""
+                },
+                "refreshInterval": "",
+                "tlsConfig": {
+                  "insecureSkipVerify": false
+                },
+                "url": ""
+              }
+            ],
+            "jobName": "",
+            "metricsPath": "",
+            "metricsRelabelConfigs": [
+              {
+                "action": "replace",
+                "modulus": 0,
+                "regex": "",
+                "replacement": "",
+                "separator": "",
+                "sourceLabels": [],
+                "targetLabel": ""
+              }
+            ],
+            "oauth2": {
+              "clientId": "",
+              "clientSecret": "",
+              "scopes": [],
+              "tlsConfig": {
+                "insecureSkipVerify": false
+              },
+              "tokenUrl": ""
+            },
+            "params": {},
+            "sampleLimit": 0,
+            "scheme": "http",
+            "scrapeInterval": "",
+            "scrapeTimeout": "",
+            "staticConfigs": [
+              {
+                "labels": {},
+                "targets": []
+              }
+            ],
+            "tlsConfig": {
+              "insecureSkipVerify": false
+            }
+          }
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "detail": "You do not have permission to perform this action."
+          }
+
 docs: Create scrape config.

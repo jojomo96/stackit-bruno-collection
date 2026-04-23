@@ -43,4 +43,144 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 202 Response
+    description: Restore backup
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/backup-restores/:backupDate"
+      method: POST
+      params:
+        - name: backupDate
+          value: ""
+          type: path
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+        - name: restoreTarget
+          value: alertConfig
+          type: query
+          description: List of restore targets
+        - name: restoreTarget
+          value: alertRules
+          type: query
+          description: List of restore targets
+          disabled: true
+        - name: restoreTarget
+          value: scrapeConfig
+          type: query
+          description: List of restore targets
+          disabled: true
+        - name: restoreTarget
+          value: grafana
+          type: query
+          description: List of restore targets
+          disabled: true
+    response:
+      status: 202
+      statusText: Accepted
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "Restore will be proceeded"
+          }
+  - name: 403 Response
+    description: You do not have permission to perform this action.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/backup-restores/:backupDate"
+      method: POST
+      params:
+        - name: backupDate
+          value: ""
+          type: path
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+        - name: restoreTarget
+          value: alertConfig
+          type: query
+          description: List of restore targets
+        - name: restoreTarget
+          value: alertRules
+          type: query
+          description: List of restore targets
+          disabled: true
+        - name: restoreTarget
+          value: scrapeConfig
+          type: query
+          description: List of restore targets
+          disabled: true
+        - name: restoreTarget
+          value: grafana
+          type: query
+          description: List of restore targets
+          disabled: true
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "detail": "You do not have permission to perform this action."
+          }
+  - name: 404 Response
+    description: Backup not found
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/backup-restores/:backupDate"
+      method: POST
+      params:
+        - name: backupDate
+          value: ""
+          type: path
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+        - name: restoreTarget
+          value: alertConfig
+          type: query
+          description: List of restore targets
+        - name: restoreTarget
+          value: alertRules
+          type: query
+          description: List of restore targets
+          disabled: true
+        - name: restoreTarget
+          value: scrapeConfig
+          type: query
+          description: List of restore targets
+          disabled: true
+        - name: restoreTarget
+          value: grafana
+          type: query
+          description: List of restore targets
+          disabled: true
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "Backup not found"
+          }
+
 docs: Restore backup.

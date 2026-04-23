@@ -40,3 +40,202 @@ settings:
   timeout: 0
   followRedirects: true
   maxRedirects: 5
+
+examples:
+  - name: 202 Response
+    description: Request is accepted, but processing may take some time.
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/backups/:backupId/restore"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: serverId
+          value: ""
+          type: path
+          description: server id
+        - name: region
+          value: eu01
+          type: path
+          description: region
+        - name: backupId
+          value: ""
+          type: path
+          description: id of the backup
+      body:
+        type: json
+        data: |-
+          {
+            "startServerAfterRestore": false,
+            "volumeIds": [
+              "58335311-6acf-46c5-8652-cb96cd63181e",
+              "38345f49-047b-437d-83a1-458f04fa3182"
+            ]
+          }
+    response:
+      status: 202
+      statusText: Accepted
+      body:
+        type: text
+        data: ""
+  - name: 400 Response
+    description: Bad Request
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/backups/:backupId/restore"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: serverId
+          value: ""
+          type: path
+          description: server id
+        - name: region
+          value: eu01
+          type: path
+          description: region
+        - name: backupId
+          value: ""
+          type: path
+          description: id of the backup
+      body:
+        type: json
+        data: |-
+          {
+            "startServerAfterRestore": false,
+            "volumeIds": [
+              "58335311-6acf-46c5-8652-cb96cd63181e",
+              "38345f49-047b-437d-83a1-458f04fa3182"
+            ]
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      body:
+        type: text
+        data: ""
+  - name: 401 Response
+    description: Unauthorized
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/backups/:backupId/restore"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: serverId
+          value: ""
+          type: path
+          description: server id
+        - name: region
+          value: eu01
+          type: path
+          description: region
+        - name: backupId
+          value: ""
+          type: path
+          description: id of the backup
+      body:
+        type: json
+        data: |-
+          {
+            "startServerAfterRestore": false,
+            "volumeIds": [
+              "58335311-6acf-46c5-8652-cb96cd63181e",
+              "38345f49-047b-437d-83a1-458f04fa3182"
+            ]
+          }
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "",
+            "status": ""
+          }
+  - name: 404 Response
+    description: Server | backup not found
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/backups/:backupId/restore"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: serverId
+          value: ""
+          type: path
+          description: server id
+        - name: region
+          value: eu01
+          type: path
+          description: region
+        - name: backupId
+          value: ""
+          type: path
+          description: id of the backup
+      body:
+        type: json
+        data: |-
+          {
+            "startServerAfterRestore": false,
+            "volumeIds": [
+              "58335311-6acf-46c5-8652-cb96cd63181e",
+              "38345f49-047b-437d-83a1-458f04fa3182"
+            ]
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      body:
+        type: text
+        data: ""
+  - name: 409 Response
+    description: Restore already running
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/backups/:backupId/restore"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: serverId
+          value: ""
+          type: path
+          description: server id
+        - name: region
+          value: eu01
+          type: path
+          description: region
+        - name: backupId
+          value: ""
+          type: path
+          description: id of the backup
+      body:
+        type: json
+        data: |-
+          {
+            "startServerAfterRestore": false,
+            "volumeIds": [
+              "58335311-6acf-46c5-8652-cb96cd63181e",
+              "38345f49-047b-437d-83a1-458f04fa3182"
+            ]
+          }
+    response:
+      status: 409
+      statusText: Conflict
+      body:
+        type: text
+        data: ""

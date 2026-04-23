@@ -36,4 +36,190 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 201 Response
+    description: Instance was created successfully
+    request:
+      url: "{{baseUrl}}/v1beta1/projects/:projectId/regions/:regionId/instances"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the instance is part of.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region the instance is part of.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region the instance is part of.
+          disabled: true
+      body:
+        type: json
+        data: |-
+          {
+            "description": "",
+            "displayName": "",
+            "planId": ""
+          }
+    response:
+      status: 201
+      statusText: Created
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "created": "",
+            "description": "",
+            "displayName": "",
+            "frontendUrl": "",
+            "id": "",
+            "planId": "",
+            "status": "error"
+          }
+  - name: 400 Response
+    description: Bad Request. Invalid instance name.
+    request:
+      url: "{{baseUrl}}/v1beta1/projects/:projectId/regions/:regionId/instances"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the instance is part of.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region the instance is part of.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region the instance is part of.
+          disabled: true
+      body:
+        type: json
+        data: |-
+          {
+            "description": "",
+            "displayName": "",
+            "planId": ""
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      body:
+        type: text
+        data: ""
+  - name: 401 Response
+    description: Unauthorized. You may have provided no or wrong credentials.
+    request:
+      url: "{{baseUrl}}/v1beta1/projects/:projectId/regions/:regionId/instances"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the instance is part of.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region the instance is part of.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region the instance is part of.
+          disabled: true
+      body:
+        type: json
+        data: |-
+          {
+            "description": "",
+            "displayName": "",
+            "planId": ""
+          }
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": "401",
+            "message": "Authorization failed"
+          }
+  - name: 409 Response
+    description: If two requests try to update the resource at the same time one will succeeded and the other will fail with a 409 Conflict.
+    request:
+      url: "{{baseUrl}}/v1beta1/projects/:projectId/regions/:regionId/instances"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the instance is part of.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region the instance is part of.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region the instance is part of.
+          disabled: true
+      body:
+        type: json
+        data: |-
+          {
+            "description": "",
+            "displayName": "",
+            "planId": ""
+          }
+    response:
+      status: 409
+      statusText: Conflict
+      body:
+        type: text
+        data: ""
+  - name: 500 Response
+    description: Internal server error. The application experienced some unexpected situation.
+    request:
+      url: "{{baseUrl}}/v1beta1/projects/:projectId/regions/:regionId/instances"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the instance is part of.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region the instance is part of.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region the instance is part of.
+          disabled: true
+      body:
+        type: json
+        data: |-
+          {
+            "description": "",
+            "displayName": "",
+            "planId": ""
+          }
+    response:
+      status: 500
+      statusText: Internal Server Error
+      body:
+        type: text
+        data: ""
+
 docs: Creates a new instance within the project.

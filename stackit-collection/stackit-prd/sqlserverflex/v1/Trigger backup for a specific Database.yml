@@ -27,4 +27,153 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 202 Response
+    description: Accepted
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/backups/databases/:databaseName"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Project ID
+        - name: instanceId
+          value: ""
+          type: path
+          description: Instance ID
+        - name: databaseName
+          value: ""
+          type: path
+          description: Database Name
+    response:
+      status: 202
+      statusText: Accepted
+      body:
+        type: text
+        data: ""
+  - name: 400 Response
+    description: Bad Request
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/backups/databases/:databaseName"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Project ID
+        - name: instanceId
+          value: ""
+          type: path
+          description: Instance ID
+        - name: databaseName
+          value: ""
+          type: path
+          description: Database Name
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: "*/*"
+      body:
+        type: text
+        data: |-
+          {
+            "code": 404,
+            "fields": {},
+            "message": "database not found",
+            "type": "NotFound"
+          }
+  - name: 404 Response
+    description: Not Found
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/backups/databases/:databaseName"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Project ID
+        - name: instanceId
+          value: ""
+          type: path
+          description: Instance ID
+        - name: databaseName
+          value: ""
+          type: path
+          description: Database Name
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: "*/*"
+      body:
+        type: text
+        data: |-
+          {
+            "code": 404,
+            "fields": {},
+            "message": "database not found",
+            "type": "NotFound"
+          }
+  - name: 405 Response
+    description: Method Not Allowed
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/backups/databases/:databaseName"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Project ID
+        - name: instanceId
+          value: ""
+          type: path
+          description: Instance ID
+        - name: databaseName
+          value: ""
+          type: path
+          description: Database Name
+    response:
+      status: 405
+      statusText: Method Not Allowed
+      body:
+        type: text
+        data: ""
+  - name: 500 Response
+    description: Internal Server Error
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/backups/databases/:databaseName"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Project ID
+        - name: instanceId
+          value: ""
+          type: path
+          description: Instance ID
+        - name: databaseName
+          value: ""
+          type: path
+          description: Database Name
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: "*/*"
+      body:
+        type: text
+        data: |-
+          {
+            "code": 404,
+            "fields": {},
+            "message": "database not found",
+            "type": "NotFound"
+          }
+
 docs: Trigger backup for a specific Database

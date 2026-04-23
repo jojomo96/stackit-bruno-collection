@@ -25,4 +25,1096 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: success (error - empty patch)
+    description: The update was successful. The response body contains the updated distribution.
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: "{}"
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "distribution": {
+              "config": {
+                "backend": {
+                  "originRequestHeaders": {},
+                  "originUrl": "https://httpbin.org",
+                  "type": "http"
+                },
+                "regions": [
+                  "EU",
+                  "ASIA"
+                ]
+              },
+              "createdAt": "2024-09-26T09:00:00.12345Z",
+              "domains": [],
+              "id": "8bfaecd1-f880-4fa1-9884-1fb492aa4647",
+              "projectId": "d043e216-af6e-445f-b5a5-cd67b2593278",
+              "status": "CREATING",
+              "updatedAt": "2024-09-26T09:00:00.12345Z"
+            }
+          }
+  - name: success (error - patch with no changes)
+    description: The update was successful. The response body contains the updated distribution.
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "config": {
+              "backend": {
+                "type": "http"
+              }
+            }
+          }
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "distribution": {
+              "config": {
+                "backend": {
+                  "originRequestHeaders": {},
+                  "originUrl": "https://httpbin.org",
+                  "type": "http"
+                },
+                "regions": [
+                  "EU",
+                  "ASIA"
+                ]
+              },
+              "createdAt": "2024-09-26T09:00:00.12345Z",
+              "domains": [],
+              "id": "8bfaecd1-f880-4fa1-9884-1fb492aa4647",
+              "projectId": "d043e216-af6e-445f-b5a5-cd67b2593278",
+              "status": "CREATING",
+              "updatedAt": "2024-09-26T09:00:00.12345Z"
+            }
+          }
+  - name: success (originURL and regions)
+    description: The update was successful. The response body contains the updated distribution.
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "config": {
+              "backend": {
+                "originUrl": "https://newOrigin.com",
+                "type": "http"
+              },
+              "regions": [
+                "EU",
+                "SA"
+              ]
+            },
+            "intentId": "someIntent"
+          }
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "distribution": {
+              "config": {
+                "backend": {
+                  "originRequestHeaders": {},
+                  "originUrl": "https://httpbin.org",
+                  "type": "http"
+                },
+                "regions": [
+                  "EU",
+                  "ASIA"
+                ]
+              },
+              "createdAt": "2024-09-26T09:00:00.12345Z",
+              "domains": [],
+              "id": "8bfaecd1-f880-4fa1-9884-1fb492aa4647",
+              "projectId": "d043e216-af6e-445f-b5a5-cd67b2593278",
+              "status": "CREATING",
+              "updatedAt": "2024-09-26T09:00:00.12345Z"
+            }
+          }
+  - name: success (originURL only)
+    description: The update was successful. The response body contains the updated distribution.
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "config": {
+              "backend": {
+                "originUrl": "https://newOrigin.com",
+                "type": "http"
+              }
+            },
+            "intentId": "someIntent"
+          }
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "distribution": {
+              "config": {
+                "backend": {
+                  "originRequestHeaders": {},
+                  "originUrl": "https://httpbin.org",
+                  "type": "http"
+                },
+                "regions": [
+                  "EU",
+                  "ASIA"
+                ]
+              },
+              "createdAt": "2024-09-26T09:00:00.12345Z",
+              "domains": [],
+              "id": "8bfaecd1-f880-4fa1-9884-1fb492aa4647",
+              "projectId": "d043e216-af6e-445f-b5a5-cd67b2593278",
+              "status": "CREATING",
+              "updatedAt": "2024-09-26T09:00:00.12345Z"
+            }
+          }
+  - name: success (regions only)
+    description: The update was successful. The response body contains the updated distribution.
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "config": {
+              "regions": [
+                "EU",
+                "SA"
+              ]
+            },
+            "intentId": "someIntent"
+          }
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "distribution": {
+              "config": {
+                "backend": {
+                  "originRequestHeaders": {},
+                  "originUrl": "https://httpbin.org",
+                  "type": "http"
+                },
+                "regions": [
+                  "EU",
+                  "ASIA"
+                ]
+              },
+              "createdAt": "2024-09-26T09:00:00.12345Z",
+              "domains": [],
+              "id": "8bfaecd1-f880-4fa1-9884-1fb492aa4647",
+              "projectId": "d043e216-af6e-445f-b5a5-cd67b2593278",
+              "status": "CREATING",
+              "updatedAt": "2024-09-26T09:00:00.12345Z"
+            }
+          }
+  - name: 401 Response (error - empty patch)
+    description: unauthorized - please make sure the "Authorization" header is set and uses correct credentials
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: "{}"
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: text/plain
+      body:
+        type: text
+        data: ""
+  - name: 401 Response (error - patch with no changes)
+    description: unauthorized - please make sure the "Authorization" header is set and uses correct credentials
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "config": {
+              "backend": {
+                "type": "http"
+              }
+            }
+          }
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: text/plain
+      body:
+        type: text
+        data: ""
+  - name: 401 Response (originURL and regions)
+    description: unauthorized - please make sure the "Authorization" header is set and uses correct credentials
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "config": {
+              "backend": {
+                "originUrl": "https://newOrigin.com",
+                "type": "http"
+              },
+              "regions": [
+                "EU",
+                "SA"
+              ]
+            },
+            "intentId": "someIntent"
+          }
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: text/plain
+      body:
+        type: text
+        data: ""
+  - name: 401 Response (originURL only)
+    description: unauthorized - please make sure the "Authorization" header is set and uses correct credentials
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "config": {
+              "backend": {
+                "originUrl": "https://newOrigin.com",
+                "type": "http"
+              }
+            },
+            "intentId": "someIntent"
+          }
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: text/plain
+      body:
+        type: text
+        data: ""
+  - name: 401 Response (regions only)
+    description: unauthorized - please make sure the "Authorization" header is set and uses correct credentials
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "config": {
+              "regions": [
+                "EU",
+                "SA"
+              ]
+            },
+            "intentId": "someIntent"
+          }
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: text/plain
+      body:
+        type: text
+        data: ""
+  - name: 422 Response (error - empty patch)
+    description: unprocessable entity - please make sure the body you provided is constructed according to spec
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: "{}"
+    response:
+      status: 422
+      statusText: Unprocessable Entity
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "description": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+  - name: 422 Response (error - patch with no changes)
+    description: unprocessable entity - please make sure the body you provided is constructed according to spec
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "config": {
+              "backend": {
+                "type": "http"
+              }
+            }
+          }
+    response:
+      status: 422
+      statusText: Unprocessable Entity
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "description": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+  - name: 422 Response (originURL and regions)
+    description: unprocessable entity - please make sure the body you provided is constructed according to spec
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "config": {
+              "backend": {
+                "originUrl": "https://newOrigin.com",
+                "type": "http"
+              },
+              "regions": [
+                "EU",
+                "SA"
+              ]
+            },
+            "intentId": "someIntent"
+          }
+    response:
+      status: 422
+      statusText: Unprocessable Entity
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "description": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+  - name: 422 Response (originURL only)
+    description: unprocessable entity - please make sure the body you provided is constructed according to spec
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "config": {
+              "backend": {
+                "originUrl": "https://newOrigin.com",
+                "type": "http"
+              }
+            },
+            "intentId": "someIntent"
+          }
+    response:
+      status: 422
+      statusText: Unprocessable Entity
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "description": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+  - name: 422 Response (regions only)
+    description: unprocessable entity - please make sure the body you provided is constructed according to spec
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "config": {
+              "regions": [
+                "EU",
+                "SA"
+              ]
+            },
+            "intentId": "someIntent"
+          }
+    response:
+      status: 422
+      statusText: Unprocessable Entity
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "description": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+  - name: 500 Response (error - empty patch)
+    description: internal error - please try again later or contact support if the issue persists
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: "{}"
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "description": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+  - name: 500 Response (error - patch with no changes)
+    description: internal error - please try again later or contact support if the issue persists
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "config": {
+              "backend": {
+                "type": "http"
+              }
+            }
+          }
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "description": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+  - name: 500 Response (originURL and regions)
+    description: internal error - please try again later or contact support if the issue persists
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "config": {
+              "backend": {
+                "originUrl": "https://newOrigin.com",
+                "type": "http"
+              },
+              "regions": [
+                "EU",
+                "SA"
+              ]
+            },
+            "intentId": "someIntent"
+          }
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "description": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+  - name: 500 Response (originURL only)
+    description: internal error - please try again later or contact support if the issue persists
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "config": {
+              "backend": {
+                "originUrl": "https://newOrigin.com",
+                "type": "http"
+              }
+            },
+            "intentId": "someIntent"
+          }
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "description": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+  - name: 500 Response (regions only)
+    description: internal error - please try again later or contact support if the issue persists
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "config": {
+              "regions": [
+                "EU",
+                "SA"
+              ]
+            },
+            "intentId": "someIntent"
+          }
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "description": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+  - name: default Response (error - empty patch)
+    description: Default error response
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: "{}"
+    response:
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "description": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+  - name: default Response (error - patch with no changes)
+    description: Default error response
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "config": {
+              "backend": {
+                "type": "http"
+              }
+            }
+          }
+    response:
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "description": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+  - name: default Response (originURL and regions)
+    description: Default error response
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "config": {
+              "backend": {
+                "originUrl": "https://newOrigin.com",
+                "type": "http"
+              },
+              "regions": [
+                "EU",
+                "SA"
+              ]
+            },
+            "intentId": "someIntent"
+          }
+    response:
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "description": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+  - name: default Response (originURL only)
+    description: Default error response
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "config": {
+              "backend": {
+                "originUrl": "https://newOrigin.com",
+                "type": "http"
+              }
+            },
+            "intentId": "someIntent"
+          }
+    response:
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "description": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+  - name: default Response (regions only)
+    description: Default error response
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "config": {
+              "regions": [
+                "EU",
+                "SA"
+              ]
+            },
+            "intentId": "someIntent"
+          }
+    response:
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "description": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+
 docs: Modify a CDN distribution with a partial update. Only the fields specified in the request will be modified.

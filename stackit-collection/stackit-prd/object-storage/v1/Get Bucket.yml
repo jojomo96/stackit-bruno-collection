@@ -23,4 +23,195 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 200 Response
+    description: Successful Response
+    request:
+      url: "{{baseUrl}}/v1/project/:projectId/bucket/:bucketName"
+      method: GET
+      params:
+        - name: projectId
+          value: cd5e788d-5b7b-4ab9-a20d-e790205df10b
+          type: path
+          description: STACKIT project ID
+        - name: bucketName
+          value: bucket-1
+          type: path
+          description: The name has to be dns-conform.
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "bucket": {
+              "name": "bucket-1",
+              "objectLockEnabled": false,
+              "region": "eu01",
+              "urlPathStyle": "https://object.storage.eu01.onstackit.cloud/bucket-1",
+              "urlVirtualHostedStyle": "https://bucket-1.object.storage.eu01.onstackit.cloud"
+            },
+            "project": "cd5e788d-5b7b-4ab9-a20d-e790205df10b"
+          }
+  - name: 401 Response
+    description: Unauthorized
+    request:
+      url: "{{baseUrl}}/v1/project/:projectId/bucket/:bucketName"
+      method: GET
+      params:
+        - name: projectId
+          value: cd5e788d-5b7b-4ab9-a20d-e790205df10b
+          type: path
+          description: STACKIT project ID
+        - name: bucketName
+          value: bucket-1
+          type: path
+          description: The name has to be dns-conform.
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "detail": [
+              {
+                "key": "example.error_key",
+                "msg": "Some details about the error."
+              }
+            ]
+          }
+  - name: 403 Response
+    description: Forbidden
+    request:
+      url: "{{baseUrl}}/v1/project/:projectId/bucket/:bucketName"
+      method: GET
+      params:
+        - name: projectId
+          value: cd5e788d-5b7b-4ab9-a20d-e790205df10b
+          type: path
+          description: STACKIT project ID
+        - name: bucketName
+          value: bucket-1
+          type: path
+          description: The name has to be dns-conform.
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "detail": [
+              {
+                "key": "example.error_key",
+                "msg": "Some details about the error."
+              }
+            ]
+          }
+  - name: 404 Response
+    description: Not Found
+    request:
+      url: "{{baseUrl}}/v1/project/:projectId/bucket/:bucketName"
+      method: GET
+      params:
+        - name: projectId
+          value: cd5e788d-5b7b-4ab9-a20d-e790205df10b
+          type: path
+          description: STACKIT project ID
+        - name: bucketName
+          value: bucket-1
+          type: path
+          description: The name has to be dns-conform.
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "detail": [
+              {
+                "key": "example.error_key",
+                "msg": "Some details about the error."
+              }
+            ]
+          }
+  - name: 422 Response
+    description: Validation Error
+    request:
+      url: "{{baseUrl}}/v1/project/:projectId/bucket/:bucketName"
+      method: GET
+      params:
+        - name: projectId
+          value: cd5e788d-5b7b-4ab9-a20d-e790205df10b
+          type: path
+          description: STACKIT project ID
+        - name: bucketName
+          value: bucket-1
+          type: path
+          description: The name has to be dns-conform.
+    response:
+      status: 422
+      statusText: Unprocessable Entity
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "detail": [
+              {
+                "loc": [],
+                "msg": "",
+                "type": ""
+              }
+            ]
+          }
+  - name: 500 Response
+    description: Internal Server Error
+    request:
+      url: "{{baseUrl}}/v1/project/:projectId/bucket/:bucketName"
+      method: GET
+      params:
+        - name: projectId
+          value: cd5e788d-5b7b-4ab9-a20d-e790205df10b
+          type: path
+          description: STACKIT project ID
+        - name: bucketName
+          value: bucket-1
+          type: path
+          description: The name has to be dns-conform.
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "detail": [
+              {
+                "key": "example.error_key",
+                "msg": "Some details about the error."
+              }
+            ]
+          }
+
 docs: Get information for the given bucket in the project.

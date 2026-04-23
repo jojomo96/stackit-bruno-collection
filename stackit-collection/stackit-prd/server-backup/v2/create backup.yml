@@ -37,3 +37,193 @@ settings:
   timeout: 0
   followRedirects: true
   maxRedirects: 5
+
+examples:
+  - name: 202 Response
+    description: Request is accepted, but processing may take some time.
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/backups"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: serverId
+          value: ""
+          type: path
+          description: server id
+        - name: region
+          value: eu01
+          type: path
+          description: region
+      body:
+        type: json
+        data: |-
+          {
+            "name": "Daily Backup",
+            "retentionPeriod": 3,
+            "volumeIds": [
+              "58335311-6acf-46c5-8652-cb96cd63181e",
+              "38345f49-047b-437d-83a1-458f04fa3182"
+            ]
+          }
+    response:
+      status: 202
+      statusText: Accepted
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "id": "001c372f-5c15-418d-b2fb-b1f93ea2ffc8"
+          }
+  - name: 400 Response
+    description: Bad Request
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/backups"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: serverId
+          value: ""
+          type: path
+          description: server id
+        - name: region
+          value: eu01
+          type: path
+          description: region
+      body:
+        type: json
+        data: |-
+          {
+            "name": "Daily Backup",
+            "retentionPeriod": 3,
+            "volumeIds": [
+              "58335311-6acf-46c5-8652-cb96cd63181e",
+              "38345f49-047b-437d-83a1-458f04fa3182"
+            ]
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      body:
+        type: text
+        data: ""
+  - name: 401 Response
+    description: Unauthorized
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/backups"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: serverId
+          value: ""
+          type: path
+          description: server id
+        - name: region
+          value: eu01
+          type: path
+          description: region
+      body:
+        type: json
+        data: |-
+          {
+            "name": "Daily Backup",
+            "retentionPeriod": 3,
+            "volumeIds": [
+              "58335311-6acf-46c5-8652-cb96cd63181e",
+              "38345f49-047b-437d-83a1-458f04fa3182"
+            ]
+          }
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "",
+            "status": ""
+          }
+  - name: 404 Response
+    description: Server not found
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/backups"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: serverId
+          value: ""
+          type: path
+          description: server id
+        - name: region
+          value: eu01
+          type: path
+          description: region
+      body:
+        type: json
+        data: |-
+          {
+            "name": "Daily Backup",
+            "retentionPeriod": 3,
+            "volumeIds": [
+              "58335311-6acf-46c5-8652-cb96cd63181e",
+              "38345f49-047b-437d-83a1-458f04fa3182"
+            ]
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      body:
+        type: text
+        data: ""
+  - name: 409 Response
+    description: Backup already running
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/backups"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: serverId
+          value: ""
+          type: path
+          description: server id
+        - name: region
+          value: eu01
+          type: path
+          description: region
+      body:
+        type: json
+        data: |-
+          {
+            "name": "Daily Backup",
+            "retentionPeriod": 3,
+            "volumeIds": [
+              "58335311-6acf-46c5-8652-cb96cd63181e",
+              "38345f49-047b-437d-83a1-458f04fa3182"
+            ]
+          }
+    response:
+      status: 409
+      statusText: Conflict
+      body:
+        type: text
+        data: ""

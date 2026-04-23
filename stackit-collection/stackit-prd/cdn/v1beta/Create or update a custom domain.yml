@@ -32,5 +32,204 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: success
+    description: Custom Domain was returned
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId/customDomains/:domain"
+      method: PUT
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+        - name: domain
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "certificate": {},
+            "intentId": ""
+          }
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "domain": "example.com"
+          }
+  - name: 401 Response
+    description: unauthorized - please make sure the "Authorization" header is set and uses correct credentials
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId/customDomains/:domain"
+      method: PUT
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+        - name: domain
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "certificate": {},
+            "intentId": ""
+          }
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: text/plain
+      body:
+        type: text
+        data: ""
+  - name: 422 Response
+    description: unprocessable entity - please make sure the body you provided is constructed according to spec
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId/customDomains/:domain"
+      method: PUT
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+        - name: domain
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "certificate": {},
+            "intentId": ""
+          }
+    response:
+      status: 422
+      statusText: Unprocessable Entity
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "description": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+  - name: 500 Response
+    description: internal error - please try again later or contact support if the issue persists
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId/customDomains/:domain"
+      method: PUT
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+        - name: domain
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "certificate": {},
+            "intentId": ""
+          }
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "description": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+  - name: default Response
+    description: Default error response
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId/customDomains/:domain"
+      method: PUT
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+        - name: domain
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "certificate": {},
+            "intentId": ""
+          }
+    response:
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "description": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+
 docs: |
   Creates a new custom domain. If it already exists, this will overwrite the previous custom domain's properties.

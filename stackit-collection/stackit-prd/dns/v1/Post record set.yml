@@ -37,4 +37,267 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 202 Response
+    description: Accepted
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/zones/:zoneId/rrsets"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: zoneId
+          value: ""
+          type: path
+          description: zone id
+      body:
+        type: json
+        data: |-
+          {
+            "comment": "this is our example comment",
+            "name": "example.com.",
+            "records": [
+              {
+                "content": "192.0.2.1"
+              }
+            ],
+            "ttl": 3600,
+            "type": "A"
+          }
+    response:
+      status: 202
+      statusText: Accepted
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "Success",
+            "rrset": {
+              "active": true,
+              "comment": "This is a comment",
+              "creationFinished": "2022-01-31 10:00:00+00:00",
+              "creationStarted": "2022-01-31 10:00:00+00:00",
+              "error": "error message",
+              "id": "37403b63-86ce-41e9-9b0b-1d8c5b3b2b96",
+              "name": "example.com.",
+              "records": [
+                {
+                  "content": "192.0.2.1",
+                  "id": "37403b63-86ce-41e9-9b0b-1d8c5b3b2b96"
+                }
+              ],
+              "state": "CREATE_SUCCEEDED",
+              "ttl": 3600,
+              "type": "A",
+              "updateFinished": "2022-01-31 10:00:00+00:00",
+              "updateStarted": "2022-01-31 10:00:00+00:00"
+            }
+          }
+  - name: 400 Response
+    description: Bad Request
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/zones/:zoneId/rrsets"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: zoneId
+          value: ""
+          type: path
+          description: zone id
+      body:
+        type: json
+        data: |-
+          {
+            "comment": "this is our example comment",
+            "name": "example.com.",
+            "records": [
+              {
+                "content": "192.0.2.1"
+              }
+            ],
+            "ttl": 3600,
+            "type": "A"
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "Success"
+          }
+  - name: 401 Response
+    description: Unauthorized
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/zones/:zoneId/rrsets"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: zoneId
+          value: ""
+          type: path
+          description: zone id
+      body:
+        type: json
+        data: |-
+          {
+            "comment": "this is our example comment",
+            "name": "example.com.",
+            "records": [
+              {
+                "content": "192.0.2.1"
+              }
+            ],
+            "ttl": 3600,
+            "type": "A"
+          }
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": "Error",
+            "message": "Error message"
+          }
+  - name: 404 Response
+    description: Not Found
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/zones/:zoneId/rrsets"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: zoneId
+          value: ""
+          type: path
+          description: zone id
+      body:
+        type: json
+        data: |-
+          {
+            "comment": "this is our example comment",
+            "name": "example.com.",
+            "records": [
+              {
+                "content": "192.0.2.1"
+              }
+            ],
+            "ttl": 3600,
+            "type": "A"
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "Success"
+          }
+  - name: 409 Response
+    description: Conflict
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/zones/:zoneId/rrsets"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: zoneId
+          value: ""
+          type: path
+          description: zone id
+      body:
+        type: json
+        data: |-
+          {
+            "comment": "this is our example comment",
+            "name": "example.com.",
+            "records": [
+              {
+                "content": "192.0.2.1"
+              }
+            ],
+            "ttl": 3600,
+            "type": "A"
+          }
+    response:
+      status: 409
+      statusText: Conflict
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "Success"
+          }
+  - name: 502 Response
+    description: Bad Gateway
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/zones/:zoneId/rrsets"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: zoneId
+          value: ""
+          type: path
+          description: zone id
+      body:
+        type: json
+        data: |-
+          {
+            "comment": "this is our example comment",
+            "name": "example.com.",
+            "records": [
+              {
+                "content": "192.0.2.1"
+              }
+            ],
+            "ttl": 3600,
+            "type": "A"
+          }
+    response:
+      status: 502
+      statusText: Bad Gateway
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "Success"
+          }
+
 docs: Post record set

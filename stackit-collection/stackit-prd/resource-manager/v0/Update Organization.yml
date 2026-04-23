@@ -26,6 +26,107 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 200 Response
+    description: OK
+    request:
+      url: "{{baseUrl}}/v2/organizations/:id"
+      method: PATCH
+      params:
+        - name: id
+          value: ""
+          type: path
+          description: Organization identifier - containerId as well as UUID identifier is supported.
+      body:
+        type: json
+        data: |-
+          {
+            "labels": {},
+            "name": "My Organization"
+          }
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "containerId": "my-organization-184629",
+            "creationTime": "2021-08-24T14:15:22Z",
+            "labels": {},
+            "lifecycleState": "CREATING",
+            "name": "My Organization",
+            "organizationId": "54066bf4-2bff-4f7b-9f83-fb23c348fee3",
+            "updateTime": "2021-08-24T14:15:22Z"
+          }
+  - name: Not Found
+    request:
+      url: "{{baseUrl}}/v2/organizations/:id"
+      method: PATCH
+      params:
+        - name: id
+          value: ""
+          type: path
+          description: Organization identifier - containerId as well as UUID identifier is supported.
+      body:
+        type: json
+        data: |-
+          {
+            "labels": {},
+            "name": "My Organization"
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": "Not Found",
+            "message": "{resource} not found.",
+            "path": "/path/where/error/occurred",
+            "status": 404,
+            "timeStamp": "2019-08-24T14:15:22Z"
+          }
+  - name: Conflict
+    request:
+      url: "{{baseUrl}}/v2/organizations/:id"
+      method: PATCH
+      params:
+        - name: id
+          value: ""
+          type: path
+          description: Organization identifier - containerId as well as UUID identifier is supported.
+      body:
+        type: json
+        data: |-
+          {
+            "labels": {},
+            "name": "My Organization"
+          }
+    response:
+      status: 409
+      statusText: Conflict
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": "Conflict",
+            "message": "Request aborted due conflict.",
+            "path": "/path/where/error/occurred",
+            "status": 409,
+            "timeStamp": "2019-08-24T14:15:22Z"
+          }
+
 docs: |-
   Update the organization and its metadata.
   - Update organization name

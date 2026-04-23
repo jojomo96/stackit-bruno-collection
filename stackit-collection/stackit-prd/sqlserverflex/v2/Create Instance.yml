@@ -41,4 +41,220 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 201 Response
+    description: Created
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/instances"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Project ID
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: region
+          value: eu02
+          type: path
+          description: The region which should be addressed
+          disabled: true
+      body:
+        type: json
+        data: |-
+          {
+            "acl": {},
+            "backupSchedule": "6 6 * * *",
+            "flavorId": "4.16-Single",
+            "labels": {},
+            "name": "test-instance",
+            "options": {},
+            "storage": {},
+            "version": "2022"
+          }
+    response:
+      status: 201
+      statusText: Created
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "id": "df727477-8991-486c-a3ed-d11d9d9beb1c"
+          }
+  - name: 400 Response
+    description: Bad Request
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/instances"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Project ID
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: region
+          value: eu02
+          type: path
+          description: The region which should be addressed
+          disabled: true
+      body:
+        type: json
+        data: |-
+          {
+            "acl": {},
+            "backupSchedule": "6 6 * * *",
+            "flavorId": "4.16-Single",
+            "labels": {},
+            "name": "test-instance",
+            "options": {},
+            "storage": {},
+            "version": "2022"
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "fields": {},
+            "message": "database not found",
+            "type": "NotFound"
+          }
+  - name: 401 Response
+    description: Not Authorized
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/instances"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Project ID
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: region
+          value: eu02
+          type: path
+          description: The region which should be addressed
+          disabled: true
+      body:
+        type: json
+        data: |-
+          {
+            "acl": {},
+            "backupSchedule": "6 6 * * *",
+            "flavorId": "4.16-Single",
+            "labels": {},
+            "name": "test-instance",
+            "options": {},
+            "storage": {},
+            "version": "2022"
+          }
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "fields": {},
+            "message": "database not found",
+            "type": "NotFound"
+          }
+  - name: 405 Response
+    description: Method Not Allowed
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/instances"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Project ID
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: region
+          value: eu02
+          type: path
+          description: The region which should be addressed
+          disabled: true
+      body:
+        type: json
+        data: |-
+          {
+            "acl": {},
+            "backupSchedule": "6 6 * * *",
+            "flavorId": "4.16-Single",
+            "labels": {},
+            "name": "test-instance",
+            "options": {},
+            "storage": {},
+            "version": "2022"
+          }
+    response:
+      status: 405
+      statusText: Method Not Allowed
+      body:
+        type: text
+        data: ""
+  - name: 500 Response
+    description: Internal Server Error
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/instances"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Project ID
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: region
+          value: eu02
+          type: path
+          description: The region which should be addressed
+          disabled: true
+      body:
+        type: json
+        data: |-
+          {
+            "acl": {},
+            "backupSchedule": "6 6 * * *",
+            "flavorId": "4.16-Single",
+            "labels": {},
+            "name": "test-instance",
+            "options": {},
+            "storage": {},
+            "version": "2022"
+          }
+    response:
+      status: 500
+      statusText: Internal Server Error
+      body:
+        type: text
+        data: ""
+
 docs: Create a new instance of a sqlServerCRD database

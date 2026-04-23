@@ -22,3 +22,71 @@ settings:
   timeout: 0
   followRedirects: true
   maxRedirects: 5
+
+examples:
+  - name: 200 Response
+    description: backup list response
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/servers/:serverId/backups"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: serverId
+          value: ""
+          type: path
+          description: server id
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "items": [
+              {
+                "createdAt": "2020-09-10T10:15:00Z",
+                "expireAt": "2020-09-13T10:15:00Z",
+                "id": "001c372f-5c15-418d-b2fb-b1f93ea2ffc8",
+                "lastRestoredAt": "2021-02-22T12:18:42Z",
+                "name": "Daily Backup",
+                "size": 55,
+                "status": "available",
+                "volumeBackups": [
+                  {
+                    "id": "",
+                    "lastRestoredAt": "",
+                    "lastRestoredVolumeId": "",
+                    "size": 0,
+                    "status": "available",
+                    "volumeId": ""
+                  }
+                ]
+              }
+            ]
+          }
+  - name: 404 Response
+    description: Server not found
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/servers/:serverId/backups"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: serverId
+          value: ""
+          type: path
+          description: server id
+    response:
+      status: 404
+      statusText: Not Found
+      body:
+        type: text
+        data: ""

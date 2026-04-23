@@ -24,4 +24,102 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 202 Response
+    description: Accepted, execution happens asynchronously. Use the [get cluster](#tag/Cluster/operation/SkeService_GetCluster) endpoint to get the status of the cluster via `status.aggregated`.
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/clusters/:clusterName/wakeup"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: ""
+          type: path
+        - name: clusterName
+          value: ""
+          type: path
+    response:
+      status: 202
+      statusText: Accepted
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: "{}"
+  - name: 400 Response
+    description: Invalid request
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/clusters/:clusterName/wakeup"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: ""
+          type: path
+        - name: clusterName
+          value: ""
+          type: path
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: "{}"
+  - name: 401 Response
+    description: Unauthorized
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/clusters/:clusterName/wakeup"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: ""
+          type: path
+        - name: clusterName
+          value: ""
+          type: path
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: "{}"
+  - name: 404 Response
+    description: Project or cluster not found
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/clusters/:clusterName/wakeup"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: ""
+          type: path
+        - name: clusterName
+          value: ""
+          type: path
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: "{}"
+
 docs: Trigger immediate wake up of the cluster. If the cluster is already in running state, this endpoint does nothing.

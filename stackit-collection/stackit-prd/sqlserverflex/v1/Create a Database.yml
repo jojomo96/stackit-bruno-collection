@@ -34,4 +34,145 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 201 Response
+    description: Created
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/databases"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Project ID
+        - name: instanceId
+          value: ""
+          type: path
+          description: Instance ID
+      body:
+        type: json
+        data: |-
+          {
+            "name": "Test",
+            "options": {
+              "collation": "Latin1_General_100_CI_AS_KS_WS",
+              "compatibilityLevel": "160",
+              "owner": "Herbert"
+            }
+          }
+    response:
+      status: 201
+      statusText: Created
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "id": ""
+          }
+  - name: 400 Response
+    description: Bad Request
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/databases"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Project ID
+        - name: instanceId
+          value: ""
+          type: path
+          description: Instance ID
+      body:
+        type: json
+        data: |-
+          {
+            "name": "Test",
+            "options": {
+              "collation": "Latin1_General_100_CI_AS_KS_WS",
+              "compatibilityLevel": "160",
+              "owner": "Herbert"
+            }
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "fields": {},
+            "message": "database not found",
+            "type": "NotFound"
+          }
+  - name: 405 Response
+    description: Method Not Allowed
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/databases"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Project ID
+        - name: instanceId
+          value: ""
+          type: path
+          description: Instance ID
+      body:
+        type: json
+        data: |-
+          {
+            "name": "Test",
+            "options": {
+              "collation": "Latin1_General_100_CI_AS_KS_WS",
+              "compatibilityLevel": "160",
+              "owner": "Herbert"
+            }
+          }
+    response:
+      status: 405
+      statusText: Method Not Allowed
+      body:
+        type: text
+        data: ""
+  - name: 500 Response
+    description: Internal Server Error
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/databases"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Project ID
+        - name: instanceId
+          value: ""
+          type: path
+          description: Instance ID
+      body:
+        type: json
+        data: |-
+          {
+            "name": "Test",
+            "options": {
+              "collation": "Latin1_General_100_CI_AS_KS_WS",
+              "compatibilityLevel": "160",
+              "owner": "Herbert"
+            }
+          }
+    response:
+      status: 500
+      statusText: Internal Server Error
+      body:
+        type: text
+        data: ""
+
 docs: Create a Database for an instance

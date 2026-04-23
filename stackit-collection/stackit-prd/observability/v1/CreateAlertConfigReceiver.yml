@@ -55,4 +55,220 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 202 Response
+    description: Create alert config receiver.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/alertconfigs/receivers"
+      method: POST
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "emailConfigs": [
+              {
+                "authIdentity": "",
+                "authPassword": "",
+                "authUsername": "",
+                "from": "",
+                "sendResolved": false,
+                "smarthost": "",
+                "to": ""
+              }
+            ],
+            "name": "",
+            "opsgenieConfigs": [
+              {
+                "apiKey": "",
+                "apiUrl": "",
+                "priority": "",
+                "sendResolved": false,
+                "tags": ""
+              }
+            ],
+            "webHookConfigs": [
+              {
+                "googleChat": false,
+                "msTeams": false,
+                "sendResolved": false,
+                "url": ""
+              }
+            ]
+          }
+    response:
+      status: 202
+      statusText: Accepted
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "data": [
+              {
+                "emailConfigs": [
+                  {
+                    "to": "team-X+alerts@example.org"
+                  }
+                ],
+                "name": "team-X-mails"
+              },
+              {
+                "emailConfigs": [
+                  {
+                    "to": "team-X+papers@example.org"
+                  }
+                ],
+                "name": "team-X-paper"
+              },
+              {
+                "emailConfigs": [
+                  {
+                    "to": "team-Y+paper@example.org"
+                  }
+                ],
+                "name": "team-Y-paper"
+              },
+              {
+                "emailConfigs": [
+                  {
+                    "to": "team-X+alerts-critical@example.org"
+                  }
+                ],
+                "name": "team-X-pager",
+                "opsgenieConfigs": [
+                  {
+                    "apiKey": "12345678",
+                    "apiUrl": "https://example.opsgenie.org"
+                  }
+                ]
+              }
+            ],
+            "message": "Success"
+          }
+  - name: 400 Response
+    description: Something went wrong.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/alertconfigs/receivers"
+      method: POST
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "emailConfigs": [
+              {
+                "authIdentity": "",
+                "authPassword": "",
+                "authUsername": "",
+                "from": "",
+                "sendResolved": false,
+                "smarthost": "",
+                "to": ""
+              }
+            ],
+            "name": "",
+            "opsgenieConfigs": [
+              {
+                "apiKey": "",
+                "apiUrl": "",
+                "priority": "",
+                "sendResolved": false,
+                "tags": ""
+              }
+            ],
+            "webHookConfigs": [
+              {
+                "googleChat": false,
+                "msTeams": false,
+                "sendResolved": false,
+                "url": ""
+              }
+            ]
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "Something went wrong"
+          }
+  - name: 403 Response
+    description: You are not authorized
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/alertconfigs/receivers"
+      method: POST
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "emailConfigs": [
+              {
+                "authIdentity": "",
+                "authPassword": "",
+                "authUsername": "",
+                "from": "",
+                "sendResolved": false,
+                "smarthost": "",
+                "to": ""
+              }
+            ],
+            "name": "",
+            "opsgenieConfigs": [
+              {
+                "apiKey": "",
+                "apiUrl": "",
+                "priority": "",
+                "sendResolved": false,
+                "tags": ""
+              }
+            ],
+            "webHookConfigs": [
+              {
+                "googleChat": false,
+                "msTeams": false,
+                "sendResolved": false,
+                "url": ""
+              }
+            ]
+          }
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "detail": "You do not have permission to perform this action."
+          }
+
 docs: Create alert config receiver.

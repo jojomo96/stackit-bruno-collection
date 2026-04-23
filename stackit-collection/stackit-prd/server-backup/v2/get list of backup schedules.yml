@@ -26,3 +26,129 @@ settings:
   timeout: 0
   followRedirects: true
   maxRedirects: 5
+
+examples:
+  - name: 200 Response
+    description: schedule list response
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/backup-schedules"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: serverId
+          value: ""
+          type: path
+          description: server id
+        - name: region
+          value: eu01
+          type: path
+          description: region
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "items": [
+              {
+                "backupProperties": {
+                  "name": "Daily Backup",
+                  "retentionPeriod": 3,
+                  "volumeIds": [
+                    "58335311-6acf-46c5-8652-cb96cd63181e",
+                    "38345f49-047b-437d-83a1-458f04fa3182"
+                  ]
+                },
+                "enabled": true,
+                "id": 1480,
+                "name": "Daily Schedule",
+                "rrule": "DTSTART;TZID=Europe/Sofia:20200803T023000 RRULE:FREQ=DAILY;INTERVAL=1"
+              }
+            ]
+          }
+  - name: 400 Response
+    description: Bad Request
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/backup-schedules"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: serverId
+          value: ""
+          type: path
+          description: server id
+        - name: region
+          value: eu01
+          type: path
+          description: region
+    response:
+      status: 400
+      statusText: Bad Request
+      body:
+        type: text
+        data: ""
+  - name: 401 Response
+    description: Unauthorized
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/backup-schedules"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: serverId
+          value: ""
+          type: path
+          description: server id
+        - name: region
+          value: eu01
+          type: path
+          description: region
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "",
+            "status": ""
+          }
+  - name: 404 Response
+    description: Server not found
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/backup-schedules"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: serverId
+          value: ""
+          type: path
+          description: server id
+        - name: region
+          value: eu01
+          type: path
+          description: region
+    response:
+      status: 404
+      statusText: Not Found
+      body:
+        type: text
+        data: ""

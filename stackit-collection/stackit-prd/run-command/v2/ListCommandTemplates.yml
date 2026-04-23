@@ -20,4 +20,84 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: commandTemplatesExample
+    request:
+      url: "{{baseUrl}}/v2/command-templates"
+      method: GET
+      params:
+        - name: osType
+          value: ""
+          type: query
+          description: The type of the Operating System (windows or linux). If not provided will return data for all OS types.
+          disabled: true
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "items": [
+              {
+                "name": "RunShellScript",
+                "osType": [
+                  "linux"
+                ],
+                "title": "Run Shell Script"
+              }
+            ]
+          }
+  - name: 400 Response
+    description: Bad Request
+    request:
+      url: "{{baseUrl}}/v2/command-templates"
+      method: GET
+      params:
+        - name: osType
+          value: ""
+          type: query
+          description: The type of the Operating System (windows or linux). If not provided will return data for all OS types.
+          disabled: true
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "",
+            "status": ""
+          }
+  - name: 401 Response
+    description: Unauthorized
+    request:
+      url: "{{baseUrl}}/v2/command-templates"
+      method: GET
+      params:
+        - name: osType
+          value: ""
+          type: query
+          description: The type of the Operating System (windows or linux). If not provided will return data for all OS types.
+          disabled: true
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "",
+            "status": ""
+          }
+
 docs: Returns a list of command templates

@@ -29,4 +29,154 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 200 Response
+    description: Get added check (rabbitmqCheck) and all configured checks (rabbitmqChecks).
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/rabbitmq-checks"
+      method: POST
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "password": "",
+            "url": "",
+            "username": ""
+          }
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "Successfully created rabbitmq check",
+            "rabbitmqCheck": {
+              "id": "d2916e599013fec71f6456b2dffc86bf",
+              "url": "http://localhost-2:15672"
+            },
+            "rabbitmqChecks": [
+              {
+                "id": "489c740bf617ba3254d96d6cf0c9e6a5",
+                "url": "http://localhost:15672"
+              },
+              {
+                "id": "d2916e599013fec71f6456b2dffc86bf",
+                "url": "http://localhost-2:15672"
+              }
+            ]
+          }
+  - name: Global error
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/rabbitmq-checks"
+      method: POST
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "password": "",
+            "url": "",
+            "username": ""
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          [
+            "instance is not ready"
+          ]
+  - name: Field specific error
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/rabbitmq-checks"
+      method: POST
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "password": "",
+            "url": "",
+            "username": ""
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "password": [
+              "This field may not be blank."
+            ],
+            "url": [
+              "This field may not be blank."
+            ],
+            "username": [
+              "This field may not be blank."
+            ]
+          }
+  - name: 403 Response
+    description: You are not authorized.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/rabbitmq-checks"
+      method: POST
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "password": "",
+            "url": "",
+            "username": ""
+          }
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "detail": "You do not have permission to perform this action."
+          }
+
 docs: Create rabbitmq check.

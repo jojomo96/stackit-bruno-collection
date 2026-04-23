@@ -41,4 +41,134 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 200 Response
+    description: Get backup schedules.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/backup-schedules"
+      method: GET
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+        - name: backupTarget
+          value: alertConfig
+          type: query
+          description: List of backup targets
+          disabled: true
+        - name: backupTarget
+          value: alertRules
+          type: query
+          description: List of backup targets
+          disabled: true
+        - name: backupTarget
+          value: scrapeConfig
+          type: query
+          description: List of backup targets
+          disabled: true
+        - name: backupTarget
+          value: grafana
+          type: query
+          description: List of backup targets
+          disabled: true
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "alertConfigBackupSchedules": [
+              {
+                "schedule": "*/5 * * * *",
+                "scheduleId": "f546eff4-3c8d-4664-9657-a6ad46edffe5"
+              },
+              {
+                "schedule": "0 0 * * MON",
+                "scheduleId": "a3cddd87-a967-42ef-9413-041c731ac81a"
+              }
+            ],
+            "alertRulesBackupSchedules": [
+              {
+                "schedule": "*/5 * * * *",
+                "scheduleId": "f546eff4-3c8d-4664-9657-a6ad46edffe6"
+              },
+              {
+                "schedule": "0 0 * * MON",
+                "scheduleId": "a3cddd87-a967-42ef-9413-041c731ac81b"
+              }
+            ],
+            "grafanaBackupSchedules": [
+              {
+                "schedule": "*/5 * * * *",
+                "scheduleId": "f546eff4-3c8d-4664-9657-a6ad46edffe8"
+              },
+              {
+                "schedule": "0 0 * * MON",
+                "scheduleId": "a3cddd87-a967-42ef-9413-041c731ac81d"
+              }
+            ],
+            "message": "Successfully got backup schedules",
+            "scrapeConfigBackupSchedules": [
+              {
+                "schedule": "*/5 * * * *",
+                "scheduleId": "f546eff4-3c8d-4664-9657-a6ad46edffe7"
+              },
+              {
+                "schedule": "0 0 * * MON",
+                "scheduleId": "a3cddd87-a967-42ef-9413-041c731ac81c"
+              }
+            ]
+          }
+  - name: 403 Response
+    description: You do not have permission to perform this action.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/backup-schedules"
+      method: GET
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+        - name: backupTarget
+          value: alertConfig
+          type: query
+          description: List of backup targets
+          disabled: true
+        - name: backupTarget
+          value: alertRules
+          type: query
+          description: List of backup targets
+          disabled: true
+        - name: backupTarget
+          value: scrapeConfig
+          type: query
+          description: List of backup targets
+          disabled: true
+        - name: backupTarget
+          value: grafana
+          type: query
+          description: List of backup targets
+          disabled: true
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "detail": "You do not have permission to perform this action."
+          }
+
 docs: Get backup schedules.

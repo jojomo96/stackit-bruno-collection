@@ -26,3 +26,124 @@ settings:
   timeout: 0
   followRedirects: true
   maxRedirects: 5
+
+examples:
+  - name: 200 Response
+    description: updates list response
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/updates"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: serverId
+          value: ""
+          type: path
+          description: server id
+        - name: region
+          value: eu01
+          type: path
+          description: region
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "items": [
+              {
+                "endDate": "2020-09-13T10:15:00Z",
+                "failReason": "",
+                "failedUpdates": 55,
+                "id": 100,
+                "installedUpdates": 55,
+                "startDate": "2020-09-10T10:15:00Z",
+                "status": "running"
+              }
+            ]
+          }
+  - name: 400 Response
+    description: Bad Request
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/updates"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: serverId
+          value: ""
+          type: path
+          description: server id
+        - name: region
+          value: eu01
+          type: path
+          description: region
+    response:
+      status: 400
+      statusText: Bad Request
+      body:
+        type: text
+        data: ""
+  - name: 401 Response
+    description: Unauthorized
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/updates"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: serverId
+          value: ""
+          type: path
+          description: server id
+        - name: region
+          value: eu01
+          type: path
+          description: region
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "",
+            "status": ""
+          }
+  - name: 404 Response
+    description: Server not found
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/updates"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: serverId
+          value: ""
+          type: path
+          description: server id
+        - name: region
+          value: eu01
+          type: path
+          description: region
+    response:
+      status: 404
+      statusText: Not Found
+      body:
+        type: text
+        data: ""

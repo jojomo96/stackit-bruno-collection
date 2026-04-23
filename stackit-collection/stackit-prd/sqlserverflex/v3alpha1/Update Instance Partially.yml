@@ -46,6 +46,366 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 202 Response
+    description: "Accepted: The request was accepted"
+    request:
+      url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: instanceId
+          value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+          type: path
+          description: The ID of the instance.
+      body:
+        type: json
+        data: |-
+          {
+            "backupSchedule": "6 6 * * *",
+            "flavorId": "4.16-Single",
+            "name": "mssql-instance",
+            "network": {
+              "acl": [
+                "198.51.100.0/24"
+              ]
+            },
+            "replicas": 1,
+            "retentionDays": 64,
+            "storage": {
+              "size": 10
+            },
+            "version": "2022"
+          }
+    response:
+      status: 202
+      statusText: Accepted
+      body:
+        type: text
+        data: ""
+  - name: 400 Response
+    description: Bad Request
+    request:
+      url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: instanceId
+          value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+          type: path
+          description: The ID of the instance.
+      body:
+        type: json
+        data: |-
+          {
+            "backupSchedule": "6 6 * * *",
+            "flavorId": "4.16-Single",
+            "name": "mssql-instance",
+            "network": {
+              "acl": [
+                "198.51.100.0/24"
+              ]
+            },
+            "replicas": 1,
+            "retentionDays": 64,
+            "storage": {
+              "size": 10
+            },
+            "version": "2022"
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "database not found",
+            "traceId": "885bef8bbc18649c",
+            "type": "INTERNAL_ERROR"
+          }
+  - name: 401 Response
+    description: User is not allowed to perform this operation or credentials are not correct
+    request:
+      url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: instanceId
+          value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+          type: path
+          description: The ID of the instance.
+      body:
+        type: json
+        data: |-
+          {
+            "backupSchedule": "6 6 * * *",
+            "flavorId": "4.16-Single",
+            "name": "mssql-instance",
+            "network": {
+              "acl": [
+                "198.51.100.0/24"
+              ]
+            },
+            "replicas": 1,
+            "retentionDays": 64,
+            "storage": {
+              "size": 10
+            },
+            "version": "2022"
+          }
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "database not found",
+            "traceId": "885bef8bbc18649c",
+            "type": "INTERNAL_ERROR"
+          }
+  - name: 403 Response
+    description: "Forbidden: No access for the requested resource."
+    request:
+      url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: instanceId
+          value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+          type: path
+          description: The ID of the instance.
+      body:
+        type: json
+        data: |-
+          {
+            "backupSchedule": "6 6 * * *",
+            "flavorId": "4.16-Single",
+            "name": "mssql-instance",
+            "network": {
+              "acl": [
+                "198.51.100.0/24"
+              ]
+            },
+            "replicas": 1,
+            "retentionDays": 64,
+            "storage": {
+              "size": 10
+            },
+            "version": "2022"
+          }
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "database not found",
+            "traceId": "885bef8bbc18649c",
+            "type": "INTERNAL_ERROR"
+          }
+  - name: 404 Response
+    description: "Not found: Could not find an instance with the provided Id."
+    request:
+      url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: instanceId
+          value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+          type: path
+          description: The ID of the instance.
+      body:
+        type: json
+        data: |-
+          {
+            "backupSchedule": "6 6 * * *",
+            "flavorId": "4.16-Single",
+            "name": "mssql-instance",
+            "network": {
+              "acl": [
+                "198.51.100.0/24"
+              ]
+            },
+            "replicas": 1,
+            "retentionDays": 64,
+            "storage": {
+              "size": 10
+            },
+            "version": "2022"
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "database not found",
+            "traceId": "885bef8bbc18649c",
+            "type": "INTERNAL_ERROR"
+          }
+  - name: 422 Response
+    description: Request failed due to body validation
+    request:
+      url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: instanceId
+          value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+          type: path
+          description: The ID of the instance.
+      body:
+        type: json
+        data: |-
+          {
+            "backupSchedule": "6 6 * * *",
+            "flavorId": "4.16-Single",
+            "name": "mssql-instance",
+            "network": {
+              "acl": [
+                "198.51.100.0/24"
+              ]
+            },
+            "replicas": 1,
+            "retentionDays": 64,
+            "storage": {
+              "size": 10
+            },
+            "version": "2022"
+          }
+    response:
+      status: 422
+      statusText: Unprocessable Entity
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 422,
+            "validation": [
+              {
+                "field": "name",
+                "message": "this field is required"
+              }
+            ]
+          }
+  - name: 500 Response
+    description: "Internal Server Error: An internal occurred while processing the request. Please contact the support or try again later."
+    request:
+      url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: instanceId
+          value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+          type: path
+          description: The ID of the instance.
+      body:
+        type: json
+        data: |-
+          {
+            "backupSchedule": "6 6 * * *",
+            "flavorId": "4.16-Single",
+            "name": "mssql-instance",
+            "network": {
+              "acl": [
+                "198.51.100.0/24"
+              ]
+            },
+            "replicas": 1,
+            "retentionDays": 64,
+            "storage": {
+              "size": 10
+            },
+            "version": "2022"
+          }
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "database not found",
+            "traceId": "885bef8bbc18649c",
+            "type": "INTERNAL_ERROR"
+          }
+
 docs: |
   Update an available instance of a mssql database. No fields are required.
 

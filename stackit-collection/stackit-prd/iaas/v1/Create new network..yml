@@ -33,4 +33,2129 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 202 Response (NetworkWithPrefix)
+    description: Network create has been accepted.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ],
+                "prefix": "10.0.3.0/25"
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 202
+      statusText: Accepted
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "createdAt": "",
+            "dhcp": true,
+            "gateway": "10.1.2.1",
+            "gatewayv6": "10.1.2.1",
+            "labels": {
+              "key": "value"
+            },
+            "name": "My network",
+            "nameservers": [
+              "10.20.30.40",
+              "50.60.70.80"
+            ],
+            "nameserversV6": [
+              "2001:4860:4860::8888",
+              "2001:4860:4860::8844"
+            ],
+            "networkId": "d61a8564-c8dd-4ffb-bc15-143e7d0c85ed",
+            "prefixes": [
+              "10.1.2.0/24"
+            ],
+            "prefixesV6": [
+              "10.1.2.0/24"
+            ],
+            "publicIp": "10.1.2.10",
+            "routed": true,
+            "state": "CREATING",
+            "updatedAt": ""
+          }
+  - name: 202 Response (NetworkWithPrefixLength)
+    description: Network create has been accepted.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ],
+                "prefixLength": 24
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 202
+      statusText: Accepted
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "createdAt": "",
+            "dhcp": true,
+            "gateway": "10.1.2.1",
+            "gatewayv6": "10.1.2.1",
+            "labels": {
+              "key": "value"
+            },
+            "name": "My network",
+            "nameservers": [
+              "10.20.30.40",
+              "50.60.70.80"
+            ],
+            "nameserversV6": [
+              "2001:4860:4860::8888",
+              "2001:4860:4860::8844"
+            ],
+            "networkId": "d61a8564-c8dd-4ffb-bc15-143e7d0c85ed",
+            "prefixes": [
+              "10.1.2.0/24"
+            ],
+            "prefixesV6": [
+              "10.1.2.0/24"
+            ],
+            "publicIp": "10.1.2.10",
+            "routed": true,
+            "state": "CREATING",
+            "updatedAt": ""
+          }
+  - name: 202 Response (NetworkWithoutPrefixOrPrefixLength)
+    description: Network create has been accepted.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ]
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 202
+      statusText: Accepted
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "createdAt": "",
+            "dhcp": true,
+            "gateway": "10.1.2.1",
+            "gatewayv6": "10.1.2.1",
+            "labels": {
+              "key": "value"
+            },
+            "name": "My network",
+            "nameservers": [
+              "10.20.30.40",
+              "50.60.70.80"
+            ],
+            "nameserversV6": [
+              "2001:4860:4860::8888",
+              "2001:4860:4860::8844"
+            ],
+            "networkId": "d61a8564-c8dd-4ffb-bc15-143e7d0c85ed",
+            "prefixes": [
+              "10.1.2.0/24"
+            ],
+            "prefixesV6": [
+              "10.1.2.0/24"
+            ],
+            "publicIp": "10.1.2.10",
+            "routed": true,
+            "state": "CREATING",
+            "updatedAt": ""
+          }
+  - name: InvalidAffinityGroupPolicy (NetworkWithPrefix)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ],
+                "prefix": "10.0.3.0/25"
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "msg": "The affinity group policy is not supported"
+          }
+  - name: InvalidAffinityGroupPolicy (NetworkWithPrefixLength)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ],
+                "prefixLength": 24
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "msg": "The affinity group policy is not supported"
+          }
+  - name: InvalidAffinityGroupPolicy (NetworkWithoutPrefixOrPrefixLength)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ]
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "msg": "The affinity group policy is not supported"
+          }
+  - name: InvalidBootDeviceSize (NetworkWithPrefix)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ],
+                "prefix": "10.0.3.0/25"
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "msg": "boot device size is not valid or missing"
+          }
+  - name: InvalidBootDeviceSize (NetworkWithPrefixLength)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ],
+                "prefixLength": 24
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "msg": "boot device size is not valid or missing"
+          }
+  - name: InvalidBootDeviceSize (NetworkWithoutPrefixOrPrefixLength)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ]
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "msg": "boot device size is not valid or missing"
+          }
+  - name: InvalidMachineType (NetworkWithPrefix)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ],
+                "prefix": "10.0.3.0/25"
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "msg": "machine type is not valid"
+          }
+  - name: InvalidMachineType (NetworkWithPrefixLength)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ],
+                "prefixLength": 24
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "msg": "machine type is not valid"
+          }
+  - name: InvalidMachineType (NetworkWithoutPrefixOrPrefixLength)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ]
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "msg": "machine type is not valid"
+          }
+  - name: InvalidParameter (NetworkWithPrefix)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ],
+                "prefix": "10.0.3.0/25"
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "msg": "request body has an error: doesn't match schema: Error at \"/name\": value must be a string"
+          }
+  - name: InvalidParameter (NetworkWithPrefixLength)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ],
+                "prefixLength": 24
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "msg": "request body has an error: doesn't match schema: Error at \"/name\": value must be a string"
+          }
+  - name: InvalidParameter (NetworkWithoutPrefixOrPrefixLength)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ]
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "msg": "request body has an error: doesn't match schema: Error at \"/name\": value must be a string"
+          }
+  - name: InvalidPublicKey (NetworkWithPrefix)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ],
+                "prefix": "10.0.3.0/25"
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "msg": "invalid pubkey"
+          }
+  - name: InvalidPublicKey (NetworkWithPrefixLength)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ],
+                "prefixLength": 24
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "msg": "invalid pubkey"
+          }
+  - name: InvalidPublicKey (NetworkWithoutPrefixOrPrefixLength)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ]
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "msg": "invalid pubkey"
+          }
+  - name: InvalidUUID (NetworkWithPrefix)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ],
+                "prefix": "10.0.3.0/25"
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "msg": "invalid uuid"
+          }
+  - name: InvalidUUID (NetworkWithPrefixLength)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ],
+                "prefixLength": 24
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "msg": "invalid uuid"
+          }
+  - name: InvalidUUID (NetworkWithoutPrefixOrPrefixLength)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ]
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "msg": "invalid uuid"
+          }
+  - name: 401 Response (NetworkWithPrefix)
+    description: A request which was not authorized.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ],
+                "prefix": "10.0.3.0/25"
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 401,
+            "msg": "Unauthorized"
+          }
+  - name: 401 Response (NetworkWithPrefixLength)
+    description: A request which was not authorized.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ],
+                "prefixLength": 24
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 401,
+            "msg": "Unauthorized"
+          }
+  - name: 401 Response (NetworkWithoutPrefixOrPrefixLength)
+    description: A request which was not authorized.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ]
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 401,
+            "msg": "Unauthorized"
+          }
+  - name: 403 Response (NetworkWithPrefix)
+    description: A request which was forbidden.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ],
+                "prefix": "10.0.3.0/25"
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 403,
+            "msg": "Forbidden"
+          }
+  - name: 403 Response (NetworkWithPrefixLength)
+    description: A request which was forbidden.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ],
+                "prefixLength": 24
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 403,
+            "msg": "Forbidden"
+          }
+  - name: 403 Response (NetworkWithoutPrefixOrPrefixLength)
+    description: A request which was forbidden.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ]
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 403,
+            "msg": "Forbidden"
+          }
+  - name: AreaNotFound (NetworkWithPrefix)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ],
+                "prefix": "10.0.3.0/25"
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "msg": "area not found"
+          }
+  - name: AreaNotFound (NetworkWithPrefixLength)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ],
+                "prefixLength": 24
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "msg": "area not found"
+          }
+  - name: AreaNotFound (NetworkWithoutPrefixOrPrefixLength)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ]
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "msg": "area not found"
+          }
+  - name: KeypairNotFound (NetworkWithPrefix)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ],
+                "prefix": "10.0.3.0/25"
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "msg": "keypair not found"
+          }
+  - name: KeypairNotFound (NetworkWithPrefixLength)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ],
+                "prefixLength": 24
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "msg": "keypair not found"
+          }
+  - name: KeypairNotFound (NetworkWithoutPrefixOrPrefixLength)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ]
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "msg": "keypair not found"
+          }
+  - name: NetworkNotFound (NetworkWithPrefix)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ],
+                "prefix": "10.0.3.0/25"
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "msg": "network not found"
+          }
+  - name: NetworkNotFound (NetworkWithPrefixLength)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ],
+                "prefixLength": 24
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "msg": "network not found"
+          }
+  - name: NetworkNotFound (NetworkWithoutPrefixOrPrefixLength)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ]
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "msg": "network not found"
+          }
+  - name: NetworkRangeNotFound (NetworkWithPrefix)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ],
+                "prefix": "10.0.3.0/25"
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "msg": "network range not found"
+          }
+  - name: NetworkRangeNotFound (NetworkWithPrefixLength)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ],
+                "prefixLength": 24
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "msg": "network range not found"
+          }
+  - name: NetworkRangeNotFound (NetworkWithoutPrefixOrPrefixLength)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ]
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "msg": "network range not found"
+          }
+  - name: OrganizationNotFound (NetworkWithPrefix)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ],
+                "prefix": "10.0.3.0/25"
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "msg": "organization not found"
+          }
+  - name: OrganizationNotFound (NetworkWithPrefixLength)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ],
+                "prefixLength": 24
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "msg": "organization not found"
+          }
+  - name: OrganizationNotFound (NetworkWithoutPrefixOrPrefixLength)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ]
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "msg": "organization not found"
+          }
+  - name: ProjectNotFound (NetworkWithPrefix)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ],
+                "prefix": "10.0.3.0/25"
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "msg": "project not found"
+          }
+  - name: ProjectNotFound (NetworkWithPrefixLength)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ],
+                "prefixLength": 24
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "msg": "project not found"
+          }
+  - name: ProjectNotFound (NetworkWithoutPrefixOrPrefixLength)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ]
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "msg": "project not found"
+          }
+  - name: RequestNotFound (NetworkWithPrefix)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ],
+                "prefix": "10.0.3.0/25"
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "msg": "request not found"
+          }
+  - name: RequestNotFound (NetworkWithPrefixLength)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ],
+                "prefixLength": 24
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "msg": "request not found"
+          }
+  - name: RequestNotFound (NetworkWithoutPrefixOrPrefixLength)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ]
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "msg": "request not found"
+          }
+  - name: RouteNotFound (NetworkWithPrefix)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ],
+                "prefix": "10.0.3.0/25"
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "msg": "route not found"
+          }
+  - name: RouteNotFound (NetworkWithPrefixLength)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ],
+                "prefixLength": 24
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "msg": "route not found"
+          }
+  - name: RouteNotFound (NetworkWithoutPrefixOrPrefixLength)
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ]
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "msg": "route not found"
+          }
+  - name: 409 Response (NetworkWithPrefix)
+    description: A conflict has occurred.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ],
+                "prefix": "10.0.3.0/25"
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 409
+      statusText: Conflict
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 409,
+            "msg": "Conflict"
+          }
+  - name: 409 Response (NetworkWithPrefixLength)
+    description: A conflict has occurred.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ],
+                "prefixLength": 24
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 409
+      statusText: Conflict
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 409,
+            "msg": "Conflict"
+          }
+  - name: 409 Response (NetworkWithoutPrefixOrPrefixLength)
+    description: A conflict has occurred.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ]
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 409
+      statusText: Conflict
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 409,
+            "msg": "Conflict"
+          }
+  - name: 500 Response (NetworkWithPrefix)
+    description: Internal Server Error, returns a 500 if something is broken on IaaS API Side.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ],
+                "prefix": "10.0.3.0/25"
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 500,
+            "msg": "internal server error"
+          }
+  - name: 500 Response (NetworkWithPrefixLength)
+    description: Internal Server Error, returns a 500 if something is broken on IaaS API Side.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ],
+                "prefixLength": 24
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 500,
+            "msg": "internal server error"
+          }
+  - name: 500 Response (NetworkWithoutPrefixOrPrefixLength)
+    description: Internal Server Error, returns a 500 if something is broken on IaaS API Side.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/networks"
+      method: POST
+      params:
+        - name: projectId
+          value: d61a8564-c8dd-4ffb-bc15-143e7d0c85ed
+          type: path
+          description: The identifier (ID) of a STACKIT Project.
+      body:
+        type: json
+        data: |-
+          {
+            "addressFamily": {
+              "ipv4": {
+                "nameservers": [
+                  "10.1.2.10"
+                ]
+              }
+            },
+            "name": "My Network"
+          }
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 500,
+            "msg": "internal server error"
+          }
+
 docs: Create a new network in a project. `nameservers` will be filled from `defaultNameservers` of the respective area if not specified. If the project has `internetAccess` enabled and this is the first network in the project this might incur cost.

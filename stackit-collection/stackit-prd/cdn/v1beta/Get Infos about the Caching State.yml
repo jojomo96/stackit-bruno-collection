@@ -26,6 +26,211 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: hasData
+    description: Request was successful, returning the last time the entire cache was purged
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId/cache"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+        - name: purgePath
+          value: ""
+          type: query
+          disabled: true
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "history": [
+              {
+                "occurredAt": "2024-11-29T12:34:56Z",
+                "type": "full"
+              }
+            ],
+            "lastPurgeTime": "2024-11-29T12:34:56Z"
+          }
+  - name: noPurgeBefore
+    description: PurgeCache was never called before, hence no lastPurgeTime is set
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId/cache"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+        - name: purgePath
+          value: ""
+          type: query
+          disabled: true
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "history": [],
+            "lastPurgeTime": null
+          }
+  - name: 401 Response
+    description: unauthorized - please make sure the "Authorization" header is set and uses correct credentials
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId/cache"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+        - name: purgePath
+          value: ""
+          type: query
+          disabled: true
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: text/plain
+      body:
+        type: text
+        data: ""
+  - name: 422 Response
+    description: unprocessable entity - please make sure the body you provided is constructed according to spec
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId/cache"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+        - name: purgePath
+          value: ""
+          type: query
+          disabled: true
+    response:
+      status: 422
+      statusText: Unprocessable Entity
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "description": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+  - name: 500 Response
+    description: internal error - please try again later or contact support if the issue persists
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId/cache"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+        - name: purgePath
+          value: ""
+          type: query
+          disabled: true
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "description": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+  - name: default Response
+    description: Default error response
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId/cache"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+        - name: purgePath
+          value: ""
+          type: query
+          disabled: true
+    response:
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "description": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+
 docs: |
   Return caching info metadata, which contains the last cache purging time and a history of the most recent *full* purges.
 

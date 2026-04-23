@@ -29,4 +29,154 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 200 Response
+    description: Get added check (redisCheck) and all configured checks (redisChecks).
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/redis-checks"
+      method: POST
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "password": "",
+            "server": "",
+            "username": ""
+          }
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "Successfully created redis check",
+            "redisCheck": {
+              "id": "07d55c523ea3dee6ff0dd33ffdae6765",
+              "server": "tcp://localhost-2:6379"
+            },
+            "redisChecks": [
+              {
+                "id": "79a38c85cede269b64c8ed3ae45a5557",
+                "server": "tcp://localhost:6379"
+              },
+              {
+                "id": "07d55c523ea3dee6ff0dd33ffdae6765",
+                "server": "tcp://localhost-2:6379"
+              }
+            ]
+          }
+  - name: Global error
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/redis-checks"
+      method: POST
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "password": "",
+            "server": "",
+            "username": ""
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          [
+            "instance is not ready"
+          ]
+  - name: Field specific error
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/redis-checks"
+      method: POST
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "password": "",
+            "server": "",
+            "username": ""
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "password": [
+              "This field may not be blank."
+            ],
+            "server": [
+              "This field may not be blank."
+            ],
+            "username": [
+              "This field may not be blank."
+            ]
+          }
+  - name: 403 Response
+    description: You are not authorized.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/redis-checks"
+      method: POST
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "password": "",
+            "server": "",
+            "username": ""
+          }
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "detail": "You do not have permission to perform this action."
+          }
+
 docs: Create redis check.

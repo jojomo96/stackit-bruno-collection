@@ -22,3 +22,85 @@ settings:
   timeout: 0
   followRedirects: true
   maxRedirects: 5
+
+examples:
+  - name: 204 Response
+    description: Update service disabled
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/servers/:serverId"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: serverId
+          value: ""
+          type: path
+          description: server id
+    response:
+      status: 204
+      statusText: No Content
+      body:
+        type: text
+        data: ""
+  - name: 400 Response
+    description: Bad request
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/servers/:serverId"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: serverId
+          value: ""
+          type: path
+          description: server id
+    response:
+      status: 400
+      statusText: Bad Request
+      body:
+        type: text
+        data: ""
+  - name: 401 Response
+    description: Unauthorized
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/servers/:serverId"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: serverId
+          value: ""
+          type: path
+          description: server id
+    response:
+      status: 401
+      statusText: Unauthorized
+      body:
+        type: text
+        data: ""
+  - name: 404 Response
+    description: Server not found
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/servers/:serverId"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: serverId
+          value: ""
+          type: path
+          description: server id
+    response:
+      status: 404
+      statusText: Not Found
+      body:
+        type: text
+        data: ""

@@ -27,4 +27,96 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 202 Response
+    description: Update acl config.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/acl"
+      method: PUT
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "acl": []
+          }
+    response:
+      status: 202
+      statusText: Accepted
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "Successfully updated acl"
+          }
+  - name: 400 Response
+    description: Something went wrong
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/acl"
+      method: PUT
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "acl": []
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "Could not update acl config"
+          }
+  - name: 403 Response
+    description: You do not have permission to perform this action.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/acl"
+      method: PUT
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "acl": []
+          }
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "detail": "You do not have permission to perform this action."
+          }
+
 docs: Update acl config.

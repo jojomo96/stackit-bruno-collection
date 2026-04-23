@@ -24,4 +24,102 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 202 Response
+    description: Accepted, deletion of cluster happens asynchronously. The deletion is done as soon as GetCluster returns a 404 code. The progress can be observed in the GetCluster's lastOperation field that contains a progress indicator.
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/clusters/:clusterName"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: ""
+          type: path
+        - name: clusterName
+          value: ""
+          type: path
+    response:
+      status: 202
+      statusText: Accepted
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: "{}"
+  - name: 400 Response
+    description: Invalid request
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/clusters/:clusterName"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: ""
+          type: path
+        - name: clusterName
+          value: ""
+          type: path
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: "{}"
+  - name: 401 Response
+    description: Unauthorized
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/clusters/:clusterName"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: ""
+          type: path
+        - name: clusterName
+          value: ""
+          type: path
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: "{}"
+  - name: 404 Response
+    description: Project or cluster not found
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/clusters/:clusterName"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: ""
+          type: path
+        - name: clusterName
+          value: ""
+          type: path
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: "{}"
+
 docs: Delete Kubernetes cluster specified by the identifier, belonging to the project specified by `projectId`.

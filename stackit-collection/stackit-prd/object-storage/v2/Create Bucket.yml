@@ -31,4 +31,236 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 201 Response
+    description: Successful Response
+    request:
+      url: "{{baseUrl}}/v2/project/:projectId/regions/:region/bucket/:bucketName"
+      method: POST
+      params:
+        - name: projectId
+          value: cd5e788d-5b7b-4ab9-a20d-e790205df10b
+          type: path
+          description: STACKIT project ID
+        - name: region
+          value: eu01
+          type: path
+          description: STACKIT Region
+        - name: bucketName
+          value: bucket-1
+          type: path
+          description: The name has to be dns-conform.
+        - name: objectLockEnabled
+          value: "false"
+          type: query
+          description: Enable S3 Object Lock on this bucket. Can only be set at creation time. Requires an active project-level compliance lock.
+    response:
+      status: 201
+      statusText: Created
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "bucket": "bucket-1",
+            "project": "cd5e788d-5b7b-4ab9-a20d-e790205df10b"
+          }
+  - name: 401 Response
+    description: Unauthorized
+    request:
+      url: "{{baseUrl}}/v2/project/:projectId/regions/:region/bucket/:bucketName"
+      method: POST
+      params:
+        - name: projectId
+          value: cd5e788d-5b7b-4ab9-a20d-e790205df10b
+          type: path
+          description: STACKIT project ID
+        - name: region
+          value: eu01
+          type: path
+          description: STACKIT Region
+        - name: bucketName
+          value: bucket-1
+          type: path
+          description: The name has to be dns-conform.
+        - name: objectLockEnabled
+          value: "false"
+          type: query
+          description: Enable S3 Object Lock on this bucket. Can only be set at creation time. Requires an active project-level compliance lock.
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "detail": [
+              {
+                "key": "example.error_key",
+                "msg": "Some details about the error."
+              }
+            ]
+          }
+  - name: 404 Response
+    description: Not Found
+    request:
+      url: "{{baseUrl}}/v2/project/:projectId/regions/:region/bucket/:bucketName"
+      method: POST
+      params:
+        - name: projectId
+          value: cd5e788d-5b7b-4ab9-a20d-e790205df10b
+          type: path
+          description: STACKIT project ID
+        - name: region
+          value: eu01
+          type: path
+          description: STACKIT Region
+        - name: bucketName
+          value: bucket-1
+          type: path
+          description: The name has to be dns-conform.
+        - name: objectLockEnabled
+          value: "false"
+          type: query
+          description: Enable S3 Object Lock on this bucket. Can only be set at creation time. Requires an active project-level compliance lock.
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "detail": [
+              {
+                "key": "example.error_key",
+                "msg": "Some details about the error."
+              }
+            ]
+          }
+  - name: 409 Response
+    description: Conflict
+    request:
+      url: "{{baseUrl}}/v2/project/:projectId/regions/:region/bucket/:bucketName"
+      method: POST
+      params:
+        - name: projectId
+          value: cd5e788d-5b7b-4ab9-a20d-e790205df10b
+          type: path
+          description: STACKIT project ID
+        - name: region
+          value: eu01
+          type: path
+          description: STACKIT Region
+        - name: bucketName
+          value: bucket-1
+          type: path
+          description: The name has to be dns-conform.
+        - name: objectLockEnabled
+          value: "false"
+          type: query
+          description: Enable S3 Object Lock on this bucket. Can only be set at creation time. Requires an active project-level compliance lock.
+    response:
+      status: 409
+      statusText: Conflict
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "detail": [
+              {
+                "key": "example.error_key",
+                "msg": "Some details about the error."
+              }
+            ]
+          }
+  - name: 422 Response
+    description: Unprocessable Entity
+    request:
+      url: "{{baseUrl}}/v2/project/:projectId/regions/:region/bucket/:bucketName"
+      method: POST
+      params:
+        - name: projectId
+          value: cd5e788d-5b7b-4ab9-a20d-e790205df10b
+          type: path
+          description: STACKIT project ID
+        - name: region
+          value: eu01
+          type: path
+          description: STACKIT Region
+        - name: bucketName
+          value: bucket-1
+          type: path
+          description: The name has to be dns-conform.
+        - name: objectLockEnabled
+          value: "false"
+          type: query
+          description: Enable S3 Object Lock on this bucket. Can only be set at creation time. Requires an active project-level compliance lock.
+    response:
+      status: 422
+      statusText: Unprocessable Entity
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "detail": [
+              {
+                "key": "example.error_key",
+                "msg": "Some details about the error."
+              }
+            ]
+          }
+  - name: 500 Response
+    description: Internal Server Error
+    request:
+      url: "{{baseUrl}}/v2/project/:projectId/regions/:region/bucket/:bucketName"
+      method: POST
+      params:
+        - name: projectId
+          value: cd5e788d-5b7b-4ab9-a20d-e790205df10b
+          type: path
+          description: STACKIT project ID
+        - name: region
+          value: eu01
+          type: path
+          description: STACKIT Region
+        - name: bucketName
+          value: bucket-1
+          type: path
+          description: The name has to be dns-conform.
+        - name: objectLockEnabled
+          value: "false"
+          type: query
+          description: Enable S3 Object Lock on this bucket. Can only be set at creation time. Requires an active project-level compliance lock.
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "detail": [
+              {
+                "key": "example.error_key",
+                "msg": "Some details about the error."
+              }
+            ]
+          }
+
 docs: Create a bucket for the given project. Bucket with the same name cannot already exists in the object storage

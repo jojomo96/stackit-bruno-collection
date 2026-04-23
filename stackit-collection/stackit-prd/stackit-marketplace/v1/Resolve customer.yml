@@ -25,4 +25,205 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 200 Response
+    description: OK
+    request:
+      url: "{{baseUrl}}/v1/vendors/projects/:projectId/resolve-customer"
+      method: POST
+      params:
+        - name: projectId
+          value: 14fef715-4ef3-4b10-8789-cd7f9bd09421
+          type: path
+          description: The project ID.
+      body:
+        type: json
+        data: |-
+          {
+            "token": "VGhpcyBpcyBhIHRva2VuIGJ5IGRvbW15IHRva2VuIGFuZCBiYXNlNjQgZW5jb2RlZA=="
+          }
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "autoRenewal": "",
+            "lifecycleState": "SUBSCRIPTION_ACTIVE",
+            "orderedAt": "",
+            "organizationId": "14fef715-4ef3-4b10-8789-cd7f9bd09421",
+            "product": {
+              "assets": {
+                "endUserLicenseAgreement": {
+                  "version": {
+                    "de": "2025_06_02_01_file-name_DE.pdf",
+                    "en": "2025_06_02_01_file-name_DE.pdf"
+                  }
+                },
+                "productDescription": {
+                  "version": {
+                    "de": "2025_06_02_01_file-name_DE.pdf",
+                    "en": "2025_06_02_01_file-name_DE.pdf"
+                  }
+                },
+                "serviceCertificate": {
+                  "version": {
+                    "de": "2025_06_02_01_file-name_DE.pdf",
+                    "en": "2025_06_02_01_file-name_DE.pdf"
+                  }
+                },
+                "serviceLevelAgreement": {
+                  "version": {
+                    "de": "2025_06_02_01_file-name_DE.pdf",
+                    "en": "2025_06_02_01_file-name_DE.pdf"
+                  }
+                }
+              },
+              "deliveryMethod": "SAAS",
+              "lifecycleState": "PRODUCT_LIVE",
+              "planId": "marketplace-plan-c4f9d2fc",
+              "priceType": "CONTRACT",
+              "pricingPlan": "Monthly subscription",
+              "productId": "marketplace-product-4c531ae5",
+              "productName": "Cool Product Name",
+              "vendorName": "STACKIT",
+              "vendorPlanId": "custom-plan-id-123",
+              "vendorProductId": "custom-vendor-id-123",
+              "vendorWebsiteUrl": ""
+            },
+            "projectId": "14fef715-4ef3-4b10-8789-cd7f9bd09421",
+            "subscriptionId": "14fef715-4ef3-4b10-8789-cd7f9bd09421",
+            "terminatesAt": "2022-06-11T23:59:59Z",
+            "validFrom": "2022-05-12T00:00:00Z",
+            "validUntil": "2022-06-11T23:59:59Z"
+          }
+  - name: Bad Request
+    request:
+      url: "{{baseUrl}}/v1/vendors/projects/:projectId/resolve-customer"
+      method: POST
+      params:
+        - name: projectId
+          value: 14fef715-4ef3-4b10-8789-cd7f9bd09421
+          type: path
+          description: The project ID.
+      body:
+        type: json
+        data: |-
+          {
+            "token": "VGhpcyBpcyBhIHRva2VuIGJ5IGRvbW15IHRva2VuIGFuZCBiYXNlNjQgZW5jb2RlZA=="
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": "Bad Request",
+            "message": "Validation of {param-one} failed.",
+            "path": "/path/where/error/occurred",
+            "status": 400,
+            "timeStamp": "2019-08-24T14:15:22Z"
+          }
+  - name: Unauthorized
+    request:
+      url: "{{baseUrl}}/v1/vendors/projects/:projectId/resolve-customer"
+      method: POST
+      params:
+        - name: projectId
+          value: 14fef715-4ef3-4b10-8789-cd7f9bd09421
+          type: path
+          description: The project ID.
+      body:
+        type: json
+        data: |-
+          {
+            "token": "VGhpcyBpcyBhIHRva2VuIGJ5IGRvbW15IHRva2VuIGFuZCBiYXNlNjQgZW5jb2RlZA=="
+          }
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": "Unauthorized",
+            "message": "Access to this resource requires authentication.",
+            "path": "/path/where/error/occurred",
+            "status": 401,
+            "timeStamp": "2019-08-24T14:15:22Z"
+          }
+  - name: Forbidden
+    request:
+      url: "{{baseUrl}}/v1/vendors/projects/:projectId/resolve-customer"
+      method: POST
+      params:
+        - name: projectId
+          value: 14fef715-4ef3-4b10-8789-cd7f9bd09421
+          type: path
+          description: The project ID.
+      body:
+        type: json
+        data: |-
+          {
+            "token": "VGhpcyBpcyBhIHRva2VuIGJ5IGRvbW15IHRva2VuIGFuZCBiYXNlNjQgZW5jb2RlZA=="
+          }
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": "Forbidden",
+            "message": "Access to this resource is forbidden.",
+            "path": "/path/where/error/occurred",
+            "status": 403,
+            "timeStamp": "2019-08-24T14:15:22Z"
+          }
+  - name: Not Found
+    request:
+      url: "{{baseUrl}}/v1/vendors/projects/:projectId/resolve-customer"
+      method: POST
+      params:
+        - name: projectId
+          value: 14fef715-4ef3-4b10-8789-cd7f9bd09421
+          type: path
+          description: The project ID.
+      body:
+        type: json
+        data: |-
+          {
+            "token": "VGhpcyBpcyBhIHRva2VuIGJ5IGRvbW15IHRva2VuIGFuZCBiYXNlNjQgZW5jb2RlZA=="
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": "Not Found",
+            "message": "{resource} not found.",
+            "path": "/path/where/error/occurred",
+            "status": 404,
+            "timeStamp": "2019-08-24T14:15:22Z"
+          }
+
 docs: Get details about the requested subscription.

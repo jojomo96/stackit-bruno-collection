@@ -29,4 +29,184 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 201 Response
+    description: Created
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/service-accounts/:serviceAccountEmail/access-tokens"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The ID of the project.
+        - name: serviceAccountEmail
+          value: ""
+          type: path
+          description: The email of the Service Account.
+      body:
+        type: json
+        data: |-
+          {
+            "ttlDays": 0
+          }
+    response:
+      status: 201
+      statusText: Created
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "active": false,
+            "createdAt": "",
+            "id": "",
+            "token": "",
+            "validUntil": ""
+          }
+  - name: 400 Response
+    description: Invalid User Token
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/service-accounts/:serviceAccountEmail/access-tokens"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The ID of the project.
+        - name: serviceAccountEmail
+          value: ""
+          type: path
+          description: The email of the Service Account.
+      body:
+        type: json
+        data: |-
+          {
+            "ttlDays": 0
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": "Bad Request",
+            "message": "Some information about what caused the Error",
+            "path": "/v1/path/which/returned/error",
+            "status": 400,
+            "timeStamp": "2019-08-24T14:15:22Z"
+          }
+  - name: 401 Response
+    description: Unauthorized
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/service-accounts/:serviceAccountEmail/access-tokens"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The ID of the project.
+        - name: serviceAccountEmail
+          value: ""
+          type: path
+          description: The email of the Service Account.
+      body:
+        type: json
+        data: |-
+          {
+            "ttlDays": 0
+          }
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": {
+              "code": 401,
+              "message": "The request could not be authorized",
+              "status": "Unauthorized"
+            }
+          }
+  - name: Forbidden Example
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/service-accounts/:serviceAccountEmail/access-tokens"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The ID of the project.
+        - name: serviceAccountEmail
+          value: ""
+          type: path
+          description: The email of the Service Account.
+      body:
+        type: json
+        data: |-
+          {
+            "ttlDays": 0
+          }
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": "Forbidden",
+            "message": "Service Account does not belong to Project or no access to project",
+            "path": "/v1/path/which/returned/error",
+            "status": 403,
+            "timeStamp": "2019-08-24T14:15:22Z"
+          }
+  - name: NotFound Example
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/service-accounts/:serviceAccountEmail/access-tokens"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The ID of the project.
+        - name: serviceAccountEmail
+          value: ""
+          type: path
+          description: The email of the Service Account.
+      body:
+        type: json
+        data: |-
+          {
+            "ttlDays": 0
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": "Not Found",
+            "message": "{resource} not found",
+            "path": "/v2/path/which/returned/error/{resource}",
+            "status": 404,
+            "timeStamp": "2019-08-24T14:15:22Z"
+          }
+
 docs: Create an Access Token for a Service Account. The service token can be then used for API calls. Save the response token, as it is not recoverable later. Token metadata can be requested until the token is not expired. A token cannot be created using another token from the same service account. Consider using service account keys instead as a more secure and automation friendly solution.

@@ -31,4 +31,157 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: runShellTemplateExample
+    request:
+      url: "{{baseUrl}}/v2beta/projects/:projectId/regions/:region/servers/:serverId/command-templates/:commandTemplateName"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: ID of the project
+        - name: serverId
+          value: ""
+          type: path
+          description: Server ID of the machine
+        - name: commandTemplateName
+          value: ""
+          type: path
+          description: Name of the template
+        - name: region
+          value: eu01
+          type: path
+          description: region
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "description": "Run Custom Shell Script",
+            "name": "RunShellScript",
+            "osType": [
+              "linux"
+            ],
+            "parametersSchema": {
+              "properties": {
+                "script": {
+                  "title": "Script",
+                  "type": "string"
+                }
+              }
+            },
+            "title": "Run Shell Script"
+          }
+  - name: 400 Response
+    description: Bad Request
+    request:
+      url: "{{baseUrl}}/v2beta/projects/:projectId/regions/:region/servers/:serverId/command-templates/:commandTemplateName"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: ID of the project
+        - name: serverId
+          value: ""
+          type: path
+          description: Server ID of the machine
+        - name: commandTemplateName
+          value: ""
+          type: path
+          description: Name of the template
+        - name: region
+          value: eu01
+          type: path
+          description: region
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "",
+            "status": ""
+          }
+  - name: 401 Response
+    description: Unauthorized
+    request:
+      url: "{{baseUrl}}/v2beta/projects/:projectId/regions/:region/servers/:serverId/command-templates/:commandTemplateName"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: ID of the project
+        - name: serverId
+          value: ""
+          type: path
+          description: Server ID of the machine
+        - name: commandTemplateName
+          value: ""
+          type: path
+          description: Name of the template
+        - name: region
+          value: eu01
+          type: path
+          description: region
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "",
+            "status": ""
+          }
+  - name: 404 Response
+    description: Not Found
+    request:
+      url: "{{baseUrl}}/v2beta/projects/:projectId/regions/:region/servers/:serverId/command-templates/:commandTemplateName"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: ID of the project
+        - name: serverId
+          value: ""
+          type: path
+          description: Server ID of the machine
+        - name: commandTemplateName
+          value: ""
+          type: path
+          description: Name of the template
+        - name: region
+          value: eu01
+          type: path
+          description: region
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "",
+            "status": ""
+          }
+
 docs: Returns details about a command template

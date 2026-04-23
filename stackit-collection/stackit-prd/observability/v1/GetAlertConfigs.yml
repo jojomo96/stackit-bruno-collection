@@ -21,4 +21,145 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 200 Response
+    description: Get alert config
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/alertconfigs"
+      method: GET
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "data": {
+              "global": {
+                "resolveTimeout": "5m",
+                "smtpAuthIdentity": "*****",
+                "smtpAuthPassword": "*****",
+                "smtpAuthUsername": "*****",
+                "smtpFrom": "alertmanager@example.org",
+                "smtpSmarthost": "*****"
+              },
+              "inhibitRules": [
+                {
+                  "equal": [
+                    "alertname",
+                    "cluster",
+                    "service"
+                  ],
+                  "sourceMatch": {
+                    "severity": "criticals"
+                  },
+                  "targetMatch": {
+                    "severity": "warning"
+                  }
+                }
+              ],
+              "receivers": [
+                {
+                  "emailConfigs": [
+                    {
+                      "to": "team-X+alerts@example.org"
+                    }
+                  ],
+                  "name": "team-X-mails"
+                },
+                {
+                  "emailConfigs": [
+                    {
+                      "to": "team-X+papers@example.org"
+                    }
+                  ],
+                  "name": "team-X-paper"
+                },
+                {
+                  "emailConfigs": [
+                    {
+                      "to": "team-Y+paper@example.org"
+                    }
+                  ],
+                  "name": "team-Y-paper"
+                },
+                {
+                  "emailConfigs": [
+                    {
+                      "to": "team-X+alerts-critical@example.org"
+                    }
+                  ],
+                  "name": "team-X-pager",
+                  "opsgenieConfigs": [
+                    {
+                      "apiKey": "12345678",
+                      "apiUrl": "https://example.opsgenie.org"
+                    }
+                  ]
+                }
+              ],
+              "route": {
+                "continue": false,
+                "groupBy": [
+                  "alertname",
+                  "cluster",
+                  "service"
+                ],
+                "groupInterval": "5m",
+                "groupWait": "30s",
+                "receiver": "team-X-mails",
+                "repeatInterval": "3h",
+                "routes": [
+                  {
+                    "matchRe": {
+                      "service": "^(foo1|foo2|baz)$"
+                    },
+                    "receiver": "team-X-paper"
+                  },
+                  {
+                    "match": {
+                      "service": "files"
+                    },
+                    "receiver": "team-X-pager"
+                  }
+                ]
+              }
+            },
+            "message": "Successfully got alert config"
+          }
+  - name: 403 Response
+    description: You are not authorized
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/alertconfigs"
+      method: GET
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "detail": "You do not have permission to perform this action."
+          }
+
 docs: Get alert config.

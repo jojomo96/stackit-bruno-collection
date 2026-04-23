@@ -56,6 +56,377 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 200 Response
+    description: OK
+    request:
+      url: "{{baseUrl}}/v2beta2/projects/:projectId/regions/:region/load-balancers/:name/target-pools/:targetPoolName"
+      method: PUT
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: ""
+          type: path
+        - name: name
+          value: ""
+          type: path
+        - name: targetPoolName
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "activeHealthCheck": {
+              "healthyThreshold": 0,
+              "httpHealthChecks": {
+                "okStatuses": [],
+                "path": ""
+              },
+              "interval": "3s",
+              "intervalJitter": "3s",
+              "timeout": "3s",
+              "unhealthyThreshold": 0
+            },
+            "name": "my-target-pool",
+            "targetPort": 5732,
+            "targets": [
+              {
+                "displayName": "my-target",
+                "ip": "192.0.2.5"
+              }
+            ],
+            "tlsConfig": {
+              "customCa": "",
+              "enabled": false,
+              "skipCertificateValidation": false
+            }
+          }
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "activeHealthCheck": {
+              "healthyThreshold": 0,
+              "httpHealthChecks": {
+                "okStatuses": [],
+                "path": ""
+              },
+              "interval": "3s",
+              "intervalJitter": "3s",
+              "timeout": "3s",
+              "unhealthyThreshold": 0
+            },
+            "name": "my-target-pool",
+            "targetPort": 5732,
+            "targets": [
+              {
+                "displayName": "my-target",
+                "ip": "192.0.2.5"
+              }
+            ],
+            "tlsConfig": {
+              "customCa": "",
+              "enabled": false,
+              "skipCertificateValidation": false
+            }
+          }
+  - name: 400 Response
+    description: One or more fields are invalid.
+    request:
+      url: "{{baseUrl}}/v2beta2/projects/:projectId/regions/:region/load-balancers/:name/target-pools/:targetPoolName"
+      method: PUT
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: ""
+          type: path
+        - name: name
+          value: ""
+          type: path
+        - name: targetPoolName
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "activeHealthCheck": {
+              "healthyThreshold": 0,
+              "httpHealthChecks": {
+                "okStatuses": [],
+                "path": ""
+              },
+              "interval": "3s",
+              "intervalJitter": "3s",
+              "timeout": "3s",
+              "unhealthyThreshold": 0
+            },
+            "name": "my-target-pool",
+            "targetPort": 5732,
+            "targets": [
+              {
+                "displayName": "my-target",
+                "ip": "192.0.2.5"
+              }
+            ],
+            "tlsConfig": {
+              "customCa": "",
+              "enabled": false,
+              "skipCertificateValidation": false
+            }
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      body:
+        type: text
+        data: ""
+  - name: 401 Response
+    description: Unauthorized
+    request:
+      url: "{{baseUrl}}/v2beta2/projects/:projectId/regions/:region/load-balancers/:name/target-pools/:targetPoolName"
+      method: PUT
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: ""
+          type: path
+        - name: name
+          value: ""
+          type: path
+        - name: targetPoolName
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "activeHealthCheck": {
+              "healthyThreshold": 0,
+              "httpHealthChecks": {
+                "okStatuses": [],
+                "path": ""
+              },
+              "interval": "3s",
+              "intervalJitter": "3s",
+              "timeout": "3s",
+              "unhealthyThreshold": 0
+            },
+            "name": "my-target-pool",
+            "targetPort": 5732,
+            "targets": [
+              {
+                "displayName": "my-target",
+                "ip": "192.0.2.5"
+              }
+            ],
+            "tlsConfig": {
+              "customCa": "",
+              "enabled": false,
+              "skipCertificateValidation": false
+            }
+          }
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: "*/*"
+      body:
+        type: text
+        data: |-
+          {
+            "code": 0,
+            "details": [
+              {
+                "@type": ""
+              }
+            ],
+            "message": ""
+          }
+  - name: 403 Response
+    description: this project_id is not allowed to try this API
+    request:
+      url: "{{baseUrl}}/v2beta2/projects/:projectId/regions/:region/load-balancers/:name/target-pools/:targetPoolName"
+      method: PUT
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: ""
+          type: path
+        - name: name
+          value: ""
+          type: path
+        - name: targetPoolName
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "activeHealthCheck": {
+              "healthyThreshold": 0,
+              "httpHealthChecks": {
+                "okStatuses": [],
+                "path": ""
+              },
+              "interval": "3s",
+              "intervalJitter": "3s",
+              "timeout": "3s",
+              "unhealthyThreshold": 0
+            },
+            "name": "my-target-pool",
+            "targetPort": 5732,
+            "targets": [
+              {
+                "displayName": "my-target",
+                "ip": "192.0.2.5"
+              }
+            ],
+            "tlsConfig": {
+              "customCa": "",
+              "enabled": false,
+              "skipCertificateValidation": false
+            }
+          }
+    response:
+      status: 403
+      statusText: Forbidden
+      body:
+        type: text
+        data: ""
+  - name: 500 Response
+    description: internal error - please retry again later or contact support if the issue persists
+    request:
+      url: "{{baseUrl}}/v2beta2/projects/:projectId/regions/:region/load-balancers/:name/target-pools/:targetPoolName"
+      method: PUT
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: ""
+          type: path
+        - name: name
+          value: ""
+          type: path
+        - name: targetPoolName
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "activeHealthCheck": {
+              "healthyThreshold": 0,
+              "httpHealthChecks": {
+                "okStatuses": [],
+                "path": ""
+              },
+              "interval": "3s",
+              "intervalJitter": "3s",
+              "timeout": "3s",
+              "unhealthyThreshold": 0
+            },
+            "name": "my-target-pool",
+            "targetPort": 5732,
+            "targets": [
+              {
+                "displayName": "my-target",
+                "ip": "192.0.2.5"
+              }
+            ],
+            "tlsConfig": {
+              "customCa": "",
+              "enabled": false,
+              "skipCertificateValidation": false
+            }
+          }
+    response:
+      status: 500
+      statusText: Internal Server Error
+      body:
+        type: text
+        data: ""
+  - name: default Response
+    description: Default error response
+    request:
+      url: "{{baseUrl}}/v2beta2/projects/:projectId/regions/:region/load-balancers/:name/target-pools/:targetPoolName"
+      method: PUT
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: ""
+          type: path
+        - name: name
+          value: ""
+          type: path
+        - name: targetPoolName
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "activeHealthCheck": {
+              "healthyThreshold": 0,
+              "httpHealthChecks": {
+                "okStatuses": [],
+                "path": ""
+              },
+              "interval": "3s",
+              "intervalJitter": "3s",
+              "timeout": "3s",
+              "unhealthyThreshold": 0
+            },
+            "name": "my-target-pool",
+            "targetPort": 5732,
+            "targets": [
+              {
+                "displayName": "my-target",
+                "ip": "192.0.2.5"
+              }
+            ],
+            "tlsConfig": {
+              "customCa": "",
+              "enabled": false,
+              "skipCertificateValidation": false
+            }
+          }
+    response:
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 0,
+            "details": [
+              {
+                "@type": ""
+              }
+            ],
+            "message": ""
+          }
+
 docs: |-
   Replaces the content of a specific target pool in the Application Load Balancer (useful for adding or removing target servers).
    Only updates the specified target pool, leaving others unchanged.

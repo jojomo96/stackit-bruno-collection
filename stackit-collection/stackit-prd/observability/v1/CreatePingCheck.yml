@@ -27,4 +27,140 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 200 Response
+    description: Get added check (pingCheck) and all configured checks (pingChecks).
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/ping-checks"
+      method: POST
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "url": ""
+          }
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "Successfully created ping check",
+            "pingCheck": {
+              "id": "9fce74d47c54c182ad73cadc1b4fbfe8",
+              "url": "example-2.org"
+            },
+            "pingChecks": [
+              {
+                "id": "1bdf72e04d6b50c82a48c7e4dd38cc69",
+                "url": "example.org"
+              },
+              {
+                "id": "9fce74d47c54c182ad73cadc1b4fbfe8",
+                "url": "example-2.org"
+              }
+            ]
+          }
+  - name: Global error
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/ping-checks"
+      method: POST
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "url": ""
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          [
+            "instance is not ready"
+          ]
+  - name: Field specific error
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/ping-checks"
+      method: POST
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "url": ""
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "url": [
+              "This field may not be blank."
+            ]
+          }
+  - name: 403 Response
+    description: You are not authorized.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/ping-checks"
+      method: POST
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "url": ""
+          }
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "detail": "You do not have permission to perform this action."
+          }
+
 docs: Create ping check.

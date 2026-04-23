@@ -17,4 +17,112 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 202 Response
+    description: Accepted
+    request:
+      url: "{{baseUrl}}/v1/inquiries"
+      method: POST
+      body:
+        type: json
+        data: "{}"
+    response:
+      status: 202
+      statusText: Accepted
+      body:
+        type: text
+        data: ""
+  - name: Bad Request
+    request:
+      url: "{{baseUrl}}/v1/inquiries"
+      method: POST
+      body:
+        type: json
+        data: "{}"
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": "Bad Request",
+            "message": "Validation of {param-one} failed.",
+            "path": "/path/where/error/occurred",
+            "status": 400,
+            "timeStamp": "2019-08-24T14:15:22Z"
+          }
+  - name: Unauthorized
+    request:
+      url: "{{baseUrl}}/v1/inquiries"
+      method: POST
+      body:
+        type: json
+        data: "{}"
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": "Unauthorized",
+            "message": "Access to this resource requires authentication.",
+            "path": "/path/where/error/occurred",
+            "status": 401,
+            "timeStamp": "2019-08-24T14:15:22Z"
+          }
+  - name: Forbidden
+    request:
+      url: "{{baseUrl}}/v1/inquiries"
+      method: POST
+      body:
+        type: json
+        data: "{}"
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": "Forbidden",
+            "message": "Access to this resource is forbidden.",
+            "path": "/path/where/error/occurred",
+            "status": 403,
+            "timeStamp": "2019-08-24T14:15:22Z"
+          }
+  - name: Not Found
+    request:
+      url: "{{baseUrl}}/v1/inquiries"
+      method: POST
+      body:
+        type: json
+        data: "{}"
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": "Not Found",
+            "message": "{resource} not found.",
+            "path": "/path/where/error/occurred",
+            "status": 404,
+            "timeStamp": "2019-08-24T14:15:22Z"
+          }
+
 docs: Create an inquiry to contact sales, become a vendor, request a private plan, register for testing, or suggest a product. Requests are limited to 10 per 5 minutes.

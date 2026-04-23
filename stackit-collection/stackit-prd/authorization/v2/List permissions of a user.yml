@@ -30,4 +30,161 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 200 Response
+    description: OK
+    request:
+      url: "{{baseUrl}}/v2/users/:email/permissions"
+      method: GET
+      params:
+        - name: email
+          value: ""
+          type: path
+        - name: resource
+          value: ""
+          type: query
+          disabled: true
+        - name: resourceType
+          value: ""
+          type: query
+          disabled: true
+        - name: permissions
+          value: "[]"
+          type: query
+          disabled: true
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "items": [
+              {
+                "permissions": [
+                  {
+                    "description": "Can create projects in an organization",
+                    "name": "iam.member.read"
+                  }
+                ],
+                "resourceId": "schwarz-it-kg-WJACUK1",
+                "resourceType": "organization"
+              }
+            ]
+          }
+  - name: 400 Response
+    description: Malformed input
+    request:
+      url: "{{baseUrl}}/v2/users/:email/permissions"
+      method: GET
+      params:
+        - name: email
+          value: ""
+          type: path
+        - name: resource
+          value: ""
+          type: query
+          disabled: true
+        - name: resourceType
+          value: ""
+          type: query
+          disabled: true
+        - name: permissions
+          value: "[]"
+          type: query
+          disabled: true
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": "Bad Request",
+            "message": "Some information about what caused the Error",
+            "path": "/v1/path/which/returned/error",
+            "status": 400,
+            "timeStamp": "2019-08-24T14:15:22Z"
+          }
+  - name: 401 Response
+    description: Unauthorized
+    request:
+      url: "{{baseUrl}}/v2/users/:email/permissions"
+      method: GET
+      params:
+        - name: email
+          value: ""
+          type: path
+        - name: resource
+          value: ""
+          type: query
+          disabled: true
+        - name: resourceType
+          value: ""
+          type: query
+          disabled: true
+        - name: permissions
+          value: "[]"
+          type: query
+          disabled: true
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": "Bad Request",
+            "message": "Some information about what caused the Error",
+            "path": "/v1/path/which/returned/error",
+            "status": 400,
+            "timeStamp": "2019-08-24T14:15:22Z"
+          }
+  - name: 403 Response
+    description: Forbidden
+    request:
+      url: "{{baseUrl}}/v2/users/:email/permissions"
+      method: GET
+      params:
+        - name: email
+          value: ""
+          type: path
+        - name: resource
+          value: ""
+          type: query
+          disabled: true
+        - name: resourceType
+          value: ""
+          type: query
+          disabled: true
+        - name: permissions
+          value: "[]"
+          type: query
+          disabled: true
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": "Bad Request",
+            "message": "Some information about what caused the Error",
+            "path": "/v1/path/which/returned/error",
+            "status": 400,
+            "timeStamp": "2019-08-24T14:15:22Z"
+          }
+
 docs: List permissions of a user. An administrative access is needed to list any user's permissions, while the user can do it on his/her own email. Lists every resource of the given type where the user has any effective permissions. When requested, also lists why the permission is present.

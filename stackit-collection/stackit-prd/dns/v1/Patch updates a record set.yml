@@ -40,4 +40,222 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 202 Response
+    description: Accepted
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/zones/:zoneId/rrsets/:rrSetId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: zoneId
+          value: ""
+          type: path
+          description: zone id
+        - name: rrSetId
+          value: ""
+          type: path
+          description: record set id
+      body:
+        type: json
+        data: |-
+          {
+            "comment": "this is our example comment",
+            "name": "example.com.",
+            "records": [
+              {
+                "content": "192.0.2.1"
+              }
+            ],
+            "ttl": 3600
+          }
+    response:
+      status: 202
+      statusText: Accepted
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "Success"
+          }
+  - name: 400 Response
+    description: Bad Request
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/zones/:zoneId/rrsets/:rrSetId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: zoneId
+          value: ""
+          type: path
+          description: zone id
+        - name: rrSetId
+          value: ""
+          type: path
+          description: record set id
+      body:
+        type: json
+        data: |-
+          {
+            "comment": "this is our example comment",
+            "name": "example.com.",
+            "records": [
+              {
+                "content": "192.0.2.1"
+              }
+            ],
+            "ttl": 3600
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "Success"
+          }
+  - name: 401 Response
+    description: Unauthorized
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/zones/:zoneId/rrsets/:rrSetId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: zoneId
+          value: ""
+          type: path
+          description: zone id
+        - name: rrSetId
+          value: ""
+          type: path
+          description: record set id
+      body:
+        type: json
+        data: |-
+          {
+            "comment": "this is our example comment",
+            "name": "example.com.",
+            "records": [
+              {
+                "content": "192.0.2.1"
+              }
+            ],
+            "ttl": 3600
+          }
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": "Error",
+            "message": "Error message"
+          }
+  - name: 404 Response
+    description: Not Found
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/zones/:zoneId/rrsets/:rrSetId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: zoneId
+          value: ""
+          type: path
+          description: zone id
+        - name: rrSetId
+          value: ""
+          type: path
+          description: record set id
+      body:
+        type: json
+        data: |-
+          {
+            "comment": "this is our example comment",
+            "name": "example.com.",
+            "records": [
+              {
+                "content": "192.0.2.1"
+              }
+            ],
+            "ttl": 3600
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "Success"
+          }
+  - name: 502 Response
+    description: Bad Gateway
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/zones/:zoneId/rrsets/:rrSetId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: zoneId
+          value: ""
+          type: path
+          description: zone id
+        - name: rrSetId
+          value: ""
+          type: path
+          description: record set id
+      body:
+        type: json
+        data: |-
+          {
+            "comment": "this is our example comment",
+            "name": "example.com.",
+            "records": [
+              {
+                "content": "192.0.2.1"
+              }
+            ],
+            "ttl": 3600
+          }
+    response:
+      status: 502
+      statusText: Bad Gateway
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "Success"
+          }
+
 docs: Patch record set

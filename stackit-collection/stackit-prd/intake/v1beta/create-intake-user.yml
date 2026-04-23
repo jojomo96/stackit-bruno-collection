@@ -42,4 +42,218 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 201 Response
+    description: Intake user was created successfully
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/regions/:regionId/intakes/:intakeId/users"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the resource is located in.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region name the resource is located in.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region name the resource is located in.
+          disabled: true
+        - name: intakeId
+          value: ""
+          type: path
+          description: The intake UUID.
+      body:
+        type: json
+        data: |-
+          {
+            "description": "",
+            "displayName": "",
+            "labels": {},
+            "password": "",
+            "type": "intake"
+          }
+    response:
+      status: 201
+      statusText: Created
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "clientConfig": {
+              "java": "bootstrap.servers=5dce5c86-875b-41ad-b9cb-78972df3f54e.intake.eu01.test.onstackit.cloud:9094\nsecurity.protocol=SASL_SSL\nsasl.mechanism=SCRAM-SHA-512\nsasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required \\\n  username=\"intake-user-e9100a2a-932f-4c47-bb27-292231a20a2f\" \\\n  password=\"<plain-text-intake-user-password>\";\n",
+              "librdkafka": "bootstrap.servers=5dce5c86-875b-41ad-b9cb-78972df3f54e.intake.eu01.test.onstackit.cloud:9094\nsecurity.protocol=SASL_SSL\nsasl.mechanism=SCRAM-SHA-512\nsasl.username=intake-user-e9100a2a-932f-4c47-bb27-292231a20a2f\nsasl.password=<plain-text-intake-user-password>\n"
+            },
+            "create_time": "",
+            "description": "",
+            "displayName": "",
+            "id": "",
+            "labels": {},
+            "state": "reconciling",
+            "type": "intake",
+            "user": ""
+          }
+  - name: 400 Response
+    description: Bad Request. The data provided by the client did not match expectations.
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/regions/:regionId/intakes/:intakeId/users"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the resource is located in.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region name the resource is located in.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region name the resource is located in.
+          disabled: true
+        - name: intakeId
+          value: ""
+          type: path
+          description: The intake UUID.
+      body:
+        type: json
+        data: |-
+          {
+            "description": "",
+            "displayName": "",
+            "labels": {},
+            "password": "",
+            "type": "intake"
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      body:
+        type: text
+        data: ""
+  - name: 401 Response
+    description: Unauthorized. You may have provided no or wrong credentials.
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/regions/:regionId/intakes/:intakeId/users"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the resource is located in.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region name the resource is located in.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region name the resource is located in.
+          disabled: true
+        - name: intakeId
+          value: ""
+          type: path
+          description: The intake UUID.
+      body:
+        type: json
+        data: |-
+          {
+            "description": "",
+            "displayName": "",
+            "labels": {},
+            "password": "",
+            "type": "intake"
+          }
+    response:
+      status: 401
+      statusText: Unauthorized
+      body:
+        type: text
+        data: ""
+  - name: 409 Response
+    description: Conflict. The resource has been modified by some other client. Please try again.
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/regions/:regionId/intakes/:intakeId/users"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the resource is located in.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region name the resource is located in.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region name the resource is located in.
+          disabled: true
+        - name: intakeId
+          value: ""
+          type: path
+          description: The intake UUID.
+      body:
+        type: json
+        data: |-
+          {
+            "description": "",
+            "displayName": "",
+            "labels": {},
+            "password": "",
+            "type": "intake"
+          }
+    response:
+      status: 409
+      statusText: Conflict
+      body:
+        type: text
+        data: ""
+  - name: 500 Response
+    description: Internal server error. The application experienced some unexpected situation.
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/regions/:regionId/intakes/:intakeId/users"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the resource is located in.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region name the resource is located in.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region name the resource is located in.
+          disabled: true
+        - name: intakeId
+          value: ""
+          type: path
+          description: The intake UUID.
+      body:
+        type: json
+        data: |-
+          {
+            "description": "",
+            "displayName": "",
+            "labels": {},
+            "password": "",
+            "type": "intake"
+          }
+    response:
+      status: 500
+      statusText: Internal Server Error
+      body:
+        type: text
+        data: ""
+
 docs: Creates a new user for this intake.

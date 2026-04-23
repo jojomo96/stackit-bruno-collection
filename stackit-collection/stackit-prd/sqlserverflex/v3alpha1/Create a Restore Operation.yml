@@ -36,6 +36,669 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 202 Response (Restore from a Managed Backup)
+    description: "Import was accepted and is now processed "
+    request:
+      url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId/restores"
+      method: POST
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: instanceId
+          value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+          type: path
+          description: The ID of the instance.
+      body:
+        type: json
+        data: |-
+          {
+            "database_name": "customer_production_db",
+            "source": {
+              "type": "BACKUP"
+            }
+          }
+    response:
+      status: 202
+      statusText: Accepted
+      body:
+        type: text
+        data: ""
+  - name: 202 Response (Restore from an External S3 Bucket)
+    description: "Import was accepted and is now processed "
+    request:
+      url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId/restores"
+      method: POST
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: instanceId
+          value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+          type: path
+          description: The ID of the instance.
+      body:
+        type: json
+        data: |-
+          {
+            "database_name": "customer_production_db_from_s3",
+            "source": {
+              "database_owner": "MyUser",
+              "logging_guid": "1",
+              "s3_details": {
+                "s3_access_key": "AKIAIOSFODNN7EXAMPLE",
+                "s3_access_secret": "Aa1Bb~2Cc3.-Dd4Ee5Ff6Gg7Hh8Ii9_Jj0Kk1Ll2",
+                "s3_bucket": "http://mein-beispiel-bucket.s3.eu-central-1.amazonaws.com/",
+                "s3_files": [
+                  {
+                    "file_number": 1,
+                    "file_path": "http://mein-beispiel-bucket.s3.eu-central-1.amazonaws.com/lummerland/peter_pab.bak"
+                  }
+                ]
+              },
+              "type": "EXTERNAL_S3"
+            }
+          }
+    response:
+      status: 202
+      statusText: Accepted
+      body:
+        type: text
+        data: ""
+  - name: 400 Response (Restore from a Managed Backup)
+    description: Bad Request
+    request:
+      url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId/restores"
+      method: POST
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: instanceId
+          value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+          type: path
+          description: The ID of the instance.
+      body:
+        type: json
+        data: |-
+          {
+            "database_name": "customer_production_db",
+            "source": {
+              "type": "BACKUP"
+            }
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "database not found",
+            "traceId": "885bef8bbc18649c",
+            "type": "INTERNAL_ERROR"
+          }
+  - name: 400 Response (Restore from an External S3 Bucket)
+    description: Bad Request
+    request:
+      url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId/restores"
+      method: POST
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: instanceId
+          value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+          type: path
+          description: The ID of the instance.
+      body:
+        type: json
+        data: |-
+          {
+            "database_name": "customer_production_db_from_s3",
+            "source": {
+              "database_owner": "MyUser",
+              "logging_guid": "1",
+              "s3_details": {
+                "s3_access_key": "AKIAIOSFODNN7EXAMPLE",
+                "s3_access_secret": "Aa1Bb~2Cc3.-Dd4Ee5Ff6Gg7Hh8Ii9_Jj0Kk1Ll2",
+                "s3_bucket": "http://mein-beispiel-bucket.s3.eu-central-1.amazonaws.com/",
+                "s3_files": [
+                  {
+                    "file_number": 1,
+                    "file_path": "http://mein-beispiel-bucket.s3.eu-central-1.amazonaws.com/lummerland/peter_pab.bak"
+                  }
+                ]
+              },
+              "type": "EXTERNAL_S3"
+            }
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "database not found",
+            "traceId": "885bef8bbc18649c",
+            "type": "INTERNAL_ERROR"
+          }
+  - name: 401 Response (Restore from a Managed Backup)
+    description: User is not allowed to perform this operation or credentials are not correct
+    request:
+      url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId/restores"
+      method: POST
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: instanceId
+          value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+          type: path
+          description: The ID of the instance.
+      body:
+        type: json
+        data: |-
+          {
+            "database_name": "customer_production_db",
+            "source": {
+              "type": "BACKUP"
+            }
+          }
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "database not found",
+            "traceId": "885bef8bbc18649c",
+            "type": "INTERNAL_ERROR"
+          }
+  - name: 401 Response (Restore from an External S3 Bucket)
+    description: User is not allowed to perform this operation or credentials are not correct
+    request:
+      url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId/restores"
+      method: POST
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: instanceId
+          value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+          type: path
+          description: The ID of the instance.
+      body:
+        type: json
+        data: |-
+          {
+            "database_name": "customer_production_db_from_s3",
+            "source": {
+              "database_owner": "MyUser",
+              "logging_guid": "1",
+              "s3_details": {
+                "s3_access_key": "AKIAIOSFODNN7EXAMPLE",
+                "s3_access_secret": "Aa1Bb~2Cc3.-Dd4Ee5Ff6Gg7Hh8Ii9_Jj0Kk1Ll2",
+                "s3_bucket": "http://mein-beispiel-bucket.s3.eu-central-1.amazonaws.com/",
+                "s3_files": [
+                  {
+                    "file_number": 1,
+                    "file_path": "http://mein-beispiel-bucket.s3.eu-central-1.amazonaws.com/lummerland/peter_pab.bak"
+                  }
+                ]
+              },
+              "type": "EXTERNAL_S3"
+            }
+          }
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "database not found",
+            "traceId": "885bef8bbc18649c",
+            "type": "INTERNAL_ERROR"
+          }
+  - name: 403 Response (Restore from a Managed Backup)
+    description: "Forbidden: No access for the requested resource."
+    request:
+      url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId/restores"
+      method: POST
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: instanceId
+          value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+          type: path
+          description: The ID of the instance.
+      body:
+        type: json
+        data: |-
+          {
+            "database_name": "customer_production_db",
+            "source": {
+              "type": "BACKUP"
+            }
+          }
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "database not found",
+            "traceId": "885bef8bbc18649c",
+            "type": "INTERNAL_ERROR"
+          }
+  - name: 403 Response (Restore from an External S3 Bucket)
+    description: "Forbidden: No access for the requested resource."
+    request:
+      url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId/restores"
+      method: POST
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: instanceId
+          value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+          type: path
+          description: The ID of the instance.
+      body:
+        type: json
+        data: |-
+          {
+            "database_name": "customer_production_db_from_s3",
+            "source": {
+              "database_owner": "MyUser",
+              "logging_guid": "1",
+              "s3_details": {
+                "s3_access_key": "AKIAIOSFODNN7EXAMPLE",
+                "s3_access_secret": "Aa1Bb~2Cc3.-Dd4Ee5Ff6Gg7Hh8Ii9_Jj0Kk1Ll2",
+                "s3_bucket": "http://mein-beispiel-bucket.s3.eu-central-1.amazonaws.com/",
+                "s3_files": [
+                  {
+                    "file_number": 1,
+                    "file_path": "http://mein-beispiel-bucket.s3.eu-central-1.amazonaws.com/lummerland/peter_pab.bak"
+                  }
+                ]
+              },
+              "type": "EXTERNAL_S3"
+            }
+          }
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "database not found",
+            "traceId": "885bef8bbc18649c",
+            "type": "INTERNAL_ERROR"
+          }
+  - name: 404 Response (Restore from a Managed Backup)
+    description: "Not found: The requested resource was not found."
+    request:
+      url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId/restores"
+      method: POST
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: instanceId
+          value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+          type: path
+          description: The ID of the instance.
+      body:
+        type: json
+        data: |-
+          {
+            "database_name": "customer_production_db",
+            "source": {
+              "type": "BACKUP"
+            }
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "database not found",
+            "traceId": "885bef8bbc18649c",
+            "type": "INTERNAL_ERROR"
+          }
+  - name: 404 Response (Restore from an External S3 Bucket)
+    description: "Not found: The requested resource was not found."
+    request:
+      url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId/restores"
+      method: POST
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: instanceId
+          value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+          type: path
+          description: The ID of the instance.
+      body:
+        type: json
+        data: |-
+          {
+            "database_name": "customer_production_db_from_s3",
+            "source": {
+              "database_owner": "MyUser",
+              "logging_guid": "1",
+              "s3_details": {
+                "s3_access_key": "AKIAIOSFODNN7EXAMPLE",
+                "s3_access_secret": "Aa1Bb~2Cc3.-Dd4Ee5Ff6Gg7Hh8Ii9_Jj0Kk1Ll2",
+                "s3_bucket": "http://mein-beispiel-bucket.s3.eu-central-1.amazonaws.com/",
+                "s3_files": [
+                  {
+                    "file_number": 1,
+                    "file_path": "http://mein-beispiel-bucket.s3.eu-central-1.amazonaws.com/lummerland/peter_pab.bak"
+                  }
+                ]
+              },
+              "type": "EXTERNAL_S3"
+            }
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "database not found",
+            "traceId": "885bef8bbc18649c",
+            "type": "INTERNAL_ERROR"
+          }
+  - name: 500 Response (Restore from a Managed Backup)
+    description: "Internal Server Error: An internal occurred while processing the request. Please contact the support or try again later."
+    request:
+      url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId/restores"
+      method: POST
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: instanceId
+          value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+          type: path
+          description: The ID of the instance.
+      body:
+        type: json
+        data: |-
+          {
+            "database_name": "customer_production_db",
+            "source": {
+              "type": "BACKUP"
+            }
+          }
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "database not found",
+            "traceId": "885bef8bbc18649c",
+            "type": "INTERNAL_ERROR"
+          }
+  - name: 500 Response (Restore from an External S3 Bucket)
+    description: "Internal Server Error: An internal occurred while processing the request. Please contact the support or try again later."
+    request:
+      url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId/restores"
+      method: POST
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: instanceId
+          value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+          type: path
+          description: The ID of the instance.
+      body:
+        type: json
+        data: |-
+          {
+            "database_name": "customer_production_db_from_s3",
+            "source": {
+              "database_owner": "MyUser",
+              "logging_guid": "1",
+              "s3_details": {
+                "s3_access_key": "AKIAIOSFODNN7EXAMPLE",
+                "s3_access_secret": "Aa1Bb~2Cc3.-Dd4Ee5Ff6Gg7Hh8Ii9_Jj0Kk1Ll2",
+                "s3_bucket": "http://mein-beispiel-bucket.s3.eu-central-1.amazonaws.com/",
+                "s3_files": [
+                  {
+                    "file_number": 1,
+                    "file_path": "http://mein-beispiel-bucket.s3.eu-central-1.amazonaws.com/lummerland/peter_pab.bak"
+                  }
+                ]
+              },
+              "type": "EXTERNAL_S3"
+            }
+          }
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "database not found",
+            "traceId": "885bef8bbc18649c",
+            "type": "INTERNAL_ERROR"
+          }
+  - name: 501 Response (Restore from a Managed Backup)
+    description: Endpoint not implemented yet
+    request:
+      url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId/restores"
+      method: POST
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: instanceId
+          value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+          type: path
+          description: The ID of the instance.
+      body:
+        type: json
+        data: |-
+          {
+            "database_name": "customer_production_db",
+            "source": {
+              "type": "BACKUP"
+            }
+          }
+    response:
+      status: 501
+      statusText: Not Implemented
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "database not found",
+            "traceId": "885bef8bbc18649c",
+            "type": "INTERNAL_ERROR"
+          }
+  - name: 501 Response (Restore from an External S3 Bucket)
+    description: Endpoint not implemented yet
+    request:
+      url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId/restores"
+      method: POST
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: instanceId
+          value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+          type: path
+          description: The ID of the instance.
+      body:
+        type: json
+        data: |-
+          {
+            "database_name": "customer_production_db_from_s3",
+            "source": {
+              "database_owner": "MyUser",
+              "logging_guid": "1",
+              "s3_details": {
+                "s3_access_key": "AKIAIOSFODNN7EXAMPLE",
+                "s3_access_secret": "Aa1Bb~2Cc3.-Dd4Ee5Ff6Gg7Hh8Ii9_Jj0Kk1Ll2",
+                "s3_bucket": "http://mein-beispiel-bucket.s3.eu-central-1.amazonaws.com/",
+                "s3_files": [
+                  {
+                    "file_number": 1,
+                    "file_path": "http://mein-beispiel-bucket.s3.eu-central-1.amazonaws.com/lummerland/peter_pab.bak"
+                  }
+                ]
+              },
+              "type": "EXTERNAL_S3"
+            }
+          }
+    response:
+      status: 501
+      statusText: Not Implemented
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "database not found",
+            "traceId": "885bef8bbc18649c",
+            "type": "INTERNAL_ERROR"
+          }
+
 docs: |
   Triggers a new restore operation for the specified instance.
   The request body defines the source 

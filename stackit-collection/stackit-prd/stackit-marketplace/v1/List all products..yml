@@ -40,4 +40,267 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 200 Response
+    description: OK
+    request:
+      url: "{{baseUrl}}/v1/catalog/products"
+      method: GET
+      params:
+        - name: cursor
+          value: eyJrZXkiOiJ2YWx1ZSJ9
+          type: query
+          description: A pagination cursor that represents a position in the dataset. If given, results will be returned from the item after the cursor. If not given, results will be returned from the beginning.
+        - name: limit
+          value: "50"
+          type: query
+          description: The maximum number of items to return.
+        - name: locale
+          value: de
+          type: query
+          description: Language of the response.
+          disabled: true
+        - name: locale
+          value: en
+          type: query
+          description: Language of the response.
+        - name: filter
+          value: deliveryMethod eq "SAAS"
+          type: query
+          description: Filter the products based on attributes, e.g., `deliveryMethod eq "SAAS"`. The supported operators are:- `eq` (equal)- `co` (contains; `text co "searching"`)These expressions can be logically linked with `AND` and `OR`. Field names which can be used as filters are:- `text`- `deliveryMethod`- `categories`- `industries`- `vendor.name`- `pricingOptions.priceType`- `pricingOptions.pricingPlan`- `sovereignty`
+        - name: sort
+          value: name:asc
+          type: query
+          description: Sort the products based on attributes and order e.g. `name:asc`. Attributes with scalar types (`createdAt`) or keywords (`name`, `deliveryMethod`, `lifecycleState`, `vendor.name`) can be used as sort criteria. To set the sort order, append `asc` (ascending) or `desc` (descending) to the attribute, e.g. `name:asc`. To sort by multiple attributes, separate them with a comma. E.g `name:asc,price:desc`.
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "cursor": "eyJrZXkiOiJ2YWx1ZSJ9",
+            "facets": {
+              "categories": [
+                {
+                  "count": 15,
+                  "value": "eGovernment"
+                }
+              ],
+              "deliveryMethod": [
+                {
+                  "count": 15,
+                  "value": "eGovernment"
+                }
+              ],
+              "industries": [
+                {
+                  "count": 15,
+                  "value": "eGovernment"
+                }
+              ],
+              "planType": [
+                {
+                  "count": 15,
+                  "value": "eGovernment"
+                }
+              ],
+              "priceType": [
+                {
+                  "count": 15,
+                  "value": "eGovernment"
+                }
+              ],
+              "pricingPlans": [
+                {
+                  "count": 15,
+                  "value": "eGovernment"
+                }
+              ],
+              "sovereignty": [
+                {
+                  "count": 15,
+                  "value": "eGovernment"
+                }
+              ],
+              "vendor": [
+                {
+                  "count": 15,
+                  "value": "eGovernment"
+                }
+              ]
+            },
+            "items": [
+              {
+                "deliveryMethod": "SAAS",
+                "freeTrial": {
+                  "value": 7
+                },
+                "hasAuthenticatedPlanOption": true,
+                "hasFreeTrial": true,
+                "hasPrivatePlanOption": true,
+                "lifecycleState": "PRODUCT_LIVE",
+                "logo": "",
+                "name": "Cool Product Name",
+                "productId": "marketplace-product-4c531ae5",
+                "sovereignty": {
+                  "dataAccess": "WITHIN_EU",
+                  "dataLocation": "ON_STACKIT",
+                  "maturityLevel": "ADVANCED",
+                  "securityStandard": "ISO_27001",
+                  "serviceLocation": "ON_STACKIT"
+                },
+                "summary": "A very custom summary.",
+                "vendor": {
+                  "name": "STACKIT",
+                  "vendorId": "14fef715-4ef3-4b10-8789-cd7f9bd09421",
+                  "websiteUrl": "https://example.com"
+                }
+              }
+            ],
+            "limit": 50,
+            "totalCount": 65
+          }
+  - name: Bad Request
+    request:
+      url: "{{baseUrl}}/v1/catalog/products"
+      method: GET
+      params:
+        - name: cursor
+          value: eyJrZXkiOiJ2YWx1ZSJ9
+          type: query
+          description: A pagination cursor that represents a position in the dataset. If given, results will be returned from the item after the cursor. If not given, results will be returned from the beginning.
+        - name: limit
+          value: "50"
+          type: query
+          description: The maximum number of items to return.
+        - name: locale
+          value: de
+          type: query
+          description: Language of the response.
+          disabled: true
+        - name: locale
+          value: en
+          type: query
+          description: Language of the response.
+        - name: filter
+          value: deliveryMethod eq "SAAS"
+          type: query
+          description: Filter the products based on attributes, e.g., `deliveryMethod eq "SAAS"`. The supported operators are:- `eq` (equal)- `co` (contains; `text co "searching"`)These expressions can be logically linked with `AND` and `OR`. Field names which can be used as filters are:- `text`- `deliveryMethod`- `categories`- `industries`- `vendor.name`- `pricingOptions.priceType`- `pricingOptions.pricingPlan`- `sovereignty`
+        - name: sort
+          value: name:asc
+          type: query
+          description: Sort the products based on attributes and order e.g. `name:asc`. Attributes with scalar types (`createdAt`) or keywords (`name`, `deliveryMethod`, `lifecycleState`, `vendor.name`) can be used as sort criteria. To set the sort order, append `asc` (ascending) or `desc` (descending) to the attribute, e.g. `name:asc`. To sort by multiple attributes, separate them with a comma. E.g `name:asc,price:desc`.
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": "Bad Request",
+            "message": "Validation of {param-one} failed.",
+            "path": "/path/where/error/occurred",
+            "status": 400,
+            "timeStamp": "2019-08-24T14:15:22Z"
+          }
+  - name: Unauthorized
+    request:
+      url: "{{baseUrl}}/v1/catalog/products"
+      method: GET
+      params:
+        - name: cursor
+          value: eyJrZXkiOiJ2YWx1ZSJ9
+          type: query
+          description: A pagination cursor that represents a position in the dataset. If given, results will be returned from the item after the cursor. If not given, results will be returned from the beginning.
+        - name: limit
+          value: "50"
+          type: query
+          description: The maximum number of items to return.
+        - name: locale
+          value: de
+          type: query
+          description: Language of the response.
+          disabled: true
+        - name: locale
+          value: en
+          type: query
+          description: Language of the response.
+        - name: filter
+          value: deliveryMethod eq "SAAS"
+          type: query
+          description: Filter the products based on attributes, e.g., `deliveryMethod eq "SAAS"`. The supported operators are:- `eq` (equal)- `co` (contains; `text co "searching"`)These expressions can be logically linked with `AND` and `OR`. Field names which can be used as filters are:- `text`- `deliveryMethod`- `categories`- `industries`- `vendor.name`- `pricingOptions.priceType`- `pricingOptions.pricingPlan`- `sovereignty`
+        - name: sort
+          value: name:asc
+          type: query
+          description: Sort the products based on attributes and order e.g. `name:asc`. Attributes with scalar types (`createdAt`) or keywords (`name`, `deliveryMethod`, `lifecycleState`, `vendor.name`) can be used as sort criteria. To set the sort order, append `asc` (ascending) or `desc` (descending) to the attribute, e.g. `name:asc`. To sort by multiple attributes, separate them with a comma. E.g `name:asc,price:desc`.
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": "Unauthorized",
+            "message": "Access to this resource requires authentication.",
+            "path": "/path/where/error/occurred",
+            "status": 401,
+            "timeStamp": "2019-08-24T14:15:22Z"
+          }
+  - name: Forbidden
+    request:
+      url: "{{baseUrl}}/v1/catalog/products"
+      method: GET
+      params:
+        - name: cursor
+          value: eyJrZXkiOiJ2YWx1ZSJ9
+          type: query
+          description: A pagination cursor that represents a position in the dataset. If given, results will be returned from the item after the cursor. If not given, results will be returned from the beginning.
+        - name: limit
+          value: "50"
+          type: query
+          description: The maximum number of items to return.
+        - name: locale
+          value: de
+          type: query
+          description: Language of the response.
+          disabled: true
+        - name: locale
+          value: en
+          type: query
+          description: Language of the response.
+        - name: filter
+          value: deliveryMethod eq "SAAS"
+          type: query
+          description: Filter the products based on attributes, e.g., `deliveryMethod eq "SAAS"`. The supported operators are:- `eq` (equal)- `co` (contains; `text co "searching"`)These expressions can be logically linked with `AND` and `OR`. Field names which can be used as filters are:- `text`- `deliveryMethod`- `categories`- `industries`- `vendor.name`- `pricingOptions.priceType`- `pricingOptions.pricingPlan`- `sovereignty`
+        - name: sort
+          value: name:asc
+          type: query
+          description: Sort the products based on attributes and order e.g. `name:asc`. Attributes with scalar types (`createdAt`) or keywords (`name`, `deliveryMethod`, `lifecycleState`, `vendor.name`) can be used as sort criteria. To set the sort order, append `asc` (ascending) or `desc` (descending) to the attribute, e.g. `name:asc`. To sort by multiple attributes, separate them with a comma. E.g `name:asc,price:desc`.
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": "Forbidden",
+            "message": "Access to this resource is forbidden.",
+            "path": "/path/where/error/occurred",
+            "status": 403,
+            "timeStamp": "2019-08-24T14:15:22Z"
+          }
+
 docs: Lists publicly available products.

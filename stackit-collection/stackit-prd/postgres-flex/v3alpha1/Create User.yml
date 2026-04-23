@@ -37,4 +37,347 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 202 Response
+    description: "Accepted: The request was accepted"
+    request:
+      url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId/users"
+      method: POST
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: instanceId
+          value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+          type: path
+          description: The ID of the instance.
+      body:
+        type: json
+        data: |-
+          {
+            "name": "myUser",
+            "roles": [
+              "createdb",
+              "login"
+            ]
+          }
+    response:
+      status: 202
+      statusText: Accepted
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "id": 1,
+            "name": "myUser",
+            "password": "password123",
+            "status": "ACTIVE"
+          }
+  - name: Bad Request
+    request:
+      url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId/users"
+      method: POST
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: instanceId
+          value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+          type: path
+          description: The ID of the instance.
+      body:
+        type: json
+        data: |-
+          {
+            "name": "myUser",
+            "roles": [
+              "createdb",
+              "login"
+            ]
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "request is invalid",
+            "traceId": "58bab3ea361c37c25d72041afdd8aca2",
+            "type": "BAD_REQUEST_ERROR"
+          }
+  - name: Unauthorized
+    request:
+      url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId/users"
+      method: POST
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: instanceId
+          value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+          type: path
+          description: The ID of the instance.
+      body:
+        type: json
+        data: |-
+          {
+            "name": "myUser",
+            "roles": [
+              "createdb",
+              "login"
+            ]
+          }
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 401,
+            "message": "authorization header is missing",
+            "traceId": "58bab3ea361c37c25d72041afdd8aca2",
+            "type": "UNAUTHORIZED_ERROR"
+          }
+  - name: Forbidden
+    request:
+      url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId/users"
+      method: POST
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: instanceId
+          value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+          type: path
+          description: The ID of the instance.
+      body:
+        type: json
+        data: |-
+          {
+            "name": "myUser",
+            "roles": [
+              "createdb",
+              "login"
+            ]
+          }
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 403,
+            "message": "user is not allowed to perform this operation",
+            "traceId": "58bab3ea361c37c25d72041afdd8aca2",
+            "type": "FORBIDDEN_ERROR"
+          }
+  - name: Not Found
+    request:
+      url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId/users"
+      method: POST
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: instanceId
+          value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+          type: path
+          description: The ID of the instance.
+      body:
+        type: json
+        data: |-
+          {
+            "name": "myUser",
+            "roles": [
+              "createdb",
+              "login"
+            ]
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "message": "resource not found",
+            "traceId": "58bab3ea361c37c25d72041afdd8aca2",
+            "type": "NOT_FOUND_ERROR"
+          }
+  - name: Failed Precondition
+    request:
+      url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId/users"
+      method: POST
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: instanceId
+          value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+          type: path
+          description: The ID of the instance.
+      body:
+        type: json
+        data: |-
+          {
+            "name": "myUser",
+            "roles": [
+              "createdb",
+              "login"
+            ]
+          }
+    response:
+      status: 412
+      statusText: Precondition Failed
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 412,
+            "message": "precondition for this operation failed",
+            "traceId": "58bab3ea361c37c25d72041afdd8aca2",
+            "type": "FAILED_PRECONDITION_ERROR"
+          }
+  - name: 422 Response
+    description: Request failed due to body validation
+    request:
+      url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId/users"
+      method: POST
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: instanceId
+          value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+          type: path
+          description: The ID of the instance.
+      body:
+        type: json
+        data: |-
+          {
+            "name": "myUser",
+            "roles": [
+              "createdb",
+              "login"
+            ]
+          }
+    response:
+      status: 422
+      statusText: Unprocessable Entity
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 422,
+            "validation": [
+              {
+                "field": "name",
+                "message": "this field is required"
+              }
+            ]
+          }
+  - name: Internal Server Error
+    request:
+      url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances/:instanceId/users"
+      method: POST
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: instanceId
+          value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+          type: path
+          description: The ID of the instance.
+      body:
+        type: json
+        data: |-
+          {
+            "name": "myUser",
+            "roles": [
+              "createdb",
+              "login"
+            ]
+          }
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 500,
+            "message": "internal server error",
+            "traceId": "58bab3ea361c37c25d72041afdd8aca2",
+            "type": "INTERNAL_ERROR"
+          }
+
 docs: Create user for an instance.

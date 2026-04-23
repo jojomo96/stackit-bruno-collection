@@ -29,4 +29,172 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 204 Response
+    description: No Content
+    request:
+      url: "{{baseUrl}}/v1/vendors/projects/:projectId/subscriptions/:subscriptionId/approve"
+      method: POST
+      params:
+        - name: projectId
+          value: 14fef715-4ef3-4b10-8789-cd7f9bd09421
+          type: path
+          description: The project ID.
+        - name: subscriptionId
+          value: 14fef715-4ef3-4b10-8789-cd7f9bd09421
+          type: path
+          description: The subscription ID.
+      body:
+        type: json
+        data: |-
+          {
+            "instanceTarget": "https://marketplace-application.com/register?x-stackit–marketplace-token=eC1zdGFja2l0LW1hcmtldHBsYWNlLXRva2Vu"
+          }
+    response:
+      status: 204
+      statusText: No Content
+      body:
+        type: text
+        data: ""
+  - name: Bad Request
+    request:
+      url: "{{baseUrl}}/v1/vendors/projects/:projectId/subscriptions/:subscriptionId/approve"
+      method: POST
+      params:
+        - name: projectId
+          value: 14fef715-4ef3-4b10-8789-cd7f9bd09421
+          type: path
+          description: The project ID.
+        - name: subscriptionId
+          value: 14fef715-4ef3-4b10-8789-cd7f9bd09421
+          type: path
+          description: The subscription ID.
+      body:
+        type: json
+        data: |-
+          {
+            "instanceTarget": "https://marketplace-application.com/register?x-stackit–marketplace-token=eC1zdGFja2l0LW1hcmtldHBsYWNlLXRva2Vu"
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": "Bad Request",
+            "message": "Validation of {param-one} failed.",
+            "path": "/path/where/error/occurred",
+            "status": 400,
+            "timeStamp": "2019-08-24T14:15:22Z"
+          }
+  - name: Unauthorized
+    request:
+      url: "{{baseUrl}}/v1/vendors/projects/:projectId/subscriptions/:subscriptionId/approve"
+      method: POST
+      params:
+        - name: projectId
+          value: 14fef715-4ef3-4b10-8789-cd7f9bd09421
+          type: path
+          description: The project ID.
+        - name: subscriptionId
+          value: 14fef715-4ef3-4b10-8789-cd7f9bd09421
+          type: path
+          description: The subscription ID.
+      body:
+        type: json
+        data: |-
+          {
+            "instanceTarget": "https://marketplace-application.com/register?x-stackit–marketplace-token=eC1zdGFja2l0LW1hcmtldHBsYWNlLXRva2Vu"
+          }
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": "Unauthorized",
+            "message": "Access to this resource requires authentication.",
+            "path": "/path/where/error/occurred",
+            "status": 401,
+            "timeStamp": "2019-08-24T14:15:22Z"
+          }
+  - name: Forbidden
+    request:
+      url: "{{baseUrl}}/v1/vendors/projects/:projectId/subscriptions/:subscriptionId/approve"
+      method: POST
+      params:
+        - name: projectId
+          value: 14fef715-4ef3-4b10-8789-cd7f9bd09421
+          type: path
+          description: The project ID.
+        - name: subscriptionId
+          value: 14fef715-4ef3-4b10-8789-cd7f9bd09421
+          type: path
+          description: The subscription ID.
+      body:
+        type: json
+        data: |-
+          {
+            "instanceTarget": "https://marketplace-application.com/register?x-stackit–marketplace-token=eC1zdGFja2l0LW1hcmtldHBsYWNlLXRva2Vu"
+          }
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": "Forbidden",
+            "message": "Access to this resource is forbidden.",
+            "path": "/path/where/error/occurred",
+            "status": 403,
+            "timeStamp": "2019-08-24T14:15:22Z"
+          }
+  - name: Not Found
+    request:
+      url: "{{baseUrl}}/v1/vendors/projects/:projectId/subscriptions/:subscriptionId/approve"
+      method: POST
+      params:
+        - name: projectId
+          value: 14fef715-4ef3-4b10-8789-cd7f9bd09421
+          type: path
+          description: The project ID.
+        - name: subscriptionId
+          value: 14fef715-4ef3-4b10-8789-cd7f9bd09421
+          type: path
+          description: The subscription ID.
+      body:
+        type: json
+        data: |-
+          {
+            "instanceTarget": "https://marketplace-application.com/register?x-stackit–marketplace-token=eC1zdGFja2l0LW1hcmtldHBsYWNlLXRva2Vu"
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": "Not Found",
+            "message": "{resource} not found.",
+            "path": "/path/where/error/occurred",
+            "status": 404,
+            "timeStamp": "2019-08-24T14:15:22Z"
+          }
+
 docs: Approve a pending subscription.

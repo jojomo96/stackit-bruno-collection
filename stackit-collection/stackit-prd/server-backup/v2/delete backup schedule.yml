@@ -30,3 +30,124 @@ settings:
   timeout: 0
   followRedirects: true
   maxRedirects: 5
+
+examples:
+  - name: 204 Response
+    description: backup schedule successfully deleted
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/backup-schedules/:backupScheduleId"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: serverId
+          value: ""
+          type: path
+          description: server id
+        - name: region
+          value: eu01
+          type: path
+          description: region
+        - name: backupScheduleId
+          value: ""
+          type: path
+          description: backup schedule id
+    response:
+      status: 204
+      statusText: No Content
+      body:
+        type: text
+        data: ""
+  - name: 400 Response
+    description: Bad Request
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/backup-schedules/:backupScheduleId"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: serverId
+          value: ""
+          type: path
+          description: server id
+        - name: region
+          value: eu01
+          type: path
+          description: region
+        - name: backupScheduleId
+          value: ""
+          type: path
+          description: backup schedule id
+    response:
+      status: 400
+      statusText: Bad Request
+      body:
+        type: text
+        data: ""
+  - name: 401 Response
+    description: Unauthorized
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/backup-schedules/:backupScheduleId"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: serverId
+          value: ""
+          type: path
+          description: server id
+        - name: region
+          value: eu01
+          type: path
+          description: region
+        - name: backupScheduleId
+          value: ""
+          type: path
+          description: backup schedule id
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "",
+            "status": ""
+          }
+  - name: 404 Response
+    description: Server | schedule not found
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/backup-schedules/:backupScheduleId"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: serverId
+          value: ""
+          type: path
+          description: server id
+        - name: region
+          value: eu01
+          type: path
+          description: region
+        - name: backupScheduleId
+          value: ""
+          type: path
+          description: backup schedule id
+    response:
+      status: 404
+      statusText: Not Found
+      body:
+        type: text
+        data: ""

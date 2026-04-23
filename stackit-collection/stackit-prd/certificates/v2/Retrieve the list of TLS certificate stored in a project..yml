@@ -31,4 +31,238 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 200 Response
+    description: OK
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/certificates"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: ""
+          type: path
+        - name: pageSize
+          value: ""
+          type: query
+          description: page_size specifies how many certificates should be returned on this page. Must be a positive number <= 1000
+          disabled: true
+        - name: pageId
+          value: ""
+          type: query
+          description: page_id is a page identifier returned by the previous response and is used to request the next page
+          disabled: true
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "items": [
+              {
+                "id": "my-tls-certificate-v1-123456",
+                "name": "my-tls-certificate",
+                "publicKey": "-----BEGIN CERTIFICATE----- MYPUbLiC+Tls/CER71fICATE...-----END CERTIFICATE-----",
+                "region": "eu01"
+              }
+            ],
+            "nextPageId": "eyJ2IjoibWV0YS5rOHMuaW8vdjEiLCJydiI6NTQ1Njk3ODA2LCJzdGFydCI6Im15LWFsYi1uZXdcdTAwMDAifQ"
+          }
+  - name: 400 Response
+    description: One or more fields are invalid.
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/certificates"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: ""
+          type: path
+        - name: pageSize
+          value: ""
+          type: query
+          description: page_size specifies how many certificates should be returned on this page. Must be a positive number <= 1000
+          disabled: true
+        - name: pageId
+          value: ""
+          type: query
+          description: page_id is a page identifier returned by the previous response and is used to request the next page
+          disabled: true
+    response:
+      status: 400
+      statusText: Bad Request
+      body:
+        type: text
+        data: ""
+  - name: 401 Response
+    description: Unauthorized
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/certificates"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: ""
+          type: path
+        - name: pageSize
+          value: ""
+          type: query
+          description: page_size specifies how many certificates should be returned on this page. Must be a positive number <= 1000
+          disabled: true
+        - name: pageId
+          value: ""
+          type: query
+          description: page_id is a page identifier returned by the previous response and is used to request the next page
+          disabled: true
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: "*/*"
+      body:
+        type: text
+        data: |-
+          {
+            "code": 0,
+            "details": [
+              {
+                "@type": ""
+              }
+            ],
+            "message": ""
+          }
+  - name: 403 Response
+    description: this project_id is not allowed to try this API
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/certificates"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: ""
+          type: path
+        - name: pageSize
+          value: ""
+          type: query
+          description: page_size specifies how many certificates should be returned on this page. Must be a positive number <= 1000
+          disabled: true
+        - name: pageId
+          value: ""
+          type: query
+          description: page_id is a page identifier returned by the previous response and is used to request the next page
+          disabled: true
+    response:
+      status: 403
+      statusText: Forbidden
+      body:
+        type: text
+        data: ""
+  - name: 410 Response
+    description: page_id is expired
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/certificates"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: ""
+          type: path
+        - name: pageSize
+          value: ""
+          type: query
+          description: page_size specifies how many certificates should be returned on this page. Must be a positive number <= 1000
+          disabled: true
+        - name: pageId
+          value: ""
+          type: query
+          description: page_id is a page identifier returned by the previous response and is used to request the next page
+          disabled: true
+    response:
+      status: 410
+      statusText: Gone
+      body:
+        type: text
+        data: ""
+  - name: 500 Response
+    description: internal error - please retry again later or contact support if the issue persists
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/certificates"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: ""
+          type: path
+        - name: pageSize
+          value: ""
+          type: query
+          description: page_size specifies how many certificates should be returned on this page. Must be a positive number <= 1000
+          disabled: true
+        - name: pageId
+          value: ""
+          type: query
+          description: page_id is a page identifier returned by the previous response and is used to request the next page
+          disabled: true
+    response:
+      status: 500
+      statusText: Internal Server Error
+      body:
+        type: text
+        data: ""
+  - name: default Response
+    description: Default error response
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/certificates"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: ""
+          type: path
+        - name: pageSize
+          value: ""
+          type: query
+          description: page_size specifies how many certificates should be returned on this page. Must be a positive number <= 1000
+          disabled: true
+        - name: pageId
+          value: ""
+          type: query
+          description: page_id is a page identifier returned by the previous response and is used to request the next page
+          disabled: true
+    response:
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 0,
+            "details": [
+              {
+                "@type": ""
+              }
+            ],
+            "message": ""
+          }
+
 docs: ListCertificates will return the list of TLS certificates in a project.

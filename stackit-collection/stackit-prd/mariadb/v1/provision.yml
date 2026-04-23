@@ -37,4 +37,128 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 202 Response
+    description: Accepted
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "instanceName": "",
+            "parameters": {
+              "enable_monitoring": false,
+              "graphite": "yourspace.your-graphite-endpoint.com:12345",
+              "max_disk_threshold": 90,
+              "metrics_frequency": 0,
+              "metrics_prefix": "my-prefix",
+              "monitoring_instance_id": "",
+              "sgw_acl": "0.0.0.0/0",
+              "syslog": [
+                "logs4.your-syslog-endpoint.com:54321"
+              ]
+            },
+            "planId": ""
+          }
+    response:
+      status: 202
+      statusText: Accepted
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "instanceId": ""
+          }
+  - name: 400 Response
+    description: Bad Request
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "instanceName": "",
+            "parameters": {
+              "enable_monitoring": false,
+              "graphite": "yourspace.your-graphite-endpoint.com:12345",
+              "max_disk_threshold": 90,
+              "metrics_frequency": 0,
+              "metrics_prefix": "my-prefix",
+              "monitoring_instance_id": "",
+              "sgw_acl": "0.0.0.0/0",
+              "syslog": [
+                "logs4.your-syslog-endpoint.com:54321"
+              ]
+            },
+            "planId": ""
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "description": "",
+            "error": ""
+          }
+  - name: 409 Response
+    description: Conflict
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "instanceName": "",
+            "parameters": {
+              "enable_monitoring": false,
+              "graphite": "yourspace.your-graphite-endpoint.com:12345",
+              "max_disk_threshold": 90,
+              "metrics_frequency": 0,
+              "metrics_prefix": "my-prefix",
+              "monitoring_instance_id": "",
+              "sgw_acl": "0.0.0.0/0",
+              "syslog": [
+                "logs4.your-syslog-endpoint.com:54321"
+              ]
+            },
+            "planId": ""
+          }
+    response:
+      status: 409
+      statusText: Conflict
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "description": "",
+            "error": ""
+          }
+
 docs: Provision a service instance.

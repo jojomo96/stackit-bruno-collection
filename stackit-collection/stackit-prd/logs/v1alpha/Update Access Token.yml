@@ -43,4 +43,249 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 204 Response
+    description: Logs instance access token was updated successfully.
+    request:
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/access-tokens/:tId"
+      method: PUT
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the resource is located in.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region name the resource is located in.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region name the resource is located in.
+          disabled: true
+        - name: instanceId
+          value: ""
+          type: path
+          description: The Logs Instance UUID.
+        - name: tId
+          value: ""
+          type: path
+          description: The access token UUID.
+      body:
+        type: json
+        data: |-
+          {
+            "description": "",
+            "displayName": ""
+          }
+    response:
+      status: 204
+      statusText: No Content
+      body:
+        type: text
+        data: ""
+  - name: 400 Response
+    description: Bad Request. The data provided by the client did not match expectations.
+    request:
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/access-tokens/:tId"
+      method: PUT
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the resource is located in.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region name the resource is located in.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region name the resource is located in.
+          disabled: true
+        - name: instanceId
+          value: ""
+          type: path
+          description: The Logs Instance UUID.
+        - name: tId
+          value: ""
+          type: path
+          description: The access token UUID.
+      body:
+        type: json
+        data: |-
+          {
+            "description": "",
+            "displayName": ""
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      body:
+        type: text
+        data: ""
+  - name: 401 Response
+    description: Unauthorized. You may have provided no or wrong credentials.
+    request:
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/access-tokens/:tId"
+      method: PUT
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the resource is located in.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region name the resource is located in.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region name the resource is located in.
+          disabled: true
+        - name: instanceId
+          value: ""
+          type: path
+          description: The Logs Instance UUID.
+        - name: tId
+          value: ""
+          type: path
+          description: The access token UUID.
+      body:
+        type: json
+        data: |-
+          {
+            "description": "",
+            "displayName": ""
+          }
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: text/plain
+      body:
+        type: text
+        data: Jwt is missing
+  - name: 404 Response
+    description: Not found. The resource has not been found.
+    request:
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/access-tokens/:tId"
+      method: PUT
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the resource is located in.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region name the resource is located in.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region name the resource is located in.
+          disabled: true
+        - name: instanceId
+          value: ""
+          type: path
+          description: The Logs Instance UUID.
+        - name: tId
+          value: ""
+          type: path
+          description: The access token UUID.
+      body:
+        type: json
+        data: |-
+          {
+            "description": "",
+            "displayName": ""
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      body:
+        type: text
+        data: ""
+  - name: 409 Response
+    description: Conflict. The resource has been modified by some other client. Please try again.
+    request:
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/access-tokens/:tId"
+      method: PUT
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the resource is located in.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region name the resource is located in.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region name the resource is located in.
+          disabled: true
+        - name: instanceId
+          value: ""
+          type: path
+          description: The Logs Instance UUID.
+        - name: tId
+          value: ""
+          type: path
+          description: The access token UUID.
+      body:
+        type: json
+        data: |-
+          {
+            "description": "",
+            "displayName": ""
+          }
+    response:
+      status: 409
+      statusText: Conflict
+      body:
+        type: text
+        data: ""
+  - name: 500 Response
+    description: Internal server error. The application experienced some unexpected situation.
+    request:
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/access-tokens/:tId"
+      method: PUT
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the resource is located in.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region name the resource is located in.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region name the resource is located in.
+          disabled: true
+        - name: instanceId
+          value: ""
+          type: path
+          description: The Logs Instance UUID.
+        - name: tId
+          value: ""
+          type: path
+          description: The access token UUID.
+      body:
+        type: json
+        data: |-
+          {
+            "description": "",
+            "displayName": ""
+          }
+    response:
+      status: 500
+      statusText: Internal Server Error
+      body:
+        type: text
+        data: ""
+
 docs: Updates the given access token.

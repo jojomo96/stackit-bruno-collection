@@ -44,4 +44,167 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 202 Response
+    description: Create alert group.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/logs-alertgroups"
+      method: POST
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          [
+            {
+              "interval": "60s",
+              "name": "string",
+              "rules": [
+                {
+                  "alert": "string",
+                  "annotations": {},
+                  "expr": "string",
+                  "for": "0s",
+                  "labels": {}
+                },
+                {
+                  "expr": "string",
+                  "labels": {},
+                  "record": "string"
+                }
+              ]
+            }
+          ]
+    response:
+      status: 202
+      statusText: Accepted
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "data": [
+              {
+                "interval": "5m",
+                "name": "test alert",
+                "rules": [
+                  {
+                    "alert": "up test",
+                    "annotations": {
+                      "test": "test"
+                    },
+                    "expr": "up == 1",
+                    "for": "30s",
+                    "labels": {
+                      "test": "test"
+                    }
+                  }
+                ]
+              }
+            ],
+            "message": "Group successfully created",
+            "success": true
+          }
+  - name: 400 Response
+    description: Could not create alert group config
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/logs-alertgroups"
+      method: POST
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          [
+            {
+              "interval": "60s",
+              "name": "string",
+              "rules": [
+                {
+                  "alert": "string",
+                  "annotations": {},
+                  "expr": "string",
+                  "for": "0s",
+                  "labels": {}
+                },
+                {
+                  "expr": "string",
+                  "labels": {},
+                  "record": "string"
+                }
+              ]
+            }
+          ]
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "Could not create alert group config"
+          }
+  - name: 403 Response
+    description: You are not authorized
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/logs-alertgroups"
+      method: POST
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          [
+            {
+              "interval": "60s",
+              "name": "string",
+              "rules": [
+                {
+                  "alert": "string",
+                  "annotations": {},
+                  "expr": "string",
+                  "for": "0s",
+                  "labels": {}
+                },
+                {
+                  "expr": "string",
+                  "labels": {},
+                  "record": "string"
+                }
+              ]
+            }
+          ]
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "detail": "You do not have permission to perform this action."
+          }
+
 docs: Create logs alert group config.

@@ -42,4 +42,141 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 202 Response
+    description: Update grafana config.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/grafana-configs"
+      method: PUT
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "genericOauth": {
+              "allowAssignGrafanaAdmin": false,
+              "apiUrl": "",
+              "authUrl": "",
+              "enabled": false,
+              "name": "",
+              "oauthClientId": "",
+              "oauthClientSecret": "",
+              "roleAttributePath": "",
+              "roleAttributeStrict": false,
+              "scopes": "",
+              "tokenUrl": "",
+              "usePkce": false
+            },
+            "publicReadAccess": false,
+            "useStackitSso": false
+          }
+    response:
+      status: 202
+      statusText: Accepted
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "Successfully updated grafana config"
+          }
+  - name: 400 Response
+    description: Something went wrong
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/grafana-configs"
+      method: PUT
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "genericOauth": {
+              "allowAssignGrafanaAdmin": false,
+              "apiUrl": "",
+              "authUrl": "",
+              "enabled": false,
+              "name": "",
+              "oauthClientId": "",
+              "oauthClientSecret": "",
+              "roleAttributePath": "",
+              "roleAttributeStrict": false,
+              "scopes": "",
+              "tokenUrl": "",
+              "usePkce": false
+            },
+            "publicReadAccess": false,
+            "useStackitSso": false
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "Something went wrong"
+          }
+  - name: 403 Response
+    description: You do not have permission to perform this action.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/grafana-configs"
+      method: PUT
+      params:
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "genericOauth": {
+              "allowAssignGrafanaAdmin": false,
+              "apiUrl": "",
+              "authUrl": "",
+              "enabled": false,
+              "name": "",
+              "oauthClientId": "",
+              "oauthClientSecret": "",
+              "roleAttributePath": "",
+              "roleAttributeStrict": false,
+              "scopes": "",
+              "tokenUrl": "",
+              "usePkce": false
+            },
+            "publicReadAccess": false,
+            "useStackitSso": false
+          }
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "detail": "You do not have permission to perform this action."
+          }
+
 docs: Update grafana config.

@@ -30,3 +30,194 @@ settings:
   timeout: 0
   followRedirects: true
   maxRedirects: 5
+
+examples:
+  - name: Failed backup job
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/backups/:backupId"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: serverId
+          value: ""
+          type: path
+          description: server id
+        - name: region
+          value: eu01
+          type: path
+          description: region
+        - name: backupId
+          value: ""
+          type: path
+          description: id of the backup
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "createdAt": "2020-09-10T10:15:00Z",
+            "expireAt": "2020-09-13T10:15:00Z",
+            "id": "001c372f-5c15-418d-b2fb-b1f93ea2ffc8",
+            "lastRestoredAt": "2021-02-22T12:18:42Z",
+            "name": "Daily Backup",
+            "size": 0,
+            "status": "error-creating",
+            "volumeBackups": [
+              {
+                "failReason": "BackupLimitExceeded: Maximum number of backups allowed (10) exceeded",
+                "id": "f305beab-cedb-4958-ae4b-aa7434aa2103",
+                "lastRestoredAt": "2021-02-22T12:18:42Z",
+                "lastRestoredVolumeId": "d3eaad92-8080-49d9-a5b8-5eeec5cd64be",
+                "status": "error-creating",
+                "volumeId": "58335311-6acf-46c5-8652-cb96cd63181e"
+              }
+            ]
+          }
+  - name: Successful backup job
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/backups/:backupId"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: serverId
+          value: ""
+          type: path
+          description: server id
+        - name: region
+          value: eu01
+          type: path
+          description: region
+        - name: backupId
+          value: ""
+          type: path
+          description: id of the backup
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "createdAt": "2020-09-10T10:15:00Z",
+            "expireAt": "2020-09-13T10:15:00Z",
+            "id": "001c372f-5c15-418d-b2fb-b1f93ea2ffc8",
+            "lastRestoredAt": "2021-02-22T12:18:42Z",
+            "name": "Daily Backup",
+            "size": 55,
+            "status": "available",
+            "volumeBackups": [
+              {
+                "id": "f305beab-cedb-4958-ae4b-aa7434aa2103",
+                "lastRestoredAt": "2021-02-22T12:18:42Z",
+                "lastRestoredVolumeId": "d3eaad92-8080-49d9-a5b8-5eeec5cd64be",
+                "size": 40,
+                "status": "available",
+                "volumeId": "58335311-6acf-46c5-8652-cb96cd63181e"
+              }
+            ]
+          }
+  - name: 400 Response
+    description: Bad Request
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/backups/:backupId"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: serverId
+          value: ""
+          type: path
+          description: server id
+        - name: region
+          value: eu01
+          type: path
+          description: region
+        - name: backupId
+          value: ""
+          type: path
+          description: id of the backup
+    response:
+      status: 400
+      statusText: Bad Request
+      body:
+        type: text
+        data: ""
+  - name: 401 Response
+    description: Unauthorized
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/backups/:backupId"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: serverId
+          value: ""
+          type: path
+          description: server id
+        - name: region
+          value: eu01
+          type: path
+          description: region
+        - name: backupId
+          value: ""
+          type: path
+          description: id of the backup
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "",
+            "status": ""
+          }
+  - name: 404 Response
+    description: Server | backup job not found
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/backups/:backupId"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: serverId
+          value: ""
+          type: path
+          description: server id
+        - name: region
+          value: eu01
+          type: path
+          description: region
+        - name: backupId
+          value: ""
+          type: path
+          description: id of the backup
+    response:
+      status: 404
+      statusText: Not Found
+      body:
+        type: text
+        data: ""

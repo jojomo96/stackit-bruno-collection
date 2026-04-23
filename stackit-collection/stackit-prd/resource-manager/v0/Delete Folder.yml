@@ -23,6 +23,86 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 202 Response
+    description: Deletion process triggered
+    request:
+      url: "{{baseUrl}}/v2/folders/:containerId"
+      method: DELETE
+      params:
+        - name: containerId
+          value: ""
+          type: path
+          description: Folder identifier - containerId as well as UUID identifier is supported.
+        - name: force
+          value: "false"
+          type: query
+          description: If true, all nested, empty folders are deleted recursively - if no project is attached!
+    response:
+      status: 202
+      statusText: Accepted
+      body:
+        type: text
+        data: ""
+  - name: Not Found
+    request:
+      url: "{{baseUrl}}/v2/folders/:containerId"
+      method: DELETE
+      params:
+        - name: containerId
+          value: ""
+          type: path
+          description: Folder identifier - containerId as well as UUID identifier is supported.
+        - name: force
+          value: "false"
+          type: query
+          description: If true, all nested, empty folders are deleted recursively - if no project is attached!
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": "Not Found",
+            "message": "{resource} not found.",
+            "path": "/path/where/error/occurred",
+            "status": 404,
+            "timeStamp": "2019-08-24T14:15:22Z"
+          }
+  - name: Conflict
+    request:
+      url: "{{baseUrl}}/v2/folders/:containerId"
+      method: DELETE
+      params:
+        - name: containerId
+          value: ""
+          type: path
+          description: Folder identifier - containerId as well as UUID identifier is supported.
+        - name: force
+          value: "false"
+          type: query
+          description: If true, all nested, empty folders are deleted recursively - if no project is attached!
+    response:
+      status: 409
+      statusText: Conflict
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": "Conflict",
+            "message": "Request aborted due conflict.",
+            "path": "/path/where/error/occurred",
+            "status": 409,
+            "timeStamp": "2019-08-24T14:15:22Z"
+          }
+
 docs: |-
   Delete a folder and its metadata.
   - Folder must not be parent of any other container

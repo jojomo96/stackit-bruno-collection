@@ -90,4 +90,593 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 200 Response
+    description: "OK: Contains a list of all databases for a specific instance."
+    request:
+      url: "{{baseUrl}}/v3beta1/projects/:projectId/regions/:region/instances/:instanceId/databases"
+      method: GET
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: region
+          value: eu02
+          type: path
+          description: The region which should be addressed
+          disabled: true
+        - name: instanceId
+          value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+          type: path
+          description: The ID of the instance.
+        - name: page
+          value: "1"
+          type: query
+          description: Number of the page of items list to be returned.
+        - name: size
+          value: "10"
+          type: query
+          description: Number of items to be returned on each page.
+        - name: sort
+          value: created_at.desc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: created_at.asc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: database_id.desc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: database_id.asc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: database_name.desc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: database_name.asc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: database_owner.desc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: database_owner.asc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: index.asc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: index.desc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "databases": [
+              {
+                "created": "2003-04-08T09:13:36.39Z",
+                "id": 1,
+                "name": "MyDatabase",
+                "owner": "MyUser"
+              }
+            ],
+            "pagination": {
+              "page": 0,
+              "size": 0,
+              "sort": "",
+              "totalPages": 0,
+              "totalRows": 0
+            }
+          }
+  - name: 400 Response
+    description: Bad Request
+    request:
+      url: "{{baseUrl}}/v3beta1/projects/:projectId/regions/:region/instances/:instanceId/databases"
+      method: GET
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: region
+          value: eu02
+          type: path
+          description: The region which should be addressed
+          disabled: true
+        - name: instanceId
+          value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+          type: path
+          description: The ID of the instance.
+        - name: page
+          value: "1"
+          type: query
+          description: Number of the page of items list to be returned.
+        - name: size
+          value: "10"
+          type: query
+          description: Number of items to be returned on each page.
+        - name: sort
+          value: created_at.desc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: created_at.asc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: database_id.desc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: database_id.asc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: database_name.desc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: database_name.asc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: database_owner.desc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: database_owner.asc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: index.asc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: index.desc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "database not found",
+            "traceId": "885bef8bbc18649c",
+            "type": "INTERNAL_ERROR"
+          }
+  - name: 401 Response
+    description: User is not allowed to perform this operation or credentials are not correct
+    request:
+      url: "{{baseUrl}}/v3beta1/projects/:projectId/regions/:region/instances/:instanceId/databases"
+      method: GET
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: region
+          value: eu02
+          type: path
+          description: The region which should be addressed
+          disabled: true
+        - name: instanceId
+          value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+          type: path
+          description: The ID of the instance.
+        - name: page
+          value: "1"
+          type: query
+          description: Number of the page of items list to be returned.
+        - name: size
+          value: "10"
+          type: query
+          description: Number of items to be returned on each page.
+        - name: sort
+          value: created_at.desc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: created_at.asc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: database_id.desc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: database_id.asc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: database_name.desc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: database_name.asc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: database_owner.desc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: database_owner.asc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: index.asc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: index.desc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "database not found",
+            "traceId": "885bef8bbc18649c",
+            "type": "INTERNAL_ERROR"
+          }
+  - name: 403 Response
+    description: "Forbidden: No access for the requested resource."
+    request:
+      url: "{{baseUrl}}/v3beta1/projects/:projectId/regions/:region/instances/:instanceId/databases"
+      method: GET
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: region
+          value: eu02
+          type: path
+          description: The region which should be addressed
+          disabled: true
+        - name: instanceId
+          value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+          type: path
+          description: The ID of the instance.
+        - name: page
+          value: "1"
+          type: query
+          description: Number of the page of items list to be returned.
+        - name: size
+          value: "10"
+          type: query
+          description: Number of items to be returned on each page.
+        - name: sort
+          value: created_at.desc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: created_at.asc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: database_id.desc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: database_id.asc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: database_name.desc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: database_name.asc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: database_owner.desc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: database_owner.asc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: index.asc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: index.desc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "database not found",
+            "traceId": "885bef8bbc18649c",
+            "type": "INTERNAL_ERROR"
+          }
+  - name: 404 Response
+    description: "Not found: The requested resource was not found."
+    request:
+      url: "{{baseUrl}}/v3beta1/projects/:projectId/regions/:region/instances/:instanceId/databases"
+      method: GET
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: region
+          value: eu02
+          type: path
+          description: The region which should be addressed
+          disabled: true
+        - name: instanceId
+          value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+          type: path
+          description: The ID of the instance.
+        - name: page
+          value: "1"
+          type: query
+          description: Number of the page of items list to be returned.
+        - name: size
+          value: "10"
+          type: query
+          description: Number of items to be returned on each page.
+        - name: sort
+          value: created_at.desc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: created_at.asc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: database_id.desc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: database_id.asc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: database_name.desc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: database_name.asc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: database_owner.desc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: database_owner.asc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: index.asc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: index.desc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "database not found",
+            "traceId": "885bef8bbc18649c",
+            "type": "INTERNAL_ERROR"
+          }
+  - name: 500 Response
+    description: "Internal Server Error: An internal occurred while processing the request. Please contact the support or try again later."
+    request:
+      url: "{{baseUrl}}/v3beta1/projects/:projectId/regions/:region/instances/:instanceId/databases"
+      method: GET
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+        - name: region
+          value: eu02
+          type: path
+          description: The region which should be addressed
+          disabled: true
+        - name: instanceId
+          value: fb30fa7e-b7d8-4c75-9f04-489e0ba2fe51
+          type: path
+          description: The ID of the instance.
+        - name: page
+          value: "1"
+          type: query
+          description: Number of the page of items list to be returned.
+        - name: size
+          value: "10"
+          type: query
+          description: Number of items to be returned on each page.
+        - name: sort
+          value: created_at.desc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: created_at.asc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: database_id.desc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: database_id.asc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: database_name.desc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: database_name.asc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: database_owner.desc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: database_owner.asc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: index.asc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+        - name: sort
+          value: index.desc
+          type: query
+          description: Sorting of the databases to be returned on each page.
+          disabled: true
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "database not found",
+            "traceId": "885bef8bbc18649c",
+            "type": "INTERNAL_ERROR"
+          }
+
 docs: List available databases for an instance.

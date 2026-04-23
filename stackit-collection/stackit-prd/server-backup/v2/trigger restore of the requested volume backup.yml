@@ -40,3 +40,164 @@ settings:
   timeout: 0
   followRedirects: true
   maxRedirects: 5
+
+examples:
+  - name: 202 Response
+    description: Request is accepted, but processing may take some time.
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/backups/:backupId/volume-backups/:volumeBackupId/restore"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: serverId
+          value: ""
+          type: path
+          description: server id
+        - name: region
+          value: eu01
+          type: path
+          description: region
+        - name: backupId
+          value: ""
+          type: path
+          description: id of the backup
+        - name: volumeBackupId
+          value: ""
+          type: path
+          description: id of the volume backup
+      body:
+        type: json
+        data: |-
+          {
+            "restoreVolumeId": "69c2ae70-5bf9-4353-8ac6-2bc2ff0ba78e"
+          }
+    response:
+      status: 202
+      statusText: Accepted
+      body:
+        type: text
+        data: ""
+  - name: 400 Response
+    description: Bad Request
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/backups/:backupId/volume-backups/:volumeBackupId/restore"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: serverId
+          value: ""
+          type: path
+          description: server id
+        - name: region
+          value: eu01
+          type: path
+          description: region
+        - name: backupId
+          value: ""
+          type: path
+          description: id of the backup
+        - name: volumeBackupId
+          value: ""
+          type: path
+          description: id of the volume backup
+      body:
+        type: json
+        data: |-
+          {
+            "restoreVolumeId": "69c2ae70-5bf9-4353-8ac6-2bc2ff0ba78e"
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      body:
+        type: text
+        data: ""
+  - name: 401 Response
+    description: Unauthorized
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/backups/:backupId/volume-backups/:volumeBackupId/restore"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: serverId
+          value: ""
+          type: path
+          description: server id
+        - name: region
+          value: eu01
+          type: path
+          description: region
+        - name: backupId
+          value: ""
+          type: path
+          description: id of the backup
+        - name: volumeBackupId
+          value: ""
+          type: path
+          description: id of the volume backup
+      body:
+        type: json
+        data: |-
+          {
+            "restoreVolumeId": "69c2ae70-5bf9-4353-8ac6-2bc2ff0ba78e"
+          }
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "",
+            "status": ""
+          }
+  - name: 404 Response
+    description: Server | backup not found
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/servers/:serverId/backups/:backupId/volume-backups/:volumeBackupId/restore"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: project id
+        - name: serverId
+          value: ""
+          type: path
+          description: server id
+        - name: region
+          value: eu01
+          type: path
+          description: region
+        - name: backupId
+          value: ""
+          type: path
+          description: id of the backup
+        - name: volumeBackupId
+          value: ""
+          type: path
+          description: id of the volume backup
+      body:
+        type: json
+        data: |-
+          {
+            "restoreVolumeId": "69c2ae70-5bf9-4353-8ac6-2bc2ff0ba78e"
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      body:
+        type: text
+        data: ""

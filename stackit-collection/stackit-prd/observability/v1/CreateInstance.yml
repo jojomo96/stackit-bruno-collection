@@ -27,4 +27,98 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 202 Response
+    description: Create instance in project.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "grafanaAdminEnabled": false,
+            "name": "",
+            "parameter": {},
+            "planId": ""
+          }
+    response:
+      status: 202
+      statusText: Accepted
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "dashboardUrl": "https://portal-dev.stackit.cloud/projects/775eee9d-8565-48ab-9dcc-64a6ca55043a/observability/597976c4-d4c1-44d6-9f43-213df3da1799/overview",
+            "instanceId": "597976c4-d4c1-44d6-9f43-213df3da1799",
+            "message": "Successfully created instance"
+          }
+  - name: 400 Response
+    description: Something went wrong.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "grafanaAdminEnabled": false,
+            "name": "",
+            "parameter": {},
+            "planId": ""
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "json body is not valid"
+          }
+  - name: 403 Response
+    description: You do not have permission to perform this action.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "grafanaAdminEnabled": false,
+            "name": "",
+            "parameter": {},
+            "planId": ""
+          }
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "detail": "You do not have permission to perform this action."
+          }
+
 docs: Create new instance.

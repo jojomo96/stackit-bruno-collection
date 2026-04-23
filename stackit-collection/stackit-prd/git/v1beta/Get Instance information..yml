@@ -23,4 +23,147 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 200 Response
+    description: OK
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/instances/:instanceId"
+      method: GET
+      params:
+        - name: projectId
+          value: 83b8e9c4-e3d1-4dc4-bb89-9854c8b5383e
+          type: path
+          description: Project identifier.
+        - name: instanceId
+          value: 83b8e9c4-e3d1-4dc4-bb89-9854c8b5383e
+          type: path
+          description: Instance identifier.
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "acl": [],
+            "consumed_disk": "",
+            "consumed_object_storage": "",
+            "created": "",
+            "feature_toggle": {
+              "default_email_notifications": "enabled",
+              "enable_commit_signatures": false,
+              "enable_local_login": false
+            },
+            "flavor": "",
+            "id": "",
+            "name": "",
+            "state": "Creating",
+            "url": "",
+            "version": ""
+          }
+  - name: 400 Response
+    description: Bad Request.
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/instances/:instanceId"
+      method: GET
+      params:
+        - name: projectId
+          value: 83b8e9c4-e3d1-4dc4-bb89-9854c8b5383e
+          type: path
+          description: Project identifier.
+        - name: instanceId
+          value: 83b8e9c4-e3d1-4dc4-bb89-9854c8b5383e
+          type: path
+          description: Instance identifier.
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [],
+            "message": "Internal server error."
+          }
+  - name: 401 Response
+    description: Unauthorized.
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/instances/:instanceId"
+      method: GET
+      params:
+        - name: projectId
+          value: 83b8e9c4-e3d1-4dc4-bb89-9854c8b5383e
+          type: path
+          description: Project identifier.
+        - name: instanceId
+          value: 83b8e9c4-e3d1-4dc4-bb89-9854c8b5383e
+          type: path
+          description: Instance identifier.
+    response:
+      status: 401
+      statusText: Unauthorized
+      body:
+        type: text
+        data: ""
+  - name: 404 Response
+    description: Not found.
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/instances/:instanceId"
+      method: GET
+      params:
+        - name: projectId
+          value: 83b8e9c4-e3d1-4dc4-bb89-9854c8b5383e
+          type: path
+          description: Project identifier.
+        - name: instanceId
+          value: 83b8e9c4-e3d1-4dc4-bb89-9854c8b5383e
+          type: path
+          description: Instance identifier.
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [],
+            "message": "Internal server error."
+          }
+  - name: 500 Response
+    description: Internal server error.
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/instances/:instanceId"
+      method: GET
+      params:
+        - name: projectId
+          value: 83b8e9c4-e3d1-4dc4-bb89-9854c8b5383e
+          type: path
+          description: Project identifier.
+        - name: instanceId
+          value: 83b8e9c4-e3d1-4dc4-bb89-9854c8b5383e
+          type: path
+          description: Instance identifier.
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [],
+            "message": "Internal server error."
+          }
+
 docs: Retrieves information about a STACKIT Git instance.

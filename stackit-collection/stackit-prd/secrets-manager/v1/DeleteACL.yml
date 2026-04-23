@@ -27,4 +27,141 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 204 Response
+    description: Acl was deleted successfully
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/acls/:aclId"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the Secrets Manager instance is part of.
+        - name: instanceId
+          value: ""
+          type: path
+          description: The Secrets Manager instance UUID.
+        - name: aclId
+          value: ""
+          type: path
+          description: The acl UUID of the Secrets Manager instance.
+    response:
+      status: 204
+      statusText: No Content
+      body:
+        type: text
+        data: ""
+  - name: 400 Response
+    description: Bad Request.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/acls/:aclId"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the Secrets Manager instance is part of.
+        - name: instanceId
+          value: ""
+          type: path
+          description: The Secrets Manager instance UUID.
+        - name: aclId
+          value: ""
+          type: path
+          description: The acl UUID of the Secrets Manager instance.
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "invalid instance name"
+          }
+  - name: 401 Response
+    description: Unauthorized. You may have provided no or wrong credentials.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/acls/:aclId"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the Secrets Manager instance is part of.
+        - name: instanceId
+          value: ""
+          type: path
+          description: The Secrets Manager instance UUID.
+        - name: aclId
+          value: ""
+          type: path
+          description: The acl UUID of the Secrets Manager instance.
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: text/plain
+      body:
+        type: text
+        data: Jwt is missing
+  - name: 404 Response
+    description: Not found. Instance or acl not found.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/acls/:aclId"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the Secrets Manager instance is part of.
+        - name: instanceId
+          value: ""
+          type: path
+          description: The Secrets Manager instance UUID.
+        - name: aclId
+          value: ""
+          type: path
+          description: The acl UUID of the Secrets Manager instance.
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "Not Found"
+          }
+  - name: 500 Response
+    description: Internal server error. The application experienced some unexpected situation.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/acls/:aclId"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the Secrets Manager instance is part of.
+        - name: instanceId
+          value: ""
+          type: path
+          description: The Secrets Manager instance UUID.
+        - name: aclId
+          value: ""
+          type: path
+          description: The acl UUID of the Secrets Manager instance.
+    response:
+      status: 500
+      statusText: Internal Server Error
+      body:
+        type: text
+        data: ""
+
 docs: Deletes the given acl.

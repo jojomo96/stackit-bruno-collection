@@ -49,4 +49,388 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 202 Response
+    description: "Accepted: The request was accepted"
+    request:
+      url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances"
+      method: POST
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+      body:
+        type: json
+        data: |-
+          {
+            "backupSchedule": "6 6 * * *",
+            "encryption": {
+              "kekKeyId": "b710a4d0-6694-4cd3-b55d-16446375174e",
+              "kekKeyRingId": "48e3f816-3e38-44bb-bbff-22e05f0567de",
+              "kekKeyVersion": "1",
+              "serviceAccount": "example@compute.sa.stackit.cloud"
+            },
+            "flavorId": "4.16-Single",
+            "name": "mssql-instance",
+            "network": {
+              "accessScope": "PUBLIC",
+              "acl": [
+                "198.51.100.0/24"
+              ]
+            },
+            "retentionDays": 64,
+            "storage": {
+              "class": "premium-perf2-stackit",
+              "size": 10
+            },
+            "version": "2022"
+          }
+    response:
+      status: 202
+      statusText: Accepted
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "id": "df727477-8991-486c-a3ed-d11d9d9beb1c"
+          }
+  - name: 400 Response
+    description: Bad Request
+    request:
+      url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances"
+      method: POST
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+      body:
+        type: json
+        data: |-
+          {
+            "backupSchedule": "6 6 * * *",
+            "encryption": {
+              "kekKeyId": "b710a4d0-6694-4cd3-b55d-16446375174e",
+              "kekKeyRingId": "48e3f816-3e38-44bb-bbff-22e05f0567de",
+              "kekKeyVersion": "1",
+              "serviceAccount": "example@compute.sa.stackit.cloud"
+            },
+            "flavorId": "4.16-Single",
+            "name": "mssql-instance",
+            "network": {
+              "accessScope": "PUBLIC",
+              "acl": [
+                "198.51.100.0/24"
+              ]
+            },
+            "retentionDays": 64,
+            "storage": {
+              "class": "premium-perf2-stackit",
+              "size": 10
+            },
+            "version": "2022"
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "database not found",
+            "traceId": "885bef8bbc18649c",
+            "type": "INTERNAL_ERROR"
+          }
+  - name: 401 Response
+    description: User is not allowed to perform this operation or credentials are not correct
+    request:
+      url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances"
+      method: POST
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+      body:
+        type: json
+        data: |-
+          {
+            "backupSchedule": "6 6 * * *",
+            "encryption": {
+              "kekKeyId": "b710a4d0-6694-4cd3-b55d-16446375174e",
+              "kekKeyRingId": "48e3f816-3e38-44bb-bbff-22e05f0567de",
+              "kekKeyVersion": "1",
+              "serviceAccount": "example@compute.sa.stackit.cloud"
+            },
+            "flavorId": "4.16-Single",
+            "name": "mssql-instance",
+            "network": {
+              "accessScope": "PUBLIC",
+              "acl": [
+                "198.51.100.0/24"
+              ]
+            },
+            "retentionDays": 64,
+            "storage": {
+              "class": "premium-perf2-stackit",
+              "size": 10
+            },
+            "version": "2022"
+          }
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "database not found",
+            "traceId": "885bef8bbc18649c",
+            "type": "INTERNAL_ERROR"
+          }
+  - name: 403 Response
+    description: "Forbidden: No access for the requested resource."
+    request:
+      url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances"
+      method: POST
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+      body:
+        type: json
+        data: |-
+          {
+            "backupSchedule": "6 6 * * *",
+            "encryption": {
+              "kekKeyId": "b710a4d0-6694-4cd3-b55d-16446375174e",
+              "kekKeyRingId": "48e3f816-3e38-44bb-bbff-22e05f0567de",
+              "kekKeyVersion": "1",
+              "serviceAccount": "example@compute.sa.stackit.cloud"
+            },
+            "flavorId": "4.16-Single",
+            "name": "mssql-instance",
+            "network": {
+              "accessScope": "PUBLIC",
+              "acl": [
+                "198.51.100.0/24"
+              ]
+            },
+            "retentionDays": 64,
+            "storage": {
+              "class": "premium-perf2-stackit",
+              "size": 10
+            },
+            "version": "2022"
+          }
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "database not found",
+            "traceId": "885bef8bbc18649c",
+            "type": "INTERNAL_ERROR"
+          }
+  - name: 404 Response
+    description: "Not found: The requested resource was not found."
+    request:
+      url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances"
+      method: POST
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+      body:
+        type: json
+        data: |-
+          {
+            "backupSchedule": "6 6 * * *",
+            "encryption": {
+              "kekKeyId": "b710a4d0-6694-4cd3-b55d-16446375174e",
+              "kekKeyRingId": "48e3f816-3e38-44bb-bbff-22e05f0567de",
+              "kekKeyVersion": "1",
+              "serviceAccount": "example@compute.sa.stackit.cloud"
+            },
+            "flavorId": "4.16-Single",
+            "name": "mssql-instance",
+            "network": {
+              "accessScope": "PUBLIC",
+              "acl": [
+                "198.51.100.0/24"
+              ]
+            },
+            "retentionDays": 64,
+            "storage": {
+              "class": "premium-perf2-stackit",
+              "size": 10
+            },
+            "version": "2022"
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "database not found",
+            "traceId": "885bef8bbc18649c",
+            "type": "INTERNAL_ERROR"
+          }
+  - name: 422 Response
+    description: Request failed due to body validation
+    request:
+      url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances"
+      method: POST
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+      body:
+        type: json
+        data: |-
+          {
+            "backupSchedule": "6 6 * * *",
+            "encryption": {
+              "kekKeyId": "b710a4d0-6694-4cd3-b55d-16446375174e",
+              "kekKeyRingId": "48e3f816-3e38-44bb-bbff-22e05f0567de",
+              "kekKeyVersion": "1",
+              "serviceAccount": "example@compute.sa.stackit.cloud"
+            },
+            "flavorId": "4.16-Single",
+            "name": "mssql-instance",
+            "network": {
+              "accessScope": "PUBLIC",
+              "acl": [
+                "198.51.100.0/24"
+              ]
+            },
+            "retentionDays": 64,
+            "storage": {
+              "class": "premium-perf2-stackit",
+              "size": 10
+            },
+            "version": "2022"
+          }
+    response:
+      status: 422
+      statusText: Unprocessable Entity
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "database not found",
+            "traceId": "885bef8bbc18649c",
+            "type": "INTERNAL_ERROR"
+          }
+  - name: 500 Response
+    description: "Internal Server Error: An internal occurred while processing the request. Please contact the support or try again later."
+    request:
+      url: "{{baseUrl}}/v3alpha1/projects/:projectId/regions/:region/instances"
+      method: POST
+      params:
+        - name: projectId
+          value: 19feb036-9b61-11ee-b9d1-0242ac120002
+          type: path
+          description: The STACKIT project ID.
+        - name: region
+          value: eu01
+          type: path
+          description: The region which should be addressed
+      body:
+        type: json
+        data: |-
+          {
+            "backupSchedule": "6 6 * * *",
+            "encryption": {
+              "kekKeyId": "b710a4d0-6694-4cd3-b55d-16446375174e",
+              "kekKeyRingId": "48e3f816-3e38-44bb-bbff-22e05f0567de",
+              "kekKeyVersion": "1",
+              "serviceAccount": "example@compute.sa.stackit.cloud"
+            },
+            "flavorId": "4.16-Single",
+            "name": "mssql-instance",
+            "network": {
+              "accessScope": "PUBLIC",
+              "acl": [
+                "198.51.100.0/24"
+              ]
+            },
+            "retentionDays": 64,
+            "storage": {
+              "class": "premium-perf2-stackit",
+              "size": 10
+            },
+            "version": "2022"
+          }
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "database not found",
+            "traceId": "885bef8bbc18649c",
+            "type": "INTERNAL_ERROR"
+          }
+
 docs: Create a new instance of a sqlserver database instance.

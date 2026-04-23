@@ -31,4 +31,259 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 200 Response
+    description: Deleted
+    request:
+      url: "{{baseUrl}}/v1beta1/projects/:projectId/regions/:region/gateways/:gatewayId/connections/:connectionId"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: eu01
+          type: path
+        - name: region
+          value: eu02
+          type: path
+          disabled: true
+        - name: gatewayId
+          value: ""
+          type: path
+        - name: connectionId
+          value: ""
+          type: path
+    response:
+      status: 200
+      statusText: OK
+      body:
+        type: text
+        data: ""
+  - name: 400 Response
+    description: Bad Request
+    request:
+      url: "{{baseUrl}}/v1beta1/projects/:projectId/regions/:region/gateways/:gatewayId/connections/:connectionId"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: eu01
+          type: path
+        - name: region
+          value: eu02
+          type: path
+          disabled: true
+        - name: gatewayId
+          value: ""
+          type: path
+        - name: connectionId
+          value: ""
+          type: path
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": {
+              "code": 400,
+              "details": [
+                {
+                  "domain": "",
+                  "metadata": {},
+                  "reason": "INVALID_FIELD"
+                }
+              ],
+              "message": "One or more fields are invalid.",
+              "status": "BAD_REQUEST"
+            }
+          }
+  - name: 401 Response
+    description: Unauthorized
+    request:
+      url: "{{baseUrl}}/v1beta1/projects/:projectId/regions/:region/gateways/:gatewayId/connections/:connectionId"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: eu01
+          type: path
+        - name: region
+          value: eu02
+          type: path
+          disabled: true
+        - name: gatewayId
+          value: ""
+          type: path
+        - name: connectionId
+          value: ""
+          type: path
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": {
+              "code": 400,
+              "details": [
+                {
+                  "domain": "",
+                  "metadata": {},
+                  "reason": "INVALID_FIELD"
+                }
+              ],
+              "message": "One or more fields are invalid.",
+              "status": "BAD_REQUEST"
+            }
+          }
+  - name: 403 Response
+    description: Forbidden
+    request:
+      url: "{{baseUrl}}/v1beta1/projects/:projectId/regions/:region/gateways/:gatewayId/connections/:connectionId"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: eu01
+          type: path
+        - name: region
+          value: eu02
+          type: path
+          disabled: true
+        - name: gatewayId
+          value: ""
+          type: path
+        - name: connectionId
+          value: ""
+          type: path
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": {
+              "code": 400,
+              "details": [
+                {
+                  "domain": "",
+                  "metadata": {},
+                  "reason": "INVALID_FIELD"
+                }
+              ],
+              "message": "One or more fields are invalid.",
+              "status": "BAD_REQUEST"
+            }
+          }
+  - name: 404 Response
+    description: Not Found
+    request:
+      url: "{{baseUrl}}/v1beta1/projects/:projectId/regions/:region/gateways/:gatewayId/connections/:connectionId"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: eu01
+          type: path
+        - name: region
+          value: eu02
+          type: path
+          disabled: true
+        - name: gatewayId
+          value: ""
+          type: path
+        - name: connectionId
+          value: ""
+          type: path
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": {
+              "code": 400,
+              "details": [
+                {
+                  "domain": "",
+                  "metadata": {},
+                  "reason": "INVALID_FIELD"
+                }
+              ],
+              "message": "One or more fields are invalid.",
+              "status": "BAD_REQUEST"
+            }
+          }
+  - name: 500 Response
+    description: Internal Server Error
+    request:
+      url: "{{baseUrl}}/v1beta1/projects/:projectId/regions/:region/gateways/:gatewayId/connections/:connectionId"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+        - name: region
+          value: eu01
+          type: path
+        - name: region
+          value: eu02
+          type: path
+          disabled: true
+        - name: gatewayId
+          value: ""
+          type: path
+        - name: connectionId
+          value: ""
+          type: path
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": {
+              "code": 400,
+              "details": [
+                {
+                  "domain": "",
+                  "metadata": {},
+                  "reason": "INVALID_FIELD"
+                }
+              ],
+              "message": "One or more fields are invalid.",
+              "status": "BAD_REQUEST"
+            }
+          }
+
 docs: Delete a certain connection from an existing VPN gateway.

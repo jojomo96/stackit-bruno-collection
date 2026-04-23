@@ -28,4 +28,157 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 200 Response
+    description: Telemetry Link details successfully retrieved.
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/regions/:regionId/telemetry-link"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the resource is located in.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region name the resource is located in.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region name the resource is located in.
+          disabled: true
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "accessToken": "",
+            "createTime": "",
+            "description": "",
+            "displayName": "",
+            "enabled": false,
+            "id": "",
+            "regionId": "eu01",
+            "status": "active",
+            "telemetryRouterId": ""
+          }
+  - name: 400 Response
+    description: Bad Request. The data provided by the client did not match expectations.
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/regions/:regionId/telemetry-link"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the resource is located in.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region name the resource is located in.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region name the resource is located in.
+          disabled: true
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": ""
+          }
+  - name: 401 Response
+    description: Unauthorized. You may have provided no or wrong credentials.
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/regions/:regionId/telemetry-link"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the resource is located in.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region name the resource is located in.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region name the resource is located in.
+          disabled: true
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": ""
+          }
+  - name: 404 Response
+    description: Not found. The resource has not been found.
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/regions/:regionId/telemetry-link"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the resource is located in.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region name the resource is located in.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region name the resource is located in.
+          disabled: true
+    response:
+      status: 404
+      statusText: Not Found
+      body:
+        type: text
+        data: ""
+  - name: 500 Response
+    description: Internal server error. The application experienced some unexpected situation.
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/regions/:regionId/telemetry-link"
+      method: GET
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the resource is located in.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region name the resource is located in.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region name the resource is located in.
+          disabled: true
+    response:
+      status: 500
+      statusText: Internal Server Error
+      body:
+        type: text
+        data: ""
+
 docs: Returns the details for the given Telemetry Link within the project.

@@ -25,6 +25,341 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: success (full purge)
+    description: Request was successful, which is indicated by the Status code. No data is returned
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId/cache/purge"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: "{}"
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: "{}"
+  - name: success (granular purge)
+    description: Request was successful, which is indicated by the Status code. No data is returned
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId/cache/purge"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "path": "/example/path"
+          }
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: "{}"
+  - name: 401 Response (full purge)
+    description: unauthorized - please make sure the "Authorization" header is set and uses correct credentials
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId/cache/purge"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: "{}"
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: text/plain
+      body:
+        type: text
+        data: ""
+  - name: 401 Response (granular purge)
+    description: unauthorized - please make sure the "Authorization" header is set and uses correct credentials
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId/cache/purge"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "path": "/example/path"
+          }
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: text/plain
+      body:
+        type: text
+        data: ""
+  - name: 422 Response (full purge)
+    description: unprocessable entity - please make sure the body you provided is constructed according to spec
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId/cache/purge"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: "{}"
+    response:
+      status: 422
+      statusText: Unprocessable Entity
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "description": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+  - name: 422 Response (granular purge)
+    description: unprocessable entity - please make sure the body you provided is constructed according to spec
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId/cache/purge"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "path": "/example/path"
+          }
+    response:
+      status: 422
+      statusText: Unprocessable Entity
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "description": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+  - name: 500 Response (full purge)
+    description: internal error - please try again later or contact support if the issue persists
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId/cache/purge"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: "{}"
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "description": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+  - name: 500 Response (granular purge)
+    description: internal error - please try again later or contact support if the issue persists
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId/cache/purge"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "path": "/example/path"
+          }
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "description": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+  - name: default Response (full purge)
+    description: Default error response
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId/cache/purge"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: "{}"
+    response:
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "description": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+  - name: default Response (granular purge)
+    description: Default error response
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/distributions/:distributionId/cache/purge"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: Your STACKIT Project ID
+        - name: distributionId
+          value: ""
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "path": "/example/path"
+          }
+    response:
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "details": [
+              {
+                "de": "",
+                "description": "",
+                "en": "",
+                "field": "",
+                "key": "UNKNOWN"
+              }
+            ],
+            "message": ""
+          }
+
 docs: |
   Clear the cache for this distribution.
   All content, regardless of its staleness, will get refetched from the host.

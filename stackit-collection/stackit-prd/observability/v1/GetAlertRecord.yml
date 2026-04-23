@@ -27,4 +27,133 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 200 Response
+    description: Get alert record.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/alertgroups/:groupName/records/:alertRecord"
+      method: GET
+      params:
+        - name: alertRecord
+          value: ""
+          type: path
+        - name: groupName
+          value: ""
+          type: path
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "data": {
+              "expr": "sum without(instance, method, controller, status_code)(rate(prometheus_http_requests_total[5m]))",
+              "labels": {
+                "test": "test"
+              },
+              "record": "job:prometheus_http_requests_total:rate5m"
+            },
+            "message": "Successfully got alert record"
+          }
+  - name: 400 Response
+    description: Something went wrong.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/alertgroups/:groupName/records/:alertRecord"
+      method: GET
+      params:
+        - name: alertRecord
+          value: ""
+          type: path
+        - name: groupName
+          value: ""
+          type: path
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "Something went wrong"
+          }
+  - name: 403 Response
+    description: You are not authorized
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/alertgroups/:groupName/records/:alertRecord"
+      method: GET
+      params:
+        - name: alertRecord
+          value: ""
+          type: path
+        - name: groupName
+          value: ""
+          type: path
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "detail": "You do not have permission to perform this action."
+          }
+  - name: 404 Response
+    description: Alert record not found.
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/instances/:instanceId/alertgroups/:groupName/records/:alertRecord"
+      method: GET
+      params:
+        - name: alertRecord
+          value: ""
+          type: path
+        - name: groupName
+          value: ""
+          type: path
+        - name: instanceId
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "Alert record not found."
+          }
+
 docs: Get alert record.

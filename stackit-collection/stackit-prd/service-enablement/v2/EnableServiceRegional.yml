@@ -24,4 +24,130 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 202 Response
+    description: Accepted
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/services/:serviceId"
+      method: POST
+      params:
+        - name: region
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+        - name: serviceId
+          value: ""
+          type: path
+    response:
+      status: 202
+      statusText: Accepted
+      body:
+        type: text
+        data: ""
+  - name: 400 Response
+    description: Bad Request
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/services/:serviceId"
+      method: POST
+      params:
+        - name: region
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+        - name: serviceId
+          value: ""
+          type: path
+    response:
+      status: 400
+      statusText: Bad Request
+      body:
+        type: text
+        data: ""
+  - name: 401 Response
+    description: Unauthorized
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/services/:serviceId"
+      method: POST
+      params:
+        - name: region
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+        - name: serviceId
+          value: ""
+          type: path
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": "Not Found",
+            "message": "service not found",
+            "path": "",
+            "status": 404,
+            "timestamp": "2019-08-24T14:15:22Z"
+          }
+  - name: 403 Response
+    description: Forbidden
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/services/:serviceId"
+      method: POST
+      params:
+        - name: region
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+        - name: serviceId
+          value: ""
+          type: path
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": "Forbidden",
+            "message": "Forbidden",
+            "path": "",
+            "status": 403
+          }
+  - name: 404 Response
+    description: service not found
+    request:
+      url: "{{baseUrl}}/v2/projects/:projectId/regions/:region/services/:serviceId"
+      method: POST
+      params:
+        - name: region
+          value: ""
+          type: path
+        - name: projectId
+          value: ""
+          type: path
+        - name: serviceId
+          value: ""
+          type: path
+    response:
+      status: 404
+      statusText: Not Found
+      body:
+        type: text
+        data: ""
+
 docs: enables the service in a project.

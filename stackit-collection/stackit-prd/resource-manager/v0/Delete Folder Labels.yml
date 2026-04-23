@@ -24,6 +24,59 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
+examples:
+  - name: 202 Response
+    description: Labels removed
+    request:
+      url: "{{baseUrl}}/v2/folders/:containerId/labels"
+      method: DELETE
+      params:
+        - name: containerId
+          value: ""
+          type: path
+          description: Folder identifier - containerId as well as UUID identifier is supported.
+        - name: keys
+          value: "[]"
+          type: query
+          description: Label name.
+          disabled: true
+    response:
+      status: 202
+      statusText: Accepted
+      body:
+        type: text
+        data: ""
+  - name: Cannot delete label because of policy
+    request:
+      url: "{{baseUrl}}/v2/folders/:containerId/labels"
+      method: DELETE
+      params:
+        - name: containerId
+          value: ""
+          type: path
+          description: Folder identifier - containerId as well as UUID identifier is supported.
+        - name: keys
+          value: "[]"
+          type: query
+          description: Label name.
+          disabled: true
+    response:
+      status: 409
+      statusText: Conflict
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": "Conflict",
+            "message": "Request aborted due conflict.",
+            "path": "/path/where/error/occurred",
+            "status": 409,
+            "timeStamp": "2019-08-24T14:15:22Z"
+          }
+
 docs: |-
   Deletes all folder labels by given keys.
   - Specific labels may be deleted by key(s)
