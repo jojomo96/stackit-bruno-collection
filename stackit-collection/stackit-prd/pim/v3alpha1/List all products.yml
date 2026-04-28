@@ -1,0 +1,310 @@
+info:
+  name: List all products
+  type: http
+  seq: 4
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v3alpha1/products"
+  headers:
+    - name: Accept-Language
+      value: ""
+      description: ISO 639-1 language code (e.g., en, de, fr)
+      disabled: true
+  params:
+    - name: limit
+      value: "10"
+      type: query
+      description: The number of items to retrieve per page
+    - name: sort
+      value: "[]"
+      type: query
+      description: Comma-separated list of fields. Use '-' for desc.
+      disabled: true
+    - name: cursor
+      value: ""
+      type: query
+      description: The cursor base64 encoded is used to retrieve the next page of results
+      disabled: true
+    - name: categoryId
+      value: ""
+      type: query
+      description: The unique identifier for a category.
+      disabled: true
+    - name: shortName
+      value: ""
+      type: query
+      description: The products's short name to retrieve the data for
+      disabled: true
+    - name: longName
+      value: ""
+      type: query
+      description: The products's long name to retrieve the data for
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: 200 Response
+    description: Successful response
+    request:
+      url: "{{baseUrl}}/v3alpha1/products"
+      method: GET
+      headers:
+        - name: Accept-Language
+          value: ""
+          description: ISO 639-1 language code (e.g., en, de, fr)
+          disabled: true
+      params:
+        - name: limit
+          value: "10"
+          type: query
+          description: The number of items to retrieve per page
+        - name: sort
+          value: "[]"
+          type: query
+          description: Comma-separated list of fields. Use '-' for desc.
+          disabled: true
+        - name: cursor
+          value: ""
+          type: query
+          description: The cursor base64 encoded is used to retrieve the next page of results
+          disabled: true
+        - name: categoryId
+          value: ""
+          type: query
+          description: The unique identifier for a category.
+          disabled: true
+        - name: shortName
+          value: ""
+          type: query
+          description: The products's short name to retrieve the data for
+          disabled: true
+        - name: longName
+          value: ""
+          type: query
+          description: The products's long name to retrieve the data for
+          disabled: true
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "data": [
+              {
+                "apiIdentifier": "api-explorer",
+                "category": {
+                  "id": "5099803df3f4948bd2f98391",
+                  "name": "Compute Engine"
+                },
+                "description": "An API Explorer description",
+                "id": "5099803df3f4948bd2f98392",
+                "image": "https://example.com/image.jpg",
+                "language": "en",
+                "longName": "STACKIT API Explorer",
+                "shortName": "API Explorer",
+                "validStart": "2023-01-15T10:30:00",
+                "version": 10
+              }
+            ],
+            "meta": {
+              "hasNextPage": true,
+              "nextCursor": "eyJ1dWlkIjoiZGU3NjllMzYtM2RlOS00Y2M4hjdsbhdsiuwbnLRDl9fZ29vZ2xlLmV4YW1wbGU6InJlYWx0IiwgImNvbnNlcnZlciI6eyJhYmNk",
+              "pageSize": 10
+            }
+          }
+  - name: 400 Response
+    description: The request was invalid or malformed
+    request:
+      url: "{{baseUrl}}/v3alpha1/products"
+      method: GET
+      headers:
+        - name: Accept-Language
+          value: ""
+          description: ISO 639-1 language code (e.g., en, de, fr)
+          disabled: true
+      params:
+        - name: limit
+          value: "10"
+          type: query
+          description: The number of items to retrieve per page
+        - name: sort
+          value: "[]"
+          type: query
+          description: Comma-separated list of fields. Use '-' for desc.
+          disabled: true
+        - name: cursor
+          value: ""
+          type: query
+          description: The cursor base64 encoded is used to retrieve the next page of results
+          disabled: true
+        - name: categoryId
+          value: ""
+          type: query
+          description: The unique identifier for a category.
+          disabled: true
+        - name: shortName
+          value: ""
+          type: query
+          description: The products's short name to retrieve the data for
+          disabled: true
+        - name: longName
+          value: ""
+          type: query
+          description: The products's long name to retrieve the data for
+          disabled: true
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "detail": "",
+            "entity": "",
+            "errors": [
+              {}
+            ],
+            "id": "",
+            "instance": "",
+            "language": "",
+            "status": 0,
+            "title": ""
+          }
+  - name: 401 Response
+    description: Authentication credentials are required
+    request:
+      url: "{{baseUrl}}/v3alpha1/products"
+      method: GET
+      headers:
+        - name: Accept-Language
+          value: ""
+          description: ISO 639-1 language code (e.g., en, de, fr)
+          disabled: true
+      params:
+        - name: limit
+          value: "10"
+          type: query
+          description: The number of items to retrieve per page
+        - name: sort
+          value: "[]"
+          type: query
+          description: Comma-separated list of fields. Use '-' for desc.
+          disabled: true
+        - name: cursor
+          value: ""
+          type: query
+          description: The cursor base64 encoded is used to retrieve the next page of results
+          disabled: true
+        - name: categoryId
+          value: ""
+          type: query
+          description: The unique identifier for a category.
+          disabled: true
+        - name: shortName
+          value: ""
+          type: query
+          description: The products's short name to retrieve the data for
+          disabled: true
+        - name: longName
+          value: ""
+          type: query
+          description: The products's long name to retrieve the data for
+          disabled: true
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "detail": "",
+            "entity": "",
+            "errors": [
+              {}
+            ],
+            "id": "",
+            "instance": "",
+            "language": "",
+            "status": 0,
+            "title": ""
+          }
+  - name: 500 Response
+    description: An unexpected server common occurred
+    request:
+      url: "{{baseUrl}}/v3alpha1/products"
+      method: GET
+      headers:
+        - name: Accept-Language
+          value: ""
+          description: ISO 639-1 language code (e.g., en, de, fr)
+          disabled: true
+      params:
+        - name: limit
+          value: "10"
+          type: query
+          description: The number of items to retrieve per page
+        - name: sort
+          value: "[]"
+          type: query
+          description: Comma-separated list of fields. Use '-' for desc.
+          disabled: true
+        - name: cursor
+          value: ""
+          type: query
+          description: The cursor base64 encoded is used to retrieve the next page of results
+          disabled: true
+        - name: categoryId
+          value: ""
+          type: query
+          description: The unique identifier for a category.
+          disabled: true
+        - name: shortName
+          value: ""
+          type: query
+          description: The products's short name to retrieve the data for
+          disabled: true
+        - name: longName
+          value: ""
+          type: query
+          description: The products's long name to retrieve the data for
+          disabled: true
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "detail": "",
+            "entity": "",
+            "errors": [
+              {}
+            ],
+            "id": "",
+            "instance": "",
+            "language": "",
+            "status": 0,
+            "title": ""
+          }
+
+docs: Returns all products, available for general public.

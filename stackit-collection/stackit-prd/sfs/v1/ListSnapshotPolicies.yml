@@ -56,9 +56,21 @@ examples:
                 "schedules": [
                   {
                     "count": 0,
+                    "interval": "",
                     "prefix": "",
                     "retentionPeriod": "",
                     "scheduleId": ""
+                  }
+                ],
+                "snapshotSchedules": [
+                  {
+                    "createdAt": "",
+                    "id": "",
+                    "interval": "",
+                    "name": "",
+                    "prefix": "",
+                    "retentionCount": 0,
+                    "retentionPeriod": ""
                   }
                 ]
               }

@@ -1,0 +1,387 @@
+info:
+  name: List all STACKIT:X SKUs
+  type: http
+  seq: 9
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v3alpha1/stackitx/skus"
+  headers:
+    - name: Accept-Language
+      value: ""
+      description: ISO 639-1 language code (e.g., en, de, fr)
+      disabled: true
+  params:
+    - name: limit
+      value: "10"
+      type: query
+      description: The number of items to retrieve per page
+    - name: sort
+      value: "[]"
+      type: query
+      description: Comma-separated list of fields. Use '-' for desc.
+      disabled: true
+    - name: cursor
+      value: ""
+      type: query
+      description: The cursor base64 encoded is used to retrieve the next page of results
+      disabled: true
+    - name: name
+      value: ""
+      type: query
+      description: The name to retrieve the data for
+      disabled: true
+    - name: categoryId
+      value: ""
+      type: query
+      description: The unique identifier for a category.
+      disabled: true
+    - name: productId
+      value: ""
+      type: query
+      description: The unique identifier for a product.
+      disabled: true
+    - name: region
+      value: "[]"
+      type: query
+      description: The region to retrieve the data in
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: 200 Response
+    description: List SKUS successful response
+    request:
+      url: "{{baseUrl}}/v3alpha1/stackitx/skus"
+      method: GET
+      headers:
+        - name: Accept-Language
+          value: ""
+          description: ISO 639-1 language code (e.g., en, de, fr)
+          disabled: true
+      params:
+        - name: limit
+          value: "10"
+          type: query
+          description: The number of items to retrieve per page
+        - name: sort
+          value: "[]"
+          type: query
+          description: Comma-separated list of fields. Use '-' for desc.
+          disabled: true
+        - name: cursor
+          value: ""
+          type: query
+          description: The cursor base64 encoded is used to retrieve the next page of results
+          disabled: true
+        - name: name
+          value: ""
+          type: query
+          description: The name to retrieve the data for
+          disabled: true
+        - name: categoryId
+          value: ""
+          type: query
+          description: The unique identifier for a category.
+          disabled: true
+        - name: productId
+          value: ""
+          type: query
+          description: The unique identifier for a product.
+          disabled: true
+        - name: region
+          value: "[]"
+          type: query
+          description: The region to retrieve the data in
+          disabled: true
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "data": [
+              {}
+            ],
+            "meta": {
+              "hasNextPage": true,
+              "nextCursor": "eyJ1dWlkIjoiZGU3NjllMzYtM2RlOS00Y2M4hjdsbhdsiuwbnLRDl9fZ29vZ2xlLmV4YW1wbGU6InJlYWx0IiwgImNvbnNlcnZlciI6eyJhYmNk",
+              "pageSize": 10
+            }
+          }
+  - name: 400 Response
+    description: The request was invalid or malformed
+    request:
+      url: "{{baseUrl}}/v3alpha1/stackitx/skus"
+      method: GET
+      headers:
+        - name: Accept-Language
+          value: ""
+          description: ISO 639-1 language code (e.g., en, de, fr)
+          disabled: true
+      params:
+        - name: limit
+          value: "10"
+          type: query
+          description: The number of items to retrieve per page
+        - name: sort
+          value: "[]"
+          type: query
+          description: Comma-separated list of fields. Use '-' for desc.
+          disabled: true
+        - name: cursor
+          value: ""
+          type: query
+          description: The cursor base64 encoded is used to retrieve the next page of results
+          disabled: true
+        - name: name
+          value: ""
+          type: query
+          description: The name to retrieve the data for
+          disabled: true
+        - name: categoryId
+          value: ""
+          type: query
+          description: The unique identifier for a category.
+          disabled: true
+        - name: productId
+          value: ""
+          type: query
+          description: The unique identifier for a product.
+          disabled: true
+        - name: region
+          value: "[]"
+          type: query
+          description: The region to retrieve the data in
+          disabled: true
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "detail": "",
+            "entity": "",
+            "errors": [
+              {}
+            ],
+            "id": "",
+            "instance": "",
+            "language": "",
+            "status": 0,
+            "title": ""
+          }
+  - name: 401 Response
+    description: Authentication credentials are required
+    request:
+      url: "{{baseUrl}}/v3alpha1/stackitx/skus"
+      method: GET
+      headers:
+        - name: Accept-Language
+          value: ""
+          description: ISO 639-1 language code (e.g., en, de, fr)
+          disabled: true
+      params:
+        - name: limit
+          value: "10"
+          type: query
+          description: The number of items to retrieve per page
+        - name: sort
+          value: "[]"
+          type: query
+          description: Comma-separated list of fields. Use '-' for desc.
+          disabled: true
+        - name: cursor
+          value: ""
+          type: query
+          description: The cursor base64 encoded is used to retrieve the next page of results
+          disabled: true
+        - name: name
+          value: ""
+          type: query
+          description: The name to retrieve the data for
+          disabled: true
+        - name: categoryId
+          value: ""
+          type: query
+          description: The unique identifier for a category.
+          disabled: true
+        - name: productId
+          value: ""
+          type: query
+          description: The unique identifier for a product.
+          disabled: true
+        - name: region
+          value: "[]"
+          type: query
+          description: The region to retrieve the data in
+          disabled: true
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "detail": "",
+            "entity": "",
+            "errors": [
+              {}
+            ],
+            "id": "",
+            "instance": "",
+            "language": "",
+            "status": 0,
+            "title": ""
+          }
+  - name: 403 Response
+    description: The authenticated user lacks permission to access this resource
+    request:
+      url: "{{baseUrl}}/v3alpha1/stackitx/skus"
+      method: GET
+      headers:
+        - name: Accept-Language
+          value: ""
+          description: ISO 639-1 language code (e.g., en, de, fr)
+          disabled: true
+      params:
+        - name: limit
+          value: "10"
+          type: query
+          description: The number of items to retrieve per page
+        - name: sort
+          value: "[]"
+          type: query
+          description: Comma-separated list of fields. Use '-' for desc.
+          disabled: true
+        - name: cursor
+          value: ""
+          type: query
+          description: The cursor base64 encoded is used to retrieve the next page of results
+          disabled: true
+        - name: name
+          value: ""
+          type: query
+          description: The name to retrieve the data for
+          disabled: true
+        - name: categoryId
+          value: ""
+          type: query
+          description: The unique identifier for a category.
+          disabled: true
+        - name: productId
+          value: ""
+          type: query
+          description: The unique identifier for a product.
+          disabled: true
+        - name: region
+          value: "[]"
+          type: query
+          description: The region to retrieve the data in
+          disabled: true
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "detail": "",
+            "entity": "",
+            "errors": [
+              {}
+            ],
+            "id": "",
+            "instance": "",
+            "language": "",
+            "status": 0,
+            "title": ""
+          }
+  - name: 500 Response
+    description: An unexpected server common occurred
+    request:
+      url: "{{baseUrl}}/v3alpha1/stackitx/skus"
+      method: GET
+      headers:
+        - name: Accept-Language
+          value: ""
+          description: ISO 639-1 language code (e.g., en, de, fr)
+          disabled: true
+      params:
+        - name: limit
+          value: "10"
+          type: query
+          description: The number of items to retrieve per page
+        - name: sort
+          value: "[]"
+          type: query
+          description: Comma-separated list of fields. Use '-' for desc.
+          disabled: true
+        - name: cursor
+          value: ""
+          type: query
+          description: The cursor base64 encoded is used to retrieve the next page of results
+          disabled: true
+        - name: name
+          value: ""
+          type: query
+          description: The name to retrieve the data for
+          disabled: true
+        - name: categoryId
+          value: ""
+          type: query
+          description: The unique identifier for a category.
+          disabled: true
+        - name: productId
+          value: ""
+          type: query
+          description: The unique identifier for a product.
+          disabled: true
+        - name: region
+          value: "[]"
+          type: query
+          description: The region to retrieve the data in
+          disabled: true
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "detail": "",
+            "entity": "",
+            "errors": [
+              {}
+            ],
+            "id": "",
+            "instance": "",
+            "language": "",
+            "status": 0,
+            "title": ""
+          }
+
+docs: Get all STACKIT:X SKUs data, available for general public.

@@ -1,7 +1,7 @@
 info:
   name: get-instance-by-name
   type: http
-  seq: 10
+  seq: 11
 
 http:
   method: GET
