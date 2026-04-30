@@ -1,0 +1,336 @@
+info:
+  name: Update rule for a project
+  type: http
+  seq: 4
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/v1beta/projects/:projectId/regions/:regionId/rules"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: The STACKIT portal project UUID the key ring is part of.
+    - name: regionId
+      value: eu01
+      type: path
+      description: The STACKIT region name the resource is located in.
+    - name: regionId
+      value: eu02
+      type: path
+      description: The STACKIT region name the resource is located in.
+      disabled: true
+  body:
+    type: json
+    data: |-
+      {
+        "description": "Allow HTTP traffic",
+        "direction": "ingress",
+        "etherType": "IPv4",
+        "instanceId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "offset": "1",
+        "portRange": "8080-8090",
+        "product": "Load Balancer",
+        "protocol": "TCP",
+        "securityGroupId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "sourceIP": "0.0.0.0/0",
+        "type": "ACL"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: 200 Response
+    description: Successful response
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/regions/:regionId/rules"
+      method: PUT
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the key ring is part of.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region name the resource is located in.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region name the resource is located in.
+          disabled: true
+      body:
+        type: json
+        data: |-
+          {
+            "description": "Allow HTTP traffic",
+            "direction": "ingress",
+            "etherType": "IPv4",
+            "instanceId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "offset": "1",
+            "portRange": "8080-8090",
+            "product": "Load Balancer",
+            "protocol": "TCP",
+            "securityGroupId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "sourceIP": "0.0.0.0/0",
+            "type": "ACL"
+          }
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "success": true
+          }
+  - name: 400 Response
+    description: Bad request
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/regions/:regionId/rules"
+      method: PUT
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the key ring is part of.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region name the resource is located in.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region name the resource is located in.
+          disabled: true
+      body:
+        type: json
+        data: |-
+          {
+            "description": "Allow HTTP traffic",
+            "direction": "ingress",
+            "etherType": "IPv4",
+            "instanceId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "offset": "1",
+            "portRange": "8080-8090",
+            "product": "Load Balancer",
+            "protocol": "TCP",
+            "securityGroupId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "sourceIP": "0.0.0.0/0",
+            "type": "ACL"
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 0,
+            "message": ""
+          }
+  - name: 401 Response
+    description: Unauthorized
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/regions/:regionId/rules"
+      method: PUT
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the key ring is part of.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region name the resource is located in.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region name the resource is located in.
+          disabled: true
+      body:
+        type: json
+        data: |-
+          {
+            "description": "Allow HTTP traffic",
+            "direction": "ingress",
+            "etherType": "IPv4",
+            "instanceId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "offset": "1",
+            "portRange": "8080-8090",
+            "product": "Load Balancer",
+            "protocol": "TCP",
+            "securityGroupId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "sourceIP": "0.0.0.0/0",
+            "type": "ACL"
+          }
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 0,
+            "message": ""
+          }
+  - name: 403 Response
+    description: Forbidden access. You are not allowed to get rules from this project.
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/regions/:regionId/rules"
+      method: PUT
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the key ring is part of.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region name the resource is located in.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region name the resource is located in.
+          disabled: true
+      body:
+        type: json
+        data: |-
+          {
+            "description": "Allow HTTP traffic",
+            "direction": "ingress",
+            "etherType": "IPv4",
+            "instanceId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "offset": "1",
+            "portRange": "8080-8090",
+            "product": "Load Balancer",
+            "protocol": "TCP",
+            "securityGroupId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "sourceIP": "0.0.0.0/0",
+            "type": "ACL"
+          }
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 0,
+            "message": ""
+          }
+  - name: 404 Response
+    description: Project not found.
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/regions/:regionId/rules"
+      method: PUT
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the key ring is part of.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region name the resource is located in.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region name the resource is located in.
+          disabled: true
+      body:
+        type: json
+        data: |-
+          {
+            "description": "Allow HTTP traffic",
+            "direction": "ingress",
+            "etherType": "IPv4",
+            "instanceId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "offset": "1",
+            "portRange": "8080-8090",
+            "product": "Load Balancer",
+            "protocol": "TCP",
+            "securityGroupId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "sourceIP": "0.0.0.0/0",
+            "type": "ACL"
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 0,
+            "message": ""
+          }
+  - name: 500 Response
+    description: Service is not available.
+    request:
+      url: "{{baseUrl}}/v1beta/projects/:projectId/regions/:regionId/rules"
+      method: PUT
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the key ring is part of.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region name the resource is located in.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region name the resource is located in.
+          disabled: true
+      body:
+        type: json
+        data: |-
+          {
+            "description": "Allow HTTP traffic",
+            "direction": "ingress",
+            "etherType": "IPv4",
+            "instanceId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "offset": "1",
+            "portRange": "8080-8090",
+            "product": "Load Balancer",
+            "protocol": "TCP",
+            "securityGroupId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "sourceIP": "0.0.0.0/0",
+            "type": "ACL"
+          }
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 0,
+            "message": ""
+          }
+
+docs: Returns the updated rule for a specific project
