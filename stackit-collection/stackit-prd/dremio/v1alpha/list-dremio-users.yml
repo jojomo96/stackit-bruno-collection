@@ -23,7 +23,7 @@ http:
     - name: dremioId
       value: ""
       type: path
-      description: The Dremio UUID.
+      description: The Dremio instance UUID.
     - name: pageToken
       value: ""
       type: query
@@ -32,7 +32,7 @@ http:
     - name: pageSize
       value: "10"
       type: query
-      description: Maximum number of items to return
+      description: Maximum number of items to return.
   auth: inherit
 
 settings:
@@ -43,7 +43,7 @@ settings:
 
 examples:
   - name: 200 Response
-    description: Successful response with all dremio admin users
+    description: Successful response with all Dremio admin users.
     request:
       url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/dremios/:dremioId/users"
       method: GET
@@ -64,7 +64,7 @@ examples:
         - name: dremioId
           value: ""
           type: path
-          description: The Dremio UUID.
+          description: The Dremio instance UUID.
         - name: pageToken
           value: ""
           type: query
@@ -73,7 +73,7 @@ examples:
         - name: pageSize
           value: "10"
           type: query
-          description: Maximum number of items to return
+          description: Maximum number of items to return.
     response:
       status: 200
       statusText: OK
@@ -121,7 +121,7 @@ examples:
         - name: dremioId
           value: ""
           type: path
-          description: The Dremio UUID.
+          description: The Dremio instance UUID.
         - name: pageToken
           value: ""
           type: query
@@ -130,7 +130,7 @@ examples:
         - name: pageSize
           value: "10"
           type: query
-          description: Maximum number of items to return
+          description: Maximum number of items to return.
     response:
       status: 401
       statusText: Unauthorized
@@ -159,7 +159,7 @@ examples:
         - name: dremioId
           value: ""
           type: path
-          description: The Dremio UUID.
+          description: The Dremio instance UUID.
         - name: pageToken
           value: ""
           type: query
@@ -168,7 +168,7 @@ examples:
         - name: pageSize
           value: "10"
           type: query
-          description: Maximum number of items to return
+          description: Maximum number of items to return.
     response:
       status: 500
       statusText: Internal Server Error
@@ -176,4 +176,4 @@ examples:
         type: text
         data: ""
 
-docs: Returns a list of all dremio admin users for the given dremio instance.
+docs: Returns a list of all Dremio admin users for the given dremio instance.

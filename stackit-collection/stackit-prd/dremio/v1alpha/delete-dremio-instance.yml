@@ -1,5 +1,5 @@
 info:
-  name: delete-dremio
+  name: delete-dremio-instance
   type: http
   seq: 3
 
@@ -23,7 +23,7 @@ http:
     - name: dremioId
       value: ""
       type: path
-      description: The Dremio UUID.
+      description: The Dremio instance UUID.
   auth: inherit
 
 settings:
@@ -34,7 +34,7 @@ settings:
 
 examples:
   - name: 202 Response
-    description: Dremio deletion has been accepted.
+    description: Dremio instance deletion has been accepted.
     request:
       url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/dremios/:dremioId"
       method: DELETE
@@ -55,7 +55,7 @@ examples:
         - name: dremioId
           value: ""
           type: path
-          description: The Dremio UUID.
+          description: The Dremio instance UUID.
     response:
       status: 202
       statusText: Accepted
@@ -84,7 +84,7 @@ examples:
         - name: dremioId
           value: ""
           type: path
-          description: The Dremio UUID.
+          description: The Dremio instance UUID.
     response:
       status: 401
       statusText: Unauthorized
@@ -113,7 +113,7 @@ examples:
         - name: dremioId
           value: ""
           type: path
-          description: The Dremio UUID.
+          description: The Dremio instance UUID.
     response:
       status: 404
       statusText: Not Found
@@ -142,7 +142,7 @@ examples:
         - name: dremioId
           value: ""
           type: path
-          description: The Dremio UUID.
+          description: The Dremio instance UUID.
     response:
       status: 409
       statusText: Conflict
@@ -171,7 +171,7 @@ examples:
         - name: dremioId
           value: ""
           type: path
-          description: The Dremio UUID.
+          description: The Dremio instance UUID.
     response:
       status: 500
       statusText: Internal Server Error
@@ -179,4 +179,4 @@ examples:
         type: text
         data: ""
 
-docs: Deletes the given Dremio.
+docs: Deletes the given Dremio instance.

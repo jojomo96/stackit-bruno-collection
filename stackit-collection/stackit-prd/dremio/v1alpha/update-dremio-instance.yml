@@ -1,5 +1,5 @@
 info:
-  name: update-dremio
+  name: update-dremio-instance
   type: http
   seq: 5
 
@@ -23,7 +23,7 @@ http:
     - name: dremioId
       value: ""
       type: path
-      description: The Dremio UUID.
+      description: The Dremio instance UUID.
   body:
     type: json
     data: |-
@@ -66,7 +66,7 @@ settings:
 
 examples:
   - name: 202 Response
-    description: Dremio update has been accepted.
+    description: Dremio instance update has been accepted.
     request:
       url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/dremios/:dremioId"
       method: PUT
@@ -87,7 +87,7 @@ examples:
         - name: dremioId
           value: ""
           type: path
-          description: The Dremio UUID.
+          description: The Dremio instance UUID.
       body:
         type: json
         data: |-
@@ -189,7 +189,7 @@ examples:
         - name: dremioId
           value: ""
           type: path
-          description: The Dremio UUID.
+          description: The Dremio instance UUID.
       body:
         type: json
         data: |-
@@ -250,7 +250,7 @@ examples:
         - name: dremioId
           value: ""
           type: path
-          description: The Dremio UUID.
+          description: The Dremio instance UUID.
       body:
         type: json
         data: |-
@@ -311,7 +311,7 @@ examples:
         - name: dremioId
           value: ""
           type: path
-          description: The Dremio UUID.
+          description: The Dremio instance UUID.
       body:
         type: json
         data: |-
@@ -372,7 +372,7 @@ examples:
         - name: dremioId
           value: ""
           type: path
-          description: The Dremio UUID.
+          description: The Dremio instance UUID.
       body:
         type: json
         data: |-
@@ -412,4 +412,4 @@ examples:
         type: text
         data: ""
 
-docs: Updates the given Dremio. Please note that changing certain fields will trigger a Dremio restart and will incur downtime. See the request body information for more details.
+docs: Updates the given Dremio instance. Please note that changing certain fields will trigger a Dremio restart and will incur downtime. See the request body information for more details.

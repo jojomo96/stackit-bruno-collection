@@ -23,11 +23,11 @@ http:
     - name: dremioId
       value: ""
       type: path
-      description: The Dremio UUID.
+      description: The Dremio instance UUID.
     - name: dremioUserId
       value: ""
       type: path
-      description: The dremio user UUID.
+      description: The Dremio user UUID.
   auth: inherit
 
 settings:
@@ -59,11 +59,11 @@ examples:
         - name: dremioId
           value: ""
           type: path
-          description: The Dremio UUID.
+          description: The Dremio instance UUID.
         - name: dremioUserId
           value: ""
           type: path
-          description: The dremio user UUID.
+          description: The Dremio user UUID.
     response:
       status: 200
       statusText: OK
@@ -106,11 +106,11 @@ examples:
         - name: dremioId
           value: ""
           type: path
-          description: The Dremio UUID.
+          description: The Dremio instance UUID.
         - name: dremioUserId
           value: ""
           type: path
-          description: The dremio user UUID.
+          description: The Dremio user UUID.
     response:
       status: 401
       statusText: Unauthorized
@@ -139,11 +139,11 @@ examples:
         - name: dremioId
           value: ""
           type: path
-          description: The Dremio UUID.
+          description: The Dremio instance UUID.
         - name: dremioUserId
           value: ""
           type: path
-          description: The dremio user UUID.
+          description: The Dremio user UUID.
     response:
       status: 404
       statusText: Not Found
@@ -172,11 +172,11 @@ examples:
         - name: dremioId
           value: ""
           type: path
-          description: The Dremio UUID.
+          description: The Dremio instance UUID.
         - name: dremioUserId
           value: ""
           type: path
-          description: The dremio user UUID.
+          description: The Dremio user UUID.
     response:
       status: 500
       statusText: Internal Server Error

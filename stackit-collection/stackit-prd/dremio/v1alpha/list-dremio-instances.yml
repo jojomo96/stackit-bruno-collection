@@ -1,5 +1,5 @@
 info:
-  name: list-dremios
+  name: list-dremio-instances
   type: http
   seq: 1
 
@@ -28,7 +28,7 @@ http:
     - name: pageSize
       value: "10"
       type: query
-      description: Maximum number of items to return
+      description: Maximum number of items to return.
   auth: inherit
 
 settings:
@@ -39,7 +39,7 @@ settings:
 
 examples:
   - name: 200 Response
-    description: Successful response with all dremio instances.
+    description: Successful response with all Dremio instances.
     request:
       url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/dremios"
       method: GET
@@ -65,7 +65,7 @@ examples:
         - name: pageSize
           value: "10"
           type: query
-          description: Maximum number of items to return
+          description: Maximum number of items to return.
     response:
       status: 200
       statusText: OK
@@ -145,7 +145,7 @@ examples:
         - name: pageSize
           value: "10"
           type: query
-          description: Maximum number of items to return
+          description: Maximum number of items to return.
     response:
       status: 401
       statusText: Unauthorized
@@ -179,7 +179,7 @@ examples:
         - name: pageSize
           value: "10"
           type: query
-          description: Maximum number of items to return
+          description: Maximum number of items to return.
     response:
       status: 500
       statusText: Internal Server Error
@@ -187,4 +187,4 @@ examples:
         type: text
         data: ""
 
-docs: Returns a list of all dremio instances within the project.
+docs: Returns a list of all Dremio instances within the project.

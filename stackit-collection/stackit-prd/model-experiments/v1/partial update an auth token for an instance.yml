@@ -1,0 +1,377 @@
+info:
+  name: partial update an auth token for an instance
+  type: http
+  seq: 10
+
+http:
+  method: PATCH
+  url: "{{baseUrl}}/v1/projects/:projectId/regions/:regionId/instances/:instanceId/tokens/:tId"
+  params:
+    - name: projectId
+      value: 792ff0e7-be72-4135-91fa-74adab5cec76
+      type: path
+      description: portal project id
+    - name: regionId
+      value: eu01
+      type: path
+      description: region id
+    - name: tId
+      value: 94649fc3-5e97-4229-a891-b840f6bd67a8
+      type: path
+      description: token id
+    - name: instanceId
+      value: 57d11a2b-7366-46a7-9f45-2e0ebd079142
+      type: path
+      description: instance id
+  body:
+    type: json
+    data: |-
+      {
+        "description": "My updated token for my service account",
+        "labels": {
+          "key": "value"
+        },
+        "name": "my-updated-service-account-token"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: 202 Response
+    description: OK
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/regions/:regionId/instances/:instanceId/tokens/:tId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: 792ff0e7-be72-4135-91fa-74adab5cec76
+          type: path
+          description: portal project id
+        - name: regionId
+          value: eu01
+          type: path
+          description: region id
+        - name: tId
+          value: 94649fc3-5e97-4229-a891-b840f6bd67a8
+          type: path
+          description: token id
+        - name: instanceId
+          value: 57d11a2b-7366-46a7-9f45-2e0ebd079142
+          type: path
+          description: instance id
+      body:
+        type: json
+        data: |-
+          {
+            "description": "My updated token for my service account",
+            "labels": {
+              "key": "value"
+            },
+            "name": "my-updated-service-account-token"
+          }
+    response:
+      status: 202
+      statusText: Accepted
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "message": "successfully updated instance token",
+            "token": {
+              "description": "Token for my service account",
+              "id": "94649fc3-5e97-4229-a891-b840f6bd67a8",
+              "labels": {
+                "key": "value"
+              },
+              "name": "my-service-account-token",
+              "region": "eu01",
+              "state": "creating",
+              "validUntil": "2025-08-26T10:40:52Z"
+            }
+          }
+  - name: 400 Response
+    description: invalid input
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/regions/:regionId/instances/:instanceId/tokens/:tId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: 792ff0e7-be72-4135-91fa-74adab5cec76
+          type: path
+          description: portal project id
+        - name: regionId
+          value: eu01
+          type: path
+          description: region id
+        - name: tId
+          value: 94649fc3-5e97-4229-a891-b840f6bd67a8
+          type: path
+          description: token id
+        - name: instanceId
+          value: 57d11a2b-7366-46a7-9f45-2e0ebd079142
+          type: path
+          description: instance id
+      body:
+        type: json
+        data: |-
+          {
+            "description": "My updated token for my service account",
+            "labels": {
+              "key": "value"
+            },
+            "name": "my-updated-service-account-token"
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 400,
+            "message": "request body is not valid",
+            "status": "Bad Request"
+          }
+  - name: 401 Response
+    description: unauthorized
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/regions/:regionId/instances/:instanceId/tokens/:tId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: 792ff0e7-be72-4135-91fa-74adab5cec76
+          type: path
+          description: portal project id
+        - name: regionId
+          value: eu01
+          type: path
+          description: region id
+        - name: tId
+          value: 94649fc3-5e97-4229-a891-b840f6bd67a8
+          type: path
+          description: token id
+        - name: instanceId
+          value: 57d11a2b-7366-46a7-9f45-2e0ebd079142
+          type: path
+          description: instance id
+      body:
+        type: json
+        data: |-
+          {
+            "description": "My updated token for my service account",
+            "labels": {
+              "key": "value"
+            },
+            "name": "my-updated-service-account-token"
+          }
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 401,
+            "message": "Failed validating the JWT Token",
+            "status": "Unauthorized"
+          }
+  - name: 403 Response
+    description: forbidden
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/regions/:regionId/instances/:instanceId/tokens/:tId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: 792ff0e7-be72-4135-91fa-74adab5cec76
+          type: path
+          description: portal project id
+        - name: regionId
+          value: eu01
+          type: path
+          description: region id
+        - name: tId
+          value: 94649fc3-5e97-4229-a891-b840f6bd67a8
+          type: path
+          description: token id
+        - name: instanceId
+          value: 57d11a2b-7366-46a7-9f45-2e0ebd079142
+          type: path
+          description: instance id
+      body:
+        type: json
+        data: |-
+          {
+            "description": "My updated token for my service account",
+            "labels": {
+              "key": "value"
+            },
+            "name": "my-updated-service-account-token"
+          }
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 403,
+            "message": "forbidden",
+            "status": "Forbidden"
+          }
+  - name: 404 Response
+    description: not found
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/regions/:regionId/instances/:instanceId/tokens/:tId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: 792ff0e7-be72-4135-91fa-74adab5cec76
+          type: path
+          description: portal project id
+        - name: regionId
+          value: eu01
+          type: path
+          description: region id
+        - name: tId
+          value: 94649fc3-5e97-4229-a891-b840f6bd67a8
+          type: path
+          description: token id
+        - name: instanceId
+          value: 57d11a2b-7366-46a7-9f45-2e0ebd079142
+          type: path
+          description: instance id
+      body:
+        type: json
+        data: |-
+          {
+            "description": "My updated token for my service account",
+            "labels": {
+              "key": "value"
+            },
+            "name": "my-updated-service-account-token"
+          }
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "message": "resource not found",
+            "status": "Not Found"
+          }
+  - name: 409 Response
+    description: conflict
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/regions/:regionId/instances/:instanceId/tokens/:tId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: 792ff0e7-be72-4135-91fa-74adab5cec76
+          type: path
+          description: portal project id
+        - name: regionId
+          value: eu01
+          type: path
+          description: region id
+        - name: tId
+          value: 94649fc3-5e97-4229-a891-b840f6bd67a8
+          type: path
+          description: token id
+        - name: instanceId
+          value: 57d11a2b-7366-46a7-9f45-2e0ebd079142
+          type: path
+          description: instance id
+      body:
+        type: json
+        data: |-
+          {
+            "description": "My updated token for my service account",
+            "labels": {
+              "key": "value"
+            },
+            "name": "my-updated-service-account-token"
+          }
+    response:
+      status: 409
+      statusText: Conflict
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 409,
+            "message": "resource conflict",
+            "status": "Conflict"
+          }
+  - name: 429 Response
+    description: too many requests
+    request:
+      url: "{{baseUrl}}/v1/projects/:projectId/regions/:regionId/instances/:instanceId/tokens/:tId"
+      method: PATCH
+      params:
+        - name: projectId
+          value: 792ff0e7-be72-4135-91fa-74adab5cec76
+          type: path
+          description: portal project id
+        - name: regionId
+          value: eu01
+          type: path
+          description: region id
+        - name: tId
+          value: 94649fc3-5e97-4229-a891-b840f6bd67a8
+          type: path
+          description: token id
+        - name: instanceId
+          value: 57d11a2b-7366-46a7-9f45-2e0ebd079142
+          type: path
+          description: instance id
+      body:
+        type: json
+        data: |-
+          {
+            "description": "My updated token for my service account",
+            "labels": {
+              "key": "value"
+            },
+            "name": "my-updated-service-account-token"
+          }
+    response:
+      status: 429
+      statusText: Too Many Requests
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 429,
+            "message": "too many requests",
+            "status": "Too Many Requests"
+          }
+
+docs: partial update an auth token for an instance

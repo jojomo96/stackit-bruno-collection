@@ -23,7 +23,7 @@ http:
     - name: dremioId
       value: ""
       type: path
-      description: The Dremio UUID.
+      description: The Dremio instance UUID.
   auth: inherit
 
 settings:
@@ -34,7 +34,7 @@ settings:
 
 examples:
   - name: 200 Response
-    description: Dremio details successfully retrieved.
+    description: Dremio instance details successfully retrieved.
     request:
       url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/dremios/:dremioId"
       method: GET
@@ -55,7 +55,7 @@ examples:
         - name: dremioId
           value: ""
           type: path
-          description: The Dremio UUID.
+          description: The Dremio instance UUID.
     response:
       status: 200
       statusText: OK
@@ -125,7 +125,7 @@ examples:
         - name: dremioId
           value: ""
           type: path
-          description: The Dremio UUID.
+          description: The Dremio instance UUID.
     response:
       status: 401
       statusText: Unauthorized
@@ -154,7 +154,7 @@ examples:
         - name: dremioId
           value: ""
           type: path
-          description: The Dremio UUID.
+          description: The Dremio instance UUID.
     response:
       status: 404
       statusText: Not Found
@@ -183,7 +183,7 @@ examples:
         - name: dremioId
           value: ""
           type: path
-          description: The Dremio UUID.
+          description: The Dremio instance UUID.
     response:
       status: 500
       statusText: Internal Server Error
@@ -191,4 +191,4 @@ examples:
         type: text
         data: ""
 
-docs: Returns the details for the given Dremio.
+docs: Returns the details for the given Dremio instance.

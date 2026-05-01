@@ -1,5 +1,5 @@
 info:
-  name: create-dremio
+  name: create-dremio-instance
   type: http
   seq: 2
 
@@ -62,7 +62,7 @@ settings:
 
 examples:
   - name: 202 Response
-    description: Dremio has been accepted.
+    description: Dremio instance has been accepted.
     request:
       url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/dremios"
       method: POST
@@ -388,4 +388,4 @@ examples:
         type: text
         data: ""
 
-docs: Creates a new Dremio within the project.
+docs: Creates a new Dremio instance within the project.
