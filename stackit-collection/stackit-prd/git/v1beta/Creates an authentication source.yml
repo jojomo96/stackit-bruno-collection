@@ -80,7 +80,8 @@ examples:
             "name": "stackit",
             "provider": "openidConnect",
             "scopes": "openid profile email",
-            "status": "Ready"
+            "status": "Ready",
+            "status_message": "OIDC discovery failed: 404 Not Found"
           }
   - name: 400 Response
     description: Bad Request.

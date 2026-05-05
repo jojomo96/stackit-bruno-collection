@@ -1,5 +1,5 @@
 info:
-  name: patch-project-telemetry-link
+  name: partial-update-project-telemetry-link
   type: http
   seq: 11
 

@@ -66,8 +66,11 @@ examples:
             "created": "",
             "feature_toggle": {
               "default_email_notifications": "enabled",
-              "enable_commit_signatures": false,
-              "enable_local_login": false
+              "enable_local_login": false,
+              "pipelines": {
+                "action_url": "",
+                "enabled": false
+              }
             },
             "flavor": "",
             "id": "",
