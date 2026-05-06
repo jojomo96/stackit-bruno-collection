@@ -27,6 +27,10 @@ http:
           "serviceAccount": "example@compute.sa.stackit.cloud"
         },
         "flavorId": "1.2",
+        "labels": {
+          "key1": "value1",
+          "key2": "value2"
+        },
         "name": "postgres-instance",
         "network": {
           "accessScope": "PUBLIC",
@@ -77,6 +81,10 @@ examples:
               "serviceAccount": "example@compute.sa.stackit.cloud"
             },
             "flavorId": "1.2",
+            "labels": {
+              "key1": "value1",
+              "key2": "value2"
+            },
             "name": "postgres-instance",
             "network": {
               "accessScope": "PUBLIC",
@@ -129,6 +137,10 @@ examples:
               "serviceAccount": "example@compute.sa.stackit.cloud"
             },
             "flavorId": "1.2",
+            "labels": {
+              "key1": "value1",
+              "key2": "value2"
+            },
             "name": "postgres-instance",
             "network": {
               "accessScope": "PUBLIC",
@@ -184,6 +196,10 @@ examples:
               "serviceAccount": "example@compute.sa.stackit.cloud"
             },
             "flavorId": "1.2",
+            "labels": {
+              "key1": "value1",
+              "key2": "value2"
+            },
             "name": "postgres-instance",
             "network": {
               "accessScope": "PUBLIC",
@@ -239,6 +255,10 @@ examples:
               "serviceAccount": "example@compute.sa.stackit.cloud"
             },
             "flavorId": "1.2",
+            "labels": {
+              "key1": "value1",
+              "key2": "value2"
+            },
             "name": "postgres-instance",
             "network": {
               "accessScope": "PUBLIC",
@@ -294,6 +314,10 @@ examples:
               "serviceAccount": "example@compute.sa.stackit.cloud"
             },
             "flavorId": "1.2",
+            "labels": {
+              "key1": "value1",
+              "key2": "value2"
+            },
             "name": "postgres-instance",
             "network": {
               "accessScope": "PUBLIC",
@@ -349,6 +373,10 @@ examples:
               "serviceAccount": "example@compute.sa.stackit.cloud"
             },
             "flavorId": "1.2",
+            "labels": {
+              "key1": "value1",
+              "key2": "value2"
+            },
             "name": "postgres-instance",
             "network": {
               "accessScope": "PUBLIC",
@@ -407,6 +435,10 @@ examples:
               "serviceAccount": "example@compute.sa.stackit.cloud"
             },
             "flavorId": "1.2",
+            "labels": {
+              "key1": "value1",
+              "key2": "value2"
+            },
             "name": "postgres-instance",
             "network": {
               "accessScope": "PUBLIC",

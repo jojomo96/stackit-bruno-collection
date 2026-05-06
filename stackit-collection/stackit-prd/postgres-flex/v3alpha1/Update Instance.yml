@@ -25,6 +25,10 @@ http:
       {
         "backupSchedule": "6 6 * * *",
         "flavorId": "1.2",
+        "labels": {
+          "key1": "value1",
+          "key2": "value2"
+        },
         "name": "postgres-instance",
         "network": {
           "acl": [
@@ -71,6 +75,10 @@ examples:
           {
             "backupSchedule": "6 6 * * *",
             "flavorId": "1.2",
+            "labels": {
+              "key1": "value1",
+              "key2": "value2"
+            },
             "name": "postgres-instance",
             "network": {
               "acl": [
@@ -113,6 +121,10 @@ examples:
           {
             "backupSchedule": "6 6 * * *",
             "flavorId": "1.2",
+            "labels": {
+              "key1": "value1",
+              "key2": "value2"
+            },
             "name": "postgres-instance",
             "network": {
               "acl": [
@@ -164,6 +176,10 @@ examples:
           {
             "backupSchedule": "6 6 * * *",
             "flavorId": "1.2",
+            "labels": {
+              "key1": "value1",
+              "key2": "value2"
+            },
             "name": "postgres-instance",
             "network": {
               "acl": [
@@ -215,6 +231,10 @@ examples:
           {
             "backupSchedule": "6 6 * * *",
             "flavorId": "1.2",
+            "labels": {
+              "key1": "value1",
+              "key2": "value2"
+            },
             "name": "postgres-instance",
             "network": {
               "acl": [
@@ -266,6 +286,10 @@ examples:
           {
             "backupSchedule": "6 6 * * *",
             "flavorId": "1.2",
+            "labels": {
+              "key1": "value1",
+              "key2": "value2"
+            },
             "name": "postgres-instance",
             "network": {
               "acl": [
@@ -317,6 +341,10 @@ examples:
           {
             "backupSchedule": "6 6 * * *",
             "flavorId": "1.2",
+            "labels": {
+              "key1": "value1",
+              "key2": "value2"
+            },
             "name": "postgres-instance",
             "network": {
               "acl": [
@@ -369,6 +397,10 @@ examples:
           {
             "backupSchedule": "6 6 * * *",
             "flavorId": "1.2",
+            "labels": {
+              "key1": "value1",
+              "key2": "value2"
+            },
             "name": "postgres-instance",
             "network": {
               "acl": [
@@ -423,6 +455,10 @@ examples:
           {
             "backupSchedule": "6 6 * * *",
             "flavorId": "1.2",
+            "labels": {
+              "key1": "value1",
+              "key2": "value2"
+            },
             "name": "postgres-instance",
             "network": {
               "acl": [

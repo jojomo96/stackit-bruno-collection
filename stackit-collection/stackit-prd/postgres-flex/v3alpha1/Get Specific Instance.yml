@@ -75,6 +75,10 @@ examples:
             "flavorId": "1.2",
             "id": "df727477-8991-486c-a3ed-d11d9d9beb1c",
             "isDeletable": true,
+            "labels": {
+              "key1": "value1",
+              "key2": "value2"
+            },
             "name": "postgres-instance",
             "network": {
               "accessScope": "PUBLIC",
