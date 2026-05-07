@@ -1,5 +1,5 @@
 info:
-  name: get-dremio
+  name: get-dremio-instance
   type: http
   seq: 4
 
