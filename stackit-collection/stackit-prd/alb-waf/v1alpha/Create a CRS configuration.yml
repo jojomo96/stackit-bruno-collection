@@ -63,8 +63,22 @@ examples:
         data: |-
           {
             "active": true,
+            "groups": {
+              "942": {
+                "description": "Detects common SQL injection attacks.",
+                "group_name": "SQL Injection (SQLi)",
+                "rules": {
+                  "942100": {
+                    "description": "libinjection SQLi check",
+                    "mode": "MODE_ENABLED",
+                    "severity": "CRITICAL"
+                  }
+                }
+              }
+            },
             "name": "my-core-rule-set-config",
-            "region": "eu01"
+            "region": "eu01",
+            "version": "v4.14.0"
           }
   - name: 400 Response
     description: One or more fields are invalid.

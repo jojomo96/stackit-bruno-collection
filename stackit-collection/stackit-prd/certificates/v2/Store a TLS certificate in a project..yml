@@ -17,6 +17,12 @@ http:
     type: json
     data: |-
       {
+        "labels": {
+          "cost.center": "billing.dept",
+          "environment": "prod",
+          "name": "my-app",
+          "region": ""
+        },
         "name": "my-tls-certificate",
         "privateKey": "-----BEGIN EC PRIVATE KEY----- MYPriV4TE+Tls/CER71fICATE...-----END EC PRIVATE KEY-----",
         "projectId": "2438ac3c-37eb-4902-adef-ed16b4431030",
@@ -48,6 +54,12 @@ examples:
         type: json
         data: |-
           {
+            "labels": {
+              "cost.center": "billing.dept",
+              "environment": "prod",
+              "name": "my-app",
+              "region": ""
+            },
             "name": "my-tls-certificate",
             "privateKey": "-----BEGIN EC PRIVATE KEY----- MYPriV4TE+Tls/CER71fICATE...-----END EC PRIVATE KEY-----",
             "projectId": "2438ac3c-37eb-4902-adef-ed16b4431030",
@@ -65,6 +77,12 @@ examples:
         data: |-
           {
             "id": "my-tls-certificate-v1-123456",
+            "labels": {
+              "cost.center": "billing.dept",
+              "environment": "prod",
+              "name": "my-app",
+              "region": ""
+            },
             "name": "my-tls-certificate",
             "publicKey": "-----BEGIN CERTIFICATE----- MYPUbLiC+Tls/CER71fICATE...-----END CERTIFICATE-----",
             "region": "eu01"
@@ -85,6 +103,12 @@ examples:
         type: json
         data: |-
           {
+            "labels": {
+              "cost.center": "billing.dept",
+              "environment": "prod",
+              "name": "my-app",
+              "region": ""
+            },
             "name": "my-tls-certificate",
             "privateKey": "-----BEGIN EC PRIVATE KEY----- MYPriV4TE+Tls/CER71fICATE...-----END EC PRIVATE KEY-----",
             "projectId": "2438ac3c-37eb-4902-adef-ed16b4431030",
@@ -113,6 +137,12 @@ examples:
         type: json
         data: |-
           {
+            "labels": {
+              "cost.center": "billing.dept",
+              "environment": "prod",
+              "name": "my-app",
+              "region": ""
+            },
             "name": "my-tls-certificate",
             "privateKey": "-----BEGIN EC PRIVATE KEY----- MYPriV4TE+Tls/CER71fICATE...-----END EC PRIVATE KEY-----",
             "projectId": "2438ac3c-37eb-4902-adef-ed16b4431030",
@@ -153,6 +183,12 @@ examples:
         type: json
         data: |-
           {
+            "labels": {
+              "cost.center": "billing.dept",
+              "environment": "prod",
+              "name": "my-app",
+              "region": ""
+            },
             "name": "my-tls-certificate",
             "privateKey": "-----BEGIN EC PRIVATE KEY----- MYPriV4TE+Tls/CER71fICATE...-----END EC PRIVATE KEY-----",
             "projectId": "2438ac3c-37eb-4902-adef-ed16b4431030",
@@ -181,6 +217,12 @@ examples:
         type: json
         data: |-
           {
+            "labels": {
+              "cost.center": "billing.dept",
+              "environment": "prod",
+              "name": "my-app",
+              "region": ""
+            },
             "name": "my-tls-certificate",
             "privateKey": "-----BEGIN EC PRIVATE KEY----- MYPriV4TE+Tls/CER71fICATE...-----END EC PRIVATE KEY-----",
             "projectId": "2438ac3c-37eb-4902-adef-ed16b4431030",
@@ -209,6 +251,12 @@ examples:
         type: json
         data: |-
           {
+            "labels": {
+              "cost.center": "billing.dept",
+              "environment": "prod",
+              "name": "my-app",
+              "region": ""
+            },
             "name": "my-tls-certificate",
             "privateKey": "-----BEGIN EC PRIVATE KEY----- MYPriV4TE+Tls/CER71fICATE...-----END EC PRIVATE KEY-----",
             "projectId": "2438ac3c-37eb-4902-adef-ed16b4431030",
@@ -237,6 +285,12 @@ examples:
         type: json
         data: |-
           {
+            "labels": {
+              "cost.center": "billing.dept",
+              "environment": "prod",
+              "name": "my-app",
+              "region": ""
+            },
             "name": "my-tls-certificate",
             "privateKey": "-----BEGIN EC PRIVATE KEY----- MYPriV4TE+Tls/CER71fICATE...-----END EC PRIVATE KEY-----",
             "projectId": "2438ac3c-37eb-4902-adef-ed16b4431030",

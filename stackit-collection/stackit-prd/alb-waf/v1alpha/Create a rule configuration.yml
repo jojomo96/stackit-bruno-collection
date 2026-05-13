@@ -1,7 +1,7 @@
 info:
   name: Create a rule configuration
   type: http
-  seq: 8
+  seq: 9
 
 http:
   method: POST

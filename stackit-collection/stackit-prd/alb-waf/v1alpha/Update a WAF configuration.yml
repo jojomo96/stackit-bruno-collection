@@ -1,7 +1,7 @@
 info:
   name: Update a WAF configuration
   type: http
-  seq: 16
+  seq: 17
 
 http:
   method: PUT

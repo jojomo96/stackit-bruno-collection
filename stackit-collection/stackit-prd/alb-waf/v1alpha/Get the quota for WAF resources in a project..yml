@@ -1,7 +1,7 @@
 info:
   name: Get the quota for WAF resources in a project.
   type: http
-  seq: 6
+  seq: 7
 
 http:
   method: GET

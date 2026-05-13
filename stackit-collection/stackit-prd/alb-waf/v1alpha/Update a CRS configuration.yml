@@ -1,7 +1,7 @@
 info:
   name: Update a CRS configuration
   type: http
-  seq: 5
+  seq: 6
 
 http:
   method: PUT
@@ -21,6 +21,15 @@ http:
     data: |-
       {
         "active": true,
+        "groups": {
+          "942": {
+            "rules": {
+              "942100": {
+                "mode": "MODE_DISABLED"
+              }
+            }
+          }
+        },
         "name": "my-core-rule-set-config",
         "projectId": "2438ac3c-37eb-4902-adef-ed16b4431030",
         "region": "eu01"
@@ -54,6 +63,15 @@ examples:
         data: |-
           {
             "active": true,
+            "groups": {
+              "942": {
+                "rules": {
+                  "942100": {
+                    "mode": "MODE_DISABLED"
+                  }
+                }
+              }
+            },
             "name": "my-core-rule-set-config",
             "projectId": "2438ac3c-37eb-4902-adef-ed16b4431030",
             "region": "eu01"
@@ -92,6 +110,15 @@ examples:
         data: |-
           {
             "active": true,
+            "groups": {
+              "942": {
+                "rules": {
+                  "942100": {
+                    "mode": "MODE_DISABLED"
+                  }
+                }
+              }
+            },
             "name": "my-core-rule-set-config",
             "projectId": "2438ac3c-37eb-4902-adef-ed16b4431030",
             "region": "eu01"
@@ -122,6 +149,15 @@ examples:
         data: |-
           {
             "active": true,
+            "groups": {
+              "942": {
+                "rules": {
+                  "942100": {
+                    "mode": "MODE_DISABLED"
+                  }
+                }
+              }
+            },
             "name": "my-core-rule-set-config",
             "projectId": "2438ac3c-37eb-4902-adef-ed16b4431030",
             "region": "eu01"
@@ -164,6 +200,15 @@ examples:
         data: |-
           {
             "active": true,
+            "groups": {
+              "942": {
+                "rules": {
+                  "942100": {
+                    "mode": "MODE_DISABLED"
+                  }
+                }
+              }
+            },
             "name": "my-core-rule-set-config",
             "projectId": "2438ac3c-37eb-4902-adef-ed16b4431030",
             "region": "eu01"
@@ -194,6 +239,15 @@ examples:
         data: |-
           {
             "active": true,
+            "groups": {
+              "942": {
+                "rules": {
+                  "942100": {
+                    "mode": "MODE_DISABLED"
+                  }
+                }
+              }
+            },
             "name": "my-core-rule-set-config",
             "projectId": "2438ac3c-37eb-4902-adef-ed16b4431030",
             "region": "eu01"
@@ -224,6 +278,15 @@ examples:
         data: |-
           {
             "active": true,
+            "groups": {
+              "942": {
+                "rules": {
+                  "942100": {
+                    "mode": "MODE_DISABLED"
+                  }
+                }
+              }
+            },
             "name": "my-core-rule-set-config",
             "projectId": "2438ac3c-37eb-4902-adef-ed16b4431030",
             "region": "eu01"
@@ -254,6 +317,15 @@ examples:
         data: |-
           {
             "active": true,
+            "groups": {
+              "942": {
+                "rules": {
+                  "942100": {
+                    "mode": "MODE_DISABLED"
+                  }
+                }
+              }
+            },
             "name": "my-core-rule-set-config",
             "projectId": "2438ac3c-37eb-4902-adef-ed16b4431030",
             "region": "eu01"
@@ -275,4 +347,4 @@ examples:
             "message": ""
           }
 
-docs: This endpoint will update an existing core rule set (CRS) configuration and also inturn update all WAF configurations that reference it.
+docs: "DEPRECATED: Use PatchCoreRuleSet"

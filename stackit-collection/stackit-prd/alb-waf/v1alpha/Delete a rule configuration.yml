@@ -1,7 +1,7 @@
 info:
   name: Delete a rule configuration
   type: http
-  seq: 9
+  seq: 10
 
 http:
   method: DELETE

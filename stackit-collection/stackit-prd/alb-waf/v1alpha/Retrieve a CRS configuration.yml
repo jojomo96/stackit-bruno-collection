@@ -51,19 +51,19 @@ examples:
         data: |-
           {
             "active": true,
-            "groups": [
-              {
-                "description": "Rules designed to detect and block SQL injection attempts.",
-                "groupName": "Multipart Enforcement (MULTIPART ATTACK)",
-                "rules": [
-                  {
-                    "description": "SQL Injection Attack Detected via libinjection",
-                    "id": 942100,
+            "groups": {
+              "942": {
+                "description": "Detects common SQL injection attacks.",
+                "group_name": "SQL Injection (SQLi)",
+                "rules": {
+                  "942100": {
+                    "description": "libinjection SQLi check",
+                    "mode": "MODE_ENABLED",
                     "severity": "CRITICAL"
                   }
-                ]
+                }
               }
-            ],
+            },
             "name": "my-core-rule-set-config",
             "region": "eu01",
             "version": "v4.14.0"

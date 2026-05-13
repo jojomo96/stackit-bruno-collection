@@ -51,6 +51,12 @@ examples:
         data: |-
           {
             "id": "my-tls-certificate-v1-123456",
+            "labels": {
+              "cost.center": "billing.dept",
+              "environment": "prod",
+              "name": "my-app",
+              "region": ""
+            },
             "name": "my-tls-certificate",
             "publicKey": "-----BEGIN CERTIFICATE----- MYPUbLiC+Tls/CER71fICATE...-----END CERTIFICATE-----",
             "region": "eu01"
