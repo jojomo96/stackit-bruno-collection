@@ -1,7 +1,7 @@
 info:
   name: Export rules as CSV
   type: http
-  seq: 5
+  seq: 7
 
 http:
   method: GET

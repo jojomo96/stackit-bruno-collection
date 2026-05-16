@@ -1,7 +1,7 @@
 info:
   name: Delete rule for a project
   type: http
-  seq: 1
+  seq: 3
 
 http:
   method: DELETE
