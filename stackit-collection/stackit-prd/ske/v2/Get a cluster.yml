@@ -69,6 +69,7 @@ examples:
               },
               "dns": {
                 "enabled": true,
+                "gatewayApi": true,
                 "zones": [
                   "zones",
                   "zones",
