@@ -1,25 +1,23 @@
 info:
-  name: Approve a subscription
+  name: Approve a pending subscription.
   type: http
-  seq: 7
+  seq: 11
 
 http:
   method: POST
   url: "{{baseUrl}}/v1/vendors/projects/:projectId/subscriptions/:subscriptionId/approve"
   params:
     - name: projectId
-      value: 14fef715-4ef3-4b10-8789-cd7f9bd09421
+      value: ""
       type: path
-      description: The project ID.
     - name: subscriptionId
-      value: 14fef715-4ef3-4b10-8789-cd7f9bd09421
+      value: ""
       type: path
-      description: The subscription ID.
   body:
     type: json
     data: |-
       {
-        "instanceTarget": "https://marketplace-application.com/register?x-stackit–marketplace-token=eC1zdGFja2l0LW1hcmtldHBsYWNlLXRva2Vu"
+        "instanceTarget": ""
       }
   auth: inherit
 
@@ -37,18 +35,16 @@ examples:
       method: POST
       params:
         - name: projectId
-          value: 14fef715-4ef3-4b10-8789-cd7f9bd09421
+          value: ""
           type: path
-          description: The project ID.
         - name: subscriptionId
-          value: 14fef715-4ef3-4b10-8789-cd7f9bd09421
+          value: ""
           type: path
-          description: The subscription ID.
       body:
         type: json
         data: |-
           {
-            "instanceTarget": "https://marketplace-application.com/register?x-stackit–marketplace-token=eC1zdGFja2l0LW1hcmtldHBsYWNlLXRva2Vu"
+            "instanceTarget": ""
           }
     response:
       status: 204
@@ -62,18 +58,16 @@ examples:
       method: POST
       params:
         - name: projectId
-          value: 14fef715-4ef3-4b10-8789-cd7f9bd09421
+          value: ""
           type: path
-          description: The project ID.
         - name: subscriptionId
-          value: 14fef715-4ef3-4b10-8789-cd7f9bd09421
+          value: ""
           type: path
-          description: The subscription ID.
       body:
         type: json
         data: |-
           {
-            "instanceTarget": "https://marketplace-application.com/register?x-stackit–marketplace-token=eC1zdGFja2l0LW1hcmtldHBsYWNlLXRva2Vu"
+            "instanceTarget": ""
           }
     response:
       status: 400
@@ -97,18 +91,16 @@ examples:
       method: POST
       params:
         - name: projectId
-          value: 14fef715-4ef3-4b10-8789-cd7f9bd09421
+          value: ""
           type: path
-          description: The project ID.
         - name: subscriptionId
-          value: 14fef715-4ef3-4b10-8789-cd7f9bd09421
+          value: ""
           type: path
-          description: The subscription ID.
       body:
         type: json
         data: |-
           {
-            "instanceTarget": "https://marketplace-application.com/register?x-stackit–marketplace-token=eC1zdGFja2l0LW1hcmtldHBsYWNlLXRva2Vu"
+            "instanceTarget": ""
           }
     response:
       status: 401
@@ -132,18 +124,16 @@ examples:
       method: POST
       params:
         - name: projectId
-          value: 14fef715-4ef3-4b10-8789-cd7f9bd09421
+          value: ""
           type: path
-          description: The project ID.
         - name: subscriptionId
-          value: 14fef715-4ef3-4b10-8789-cd7f9bd09421
+          value: ""
           type: path
-          description: The subscription ID.
       body:
         type: json
         data: |-
           {
-            "instanceTarget": "https://marketplace-application.com/register?x-stackit–marketplace-token=eC1zdGFja2l0LW1hcmtldHBsYWNlLXRva2Vu"
+            "instanceTarget": ""
           }
     response:
       status: 403
@@ -167,18 +157,16 @@ examples:
       method: POST
       params:
         - name: projectId
-          value: 14fef715-4ef3-4b10-8789-cd7f9bd09421
+          value: ""
           type: path
-          description: The project ID.
         - name: subscriptionId
-          value: 14fef715-4ef3-4b10-8789-cd7f9bd09421
+          value: ""
           type: path
-          description: The subscription ID.
       body:
         type: json
         data: |-
           {
-            "instanceTarget": "https://marketplace-application.com/register?x-stackit–marketplace-token=eC1zdGFja2l0LW1hcmtldHBsYWNlLXRva2Vu"
+            "instanceTarget": ""
           }
     response:
       status: 404

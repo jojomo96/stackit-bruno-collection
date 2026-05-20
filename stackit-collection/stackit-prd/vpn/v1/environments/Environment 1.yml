@@ -1,6 +1,6 @@
 name: Environment 1
 variables:
   - name: baseUrl
-    value: https://vpn.api.{{region}}stackit.cloud
+    value: https://vpn.api.stackit.cloud
   - name: region
-    value: eu01.
+    value: global

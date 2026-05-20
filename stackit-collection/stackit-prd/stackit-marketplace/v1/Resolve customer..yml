@@ -1,14 +1,21 @@
 info:
-  name: Create inquiry
+  name: Resolve customer.
   type: http
-  seq: 3
+  seq: 8
 
 http:
   method: POST
-  url: "{{baseUrl}}/v1/inquiries"
+  url: "{{baseUrl}}/v1/vendors/projects/:projectId/resolve-customer"
+  params:
+    - name: projectId
+      value: ""
+      type: path
   body:
     type: json
-    data: "{}"
+    data: |-
+      {
+        "token": ""
+      }
   auth: inherit
 
 settings:
@@ -18,27 +25,57 @@ settings:
   maxRedirects: 5
 
 examples:
-  - name: 202 Response
-    description: Accepted
+  - name: 200 Response
+    description: OK
     request:
-      url: "{{baseUrl}}/v1/inquiries"
+      url: "{{baseUrl}}/v1/vendors/projects/:projectId/resolve-customer"
       method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
       body:
         type: json
-        data: "{}"
+        data: |-
+          {
+            "token": ""
+          }
     response:
-      status: 202
-      statusText: Accepted
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
       body:
-        type: text
-        data: ""
+        type: json
+        data: |-
+          {
+            "approvalTimeout": "",
+            "autoRenewal": false,
+            "lifecycleState": "STATE_UNSPECIFIED",
+            "orderedAt": "",
+            "organizationId": "",
+            "product": "",
+            "projectId": "",
+            "subscriptionId": "",
+            "terminatesAt": "",
+            "validFrom": "",
+            "validUntil": ""
+          }
   - name: Bad Request
     request:
-      url: "{{baseUrl}}/v1/inquiries"
+      url: "{{baseUrl}}/v1/vendors/projects/:projectId/resolve-customer"
       method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
       body:
         type: json
-        data: "{}"
+        data: |-
+          {
+            "token": ""
+          }
     response:
       status: 400
       statusText: Bad Request
@@ -57,11 +94,18 @@ examples:
           }
   - name: Unauthorized
     request:
-      url: "{{baseUrl}}/v1/inquiries"
+      url: "{{baseUrl}}/v1/vendors/projects/:projectId/resolve-customer"
       method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
       body:
         type: json
-        data: "{}"
+        data: |-
+          {
+            "token": ""
+          }
     response:
       status: 401
       statusText: Unauthorized
@@ -80,11 +124,18 @@ examples:
           }
   - name: Forbidden
     request:
-      url: "{{baseUrl}}/v1/inquiries"
+      url: "{{baseUrl}}/v1/vendors/projects/:projectId/resolve-customer"
       method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
       body:
         type: json
-        data: "{}"
+        data: |-
+          {
+            "token": ""
+          }
     response:
       status: 403
       statusText: Forbidden
@@ -103,11 +154,18 @@ examples:
           }
   - name: Not Found
     request:
-      url: "{{baseUrl}}/v1/inquiries"
+      url: "{{baseUrl}}/v1/vendors/projects/:projectId/resolve-customer"
       method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
       body:
         type: json
-        data: "{}"
+        data: |-
+          {
+            "token": ""
+          }
     response:
       status: 404
       statusText: Not Found
@@ -125,4 +183,4 @@ examples:
             "timeStamp": "2019-08-24T14:15:22Z"
           }
 
-docs: Create an inquiry to contact sales, become a vendor, request a private plan, register for testing, or suggest a product. Requests are limited to 10 per 5 minutes.
+docs: Resolve customer.
