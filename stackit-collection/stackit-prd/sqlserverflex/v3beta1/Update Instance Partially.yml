@@ -30,6 +30,10 @@ http:
       {
         "backupSchedule": "6 6 * * *",
         "flavorId": "4.16-Single",
+        "labels": {
+          "environment": "production",
+          "team": "backend"
+        },
         "name": "mssql-instance",
         "network": {
           "acl": [
@@ -81,6 +85,10 @@ examples:
           {
             "backupSchedule": "6 6 * * *",
             "flavorId": "4.16-Single",
+            "labels": {
+              "environment": "production",
+              "team": "backend"
+            },
             "name": "mssql-instance",
             "network": {
               "acl": [
@@ -129,6 +137,10 @@ examples:
           {
             "backupSchedule": "6 6 * * *",
             "flavorId": "4.16-Single",
+            "labels": {
+              "environment": "production",
+              "team": "backend"
+            },
             "name": "mssql-instance",
             "network": {
               "acl": [
@@ -186,6 +198,10 @@ examples:
           {
             "backupSchedule": "6 6 * * *",
             "flavorId": "4.16-Single",
+            "labels": {
+              "environment": "production",
+              "team": "backend"
+            },
             "name": "mssql-instance",
             "network": {
               "acl": [
@@ -243,6 +259,10 @@ examples:
           {
             "backupSchedule": "6 6 * * *",
             "flavorId": "4.16-Single",
+            "labels": {
+              "environment": "production",
+              "team": "backend"
+            },
             "name": "mssql-instance",
             "network": {
               "acl": [
@@ -300,6 +320,10 @@ examples:
           {
             "backupSchedule": "6 6 * * *",
             "flavorId": "4.16-Single",
+            "labels": {
+              "environment": "production",
+              "team": "backend"
+            },
             "name": "mssql-instance",
             "network": {
               "acl": [
@@ -357,6 +381,10 @@ examples:
           {
             "backupSchedule": "6 6 * * *",
             "flavorId": "4.16-Single",
+            "labels": {
+              "environment": "production",
+              "team": "backend"
+            },
             "name": "mssql-instance",
             "network": {
               "acl": [
@@ -417,6 +445,10 @@ examples:
           {
             "backupSchedule": "6 6 * * *",
             "flavorId": "4.16-Single",
+            "labels": {
+              "environment": "production",
+              "team": "backend"
+            },
             "name": "mssql-instance",
             "network": {
               "acl": [

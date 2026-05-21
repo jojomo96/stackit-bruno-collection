@@ -32,6 +32,10 @@ http:
           "serviceAccount": "example@compute.sa.stackit.cloud"
         },
         "flavorId": "4.16-Single",
+        "labels": {
+          "environment": "production",
+          "team": "backend"
+        },
         "name": "mssql-instance",
         "network": {
           "accessScope": "PUBLIC",
@@ -86,6 +90,10 @@ examples:
               "serviceAccount": "example@compute.sa.stackit.cloud"
             },
             "flavorId": "4.16-Single",
+            "labels": {
+              "environment": "production",
+              "team": "backend"
+            },
             "name": "mssql-instance",
             "network": {
               "accessScope": "PUBLIC",
@@ -143,6 +151,10 @@ examples:
               "serviceAccount": "example@compute.sa.stackit.cloud"
             },
             "flavorId": "4.16-Single",
+            "labels": {
+              "environment": "production",
+              "team": "backend"
+            },
             "name": "mssql-instance",
             "network": {
               "accessScope": "PUBLIC",
@@ -203,6 +215,10 @@ examples:
               "serviceAccount": "example@compute.sa.stackit.cloud"
             },
             "flavorId": "4.16-Single",
+            "labels": {
+              "environment": "production",
+              "team": "backend"
+            },
             "name": "mssql-instance",
             "network": {
               "accessScope": "PUBLIC",
@@ -263,6 +279,10 @@ examples:
               "serviceAccount": "example@compute.sa.stackit.cloud"
             },
             "flavorId": "4.16-Single",
+            "labels": {
+              "environment": "production",
+              "team": "backend"
+            },
             "name": "mssql-instance",
             "network": {
               "accessScope": "PUBLIC",
@@ -323,6 +343,10 @@ examples:
               "serviceAccount": "example@compute.sa.stackit.cloud"
             },
             "flavorId": "4.16-Single",
+            "labels": {
+              "environment": "production",
+              "team": "backend"
+            },
             "name": "mssql-instance",
             "network": {
               "accessScope": "PUBLIC",
@@ -383,6 +407,10 @@ examples:
               "serviceAccount": "example@compute.sa.stackit.cloud"
             },
             "flavorId": "4.16-Single",
+            "labels": {
+              "environment": "production",
+              "team": "backend"
+            },
             "name": "mssql-instance",
             "network": {
               "accessScope": "PUBLIC",
@@ -443,6 +471,10 @@ examples:
               "serviceAccount": "example@compute.sa.stackit.cloud"
             },
             "flavorId": "4.16-Single",
+            "labels": {
+              "environment": "production",
+              "team": "backend"
+            },
             "name": "mssql-instance",
             "network": {
               "accessScope": "PUBLIC",

@@ -77,6 +77,10 @@ examples:
             "flavorId": "4.16-Single",
             "id": "df727477-8991-486c-a3ed-d11d9d9beb1c",
             "isDeletable": true,
+            "labels": {
+              "environment": "production",
+              "team": "backend"
+            },
             "name": "mssql-instance",
             "network": {
               "accessScope": "PUBLIC",
