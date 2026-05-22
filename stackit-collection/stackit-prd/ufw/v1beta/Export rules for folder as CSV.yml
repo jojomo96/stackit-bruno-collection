@@ -1,0 +1,417 @@
+info:
+  name: Export rules for folder as CSV
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{baseUrl}}/v1beta/folder/:folderId/regions/:regionId/rules/export"
+  params:
+    - name: folderId
+      value: ""
+      type: path
+      description: The STACKIT portal folder UUID the key ring is part of.
+    - name: regionId
+      value: eu01
+      type: path
+      description: The STACKIT region name the resource is located in.
+    - name: regionId
+      value: eu02
+      type: path
+      description: The STACKIT region name the resource is located in.
+      disabled: true
+    - name: direction
+      value: ""
+      type: query
+      disabled: true
+    - name: etherType
+      value: ""
+      type: query
+      disabled: true
+    - name: instanceName
+      value: ""
+      type: query
+      disabled: true
+    - name: portRange
+      value: ""
+      type: query
+      disabled: true
+    - name: product
+      value: ""
+      type: query
+      disabled: true
+    - name: protocol
+      value: ""
+      type: query
+      disabled: true
+    - name: sourceIP
+      value: ""
+      type: query
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: 200 Response
+    description: Successful CSV file download
+    request:
+      url: "{{baseUrl}}/v1beta/folder/:folderId/regions/:regionId/rules/export"
+      method: GET
+      params:
+        - name: folderId
+          value: ""
+          type: path
+          description: The STACKIT portal folder UUID the key ring is part of.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region name the resource is located in.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region name the resource is located in.
+          disabled: true
+        - name: direction
+          value: ""
+          type: query
+          disabled: true
+        - name: etherType
+          value: ""
+          type: query
+          disabled: true
+        - name: instanceName
+          value: ""
+          type: query
+          disabled: true
+        - name: portRange
+          value: ""
+          type: query
+          disabled: true
+        - name: product
+          value: ""
+          type: query
+          disabled: true
+        - name: protocol
+          value: ""
+          type: query
+          disabled: true
+        - name: sourceIP
+          value: ""
+          type: query
+          disabled: true
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: text/csv
+      body:
+        type: text
+        data: ""
+  - name: 400 Response
+    description: Bad request
+    request:
+      url: "{{baseUrl}}/v1beta/folder/:folderId/regions/:regionId/rules/export"
+      method: GET
+      params:
+        - name: folderId
+          value: ""
+          type: path
+          description: The STACKIT portal folder UUID the key ring is part of.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region name the resource is located in.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region name the resource is located in.
+          disabled: true
+        - name: direction
+          value: ""
+          type: query
+          disabled: true
+        - name: etherType
+          value: ""
+          type: query
+          disabled: true
+        - name: instanceName
+          value: ""
+          type: query
+          disabled: true
+        - name: portRange
+          value: ""
+          type: query
+          disabled: true
+        - name: product
+          value: ""
+          type: query
+          disabled: true
+        - name: protocol
+          value: ""
+          type: query
+          disabled: true
+        - name: sourceIP
+          value: ""
+          type: query
+          disabled: true
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 0,
+            "message": ""
+          }
+  - name: 401 Response
+    description: Unauthorized
+    request:
+      url: "{{baseUrl}}/v1beta/folder/:folderId/regions/:regionId/rules/export"
+      method: GET
+      params:
+        - name: folderId
+          value: ""
+          type: path
+          description: The STACKIT portal folder UUID the key ring is part of.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region name the resource is located in.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region name the resource is located in.
+          disabled: true
+        - name: direction
+          value: ""
+          type: query
+          disabled: true
+        - name: etherType
+          value: ""
+          type: query
+          disabled: true
+        - name: instanceName
+          value: ""
+          type: query
+          disabled: true
+        - name: portRange
+          value: ""
+          type: query
+          disabled: true
+        - name: product
+          value: ""
+          type: query
+          disabled: true
+        - name: protocol
+          value: ""
+          type: query
+          disabled: true
+        - name: sourceIP
+          value: ""
+          type: query
+          disabled: true
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 0,
+            "message": ""
+          }
+  - name: 403 Response
+    description: Forbidden access. You are not allowed to get rules from this folder.
+    request:
+      url: "{{baseUrl}}/v1beta/folder/:folderId/regions/:regionId/rules/export"
+      method: GET
+      params:
+        - name: folderId
+          value: ""
+          type: path
+          description: The STACKIT portal folder UUID the key ring is part of.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region name the resource is located in.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region name the resource is located in.
+          disabled: true
+        - name: direction
+          value: ""
+          type: query
+          disabled: true
+        - name: etherType
+          value: ""
+          type: query
+          disabled: true
+        - name: instanceName
+          value: ""
+          type: query
+          disabled: true
+        - name: portRange
+          value: ""
+          type: query
+          disabled: true
+        - name: product
+          value: ""
+          type: query
+          disabled: true
+        - name: protocol
+          value: ""
+          type: query
+          disabled: true
+        - name: sourceIP
+          value: ""
+          type: query
+          disabled: true
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 0,
+            "message": ""
+          }
+  - name: 404 Response
+    description: Project not found.
+    request:
+      url: "{{baseUrl}}/v1beta/folder/:folderId/regions/:regionId/rules/export"
+      method: GET
+      params:
+        - name: folderId
+          value: ""
+          type: path
+          description: The STACKIT portal folder UUID the key ring is part of.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region name the resource is located in.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region name the resource is located in.
+          disabled: true
+        - name: direction
+          value: ""
+          type: query
+          disabled: true
+        - name: etherType
+          value: ""
+          type: query
+          disabled: true
+        - name: instanceName
+          value: ""
+          type: query
+          disabled: true
+        - name: portRange
+          value: ""
+          type: query
+          disabled: true
+        - name: product
+          value: ""
+          type: query
+          disabled: true
+        - name: protocol
+          value: ""
+          type: query
+          disabled: true
+        - name: sourceIP
+          value: ""
+          type: query
+          disabled: true
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 0,
+            "message": ""
+          }
+  - name: 500 Response
+    description: Service is not available.
+    request:
+      url: "{{baseUrl}}/v1beta/folder/:folderId/regions/:regionId/rules/export"
+      method: GET
+      params:
+        - name: folderId
+          value: ""
+          type: path
+          description: The STACKIT portal folder UUID the key ring is part of.
+        - name: regionId
+          value: eu01
+          type: path
+          description: The STACKIT region name the resource is located in.
+        - name: regionId
+          value: eu02
+          type: path
+          description: The STACKIT region name the resource is located in.
+          disabled: true
+        - name: direction
+          value: ""
+          type: query
+          disabled: true
+        - name: etherType
+          value: ""
+          type: query
+          disabled: true
+        - name: instanceName
+          value: ""
+          type: query
+          disabled: true
+        - name: portRange
+          value: ""
+          type: query
+          disabled: true
+        - name: product
+          value: ""
+          type: query
+          disabled: true
+        - name: protocol
+          value: ""
+          type: query
+          disabled: true
+        - name: sourceIP
+          value: ""
+          type: query
+          disabled: true
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 0,
+            "message": ""
+          }
+
+docs: Returns a CSV file containing the rules for a specific folder

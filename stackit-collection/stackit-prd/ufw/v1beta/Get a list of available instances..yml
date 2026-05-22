@@ -1,7 +1,7 @@
 info:
   name: Get a list of available instances.
   type: http
-  seq: 8
+  seq: 9
 
 http:
   method: GET

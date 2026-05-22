@@ -76,6 +76,23 @@ examples:
         type: json
         data: |-
           {
+            "data": {
+              "dnsNames": "example.com,*.example.com,192.168.1.1",
+              "extendedKeyUsage": "Server Auth,Client Auth",
+              "fingerprintSha1": "7a1b42c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4",
+              "fingerprintSha256": "3e0a9ef962b07c2e24d321c075ebb88c261bae231f9ba34d6ffb003619f9645c",
+              "isCa": false,
+              "isSelfSigned": false,
+              "issuerCn": "Let's Encrypt Authority X3",
+              "keyStrength": "RSA-2048",
+              "notAfter": "2026-12-31T23:59:59Z",
+              "notBefore": "2026-01-01T00:00:00Z",
+              "organization": "Acme Corp International",
+              "publicKeyAlgorithm": "RSA",
+              "serialNumber": "5FDE32AB10C44598",
+              "signatureAlgorithm": "SHA256-RSA",
+              "subjectCn": "www.example.com"
+            },
             "id": "my-tls-certificate-v1-123456",
             "labels": {
               "cost.center": "billing.dept",
@@ -85,7 +102,20 @@ examples:
             },
             "name": "my-tls-certificate",
             "publicKey": "-----BEGIN CERTIFICATE----- MYPUbLiC+Tls/CER71fICATE...-----END CERTIFICATE-----",
-            "region": "eu01"
+            "region": "eu01",
+            "usage": {
+              "count": 0,
+              "items": [
+                {
+                  "listenerNames": [
+                    "https-443",
+                    "api-8443",
+                    "legacy-tls"
+                  ],
+                  "loadBalancerName": "edge-lb-production"
+                }
+              ]
+            }
           }
   - name: 400 Response
     description: One or more fields are invalid.
