@@ -29,6 +29,13 @@ http:
       {
         "displayName": "my-connection",
         "enabled": false,
+        "labels": {
+          "contact": "max.mustermann@example.org",
+          "environment": "production",
+          "foo": "bar",
+          "onsite-target": "branch-office-berlin",
+          "team": "netops"
+        },
         "localSubnets": [
           "10.10.10.10/32"
         ],
@@ -102,6 +109,13 @@ examples:
           {
             "displayName": "my-connection",
             "enabled": false,
+            "labels": {
+              "contact": "max.mustermann@example.org",
+              "environment": "production",
+              "foo": "bar",
+              "onsite-target": "branch-office-berlin",
+              "team": "netops"
+            },
             "localSubnets": [
               "10.10.10.10/32"
             ],
@@ -222,6 +236,13 @@ examples:
           {
             "displayName": "my-connection",
             "enabled": false,
+            "labels": {
+              "contact": "max.mustermann@example.org",
+              "environment": "production",
+              "foo": "bar",
+              "onsite-target": "branch-office-berlin",
+              "team": "netops"
+            },
             "localSubnets": [
               "10.10.10.10/32"
             ],
@@ -309,6 +330,13 @@ examples:
           {
             "displayName": "my-connection",
             "enabled": false,
+            "labels": {
+              "contact": "max.mustermann@example.org",
+              "environment": "production",
+              "foo": "bar",
+              "onsite-target": "branch-office-berlin",
+              "team": "netops"
+            },
             "localSubnets": [
               "10.10.10.10/32"
             ],
@@ -396,6 +424,13 @@ examples:
           {
             "displayName": "my-connection",
             "enabled": false,
+            "labels": {
+              "contact": "max.mustermann@example.org",
+              "environment": "production",
+              "foo": "bar",
+              "onsite-target": "branch-office-berlin",
+              "team": "netops"
+            },
             "localSubnets": [
               "10.10.10.10/32"
             ],
@@ -483,6 +518,13 @@ examples:
           {
             "displayName": "my-connection",
             "enabled": false,
+            "labels": {
+              "contact": "max.mustermann@example.org",
+              "environment": "production",
+              "foo": "bar",
+              "onsite-target": "branch-office-berlin",
+              "team": "netops"
+            },
             "localSubnets": [
               "10.10.10.10/32"
             ],
@@ -570,6 +612,13 @@ examples:
           {
             "displayName": "my-connection",
             "enabled": false,
+            "labels": {
+              "contact": "max.mustermann@example.org",
+              "environment": "production",
+              "foo": "bar",
+              "onsite-target": "branch-office-berlin",
+              "team": "netops"
+            },
             "localSubnets": [
               "10.10.10.10/32"
             ],
