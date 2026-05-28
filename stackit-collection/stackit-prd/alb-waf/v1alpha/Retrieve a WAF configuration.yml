@@ -51,6 +51,12 @@ examples:
         data: |-
           {
             "coreRuleSetName": "my-core-rule-set-config",
+            "labels": {
+              "cost.center": "billing.dept",
+              "environment": "prod",
+              "name": "my-app",
+              "region": ""
+            },
             "name": "my-waf-config",
             "region": "eu01",
             "rulesConfigName": "my-rules-config"

@@ -94,20 +94,20 @@ examples:
               {
                 "advantages": [
                   {
-                    "advantage": "API Explorer",
+                    "name": "API Explorer",
                     "position": "10"
                   }
                 ],
                 "applications": [
                   {
-                    "application": "API Explorer",
-                    "applicationTitle": "API Explorer",
-                    "position": "10"
+                    "description": "API Explorer",
+                    "position": "10",
+                    "title": "API Explorer"
                   }
                 ],
                 "functions": [
                   {
-                    "function": "API Explorer",
+                    "name": "API Explorer",
                     "position": "10"
                   }
                 ],

@@ -18,6 +18,12 @@ http:
     data: |-
       {
         "coreRuleSetName": "my-core-rule-set-config",
+        "labels": {
+          "cost.center": "billing.dept",
+          "environment": "prod",
+          "name": "my-app",
+          "region": ""
+        },
         "name": "my-waf-config",
         "projectId": "2438ac3c-37eb-4902-adef-ed16b4431030",
         "region": "eu01",
@@ -49,6 +55,12 @@ examples:
         data: |-
           {
             "coreRuleSetName": "my-core-rule-set-config",
+            "labels": {
+              "cost.center": "billing.dept",
+              "environment": "prod",
+              "name": "my-app",
+              "region": ""
+            },
             "name": "my-waf-config",
             "projectId": "2438ac3c-37eb-4902-adef-ed16b4431030",
             "region": "eu01",
@@ -65,6 +77,12 @@ examples:
         data: |-
           {
             "coreRuleSetName": "my-core-rule-set-config",
+            "labels": {
+              "cost.center": "billing.dept",
+              "environment": "prod",
+              "name": "my-app",
+              "region": ""
+            },
             "name": "my-waf-config",
             "region": "eu01",
             "rulesConfigName": "my-rules-config"
@@ -86,6 +104,12 @@ examples:
         data: |-
           {
             "coreRuleSetName": "my-core-rule-set-config",
+            "labels": {
+              "cost.center": "billing.dept",
+              "environment": "prod",
+              "name": "my-app",
+              "region": ""
+            },
             "name": "my-waf-config",
             "projectId": "2438ac3c-37eb-4902-adef-ed16b4431030",
             "region": "eu01",
@@ -114,6 +138,12 @@ examples:
         data: |-
           {
             "coreRuleSetName": "my-core-rule-set-config",
+            "labels": {
+              "cost.center": "billing.dept",
+              "environment": "prod",
+              "name": "my-app",
+              "region": ""
+            },
             "name": "my-waf-config",
             "projectId": "2438ac3c-37eb-4902-adef-ed16b4431030",
             "region": "eu01",
@@ -154,6 +184,12 @@ examples:
         data: |-
           {
             "coreRuleSetName": "my-core-rule-set-config",
+            "labels": {
+              "cost.center": "billing.dept",
+              "environment": "prod",
+              "name": "my-app",
+              "region": ""
+            },
             "name": "my-waf-config",
             "projectId": "2438ac3c-37eb-4902-adef-ed16b4431030",
             "region": "eu01",
@@ -182,6 +218,12 @@ examples:
         data: |-
           {
             "coreRuleSetName": "my-core-rule-set-config",
+            "labels": {
+              "cost.center": "billing.dept",
+              "environment": "prod",
+              "name": "my-app",
+              "region": ""
+            },
             "name": "my-waf-config",
             "projectId": "2438ac3c-37eb-4902-adef-ed16b4431030",
             "region": "eu01",
@@ -210,6 +252,12 @@ examples:
         data: |-
           {
             "coreRuleSetName": "my-core-rule-set-config",
+            "labels": {
+              "cost.center": "billing.dept",
+              "environment": "prod",
+              "name": "my-app",
+              "region": ""
+            },
             "name": "my-waf-config",
             "projectId": "2438ac3c-37eb-4902-adef-ed16b4431030",
             "region": "eu01",
@@ -238,6 +286,12 @@ examples:
         data: |-
           {
             "coreRuleSetName": "my-core-rule-set-config",
+            "labels": {
+              "cost.center": "billing.dept",
+              "environment": "prod",
+              "name": "my-app",
+              "region": ""
+            },
             "name": "my-waf-config",
             "projectId": "2438ac3c-37eb-4902-adef-ed16b4431030",
             "region": "eu01",
