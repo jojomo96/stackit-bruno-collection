@@ -68,7 +68,7 @@ examples:
               {
                 "apiUrl": "https://api.system.01.cf.eu01.stackit.cloud",
                 "consoleUrl": "https://console.apps.01.cf.eu01.stackit.cloud/",
-                "displayName": "SIT Dedicated",
+                "displayName": "Shared Cloud Foundry (public)",
                 "guid": "00000000-0000-0000-0000-000000000000",
                 "region": "eu01",
                 "systemId": "004.scf.eu01"

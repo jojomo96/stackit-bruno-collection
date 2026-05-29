@@ -1,0 +1,260 @@
+info:
+  name: delete-instance
+  type: http
+  seq: 3
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: The STACKIT portal project UUID the STACKIT Workflows instance is part of.
+    - name: regionId
+      value: ""
+      type: path
+      description: The STACKIT region the STACKIT Workflows instance is part of.
+    - name: instanceId
+      value: ""
+      type: path
+      description: The STACKIT Workflows instance UUID.
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: 204 Response
+    description: STACKIT Workflows instance was deleted successfully.
+    request:
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the STACKIT Workflows instance is part of.
+        - name: regionId
+          value: ""
+          type: path
+          description: The STACKIT region the STACKIT Workflows instance is part of.
+        - name: instanceId
+          value: ""
+          type: path
+          description: The STACKIT Workflows instance UUID.
+    response:
+      status: 204
+      statusText: No Content
+      body:
+        type: text
+        data: ""
+  - name: 400 Response
+    description: Invalid request
+    request:
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the STACKIT Workflows instance is part of.
+        - name: regionId
+          value: ""
+          type: path
+          description: The STACKIT region the STACKIT Workflows instance is part of.
+        - name: instanceId
+          value: ""
+          type: path
+          description: The STACKIT Workflows instance UUID.
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "fields": {
+              "database": "workflows"
+            },
+            "message": "instance not found"
+          }
+  - name: 401 Response
+    description: Unauthorized. You may have provided no or wrong credentials.
+    request:
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the STACKIT Workflows instance is part of.
+        - name: regionId
+          value: ""
+          type: path
+          description: The STACKIT region the STACKIT Workflows instance is part of.
+        - name: instanceId
+          value: ""
+          type: path
+          description: The STACKIT Workflows instance UUID.
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "fields": {
+              "database": "workflows"
+            },
+            "message": "instance not found"
+          }
+  - name: 403 Response
+    description: Forbidden. You are not allowed to delete the requested resource.
+    request:
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the STACKIT Workflows instance is part of.
+        - name: regionId
+          value: ""
+          type: path
+          description: The STACKIT region the STACKIT Workflows instance is part of.
+        - name: instanceId
+          value: ""
+          type: path
+          description: The STACKIT Workflows instance UUID.
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "fields": {
+              "database": "workflows"
+            },
+            "message": "instance not found"
+          }
+  - name: 404 Response
+    description: Not found. STACKIT Workflows instance not found.
+    request:
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the STACKIT Workflows instance is part of.
+        - name: regionId
+          value: ""
+          type: path
+          description: The STACKIT region the STACKIT Workflows instance is part of.
+        - name: instanceId
+          value: ""
+          type: path
+          description: The STACKIT Workflows instance UUID.
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "fields": {
+              "database": "workflows"
+            },
+            "message": "instance not found"
+          }
+  - name: 409 Response
+    description: If two requests try to update the resource at the same time one will succeeded and the other will fail with a 409 Conflict.
+    request:
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the STACKIT Workflows instance is part of.
+        - name: regionId
+          value: ""
+          type: path
+          description: The STACKIT region the STACKIT Workflows instance is part of.
+        - name: instanceId
+          value: ""
+          type: path
+          description: The STACKIT Workflows instance UUID.
+    response:
+      status: 409
+      statusText: Conflict
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "fields": {
+              "database": "workflows"
+            },
+            "message": "instance not found"
+          }
+  - name: 500 Response
+    description: Internal server error. The application experienced some unexpected situation.
+    request:
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId"
+      method: DELETE
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the STACKIT Workflows instance is part of.
+        - name: regionId
+          value: ""
+          type: path
+          description: The STACKIT region the STACKIT Workflows instance is part of.
+        - name: instanceId
+          value: ""
+          type: path
+          description: The STACKIT Workflows instance UUID.
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "fields": {
+              "database": "workflows"
+            },
+            "message": "instance not found"
+          }
+
+docs: Deletes the given STACKIT Workflows instance.

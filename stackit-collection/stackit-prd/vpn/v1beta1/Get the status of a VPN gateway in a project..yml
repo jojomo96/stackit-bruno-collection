@@ -90,6 +90,7 @@ examples:
               }
             ],
             "displayName": "coffee",
+            "errorMessage": "",
             "gatewayStatus": "READY",
             "id": "",
             "tunnels": [

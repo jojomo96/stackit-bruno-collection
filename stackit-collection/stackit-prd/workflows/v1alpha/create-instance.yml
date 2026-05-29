@@ -1,0 +1,346 @@
+info:
+  name: create-instance
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances"
+  params:
+    - name: projectId
+      value: ""
+      type: path
+      description: The STACKIT portal project UUID the STACKIT Workflows instance is part of.
+    - name: regionId
+      value: ""
+      type: path
+      description: The STACKIT region the STACKIT Workflows instance is part of.
+  body:
+    type: json
+    data: |-
+      {
+        "dagBundles": [
+          {}
+        ],
+        "dagsRepository": {
+          "auth": {
+            "password": "123456",
+            "type": "basic",
+            "username": "github_pat"
+          },
+          "url": "https://git.example.com/workflows-dags"
+        },
+        "description": "",
+        "displayName": "",
+        "identityProvider": {},
+        "network": {
+          "id": "00000000-0000-0000-0000-000000000000"
+        },
+        "observabilityId": "",
+        "version": ""
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: 201 Response
+    description: STACKIT Workflows instance was created successfully
+    request:
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the STACKIT Workflows instance is part of.
+        - name: regionId
+          value: ""
+          type: path
+          description: The STACKIT region the STACKIT Workflows instance is part of.
+      body:
+        type: json
+        data: |-
+          {
+            "dagBundles": [
+              {}
+            ],
+            "dagsRepository": {
+              "auth": {
+                "password": "123456",
+                "type": "basic",
+                "username": "github_pat"
+              },
+              "url": "https://git.example.com/workflows-dags"
+            },
+            "description": "",
+            "displayName": "",
+            "identityProvider": {},
+            "network": {
+              "id": "00000000-0000-0000-0000-000000000000"
+            },
+            "observabilityId": "",
+            "version": ""
+          }
+    response:
+      status: 201
+      statusText: Created
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "createdAt": "",
+            "dagBundles": [
+              {}
+            ],
+            "dagsRepository": {
+              "auth": {
+                "password": "123456",
+                "type": "basic",
+                "username": "github_pat"
+              },
+              "url": "https://git.example.com/workflows-dags"
+            },
+            "description": "",
+            "displayName": "",
+            "endpoints": {
+              "redirectUrl": "",
+              "url": ""
+            },
+            "id": "",
+            "identityProvider": {},
+            "network": {
+              "id": "00000000-0000-0000-0000-000000000000"
+            },
+            "observabilityId": "",
+            "projectId": "",
+            "regionId": "",
+            "status": "creating",
+            "statusMessage": "",
+            "version": ""
+          }
+  - name: 400 Response
+    description: Bad Request.
+    request:
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the STACKIT Workflows instance is part of.
+        - name: regionId
+          value: ""
+          type: path
+          description: The STACKIT region the STACKIT Workflows instance is part of.
+      body:
+        type: json
+        data: |-
+          {
+            "dagBundles": [
+              {}
+            ],
+            "dagsRepository": {
+              "auth": {
+                "password": "123456",
+                "type": "basic",
+                "username": "github_pat"
+              },
+              "url": "https://git.example.com/workflows-dags"
+            },
+            "description": "",
+            "displayName": "",
+            "identityProvider": {},
+            "network": {
+              "id": "00000000-0000-0000-0000-000000000000"
+            },
+            "observabilityId": "",
+            "version": ""
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "fields": {
+              "database": "workflows"
+            },
+            "message": "instance not found"
+          }
+  - name: 401 Response
+    description: Unauthorized. You may have provided no or wrong credentials.
+    request:
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the STACKIT Workflows instance is part of.
+        - name: regionId
+          value: ""
+          type: path
+          description: The STACKIT region the STACKIT Workflows instance is part of.
+      body:
+        type: json
+        data: |-
+          {
+            "dagBundles": [
+              {}
+            ],
+            "dagsRepository": {
+              "auth": {
+                "password": "123456",
+                "type": "basic",
+                "username": "github_pat"
+              },
+              "url": "https://git.example.com/workflows-dags"
+            },
+            "description": "",
+            "displayName": "",
+            "identityProvider": {},
+            "network": {
+              "id": "00000000-0000-0000-0000-000000000000"
+            },
+            "observabilityId": "",
+            "version": ""
+          }
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "fields": {
+              "database": "workflows"
+            },
+            "message": "instance not found"
+          }
+  - name: 403 Response
+    description: Forbidden. You are not allowed to create a STACKIT Wokflows instance.
+    request:
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the STACKIT Workflows instance is part of.
+        - name: regionId
+          value: ""
+          type: path
+          description: The STACKIT region the STACKIT Workflows instance is part of.
+      body:
+        type: json
+        data: |-
+          {
+            "dagBundles": [
+              {}
+            ],
+            "dagsRepository": {
+              "auth": {
+                "password": "123456",
+                "type": "basic",
+                "username": "github_pat"
+              },
+              "url": "https://git.example.com/workflows-dags"
+            },
+            "description": "",
+            "displayName": "",
+            "identityProvider": {},
+            "network": {
+              "id": "00000000-0000-0000-0000-000000000000"
+            },
+            "observabilityId": "",
+            "version": ""
+          }
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "fields": {
+              "database": "workflows"
+            },
+            "message": "instance not found"
+          }
+  - name: 500 Response
+    description: Internal server error. The application experienced some unexpected situation.
+    request:
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances"
+      method: POST
+      params:
+        - name: projectId
+          value: ""
+          type: path
+          description: The STACKIT portal project UUID the STACKIT Workflows instance is part of.
+        - name: regionId
+          value: ""
+          type: path
+          description: The STACKIT region the STACKIT Workflows instance is part of.
+      body:
+        type: json
+        data: |-
+          {
+            "dagBundles": [
+              {}
+            ],
+            "dagsRepository": {
+              "auth": {
+                "password": "123456",
+                "type": "basic",
+                "username": "github_pat"
+              },
+              "url": "https://git.example.com/workflows-dags"
+            },
+            "description": "",
+            "displayName": "",
+            "identityProvider": {},
+            "network": {
+              "id": "00000000-0000-0000-0000-000000000000"
+            },
+            "observabilityId": "",
+            "version": ""
+          }
+    response:
+      status: 500
+      statusText: Internal Server Error
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "fields": {
+              "database": "workflows"
+            },
+            "message": "instance not found"
+          }
+
+docs: Creates a new STACKIT Workflows instance within the project.

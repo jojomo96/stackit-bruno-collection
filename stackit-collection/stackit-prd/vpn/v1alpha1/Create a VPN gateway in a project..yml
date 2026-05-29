@@ -39,7 +39,7 @@ http:
           "onsite-target": "branch-office-berlin",
           "team": "netops"
         },
-        "planId": "p500",
+        "planId": "p1000",
         "routingType": "POLICY_BASED"
       }
   auth: inherit
@@ -89,7 +89,7 @@ examples:
               "onsite-target": "branch-office-berlin",
               "team": "netops"
             },
-            "planId": "p500",
+            "planId": "p1000",
             "routingType": "POLICY_BASED"
           }
     response:
@@ -139,7 +139,7 @@ examples:
               "onsite-target": "branch-office-berlin",
               "team": "netops"
             },
-            "planId": "p500",
+            "planId": "p1000",
             "routingType": "POLICY_BASED"
           }
     response:
@@ -203,7 +203,7 @@ examples:
               "onsite-target": "branch-office-berlin",
               "team": "netops"
             },
-            "planId": "p500",
+            "planId": "p1000",
             "routingType": "POLICY_BASED"
           }
     response:
@@ -267,7 +267,7 @@ examples:
               "onsite-target": "branch-office-berlin",
               "team": "netops"
             },
-            "planId": "p500",
+            "planId": "p1000",
             "routingType": "POLICY_BASED"
           }
     response:
@@ -331,7 +331,7 @@ examples:
               "onsite-target": "branch-office-berlin",
               "team": "netops"
             },
-            "planId": "p500",
+            "planId": "p1000",
             "routingType": "POLICY_BASED"
           }
     response:
@@ -395,7 +395,7 @@ examples:
               "onsite-target": "branch-office-berlin",
               "team": "netops"
             },
-            "planId": "p500",
+            "planId": "p1000",
             "routingType": "POLICY_BASED"
           }
     response:

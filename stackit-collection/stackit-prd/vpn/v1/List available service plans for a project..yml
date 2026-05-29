@@ -46,14 +46,14 @@ examples:
         type: json
         data: |-
           {
-            "defaultPlanId": "p500",
+            "defaultPlanId": "p1000",
             "plans": [
               {
-                "maxBandwidth": 500,
-                "maxConnections": 2,
-                "name": "VPN-IPSec-50-HA-EU01",
-                "planId": "p500",
-                "sku": "ST-0174501"
+                "maxBandwidth": 1000,
+                "maxConnections": 5,
+                "name": "VPN-IPSec-1000-HA-EU01",
+                "planId": "p1000",
+                "sku": "ST-0174901"
               }
             ]
           }
