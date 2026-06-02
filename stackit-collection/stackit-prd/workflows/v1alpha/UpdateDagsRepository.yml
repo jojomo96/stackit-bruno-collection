@@ -1,11 +1,11 @@
 info:
-  name: update-observability
+  name: UpdateDagsRepository
   type: http
-  seq: 13
+  seq: 11
 
 http:
   method: PATCH
-  url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/observability"
+  url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dags-repository"
   params:
     - name: projectId
       value: ""
@@ -23,7 +23,9 @@ http:
     type: json
     data: |-
       {
-        "observabilityId": ""
+        "auth": {},
+        "branch": "",
+        "url": ""
       }
   auth: inherit
 
@@ -35,9 +37,9 @@ settings:
 
 examples:
   - name: 200 Response
-    description: Observability configuration was updated successfully.
+    description: DAGs repository was updated successfully.
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/observability"
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dags-repository"
       method: PATCH
       params:
         - name: projectId
@@ -56,7 +58,9 @@ examples:
         type: json
         data: |-
           {
-            "observabilityId": ""
+            "auth": {},
+            "branch": "",
+            "url": ""
           }
     response:
       status: 200
@@ -82,6 +86,8 @@ examples:
             },
             "description": "",
             "displayName": "",
+            "enableAirflowExampleDags": false,
+            "enableStackitExampleDags": false,
             "endpoints": {
               "redirectUrl": "",
               "url": ""
@@ -99,9 +105,9 @@ examples:
             "version": ""
           }
   - name: 400 Response
-    description: Bad Request. Invalid Observability configuration.
+    description: Bad Request. Invalid repository configuration.
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/observability"
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dags-repository"
       method: PATCH
       params:
         - name: projectId
@@ -120,7 +126,9 @@ examples:
         type: json
         data: |-
           {
-            "observabilityId": ""
+            "auth": {},
+            "branch": "",
+            "url": ""
           }
     response:
       status: 400
@@ -141,7 +149,7 @@ examples:
   - name: 401 Response
     description: Unauthorized. You may have provided no or wrong credentials.
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/observability"
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dags-repository"
       method: PATCH
       params:
         - name: projectId
@@ -160,7 +168,9 @@ examples:
         type: json
         data: |-
           {
-            "observabilityId": ""
+            "auth": {},
+            "branch": "",
+            "url": ""
           }
     response:
       status: 401
@@ -181,7 +191,7 @@ examples:
   - name: 403 Response
     description: Forbidden. You are not allowed to update the requested resource.
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/observability"
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dags-repository"
       method: PATCH
       params:
         - name: projectId
@@ -200,7 +210,9 @@ examples:
         type: json
         data: |-
           {
-            "observabilityId": ""
+            "auth": {},
+            "branch": "",
+            "url": ""
           }
     response:
       status: 403
@@ -221,7 +233,7 @@ examples:
   - name: 404 Response
     description: Not found. STACKIT Workflows instance not found.
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/observability"
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dags-repository"
       method: PATCH
       params:
         - name: projectId
@@ -240,7 +252,9 @@ examples:
         type: json
         data: |-
           {
-            "observabilityId": ""
+            "auth": {},
+            "branch": "",
+            "url": ""
           }
     response:
       status: 404
@@ -261,7 +275,7 @@ examples:
   - name: 500 Response
     description: Internal server error. The application experienced some unexpected situation.
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/observability"
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dags-repository"
       method: PATCH
       params:
         - name: projectId
@@ -280,7 +294,9 @@ examples:
         type: json
         data: |-
           {
-            "observabilityId": ""
+            "auth": {},
+            "branch": "",
+            "url": ""
           }
     response:
       status: 500
@@ -299,4 +315,4 @@ examples:
             "message": "instance not found"
           }
 
-docs: Updates the Observability configuration for this STACKIT Workflows instance.
+docs: Updates the DAGs repository configuration for this STACKIT Workflows instance.

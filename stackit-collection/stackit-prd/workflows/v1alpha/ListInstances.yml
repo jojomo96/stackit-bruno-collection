@@ -1,5 +1,5 @@
 info:
-  name: list-instances
+  name: ListInstances
   type: http
   seq: 1
 
@@ -64,6 +64,8 @@ examples:
                 },
                 "description": "",
                 "displayName": "",
+                "enableAirflowExampleDags": false,
+                "enableStackitExampleDags": false,
                 "endpoints": {
                   "redirectUrl": "",
                   "url": ""

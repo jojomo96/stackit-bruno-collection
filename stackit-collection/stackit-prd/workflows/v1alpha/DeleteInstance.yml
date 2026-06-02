@@ -1,10 +1,10 @@
 info:
-  name: update-instance
+  name: DeleteInstance
   type: http
-  seq: 5
+  seq: 3
 
 http:
-  method: PATCH
+  method: DELETE
   url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId"
   params:
     - name: projectId
@@ -19,14 +19,6 @@ http:
       value: ""
       type: path
       description: The STACKIT Workflows instance UUID.
-  body:
-    type: json
-    data: |-
-      {
-        "description": "",
-        "displayName": "",
-        "version": ""
-      }
   auth: inherit
 
 settings:
@@ -36,11 +28,11 @@ settings:
   maxRedirects: 5
 
 examples:
-  - name: 200 Response
-    description: STACKIT Workflows was updated successfully.
+  - name: 204 Response
+    description: STACKIT Workflows instance was deleted successfully.
     request:
       url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId"
-      method: PATCH
+      method: DELETE
       params:
         - name: projectId
           value: ""
@@ -54,59 +46,17 @@ examples:
           value: ""
           type: path
           description: The STACKIT Workflows instance UUID.
-      body:
-        type: json
-        data: |-
-          {
-            "description": "",
-            "displayName": "",
-            "version": ""
-          }
     response:
-      status: 200
-      statusText: OK
-      headers:
-        - name: Content-Type
-          value: application/json
+      status: 204
+      statusText: No Content
       body:
-        type: json
-        data: |-
-          {
-            "createdAt": "",
-            "dagBundles": [
-              {}
-            ],
-            "dagsRepository": {
-              "auth": {
-                "password": "123456",
-                "type": "basic",
-                "username": "github_pat"
-              },
-              "url": "https://git.example.com/workflows-dags"
-            },
-            "description": "",
-            "displayName": "",
-            "endpoints": {
-              "redirectUrl": "",
-              "url": ""
-            },
-            "id": "",
-            "identityProvider": {},
-            "network": {
-              "id": "00000000-0000-0000-0000-000000000000"
-            },
-            "observabilityId": "",
-            "projectId": "",
-            "regionId": "",
-            "status": "creating",
-            "statusMessage": "",
-            "version": ""
-          }
+        type: text
+        data: ""
   - name: 400 Response
     description: Invalid request
     request:
       url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId"
-      method: PATCH
+      method: DELETE
       params:
         - name: projectId
           value: ""
@@ -120,14 +70,6 @@ examples:
           value: ""
           type: path
           description: The STACKIT Workflows instance UUID.
-      body:
-        type: json
-        data: |-
-          {
-            "description": "",
-            "displayName": "",
-            "version": ""
-          }
     response:
       status: 400
       statusText: Bad Request
@@ -148,7 +90,7 @@ examples:
     description: Unauthorized. You may have provided no or wrong credentials.
     request:
       url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId"
-      method: PATCH
+      method: DELETE
       params:
         - name: projectId
           value: ""
@@ -162,14 +104,6 @@ examples:
           value: ""
           type: path
           description: The STACKIT Workflows instance UUID.
-      body:
-        type: json
-        data: |-
-          {
-            "description": "",
-            "displayName": "",
-            "version": ""
-          }
     response:
       status: 401
       statusText: Unauthorized
@@ -187,10 +121,10 @@ examples:
             "message": "instance not found"
           }
   - name: 403 Response
-    description: Forbidden. You are not allowed to update the requested resource.
+    description: Forbidden. You are not allowed to delete the requested resource.
     request:
       url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId"
-      method: PATCH
+      method: DELETE
       params:
         - name: projectId
           value: ""
@@ -204,14 +138,6 @@ examples:
           value: ""
           type: path
           description: The STACKIT Workflows instance UUID.
-      body:
-        type: json
-        data: |-
-          {
-            "description": "",
-            "displayName": "",
-            "version": ""
-          }
     response:
       status: 403
       statusText: Forbidden
@@ -229,10 +155,10 @@ examples:
             "message": "instance not found"
           }
   - name: 404 Response
-    description: Not found. STACKIT Workflows not found.
+    description: Not found. STACKIT Workflows instance not found.
     request:
       url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId"
-      method: PATCH
+      method: DELETE
       params:
         - name: projectId
           value: ""
@@ -246,14 +172,6 @@ examples:
           value: ""
           type: path
           description: The STACKIT Workflows instance UUID.
-      body:
-        type: json
-        data: |-
-          {
-            "description": "",
-            "displayName": "",
-            "version": ""
-          }
     response:
       status: 404
       statusText: Not Found
@@ -271,10 +189,10 @@ examples:
             "message": "instance not found"
           }
   - name: 409 Response
-    description: Invalid Update
+    description: If two requests try to update the resource at the same time one will succeeded and the other will fail with a 409 Conflict.
     request:
       url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId"
-      method: PATCH
+      method: DELETE
       params:
         - name: projectId
           value: ""
@@ -288,14 +206,6 @@ examples:
           value: ""
           type: path
           description: The STACKIT Workflows instance UUID.
-      body:
-        type: json
-        data: |-
-          {
-            "description": "",
-            "displayName": "",
-            "version": ""
-          }
     response:
       status: 409
       statusText: Conflict
@@ -316,7 +226,7 @@ examples:
     description: Internal server error. The application experienced some unexpected situation.
     request:
       url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId"
-      method: PATCH
+      method: DELETE
       params:
         - name: projectId
           value: ""
@@ -330,14 +240,6 @@ examples:
           value: ""
           type: path
           description: The STACKIT Workflows instance UUID.
-      body:
-        type: json
-        data: |-
-          {
-            "description": "",
-            "displayName": "",
-            "version": ""
-          }
     response:
       status: 500
       statusText: Internal Server Error
@@ -355,4 +257,4 @@ examples:
             "message": "instance not found"
           }
 
-docs: Updates core Attributes of this STACKIT Workflows Instance.
+docs: Deletes the given STACKIT Workflows instance.

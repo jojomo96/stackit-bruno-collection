@@ -1,11 +1,11 @@
 info:
-  name: create-dag-bundle
+  name: UpdateIdentityProvider
   type: http
-  seq: 7
+  seq: 12
 
 http:
-  method: POST
-  url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles"
+  method: PATCH
+  url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/identity-provider"
   params:
     - name: projectId
       value: ""
@@ -31,11 +31,11 @@ settings:
   maxRedirects: 5
 
 examples:
-  - name: 201 Response
-    description: DAG bundle was created successfully.
+  - name: 200 Response
+    description: Identity provider was updated successfully.
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles"
-      method: POST
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/identity-provider"
+      method: PATCH
       params:
         - name: projectId
           value: ""
@@ -53,19 +53,52 @@ examples:
         type: json
         data: "{}"
     response:
-      status: 201
-      statusText: Created
+      status: 200
+      statusText: OK
       headers:
         - name: Content-Type
           value: application/json
       body:
         type: json
-        data: "{}"
+        data: |-
+          {
+            "createdAt": "",
+            "dagBundles": [
+              {}
+            ],
+            "dagsRepository": {
+              "auth": {
+                "password": "123456",
+                "type": "basic",
+                "username": "github_pat"
+              },
+              "url": "https://git.example.com/workflows-dags"
+            },
+            "description": "",
+            "displayName": "",
+            "enableAirflowExampleDags": false,
+            "enableStackitExampleDags": false,
+            "endpoints": {
+              "redirectUrl": "",
+              "url": ""
+            },
+            "id": "",
+            "identityProvider": {},
+            "network": {
+              "id": "00000000-0000-0000-0000-000000000000"
+            },
+            "observabilityId": "",
+            "projectId": "",
+            "regionId": "",
+            "status": "creating",
+            "statusMessage": "",
+            "version": ""
+          }
   - name: 400 Response
-    description: Bad Request. Invalid bundle configuration.
+    description: Bad Request. Invalid identity provider configuration.
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles"
-      method: POST
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/identity-provider"
+      method: PATCH
       params:
         - name: projectId
           value: ""
@@ -101,8 +134,8 @@ examples:
   - name: 401 Response
     description: Unauthorized. You may have provided no or wrong credentials.
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles"
-      method: POST
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/identity-provider"
+      method: PATCH
       params:
         - name: projectId
           value: ""
@@ -138,8 +171,8 @@ examples:
   - name: 403 Response
     description: Forbidden. You are not allowed to update the requested resource.
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles"
-      method: POST
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/identity-provider"
+      method: PATCH
       params:
         - name: projectId
           value: ""
@@ -175,8 +208,8 @@ examples:
   - name: 404 Response
     description: Not found. STACKIT Workflows instance not found.
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles"
-      method: POST
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/identity-provider"
+      method: PATCH
       params:
         - name: projectId
           value: ""
@@ -209,48 +242,11 @@ examples:
             },
             "message": "instance not found"
           }
-  - name: 409 Response
-    description: Conflict. A bundle with the same name already exists.
-    request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles"
-      method: POST
-      params:
-        - name: projectId
-          value: ""
-          type: path
-          description: The STACKIT portal project UUID the STACKIT Workflows instance is part of.
-        - name: regionId
-          value: ""
-          type: path
-          description: The STACKIT region the STACKIT Workflows instance is part of.
-        - name: instanceId
-          value: ""
-          type: path
-          description: The STACKIT Workflows instance UUID.
-      body:
-        type: json
-        data: "{}"
-    response:
-      status: 409
-      statusText: Conflict
-      headers:
-        - name: Content-Type
-          value: application/json
-      body:
-        type: json
-        data: |-
-          {
-            "code": 404,
-            "fields": {
-              "database": "workflows"
-            },
-            "message": "instance not found"
-          }
   - name: 500 Response
     description: Internal server error. The application experienced some unexpected situation.
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles"
-      method: POST
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/identity-provider"
+      method: PATCH
       params:
         - name: projectId
           value: ""
@@ -284,5 +280,4 @@ examples:
             "message": "instance not found"
           }
 
-docs: |
-  Adds a new DAG bundle to this STACKIT Workflows instance. Only supported for Airflow 3 instances. Maximum 10 bundles per instance.
+docs: Updates the identity provider configuration for this STACKIT Workflows instance.

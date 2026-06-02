@@ -1,11 +1,11 @@
 info:
-  name: delete-instance
+  name: UpdateDagBundle
   type: http
-  seq: 3
+  seq: 10
 
 http:
-  method: DELETE
-  url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId"
+  method: PATCH
+  url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles/:bundleName"
   params:
     - name: projectId
       value: ""
@@ -19,6 +19,14 @@ http:
       value: ""
       type: path
       description: The STACKIT Workflows instance UUID.
+    - name: bundleName
+      value: ""
+      type: path
+      description: |
+        The unique name of the DAG bundle. Must be a valid DNS label (lowercase alphanumeric and hyphens, max 63 characters).
+  body:
+    type: json
+    data: "{}"
   auth: inherit
 
 settings:
@@ -28,11 +36,11 @@ settings:
   maxRedirects: 5
 
 examples:
-  - name: 204 Response
-    description: STACKIT Workflows instance was deleted successfully.
+  - name: 200 Response
+    description: DAG bundle was updated successfully.
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId"
-      method: DELETE
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles/:bundleName"
+      method: PATCH
       params:
         - name: projectId
           value: ""
@@ -46,17 +54,28 @@ examples:
           value: ""
           type: path
           description: The STACKIT Workflows instance UUID.
-    response:
-      status: 204
-      statusText: No Content
+        - name: bundleName
+          value: ""
+          type: path
+          description: |
+            The unique name of the DAG bundle. Must be a valid DNS label (lowercase alphanumeric and hyphens, max 63 characters).
       body:
-        type: text
-        data: ""
+        type: json
+        data: "{}"
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: "{}"
   - name: 400 Response
-    description: Invalid request
+    description: Bad Request. Invalid bundle configuration.
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId"
-      method: DELETE
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles/:bundleName"
+      method: PATCH
       params:
         - name: projectId
           value: ""
@@ -70,6 +89,14 @@ examples:
           value: ""
           type: path
           description: The STACKIT Workflows instance UUID.
+        - name: bundleName
+          value: ""
+          type: path
+          description: |
+            The unique name of the DAG bundle. Must be a valid DNS label (lowercase alphanumeric and hyphens, max 63 characters).
+      body:
+        type: json
+        data: "{}"
     response:
       status: 400
       statusText: Bad Request
@@ -89,8 +116,8 @@ examples:
   - name: 401 Response
     description: Unauthorized. You may have provided no or wrong credentials.
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId"
-      method: DELETE
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles/:bundleName"
+      method: PATCH
       params:
         - name: projectId
           value: ""
@@ -104,6 +131,14 @@ examples:
           value: ""
           type: path
           description: The STACKIT Workflows instance UUID.
+        - name: bundleName
+          value: ""
+          type: path
+          description: |
+            The unique name of the DAG bundle. Must be a valid DNS label (lowercase alphanumeric and hyphens, max 63 characters).
+      body:
+        type: json
+        data: "{}"
     response:
       status: 401
       statusText: Unauthorized
@@ -121,10 +156,10 @@ examples:
             "message": "instance not found"
           }
   - name: 403 Response
-    description: Forbidden. You are not allowed to delete the requested resource.
+    description: Forbidden. You are not allowed to update the requested resource.
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId"
-      method: DELETE
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles/:bundleName"
+      method: PATCH
       params:
         - name: projectId
           value: ""
@@ -138,6 +173,14 @@ examples:
           value: ""
           type: path
           description: The STACKIT Workflows instance UUID.
+        - name: bundleName
+          value: ""
+          type: path
+          description: |
+            The unique name of the DAG bundle. Must be a valid DNS label (lowercase alphanumeric and hyphens, max 63 characters).
+      body:
+        type: json
+        data: "{}"
     response:
       status: 403
       statusText: Forbidden
@@ -155,10 +198,10 @@ examples:
             "message": "instance not found"
           }
   - name: 404 Response
-    description: Not found. STACKIT Workflows instance not found.
+    description: Not found. STACKIT Workflows instance or bundle not found.
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId"
-      method: DELETE
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles/:bundleName"
+      method: PATCH
       params:
         - name: projectId
           value: ""
@@ -172,6 +215,14 @@ examples:
           value: ""
           type: path
           description: The STACKIT Workflows instance UUID.
+        - name: bundleName
+          value: ""
+          type: path
+          description: |
+            The unique name of the DAG bundle. Must be a valid DNS label (lowercase alphanumeric and hyphens, max 63 characters).
+      body:
+        type: json
+        data: "{}"
     response:
       status: 404
       statusText: Not Found
@@ -188,45 +239,11 @@ examples:
             },
             "message": "instance not found"
           }
-  - name: 409 Response
-    description: If two requests try to update the resource at the same time one will succeeded and the other will fail with a 409 Conflict.
-    request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId"
-      method: DELETE
-      params:
-        - name: projectId
-          value: ""
-          type: path
-          description: The STACKIT portal project UUID the STACKIT Workflows instance is part of.
-        - name: regionId
-          value: ""
-          type: path
-          description: The STACKIT region the STACKIT Workflows instance is part of.
-        - name: instanceId
-          value: ""
-          type: path
-          description: The STACKIT Workflows instance UUID.
-    response:
-      status: 409
-      statusText: Conflict
-      headers:
-        - name: Content-Type
-          value: application/json
-      body:
-        type: json
-        data: |-
-          {
-            "code": 404,
-            "fields": {
-              "database": "workflows"
-            },
-            "message": "instance not found"
-          }
   - name: 500 Response
     description: Internal server error. The application experienced some unexpected situation.
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId"
-      method: DELETE
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles/:bundleName"
+      method: PATCH
       params:
         - name: projectId
           value: ""
@@ -240,6 +257,14 @@ examples:
           value: ""
           type: path
           description: The STACKIT Workflows instance UUID.
+        - name: bundleName
+          value: ""
+          type: path
+          description: |
+            The unique name of the DAG bundle. Must be a valid DNS label (lowercase alphanumeric and hyphens, max 63 characters).
+      body:
+        type: json
+        data: "{}"
     response:
       status: 500
       statusText: Internal Server Error
@@ -257,4 +282,5 @@ examples:
             "message": "instance not found"
           }
 
-docs: Deletes the given STACKIT Workflows instance.
+docs: |
+  Updates an existing DAG bundle. The bundle type (git/s3) is inferred from the existing bundle and cannot be changed. To change the type, delete and recreate the bundle. Only supported for Airflow 3 instances.

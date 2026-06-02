@@ -1,11 +1,11 @@
 info:
-  name: get-instance
+  name: GetDagBundle
   type: http
-  seq: 4
+  seq: 9
 
 http:
   method: GET
-  url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId"
+  url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles/:bundleName"
   params:
     - name: projectId
       value: ""
@@ -19,6 +19,11 @@ http:
       value: ""
       type: path
       description: The STACKIT Workflows instance UUID.
+    - name: bundleName
+      value: ""
+      type: path
+      description: |
+        The unique name of the DAG bundle. Must be a valid DNS label (lowercase alphanumeric and hyphens, max 63 characters).
   auth: inherit
 
 settings:
@@ -29,9 +34,9 @@ settings:
 
 examples:
   - name: 200 Response
-    description: STACKIT Workflows instance details successfully retrieved.
+    description: DAG bundle details successfully retrieved.
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId"
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles/:bundleName"
       method: GET
       params:
         - name: projectId
@@ -46,6 +51,11 @@ examples:
           value: ""
           type: path
           description: The STACKIT Workflows instance UUID.
+        - name: bundleName
+          value: ""
+          type: path
+          description: |
+            The unique name of the DAG bundle. Must be a valid DNS label (lowercase alphanumeric and hyphens, max 63 characters).
     response:
       status: 200
       statusText: OK
@@ -54,76 +64,11 @@ examples:
           value: application/json
       body:
         type: json
-        data: |-
-          {
-            "createdAt": "",
-            "dagBundles": [
-              {}
-            ],
-            "dagsRepository": {
-              "auth": {
-                "password": "123456",
-                "type": "basic",
-                "username": "github_pat"
-              },
-              "url": "https://git.example.com/workflows-dags"
-            },
-            "description": "",
-            "displayName": "",
-            "endpoints": {
-              "redirectUrl": "",
-              "url": ""
-            },
-            "id": "",
-            "identityProvider": {},
-            "network": {
-              "id": "00000000-0000-0000-0000-000000000000"
-            },
-            "observabilityId": "",
-            "projectId": "",
-            "regionId": "",
-            "status": "creating",
-            "statusMessage": "",
-            "version": ""
-          }
-  - name: 400 Response
-    description: Invalid request
-    request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId"
-      method: GET
-      params:
-        - name: projectId
-          value: ""
-          type: path
-          description: The STACKIT portal project UUID the STACKIT Workflows instance is part of.
-        - name: regionId
-          value: ""
-          type: path
-          description: The STACKIT region the STACKIT Workflows instance is part of.
-        - name: instanceId
-          value: ""
-          type: path
-          description: The STACKIT Workflows instance UUID.
-    response:
-      status: 400
-      statusText: Bad Request
-      headers:
-        - name: Content-Type
-          value: application/json
-      body:
-        type: json
-        data: |-
-          {
-            "code": 404,
-            "fields": {
-              "database": "workflows"
-            },
-            "message": "instance not found"
-          }
+        data: "{}"
   - name: 401 Response
     description: Unauthorized. You may have provided no or wrong credentials.
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId"
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles/:bundleName"
       method: GET
       params:
         - name: projectId
@@ -138,6 +83,11 @@ examples:
           value: ""
           type: path
           description: The STACKIT Workflows instance UUID.
+        - name: bundleName
+          value: ""
+          type: path
+          description: |
+            The unique name of the DAG bundle. Must be a valid DNS label (lowercase alphanumeric and hyphens, max 63 characters).
     response:
       status: 401
       statusText: Unauthorized
@@ -157,7 +107,7 @@ examples:
   - name: 403 Response
     description: Forbidden. You are not allowed to access the requested resource.
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId"
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles/:bundleName"
       method: GET
       params:
         - name: projectId
@@ -172,6 +122,11 @@ examples:
           value: ""
           type: path
           description: The STACKIT Workflows instance UUID.
+        - name: bundleName
+          value: ""
+          type: path
+          description: |
+            The unique name of the DAG bundle. Must be a valid DNS label (lowercase alphanumeric and hyphens, max 63 characters).
     response:
       status: 403
       statusText: Forbidden
@@ -189,9 +144,9 @@ examples:
             "message": "instance not found"
           }
   - name: 404 Response
-    description: Not found. STACKIT Workflows instance not found.
+    description: Not found. STACKIT Workflows instance or bundle not found.
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId"
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles/:bundleName"
       method: GET
       params:
         - name: projectId
@@ -206,6 +161,11 @@ examples:
           value: ""
           type: path
           description: The STACKIT Workflows instance UUID.
+        - name: bundleName
+          value: ""
+          type: path
+          description: |
+            The unique name of the DAG bundle. Must be a valid DNS label (lowercase alphanumeric and hyphens, max 63 characters).
     response:
       status: 404
       statusText: Not Found
@@ -225,7 +185,7 @@ examples:
   - name: 500 Response
     description: Internal server error. The application experienced some unexpected situation.
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId"
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles/:bundleName"
       method: GET
       params:
         - name: projectId
@@ -240,6 +200,11 @@ examples:
           value: ""
           type: path
           description: The STACKIT Workflows instance UUID.
+        - name: bundleName
+          value: ""
+          type: path
+          description: |
+            The unique name of the DAG bundle. Must be a valid DNS label (lowercase alphanumeric and hyphens, max 63 characters).
     response:
       status: 500
       statusText: Internal Server Error
@@ -257,4 +222,4 @@ examples:
             "message": "instance not found"
           }
 
-docs: Returns the details for the given STACKIT Workflows instance.
+docs: Returns the configuration of a single DAG bundle.

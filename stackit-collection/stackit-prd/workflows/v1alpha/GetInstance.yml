@@ -1,11 +1,11 @@
 info:
-  name: list-dag-bundles
+  name: GetInstance
   type: http
-  seq: 6
+  seq: 4
 
 http:
   method: GET
-  url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles"
+  url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId"
   params:
     - name: projectId
       value: ""
@@ -29,9 +29,9 @@ settings:
 
 examples:
   - name: 200 Response
-    description: Successful response with all DAG bundles.
+    description: STACKIT Workflows instance details successfully retrieved.
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles"
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId"
       method: GET
       params:
         - name: projectId
@@ -56,14 +56,42 @@ examples:
         type: json
         data: |-
           {
+            "createdAt": "",
             "dagBundles": [
               {}
-            ]
+            ],
+            "dagsRepository": {
+              "auth": {
+                "password": "123456",
+                "type": "basic",
+                "username": "github_pat"
+              },
+              "url": "https://git.example.com/workflows-dags"
+            },
+            "description": "",
+            "displayName": "",
+            "enableAirflowExampleDags": false,
+            "enableStackitExampleDags": false,
+            "endpoints": {
+              "redirectUrl": "",
+              "url": ""
+            },
+            "id": "",
+            "identityProvider": {},
+            "network": {
+              "id": "00000000-0000-0000-0000-000000000000"
+            },
+            "observabilityId": "",
+            "projectId": "",
+            "regionId": "",
+            "status": "creating",
+            "statusMessage": "",
+            "version": ""
           }
   - name: 400 Response
     description: Invalid request
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles"
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId"
       method: GET
       params:
         - name: projectId
@@ -97,7 +125,7 @@ examples:
   - name: 401 Response
     description: Unauthorized. You may have provided no or wrong credentials.
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles"
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId"
       method: GET
       params:
         - name: projectId
@@ -131,7 +159,7 @@ examples:
   - name: 403 Response
     description: Forbidden. You are not allowed to access the requested resource.
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles"
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId"
       method: GET
       params:
         - name: projectId
@@ -165,7 +193,7 @@ examples:
   - name: 404 Response
     description: Not found. STACKIT Workflows instance not found.
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles"
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId"
       method: GET
       params:
         - name: projectId
@@ -199,7 +227,7 @@ examples:
   - name: 500 Response
     description: Internal server error. The application experienced some unexpected situation.
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles"
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId"
       method: GET
       params:
         - name: projectId
@@ -231,4 +259,4 @@ examples:
             "message": "instance not found"
           }
 
-docs: Returns a list of all DAG bundles configured for this STACKIT Workflows instance.
+docs: Returns the details for the given STACKIT Workflows instance.

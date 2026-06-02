@@ -1,11 +1,11 @@
 info:
-  name: update-dag-bundle
+  name: CreateDagBundle
   type: http
-  seq: 10
+  seq: 7
 
 http:
-  method: PATCH
-  url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles/:bundleName"
+  method: POST
+  url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles"
   params:
     - name: projectId
       value: ""
@@ -19,11 +19,6 @@ http:
       value: ""
       type: path
       description: The STACKIT Workflows instance UUID.
-    - name: bundleName
-      value: ""
-      type: path
-      description: |
-        The unique name of the DAG bundle. Must be a valid DNS label (lowercase alphanumeric and hyphens, max 63 characters).
   body:
     type: json
     data: "{}"
@@ -36,11 +31,11 @@ settings:
   maxRedirects: 5
 
 examples:
-  - name: 200 Response
-    description: DAG bundle was updated successfully.
+  - name: 201 Response
+    description: DAG bundle was created successfully.
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles/:bundleName"
-      method: PATCH
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles"
+      method: POST
       params:
         - name: projectId
           value: ""
@@ -54,17 +49,12 @@ examples:
           value: ""
           type: path
           description: The STACKIT Workflows instance UUID.
-        - name: bundleName
-          value: ""
-          type: path
-          description: |
-            The unique name of the DAG bundle. Must be a valid DNS label (lowercase alphanumeric and hyphens, max 63 characters).
       body:
         type: json
         data: "{}"
     response:
-      status: 200
-      statusText: OK
+      status: 201
+      statusText: Created
       headers:
         - name: Content-Type
           value: application/json
@@ -74,8 +64,8 @@ examples:
   - name: 400 Response
     description: Bad Request. Invalid bundle configuration.
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles/:bundleName"
-      method: PATCH
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles"
+      method: POST
       params:
         - name: projectId
           value: ""
@@ -89,11 +79,6 @@ examples:
           value: ""
           type: path
           description: The STACKIT Workflows instance UUID.
-        - name: bundleName
-          value: ""
-          type: path
-          description: |
-            The unique name of the DAG bundle. Must be a valid DNS label (lowercase alphanumeric and hyphens, max 63 characters).
       body:
         type: json
         data: "{}"
@@ -116,8 +101,8 @@ examples:
   - name: 401 Response
     description: Unauthorized. You may have provided no or wrong credentials.
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles/:bundleName"
-      method: PATCH
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles"
+      method: POST
       params:
         - name: projectId
           value: ""
@@ -131,11 +116,6 @@ examples:
           value: ""
           type: path
           description: The STACKIT Workflows instance UUID.
-        - name: bundleName
-          value: ""
-          type: path
-          description: |
-            The unique name of the DAG bundle. Must be a valid DNS label (lowercase alphanumeric and hyphens, max 63 characters).
       body:
         type: json
         data: "{}"
@@ -158,8 +138,8 @@ examples:
   - name: 403 Response
     description: Forbidden. You are not allowed to update the requested resource.
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles/:bundleName"
-      method: PATCH
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles"
+      method: POST
       params:
         - name: projectId
           value: ""
@@ -173,11 +153,6 @@ examples:
           value: ""
           type: path
           description: The STACKIT Workflows instance UUID.
-        - name: bundleName
-          value: ""
-          type: path
-          description: |
-            The unique name of the DAG bundle. Must be a valid DNS label (lowercase alphanumeric and hyphens, max 63 characters).
       body:
         type: json
         data: "{}"
@@ -198,10 +173,10 @@ examples:
             "message": "instance not found"
           }
   - name: 404 Response
-    description: Not found. STACKIT Workflows instance or bundle not found.
+    description: Not found. STACKIT Workflows instance not found.
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles/:bundleName"
-      method: PATCH
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles"
+      method: POST
       params:
         - name: projectId
           value: ""
@@ -215,11 +190,6 @@ examples:
           value: ""
           type: path
           description: The STACKIT Workflows instance UUID.
-        - name: bundleName
-          value: ""
-          type: path
-          description: |
-            The unique name of the DAG bundle. Must be a valid DNS label (lowercase alphanumeric and hyphens, max 63 characters).
       body:
         type: json
         data: "{}"
@@ -239,11 +209,11 @@ examples:
             },
             "message": "instance not found"
           }
-  - name: 500 Response
-    description: Internal server error. The application experienced some unexpected situation.
+  - name: 409 Response
+    description: Conflict. A bundle with the same name already exists.
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles/:bundleName"
-      method: PATCH
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles"
+      method: POST
       params:
         - name: projectId
           value: ""
@@ -257,11 +227,43 @@ examples:
           value: ""
           type: path
           description: The STACKIT Workflows instance UUID.
-        - name: bundleName
+      body:
+        type: json
+        data: "{}"
+    response:
+      status: 409
+      statusText: Conflict
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "code": 404,
+            "fields": {
+              "database": "workflows"
+            },
+            "message": "instance not found"
+          }
+  - name: 500 Response
+    description: Internal server error. The application experienced some unexpected situation.
+    request:
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/dag-bundles"
+      method: POST
+      params:
+        - name: projectId
           value: ""
           type: path
-          description: |
-            The unique name of the DAG bundle. Must be a valid DNS label (lowercase alphanumeric and hyphens, max 63 characters).
+          description: The STACKIT portal project UUID the STACKIT Workflows instance is part of.
+        - name: regionId
+          value: ""
+          type: path
+          description: The STACKIT region the STACKIT Workflows instance is part of.
+        - name: instanceId
+          value: ""
+          type: path
+          description: The STACKIT Workflows instance UUID.
       body:
         type: json
         data: "{}"
@@ -283,4 +285,4 @@ examples:
           }
 
 docs: |
-  Updates an existing DAG bundle. The bundle type (git/s3) is inferred from the existing bundle and cannot be changed. To change the type, delete and recreate the bundle. Only supported for Airflow 3 instances.
+  Adds a new DAG bundle to this STACKIT Workflows instance. Only supported for Airflow 3 instances. Maximum 10 bundles per instance.

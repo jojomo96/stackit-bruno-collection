@@ -1,11 +1,11 @@
 info:
-  name: update-identity-provider
+  name: UpdateObservability
   type: http
-  seq: 12
+  seq: 13
 
 http:
   method: PATCH
-  url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/identity-provider"
+  url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/observability"
   params:
     - name: projectId
       value: ""
@@ -21,7 +21,10 @@ http:
       description: The STACKIT Workflows instance UUID.
   body:
     type: json
-    data: "{}"
+    data: |-
+      {
+        "observabilityId": ""
+      }
   auth: inherit
 
 settings:
@@ -32,9 +35,9 @@ settings:
 
 examples:
   - name: 200 Response
-    description: Identity provider was updated successfully.
+    description: Observability configuration was updated successfully.
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/identity-provider"
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/observability"
       method: PATCH
       params:
         - name: projectId
@@ -51,7 +54,10 @@ examples:
           description: The STACKIT Workflows instance UUID.
       body:
         type: json
-        data: "{}"
+        data: |-
+          {
+            "observabilityId": ""
+          }
     response:
       status: 200
       statusText: OK
@@ -76,6 +82,8 @@ examples:
             },
             "description": "",
             "displayName": "",
+            "enableAirflowExampleDags": false,
+            "enableStackitExampleDags": false,
             "endpoints": {
               "redirectUrl": "",
               "url": ""
@@ -93,9 +101,9 @@ examples:
             "version": ""
           }
   - name: 400 Response
-    description: Bad Request. Invalid identity provider configuration.
+    description: Bad Request. Invalid Observability configuration.
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/identity-provider"
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/observability"
       method: PATCH
       params:
         - name: projectId
@@ -112,7 +120,10 @@ examples:
           description: The STACKIT Workflows instance UUID.
       body:
         type: json
-        data: "{}"
+        data: |-
+          {
+            "observabilityId": ""
+          }
     response:
       status: 400
       statusText: Bad Request
@@ -132,7 +143,7 @@ examples:
   - name: 401 Response
     description: Unauthorized. You may have provided no or wrong credentials.
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/identity-provider"
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/observability"
       method: PATCH
       params:
         - name: projectId
@@ -149,7 +160,10 @@ examples:
           description: The STACKIT Workflows instance UUID.
       body:
         type: json
-        data: "{}"
+        data: |-
+          {
+            "observabilityId": ""
+          }
     response:
       status: 401
       statusText: Unauthorized
@@ -169,7 +183,7 @@ examples:
   - name: 403 Response
     description: Forbidden. You are not allowed to update the requested resource.
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/identity-provider"
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/observability"
       method: PATCH
       params:
         - name: projectId
@@ -186,7 +200,10 @@ examples:
           description: The STACKIT Workflows instance UUID.
       body:
         type: json
-        data: "{}"
+        data: |-
+          {
+            "observabilityId": ""
+          }
     response:
       status: 403
       statusText: Forbidden
@@ -206,7 +223,7 @@ examples:
   - name: 404 Response
     description: Not found. STACKIT Workflows instance not found.
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/identity-provider"
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/observability"
       method: PATCH
       params:
         - name: projectId
@@ -223,7 +240,10 @@ examples:
           description: The STACKIT Workflows instance UUID.
       body:
         type: json
-        data: "{}"
+        data: |-
+          {
+            "observabilityId": ""
+          }
     response:
       status: 404
       statusText: Not Found
@@ -243,7 +263,7 @@ examples:
   - name: 500 Response
     description: Internal server error. The application experienced some unexpected situation.
     request:
-      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/identity-provider"
+      url: "{{baseUrl}}/v1alpha/projects/:projectId/regions/:regionId/instances/:instanceId/observability"
       method: PATCH
       params:
         - name: projectId
@@ -260,7 +280,10 @@ examples:
           description: The STACKIT Workflows instance UUID.
       body:
         type: json
-        data: "{}"
+        data: |-
+          {
+            "observabilityId": ""
+          }
     response:
       status: 500
       statusText: Internal Server Error
@@ -278,4 +301,4 @@ examples:
             "message": "instance not found"
           }
 
-docs: Updates the identity provider configuration for this STACKIT Workflows instance.
+docs: Updates the Observability configuration for this STACKIT Workflows instance.
