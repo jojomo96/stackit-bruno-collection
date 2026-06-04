@@ -179,7 +179,8 @@ http:
           "identity": "identity",
           "podAddressRanges": [
             "100.64.0.0/14"
-          ]
+          ],
+          "serviceAccountIssuer": "serviceAccountIssuer"
         }
       }
   auth: inherit
@@ -369,7 +370,8 @@ examples:
               "identity": "identity",
               "podAddressRanges": [
                 "100.64.0.0/14"
-              ]
+              ],
+              "serviceAccountIssuer": "serviceAccountIssuer"
             }
           }
     response:
@@ -725,7 +727,8 @@ examples:
               "identity": "identity",
               "podAddressRanges": [
                 "100.64.0.0/14"
-              ]
+              ],
+              "serviceAccountIssuer": "serviceAccountIssuer"
             }
           }
   - name: 400 Response
@@ -906,7 +909,8 @@ examples:
               "identity": "identity",
               "podAddressRanges": [
                 "100.64.0.0/14"
-              ]
+              ],
+              "serviceAccountIssuer": "serviceAccountIssuer"
             }
           }
     response:
@@ -1096,7 +1100,8 @@ examples:
               "identity": "identity",
               "podAddressRanges": [
                 "100.64.0.0/14"
-              ]
+              ],
+              "serviceAccountIssuer": "serviceAccountIssuer"
             }
           }
     response:
@@ -1286,7 +1291,8 @@ examples:
               "identity": "identity",
               "podAddressRanges": [
                 "100.64.0.0/14"
-              ]
+              ],
+              "serviceAccountIssuer": "serviceAccountIssuer"
             }
           }
     response:

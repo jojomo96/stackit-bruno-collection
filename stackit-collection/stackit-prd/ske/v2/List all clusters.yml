@@ -389,7 +389,8 @@ examples:
                   "identity": "identity",
                   "podAddressRanges": [
                     "100.64.0.0/14"
-                  ]
+                  ],
+                  "serviceAccountIssuer": "serviceAccountIssuer"
                 }
               },
               {
@@ -736,7 +737,8 @@ examples:
                   "identity": "identity",
                   "podAddressRanges": [
                     "100.64.0.0/14"
-                  ]
+                  ],
+                  "serviceAccountIssuer": "serviceAccountIssuer"
                 }
               }
             ]

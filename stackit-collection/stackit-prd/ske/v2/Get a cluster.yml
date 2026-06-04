@@ -393,7 +393,8 @@ examples:
               "identity": "identity",
               "podAddressRanges": [
                 "100.64.0.0/14"
-              ]
+              ],
+              "serviceAccountIssuer": "serviceAccountIssuer"
             }
           }
   - name: 400 Response
